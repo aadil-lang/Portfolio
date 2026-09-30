@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-09-29T03:42:38.040Z",
+  "p0": [],
+  "p1": [],
+  "p2": [],
+  "p3": [],
+  "interactions": {},
+  "responsive": {
+    "desktop-1440": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "hasOverflow": false
+    },
+    "desktop-1280": {
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "hasOverflow": false
+    },
+    "desktop-1024": {
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "hasOverflow": false
+    },
+    "tablet-834": {
+      "scrollWidth": 834,
+      "clientWidth": 834,
+      "hasOverflow": false
+    },
+    "tablet-768": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "hasOverflow": false
+    },
+    "mobile-430": {
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "hasOverflow": false
+    },
+    "mobile-390": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "hasOverflow": false
+    },
+    "mobile-375": {
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "hasOverflow": false
+    }
+  },
+  "accessibility": {
+    "h1Count": 1,
+    "h1Texts": [
+      "THE ENGINEERING EVOLUTION"
+    ],
+    "unlabeledButtons": 0,
+    "unlabeledImages": 0
+  },
+  "consoleErrors": [
+    "Failed to fetch RSC payload. Falling back to browser navigation. TypeError: Failed to fetch\n    at s (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:37769)\n    at c (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:52345)\n    at f (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:60944)\n    at http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65060\n    at Object.rv [as useReducer] (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:40981)\n    at t.useReducer (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:17:7400)\n    at o (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65045)\n    at M (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:9658)\n    at ri (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:38931)\n    at lp (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:54222)",
+    "Failed to fetch RSC payload. Falling back to browser navigation. TypeError: Failed to fetch\n    at s (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:37769)\n    at c (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:52345)\n    at f (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:60944)\n    at http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65060\n    at Object.rv [as useReducer] (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:40981)\n    at t.useReducer (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:17:7400)\n    at o (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65045)\n    at M (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:9658)\n    at ri (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:38931)\n    at lp (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:54222)",
+    "Failed to fetch RSC payload. Falling back to browser navigation. TypeError: Failed to fetch\n    at s (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:37769)\n    at c (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:52345)\n    at f (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:60944)\n    at http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65060\n    at Object.rv [as useReducer] (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:40981)\n    at t.useReducer (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:17:7400)\n    at o (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65045)\n    at M (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:9658)\n    at ri (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:38931)\n    at lp (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:54222)",
+    "Failed to fetch RSC payload. Falling back to browser navigation. TypeError: Failed to fetch\n    at s (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:37769)\n    at c (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:52345)\n    at f (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:60944)\n    at http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65060\n    at Object.rv [as useReducer] (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:40981)\n    at t.useReducer (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:17:7400)\n    at o (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:65045)\n    at M (http://localhost:3002/_next/static/chunks/961-7fb63265b64e6253.js:1:9658)\n    at ri (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:38931)\n    at lp (http://localhost:3002/_next/static/chunks/bce60fc1-514c7bc027a462db.js:9:54222)"
+  ]
+}

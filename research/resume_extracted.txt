@@ -1,0 +1,110 @@
+=== PAGE 1 ===
+Mohemmed Aadil Khurshid
+AI Engineer / Python Backend Developer
+Varanasi, Uttar Pradesh  |  +91-7973949541  |  aadil.khurshid95@gmail.com  |  github.com/aadil-lang
+PROFESSIONAL SUMMARY
+AI Engineer and Python Backend Developer with 4 years of professional experience, focused on building AI pipelines, agentic
+workflows, backend systems, and full-stack AI applications. Experienced in LangGraph-based orchestration, multi-model LLM
+routing, automated validation, high-throughput ETL, FastAPI, and production-oriented system design.
+TECHNICAL CORE STACK
+AI & LLM Engineering: Gemini, Claude, LangChain, LangGraph, Agentic Workflows, LLM Orchestration, Tool Calling, Dynamic
+Routing, Prompt Engineering, Multimodal/Vision AI Evaluation
+Backend Engineering: Python, FastAPI, Pandas, NumPy, Asynchronous/State-Driven Processing, JWT Authentication, Portkey API,
+Node.js, Express.js, MongoDB Atlas, AWS S3
+Full-Stack Engineering: JavaScript/TypeScript, Next.js, React, Vite, Streamlit, HTML5, CSS3, Tailwind CSS
+Engineering & CAD: Creo Parametric, 3D Parametric Solid Modeling, Engineering Drawing, Mechanical Design
+AI Development Tools: VS Code, Cursor, Claude Code, OpenAI Codex, Antigravity, Git/GitHub, Docker
+PROFESSIONAL EXPERIENCE
+WAYGROUND (QUIZIZZ) | Bangalore, India (Onsite)
+AI Engineer / Consultant, AI/ML Team | Jan 2026 – Jul 2026
+AI Worksheets — Full-Stack POC for US Market
+US Mathematics Item Bank Generation Pipeline — Backend
+Curriculum-Transformation Engine — Backend ETL
+AI Question Generator — Unified Full-Stack Python Application
+Subject Matter Expert — Mathematics | Jan 2024 – Dec 2025
+EARLIER EXPERIENCE
+PERSONAL GOAL PURSUIT | Career Break | Sep 2022 – Dec 2023
+Structured self-development in quantitative aptitude, logical reasoning, and English while preparing for competitive examinations.
+DIGIPPLUS | Remote, India | QA/QC Specialist | Jun 2022 – Sep 2022
+Reviewed K-10 mathematics content, structured objective questions, and performed originality and quality audits.
+INHALTMART EDUCATIONAL SERVICES PVT. LTD. | Remote, India | Subject Matter Expert — Mathematics | Oct 2021 – Feb 2022
+Created K-12 mathematics solutions and formatted complex mathematical notation using MS Word and MathType.
+GRAVEIENS EDUSERVICES PVT. LTD. | Remote, India | Advanced Math Content Developer | May 2021 – Oct 2021
+Developed mathematics solutions and visual explanations and maintained structured mathematical content in CMS workflows.
+Architected and built a React/Vite frontend and FastAPI backend for US educator workflows, reducing worksheet creation from
+hours to minutes.
+•
+Engineered production-oriented UI with interactive gameplay matrices, real-time KaTeX rendering, and clue navigation; structured
+the frontend as a blueprint for core-site integration.
+•
+Implemented multi-model routing through Portkey, mapping question tasks to GPT-4o and graphic generation to Gemini 3 Flash.•
+Built the graphics backend using headless TikZ/LaTeX subprocess pools and containerized the stack with Docker Compose,
+PostgreSQL, Redis, and MinIO.
+•
+Built a stateful LangGraph generation pipeline with planner, amplification, and question-generation nodes for multi-stage question-
+bank creation.
+•
+Developed layered automated validation combining schema checks, Vision LLM image verification, and final logical evaluation
+before upload.
+•
+Designed conditional graphics routing to direct geometry and real-world image requests to SVG/XML processing and abstract
+mathematical layouts to TikZ.
+•
+Engineered data stratification using Integer Linear Programming and Min/Max Swap logic to match curriculum weightages, DOK
+metrics, and grade-level targets.
+•
+Built a high-throughput Claude Map-Reduce pipeline that chunks long documents, executes parallel LLM mappings with strict
+JSON tool calling, and merges outputs from PDFs, DOCX, URLs, and manifests.
+•
+Decoupled schema contracts from parsing logic by deriving layouts and column rules from sample datasets, eliminating hardcoded
+document scripts.
+•
+Implemented a three-tier integrity gate using Reviewer, Critic, and CSV Audit stages to validate extracted rows before export.•
+Built a portable FastAPI/Streamlit application with local curriculum standards lookup and a GPT-4o verification loop for generated
+content alignment.
+•
+Authored and curated high-volume K-12 mathematics content aligned with Common Core and TEKS standards.•
+Independently architected and deployed a full-stack Next.js application using OpenAI models to automate math variations and
+word-problem replicas.
+•
+Shipped the application successfully, leading directly to the internal transition into the AI/ML team.•
+
+=== PAGE 2 ===
+PERSONAL PROJECTS
+1. Engineering Design Automation — AI + Deterministic Engineering Systems
+Full-Stack Design System: Built a full-stack AI-assisted engineering design system that converts natural-language mechanical
+requirements into structured specifications, resolves material properties from a validated knowledge base, and executes
+deterministic shaft-design calculations with explicit parameter provenance and engineering constraints.
+Hybrid AI/Deterministic Architecture: Designed a hybrid AI/deterministic architecture where LLMs perform requirement
+interpretation while Python-based engineering solvers handle torque, allowable stress, diameter sizing, nominal-series selection, and
+validation; generated validated STEP BRep and SVG technical-drawing artifacts from the resulting design specification.
+Automated Verification & Traceability: Implemented CAD ↔  drawing dimensional cross-validation, material-resolution traceability,
+blocked-state handling for missing physical properties, and automated verification; 424 tests passing across 28 test suites, with the
+complete application deployed as a Dockerized FastAPI full-stack service.
+2. Atlas AI | Personal / Hackathon Project
+Agentic Architecture: Built an MVP AI-powered financial assistant as a Telegram bot supporting conversational financial workflows.
+Stateful Graph: Developed the intelligence layer with LangGraph for routing, planning, reasoning, and task execution.
+Tool-Based Execution: Implemented company, market, and news research workflows with tool execution, conversational memory
+extraction, and Gemini integrations.
+Validation Framework: Built the backend with Python and MongoDB Atlas and validated core graph functionality with 59 automated
+tests.
+3. Curriculum-Transformation ETL Pipeline | GitHub: Curriculum-Transformation
+Data Engineering: Open repository containing the asynchronous Map-Reduce orchestration layer for long-form parsing across
+unstructured curriculum files.
+Dynamic Contracts: Derives, parses, transforms, and aligns inputs into standardized machine-readable schemas without hardcoded
+parsing scripts.
+System Validation: Includes assessment scripts, quality tracking nodes, critics, and CSV structure audits.
+4. B2B Textile Marketplace | Hackathon Project
+Full-Stack Prototype: Built a responsive buyer-supplier marketplace using Next.js/React with shared backend/database architecture
+and reusable UI components.
+AI Discovery: Explored semantic product understanding, textile product discovery, and automated buyer-supplier matching.
+5. Binance Futures Trading Bot | Testnet Automation
+Algorithmic Automation: Developed a Python bot supporting BUY/SELL market and limit orders on the Binance Futures Testnet with
+validation, asynchronous logging, and structured exception handling.
+EDUCATION
+B.Tech (Hons.) in Mechanical Engineering | Lovely Professional University | Graduated 2017 | CGPA 7.66/10
+Senior Secondary (XII), CBSE | Manas Convent School | Graduated 2013 | 73.20%
+Secondary (X), CBSE | Sunbeam School, Mughalsarai | Graduated 2011 | CGPA 9.40/10
+LANGUAGES
+English, Hindi, Urdu — Proficient in written and spoken communication.
+

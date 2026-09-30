@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-09-30T13:56:44.284Z",
+  "totalRoutes": 15,
+  "totalErrors": 0,
+  "totalWarnings": 0,
+  "results": [
+    {
+      "route": "Homepage (/)",
+      "url": "http://localhost:3002/",
+      "httpStatus": 200,
+      "h1": "Mohemmed Aadil Khurshid",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "homepage_desktop.png"
+    },
+    {
+      "route": "Timeline (/experience)",
+      "url": "http://localhost:3002/experience",
+      "httpStatus": 200,
+      "h1": "TIMELINE & EVOLUTION",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "timeline_desktop.png"
+    },
+    {
+      "route": "Journal (/journal)",
+      "url": "http://localhost:3002/journal",
+      "httpStatus": 200,
+      "h1": "The Engineering Journal",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "journal_desktop.png"
+    },
+    {
+      "route": "Systems Archive (/systems)",
+      "url": "http://localhost:3002/systems",
+      "httpStatus": 200,
+      "h1": "Engineering Systems Index",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "systems_archive_desktop.png"
+    },
+    {
+      "route": "Systems Index (/projects)",
+      "url": "http://localhost:3002/projects",
+      "httpStatus": 200,
+      "h1": "Engineering Systems Index",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "systems_index_desktop.png"
+    },
+    {
+      "route": "About (/about -> /journal)",
+      "url": "http://localhost:3002/about",
+      "httpStatus": 200,
+      "h1": "The Engineering Journal",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "about_desktop.png"
+    },
+    {
+      "route": "Contact (/contact)",
+      "url": "http://localhost:3002/contact",
+      "httpStatus": 200,
+      "h1": "Get in Touch",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "contact_desktop.png"
+    },
+    {
+      "route": "Ask Aadil (/ask-aadil)",
+      "url": "http://localhost:3002/ask-aadil",
+      "httpStatus": 200,
+      "h1": "Ask Aadil",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "ask_aadil_desktop.png"
+    },
+    {
+      "route": "AI Engineering (/ai-engineering)",
+      "url": "http://localhost:3002/ai-engineering",
+      "httpStatus": 200,
+      "h1": "AI Engineering Stack & Architecture",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "ai_engineering_desktop.png"
+    },
+    {
+      "route": "System: VM Copy",
+      "url": "http://localhost:3002/projects/vm-copy",
+      "httpStatus": 200,
+      "h1": "VM Copy Question Generator",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "proj_vm_copy_desktop.png"
+    },
+    {
+      "route": "System: AI Worksheets",
+      "url": "http://localhost:3002/projects/ai-worksheets",
+      "httpStatus": 200,
+      "h1": "AI Worksheets Product POC",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "proj_worksheets_desktop.png"
+    },
+    {
+      "route": "System: Curriculum ETL",
+      "url": "http://localhost:3002/projects/curriculum-etl",
+      "httpStatus": 200,
+      "h1": "Curriculum Transformation Engine",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "proj_curriculum_etl_desktop.png"
+    },
+    {
+      "route": "System: Atlas AI",
+      "url": "http://localhost:3002/projects/atlas-ai",
+      "httpStatus": 200,
+      "h1": "Atlas AI — Financial Copilot & SEC Filing RAG",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "proj_atlas_ai_desktop.png"
+    },
+    {
+      "route": "System: AI Reliability",
+      "url": "http://localhost:3002/projects/ai-reliability",
+      "httpStatus": 200,
+      "h1": "AI Application Reliability & Browser QA",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "proj_ai_reliability_desktop.png"
+    },
+    {
+      "route": "System: Ask Aadil",
+      "url": "http://localhost:3002/projects/ask-aadil",
+      "httpStatus": 200,
+      "h1": "Ask Aadil — Stateful Retrieval, Source Authority & Controlled Actions",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "hasOverflow": false,
+      "brokenImages": [],
+      "screenshot": "proj_ask_aadil_desktop.png"
+    }
+  ]
+}

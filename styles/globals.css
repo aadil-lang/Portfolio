@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #121518;
+  --surface-paper: #1A1D21;
+  --surface-cover: #1E2227;
+  --surface-card: #16191D;
+  --border-tech: #2A2F36;
+  --border-subtle: #20242A;
+  --ink-primary: #F0EEE9;
+  --ink-secondary: #9EA4AA;
+  --ink-muted: #686E77;
+  --accent-steel: #536B7A;
+  --accent-slate: #71899A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  /* Very subtle technical drafting grid - felt, not noticed */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+  color: var(--ink-primary);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Engineering Journal Paper & Binding Material System */
+.journal-cover-material {
+  background-color: #1E2227;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, transparent 6%, transparent 94%, rgba(0, 0, 0, 0.3) 100%),
+    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 16px 16px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.journal-paper-material {
+  background-color: #191C20;
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Subtle physical page-block edges */
+/* Multi-sheet Paper Block Edge (Stacked bound paper pages) */
+.page-block-edge {
+  background: repeating-linear-gradient(
+    to bottom,
+    #ECE8DF 0px,
+    #ECE8DF 1px,
+    #DFDACF 2px,
+    #DFDACF 3px
+  );
+  box-shadow: inset 1px 0 3px rgba(0, 0, 0, 0.25), inset -1px 0 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Spine gutter binding crease (Deep central fold with paper curvature falloff) */
+.spine-crease {
+  background: linear-gradient(
+    to right,
+    rgba(20, 16, 12, 0.45) 0%,
+    rgba(20, 16, 12, 0.25) 30%,
+    rgba(20, 16, 12, 0.08) 70%,
+    transparent 100%
+  );
+}
+
+/* Under-Book Ambient Desk Shadow */
+.book-desk-shadow {
+  box-shadow: 
+    0 40px 100px -25px rgba(0, 0, 0, 0.95),
+    0 20px 45px -15px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* 3D Book Page Unfolding & Turning System */
+.book-spread-container {
+  perspective: 2600px;
+  transform-style: preserve-3d;
+}
+
+.page-turn-leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 35;
+}
+
+.page-leaf-front,
+.page-leaf-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.page-leaf-front {
+  transform: rotateY(0deg);
+}
+
+.page-leaf-back {
+  transform: rotateY(180deg);
+}
+
+/* Subtle corner dog-ear for interactive page turn cue */
+.page-corner-curl {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, transparent 50%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.15) 55%, #252A30 55%, #181B1F 100%);
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-corner-curl:hover {
+  width: 56px;
+  height: 56px;
+}
+
+/* Margin Navigation Arrow Tabs */
+.book-margin-arrow {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.book-margin-arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+/* Technical Editorial Section Rule */
+.technical-rule {
+  border-bottom: 1px solid var(--border-tech);
+}
+
+/* Replaces old saturated glass styling with restrained matte technical surface */
+.glass {
+  background-color: rgba(22, 25, 29, 0.85);
+  border: 1px solid var(--border-tech);
+}
+
+/* Technical Specification Callout Box */
+.technical-callout {
+  background-color: #16191D;
+  border-left: 2px solid var(--accent-steel);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121518;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252A30;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #353C45;
+}
+
+/* Accessibility: Respect prefers-reduced-motion with meaningful instant fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
