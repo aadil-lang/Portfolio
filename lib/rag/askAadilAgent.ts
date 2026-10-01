@@ -577,11 +577,52 @@ Would you like to send this now? (Say **"Send it"** or click below to confirm).`
     }
   }
 
+  // Explicit VoyageMath Ownership Check
+  if (lowerQ.includes('did aadil build voyagemath') || lowerQ.includes('built voyagemath') || lowerQ.includes('what happened with voyagemath')) {
+    return {
+      query: cleanQuery,
+      intent: 'contribution',
+      answer: `**No, Aadil did not build VoyageMath.**
+
+**Ownership & Contribution Boundary:**
+• **System Owner & Builder:** VoyageMath Content Builder V1 was designed and built by **VoyageMath Engineering**.
+• **Aadil's Documented Role:** Subject Matter Expert (SME), tester, validator, and workflow advisor (Mid-Mar 2024 – Apr 2024).
+• **Documented Contribution:** Tested V1 authoring workflows against real mathematics content, identified authoring bugs, recommended core feature requirements, and provided pedagogical feedback to help align tool design with content creation needs.`,
+      provenance: {
+        sources: ['portfolio'],
+        layers: ['journal', 'timeline'],
+        citations: ['Journal · VoyageMath Chapter', 'Timeline · Zone 02 Station 06'],
+        claims: []
+      },
+      newState: state
+    }
+  }
+
   // 4. PHASE 3: QUERY UNDERSTANDING (LLM with deterministic fallback)
   const { understanding, trace } = await understandQuery(cleanQuery, state)
 
   // Convert structured understanding into a RoutingDecision for Phase 2 retrieval
   const decision = toRoutingDecision(understanding)
+
+  // Handle unknown / undocumented queries (salary, age, Google employment, production traffic, etc.)
+  if (decision.intent === 'unknown') {
+    return {
+      query: cleanQuery,
+      intent: 'unknown',
+      answer: `I don't have that information in Aadil's portfolio.
+
+My knowledge is strictly grounded in Aadil's **Timeline**, **Engineering Journal**, **Systems Archive**, **verified Resume**, and **GitHub repositories**. I do not generate speculative facts or unverified assertions.
+
+If you have a question about his engineering journey, systems, technical architecture, or verified contact information, please let me know!`,
+      provenance: {
+        sources: ['structured_profile'],
+        layers: ['none'],
+        citations: ['Grounded Portfolio Boundary'],
+        claims: []
+      },
+      newState: state
+    }
+  }
 
   // Handle clarification requests
   if (understanding.needsClarification && understanding.clarificationQuestion) {
@@ -1250,6 +1291,64 @@ The open ending on his timeline is intentional—reflecting the continuous cycle
     return {
       query,
       intent: 'professional',
+      answer,
+      provenance: {
+        sources: Array.from(sources),
+        layers: Array.from(layers),
+        citations: Array.from(citations),
+        claims
+      }
+    }
+  }
+
+  // Explicit Grounded Chronology Check: "When did Aadil become an AI Engineer?"
+  if (
+    lowerQ.includes('when did aadil become an ai engineer') ||
+    lowerQ.includes('when did he become an ai engineer') ||
+    lowerQ.includes('when did aadil join the ai/ml team')
+  ) {
+    sources.add('resume')
+    sources.add('portfolio')
+    layers.add('resume')
+    layers.add('timeline')
+    citations.add('Resume · Professional Experience')
+    citations.add('Timeline · Zone 03 Formal Transition')
+
+    answer = `Aadil formally became an **AI Engineer** in **January 2026**, when he transitioned into the **Wayground AI/ML Team** as *AI Engineer / Consultant* (Jan 2026 – July 2026).
+
+Prior to January 2026, his formal role from Jan 2024 – Dec 2025 was *Subject Matter Expert — Mathematics*. His independent build of the **VM Copy Question Generator** (Oct–Dec 2025) served as the catalyst for his formal internal transition into the AI/ML engineering team in January 2026.`
+
+    return {
+      query,
+      intent: 'professional',
+      answer,
+      provenance: {
+        sources: Array.from(sources),
+        layers: Array.from(layers),
+        citations: Array.from(citations),
+        claims
+      }
+    }
+  }
+
+  // Explicit Grounded Ownership Check: "Did Aadil build VoyageMath?"
+  if (lowerQ.includes('did aadil build voyagemath') || lowerQ.includes('built voyagemath')) {
+    sources.add('portfolio')
+    layers.add('journal')
+    layers.add('timeline')
+    citations.add('Journal · VoyageMath Chapter')
+    citations.add('Timeline · Zone 02 Station 06')
+
+    answer = `**No, Aadil did not build VoyageMath.**
+
+**Ownership & Contribution Boundary:**
+• **System Owner & Builder:** VoyageMath Content Builder V1 was designed and built by **VoyageMath Engineering**.
+• **Aadil's Documented Role:** Subject Matter Expert (SME), tester, validator, and workflow advisor (Mid-Mar 2024 – Apr 2024).
+• **Documented Contribution:** Tested V1 authoring workflows against real mathematics content, identified authoring bugs, recommended core feature requirements, and provided pedagogical feedback to help align tool design with content creation needs.`
+
+    return {
+      query,
+      intent: 'contribution',
       answer,
       provenance: {
         sources: Array.from(sources),

@@ -20,7 +20,7 @@ export interface RoutingDecision {
 export function classifyAndRoute(query: string, prevState?: AgentConversationState): RoutingDecision {
   const q = query.toLowerCase().trim()
 
-  // 0. Detect Unsupported Personal Queries (favorite food, movie, weekend, next month, etc.)
+  // 0. Detect Unsupported Personal & Undocumented Queries
   const isUnsupportedPersonal =
     q.includes('favorite') ||
     q.includes('favourite') ||
@@ -30,6 +30,9 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     q.includes('hobbies') ||
     q.includes('hobby') ||
     q.includes('birthday') ||
+    q.includes('birth date') ||
+    q.includes('exact age') ||
+    q.includes('how old') ||
     q.includes('movie') ||
     q.includes('food') ||
     q.includes('actor') ||
@@ -37,7 +40,14 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     q.includes('music') ||
     q.includes('pet') ||
     q.includes('salary') ||
-    q.includes('marital')
+    q.includes('compensation') ||
+    q.includes('income') ||
+    q.includes('marital') ||
+    q.includes('work at google') ||
+    q.includes('worked at google') ||
+    q.includes('work for google') ||
+    q.includes('team size') ||
+    q.includes('production traffic')
 
   if (isUnsupportedPersonal) {
     return {
@@ -346,6 +356,11 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     q.includes('talk to') ||
     q.includes('get in touch') ||
     q.includes('location') ||
+    q.includes('github') ||
+    q.includes('linkedin') ||
+    q.includes('twitter') ||
+    q.includes('social') ||
+    q.includes('link') ||
     (q.includes('where is aadil') && !q.includes('currently work'))
 
   if (isContact) {
@@ -380,6 +395,7 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     q.includes('tech stack') ||
     q.includes('what stack') ||
     q.includes('what tools') ||
+    detectedTechnologies.length > 0 ||
     ((q.includes('which project') || q.includes('what projects') || q.includes('projects use') || q.includes('who uses')) &&
       detectedTechnologies.length > 0)
   ) {
