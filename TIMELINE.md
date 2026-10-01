@@ -1,344 +1,245 @@
-# Mohemmed Aadil Khurshid — Engineering Timeline & Career Evolution
+# Mohemmed Aadil Khurshid — Formal Engineering Timeline
 
-> **"What happened → what I learned → how that enabled the next system."**
-
-This document details the authoritative chronological timeline of **Mohemmed Aadil Khurshid**, tracing his continuous evolution from early mathematical content creation, through key engineering roles at **Wayground (Quizizz)**, to building autonomous, reliable, and verified AI systems.
+> **A concise, chronological map of engineering evolution, roles, milestones, system ownership, and major transitions.**
 
 ---
 
 ## Architectural Flow & Causal Spine
 
 ```text
-TIMELINE (What happened → what I learned)
+TIMELINE (Map: WHEN? WHAT? WHERE? ROLE? OWNERSHIP? MAJOR TRANSITION?)
    ↓
-JOURNAL (Why / what was difficult / discoveries / reflections)
+JOURNAL (Reasoning: WHY? USE CASE? ARCHITECTURE? LESSONS? NEXT QUESTION?)
    ↓
-SYSTEM (What was built / evidence / verified benchmarks)
+SYSTEM ARCHIVE (Evidence: CODE? TESTS? BENCHMARKS? IMPLEMENTATION?)
 ```
 
 ---
 
-## Phase 1: Early Career & Mathematical Foundations (May 2021 — Dec 2023)
+## Engineering Layer & Causal Spine
 
-### 1. Mathematical Content Creation
-* **Period:** May 2021 — Oct 2021
-* **Organization:** Graveiens Edu Services Pvt. Ltd.
-* **Role:** Subject Matter Expert (Mathematics)
-* **Layer Annotation:** `FOUNDATION — Problem Domain`
-* **Summary:** First professional chapter in mathematical content creation. Created original Textbook Questions & Solutions (TBQ) manually for US curriculum textbooks, working through Brainly's CMS and discovering mathematical visualization tools such as GeoGebra, Desmos, and Mathcha.io.
-* **Key Transition:** *"I learned the problem domain before I ever tried to automate it."*
-* **Core Capability:** Content Creation + Mathematical Visualization
-* **Key Deliverables & Verification:**
-  - Authored original K–12 mathematics textbook solutions adhering to US standards.
-  - Utilized Brainly CMS alongside GeoGebra, Desmos, and Mathcha.io for visual plots.
-  - Developed deep domain intuition for mathematical pedagogy and learner bottlenecks.
-* **Technologies:** Mathematics Content, Brainly CMS, GeoGebra, Desmos, Mathcha.io
-* **Journal Reference:** [Chapter 01](JOURNAL.md#chapter-01-learning-the-problem-domain)
+```text
+TIME
+ │
+ ├── PROFESSIONAL ROLE
+ │
+ ├── SYSTEM / PROJECT
+ │
+ └── ENGINEERING TRANSITION
+```
 
----
-
-### 2. Mathematical Representation & Structured Authoring
-* **Period:** Oct 2021 — Feb 2022
-* **Organization:** InhaltMart Educational Services
-* **Role:** Subject Matter Expert (Mathematics)
-* **Layer Annotation:** `REPRESENTATION — Notation & Structure`
-* **Summary:** Continued creating Textbook Questions & Solutions while working with MS Word, MathType and LaTeX, using the TI-83 graphing calculator and performing plagiarism detection and removal.
-* **Key Transition:** *"I learned that mathematical correctness also depends on how mathematics is represented."*
-* **Core Capability:** Mathematical Representation + Structured Authoring
-* **Key Deliverables & Verification:**
-  - Typeset complex mathematical equations and proofs using MathType and LaTeX syntax.
-  - Constructed TI-83 calculator graphing solutions for algebraic and calculus models.
-  - Conducted plagiarism detection and removal across content pools.
-* **Technologies:** LaTeX, MathType, TI-83 Graphing, Plagiarism Detection
-* **Journal Reference:** [Chapter 02](JOURNAL.md#chapter-02-learning-to-represent-mathematics)
+```text
+MATHEMATICS
+     ↓
+CONTENT
+     ↓
+QUALITY
+     ↓
+REPRESENTATION
+     ↓
+AI ASSISTANCE
+     ↓
+AI APPLICATIONS
+     ↓
+AI ENGINEERING
+```
 
 ---
 
-### 3. Quality Control & Systematic Validation
-* **Period:** Jun 2022 — Jul 2022
-* **Organization:** Digiplus Information Technologies
-* **Role:** QC K–10 Subject Matter Expert
-* **Layer Annotation:** `QUALITY & VALIDATION — Systematic Auditing`
-* **Summary:** Moved into mathematics content quality control, reviewing correctness, originality, formatting, answer choices and distractors.
-* **Key Transition:** *"I moved from creating content to systematically evaluating it."*
-* **Core Capability:** Quality Control + Validation
-* **Key Deliverables & Verification:**
-  - Audited K–10 mathematics items for mathematical validity, distractor quality, and formatting.
-  - Conducted originality verification and copyright integrity checks across assessment pools.
-* **Technologies:** Quality Assurance, Content Auditing, Distractor Validation, K–10 Standards
-* **Journal Reference:** [Chapter 03](JOURNAL.md#chapter-03-learning-to-validate)
+## 1. May 2021 – October 2021
+
+### Graveiens Eduservices Pvt. Ltd.
+**Role:** Advanced Math Content Developer  
+**Ownership:** `PROFESSIONAL ROLE`  
+**One-Line Significance:** Authoring US K–12 curriculum textbook questions and solutions; learning domain pedagogy before automation.  
+**Transition:** Mathematics $\rightarrow$ Content Creation.
 
 ---
 
-### 4. Independent Problem Solving & Discipline
-* **Period:** Aug 2022 — Dec 2023
-* **Organization:** Independent Study
-* **Role:** Competitive Examination Preparation
-* **Layer Annotation:** `INDEPENDENT DISCIPLINE — Quantitative Foundations`
-* **Summary:** Dedicated to rigorous independent quantitative and analytical preparation, developing speed, accuracy, algorithmic mental models, and deductive problem-solving discipline.
-* **Key Transition:** *"Cultivated analytical mental models and independent problem-solving discipline before entering digital product environments."*
-* **Core Capability:** Independent Problem Solving + Discipline
-* **Key Deliverables & Verification:**
-  - Mastered speed, accuracy, and algorithmic mental models for high-level quantitative aptitude.
-  - Studied formal deductive syllogisms, pattern analysis, and quantitative problem-solving.
-* **Technologies:** Quantitative Aptitude, Deductive Logic, Analytical Modeling
+## 2. October 2021 – February 2022
+
+### Inhaltmart Educational Services Pvt. Ltd.
+**Role:** Subject Matter Expert — Mathematics $\rightarrow$ Team Lead  
+**Ownership:** `PROFESSIONAL ROLE`  
+**One-Line Significance:** LaTeX typesetting, TI-83 graphing calculator solutions, plagiarism audits, and team content review.  
+**Transition:** Content Creation $\rightarrow$ Structured Representation.
 
 ---
 
-## Phase 2: Wayground (Quizizz) Professional Evolution (Jan 2024 — Jul 2026)
+## 3. June 2022 – September 2022
 
-### Milestone 1: SME Entry + Technical Mathematical Representation
-* **Period:** Jan 2024 — Mar 2024
-* **Organization:** Wayground (Quizizz)
-* **Role:** Mathematics SME & Content Development
-* **Layer Annotation:** `SME ENTRY + REPRESENTATION — Moving from writing math to rendering math`
-* **Summary:** Entered Wayground as a mathematics SME and content contributor, working with KaTeX to create step-by-step mathematical solutions maintained through Google Sheets and tested on the local development server.
-* **Key Transition:** *"Mathematical correctness was only one part of the problem. The mathematical representation also had to be technically correct."*
-* **Core Capability:** Domain Expertise + Technical Mathematical Representation
-* **Key Deliverables & Verification:**
-  - Authored detailed step-by-step mathematical solutions using KaTeX.
-  - Maintained questions and metadata through Google Sheets workflows.
-  - Tested questions and rendering on the local development server.
-* **Technologies:** KaTeX, Mathematics Content, Google Sheets Workflows, Local Dev Server
-* **Journal Reference:** [Chapter 05](JOURNAL.md#chapter-05-entering-a-product-environment)
+### Digipplus (Coshell Digital Solution India)
+**Role:** QA/QC Specialist  
+**Ownership:** `PROFESSIONAL ROLE`  
+**One-Line Significance:** Mathematics quality control, auditing distractor validity, pedagogical correctness, and solution integrity.  
+**Transition:** Creating Output $\rightarrow$ Systematic Evaluation & Auditing.
 
 ---
 
-### Milestone 2: VoyageMath Content Builder V1 Validation
-* **Period:** Mid-Mar 2024 — Apr 2024
-* **Organization:** Wayground (Quizizz)
-* **Role:** SME + User + Tester + Domain Feedback
-* **Layer Annotation:** `DOMAIN FEEDBACK — Contributing from the user side`
-* **Summary:** The VoyageMath Engineering team built VoyageMath Content Builder V1 (previously Mathverse) to make content workflows scalable. My contribution was from the content/domain perspective: testing V1, identifying bugs, recommending features, and providing workflow feedback.
-* **Key Transition:** *"The VoyageMath Engineering team built the tool; I validated it from the content and user workflow perspective."*
-* **Core Capability:** Domain-to-Product Feedback + Workflow Thinking
-* **Key Deliverables & Verification:**
-  - Tested the V1 tool against real content creation workflows and identified authoring bugs.
-  - Recommended features and provided domain feedback to help engineering align tool design with content needs.
-  - **Ownership Boundary:** The VoyageMath Engineering team built VoyageMath; Aadil contributed as SME tester and workflow advisor.
-* **Technologies:** VoyageMath V1 (Mathverse), Workflow QA, Bug Reporting, SME Requirements
-* **Journal Reference:** [Chapter 06](JOURNAL.md#chapter-06-from-content-to-content-systems)
+## 4. September 2022 – December 2023
+
+### Personal Goal Pursuit
+**Role:** Independent Problem Solver  
+**Ownership:** `INDEPENDENT STUDY`  
+**One-Line Significance:** Structured quantitative aptitude, algorithmic mental models, deductive logic, and Python programming fundamentals.  
+**Transition:** Domain Mathematics $\rightarrow$ Algorithmic Thinking.
 
 ---
 
-### Milestone 3: VoyageMath Tool Adoption
-* **Period:** Apr 2024 onward
-* **Organization:** Wayground (Quizizz)
-* **Role:** Content Development / SME
-* **Layer Annotation:** `TOOL ADOPTION — Tool enters actual production`
-* **Summary:** VoyageMath became part of the team's actual content production workflow, and the team expanded around the standardized authoring system.
-* **Key Transition:** *"First clear example of a recurring content bottleneck becoming a software system."*
-* **Core Capability:** Tool-Assisted Content Workflow
-* **Key Deliverables & Verification:**
-  - Adopted VoyageMath as the primary authoring system across daily content production.
-  - Observed how manual authoring friction is systematically eliminated by software systems.
-* **Technologies:** VoyageMath Production, Workflow Standardization, Team Scaling
+## 5. January 2024 – December 2025
+
+### Wayground (Quizizz)
+**Role:** Subject Matter Expert — Mathematics  
+**Ownership:** `PROFESSIONAL ROLE`  
+**One-Line Significance:** Digital assessment content creation, KaTeX authoring, visual asset production, and workflow optimization across live product systems.  
+**Transition:** Individual Authoring $\rightarrow$ Production Content Workflows.
 
 ---
 
-### Milestone 4: Figma & Mathematical Visual Production
-* **Period:** 2024
-* **Organization:** Wayground (Quizizz)
-* **Role:** Content Development / SME
-* **Layer Annotation:** `MATHEMATICAL VISUALS — Question & solution visual production`
-* **Summary:** As mathematical questions and solutions increasingly required visuals, I learned Figma with help from a colleague and began creating, modifying and correcting mathematical visuals.
-* **Key Transition:** *"Contributed mathematical visual content; framed strictly as Mathematical Visual Production, not formal UI/UX."*
-* **Core Capability:** Mathematical Visual Production
-* **Key Deliverables & Verification:**
-  - Created, modified, and corrected mathematical visuals for questions and step-by-step solutions.
-  - Engineered vector diagrams directly connected to mathematical text and coordinate systems.
-* **Technologies:** Figma, Vector Geometry, Mathematical Visuals, Diagrammatic Representation
-* **Journal Reference:** [Chapter 07](JOURNAL.md#chapter-07-making-mathematics-visual)
+## 6. March 2024
+
+### VoyageMath Content Builder V1
+**Ownership:** `SME / USER / VALIDATOR`  
+*System built by VoyageMath Engineering.*  
+**My Role:** Tested workflows, reported bugs, validated mathematical rendering, identified authoring bottlenecks, and recommended UI/workflow improvements.  
+**Transition:** Observing how manual content creation friction becomes a software system.
 
 ---
 
-### Milestone 5: Expanded Visual Content Production
-* **Period:** 2025
-* **Organization:** Wayground (Quizizz)
-* **Role:** Content SME & Visual Production
-* **Layer Annotation:** `PRODUCTION SUPPORT — Support under ~10-day turnaround cycles`
-* **Summary:** In 2025, visual-content contribution became more regular and formal because content needed to reach production in approximately 10 days and the design team needed support.
-* **Key Transition:** *"Scaled visual content production during rapid delivery cycles, drawing on Figma workflows learned in 2024."*
-* **Core Capability:** Expanded Visual Content Production
-* **Key Deliverables & Verification:**
-  - Supported rapid ~10-day production timelines for live curriculum releases.
-  - Created, modified, and corrected mathematical visual assets to support production delivery.
-* **Technologies:** Figma, Production Visuals, Rapid Turnaround, Mathematical Assets
+## 7. 2024 – 2025
+
+### Figma / Mathematical Visual Production
+**Ownership:** `PROFESSIONAL ROLE`  
+**My Role:** Learned Figma in 2024 and applied it for mathematical visual asset creation (coordinate geometry, vector diagrams, geometry figures) for questions and step-by-step solutions.  
+**Transition:** Textual Notation $\rightarrow$ Mathematical Visual Representation *(not generic graphic design)*.
 
 ---
 
-### Milestone 6: AI-Assisted Content Workflow
-* **Period:** 2025
-* **Organization:** Wayground (Quizizz)
-* **Role:** Content Development / SME
-* **Layer Annotation:** `AI WORKFLOW — Human-in-the-loop productivity layer`
-* **Summary:** AI entered the content workflow as a human-in-the-loop productivity layer to accelerate replica creation, generating candidate StepGuides reviewed and refined by content developers.
-* **Key Transition:** *"AI increased throughput, but shifted the bottleneck to verification."*
-* **Core Capability:** AI-Assisted Workflow + Human-in-the-Loop Design
-* **Key Deliverables & Verification:**
-  - Operated within human-in-the-loop AI generation workflows for question replicas.
-  - Evaluated model-generated StepGuides against mathematical rigor and instructional standards.
-* **Technologies:** LLM Generation, StepGuide Workflows, Human-in-the-Loop, Quality Control
-* **Journal Reference:** [Chapter 09](JOURNAL.md#chapter-09-when-ai-entered-the-workflow)
+## 8. August 2024
+
+### AI Enters Practical Workflow
+**Ownership:** `WORKFLOW TRANSITION`  
+**Significance:** VoyageMath evolved from manual content creation into an AI-powered authoring tool. Concurrently, ChatGPT began being used directly for math question and replica generation.  
+**Transition:** Manual Authoring $\rightarrow$ AI-Assisted Content Workflows *(not first encountering AI, but integrating AI into practical work)*.
 
 ---
 
-### Milestone 7: In-House Question Creation
-* **Period:** 2025
-* **Organization:** Wayground (Quizizz)
-* **Role:** Content Development / SME
-* **Layer Annotation:** `CONTENT QUALITY — Generating a question vs. a good question`
-* **Summary:** Question creation moved more fully in-house after externally supplied questions sometimes failed intended topic, skill, or quality requirements. AI became part of the internal creation workflow.
-* **Key Transition:** *"A language model could generate something that looked like a question without necessarily generating a good question."*
-* **Core Capability:** AI Generation + Content Quality Awareness
-* **Key Deliverables & Verification:**
-  - Transitioned away from inconsistent external agency sources toward internal question generation.
-  - Used ChatGPT as an authoring assistant to create internal question candidates and variations.
-* **Technologies:** ChatGPT Authoring, Candidate Generation, Quality Analysis, Prompt Boundaries
-* **Journal Reference:** [Chapter 10](JOURNAL.md#chapter-10-in-house-question-creation)
+## 9. October 2025 – November 2025
+
+### VM Copy Question Generator
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** Creator & Lead Developer (Full-Stack Next.js 16 + React 19 + TypeScript + Evaluation)  
+**One-Line Significance:** Converted repeated AI prompting into a structured full-stack application with parallel micro-batching and an in-memory deterministic evaluator (`lib/eval-layer.ts`).  
+**Transition:** Prompt Engineering $\rightarrow$ Application Architecture & Deterministic Evaluation.
 
 ---
 
-### Milestone 8: VM Copy Question Generator & Tier-1 Evaluator
-* **Period:** 2025 — 2026
-* **Organization:** Wayground (Quizizz)
-* **Role:** Creator & Lead Developer
-* **Layer Annotation:** `EVALUATION — Deterministic validation outside the model`
-* **Summary:** The crucial transition into AI engineering: generating a question was not the same as generating a good question. Built a Next.js application where the LLM generates candidates and a deterministic evaluator checks constraints.
-* **Key Transition:** *"LLM generates candidates → deterministic evaluation checks constraints outside the model."*
-* **Core Capability:** Evaluation Thinking + Deterministic Validation
-* **Key Deliverables & Verification:**
-  - Decoupled stochastic candidate generation from deterministic validation.
-  - Built in-memory Tier-1 Deterministic Evaluator (`lib/eval-layer.ts`) enforcing 4 options, single CA, and duplicate rejection at 0ms and $0 cost.
-  - Catalyst for internal transition from Content SME to AI/ML Engineering team.
-* **Technologies:** Next.js 16, TypeScript 5, Deterministic Validation, Client Guardrails, Portkey AI Gateway
-* **Connected System:** [`vm-copy`](file:///c:/Users/HP/Documents/Portfolio/app/systems/vm-copy)
-* **Journal Reference:** [Chapters 11 & 12](JOURNAL.md#chapter-11-when-generation-wasnt-enough)
+## 10. January 2026
+
+### Formal AI/ML Team Transition at Wayground
+**Ownership:** `PROFESSIONAL ROLE`  
+**Role:** AI Engineer / Consultant, AI/ML Team  
+**One-Line Significance:** Formal transition from Subject Matter Expert to core AI/ML Engineering team at Wayground.  
+**Transition:** Independent AI Experimentation $\rightarrow$ Formal AI/ML System Development.
 
 ---
 
-## Phase 3: Wayground AI/ML Engineering Systems (Jan 2026 — Jul 2026)
+## 11. January 2026 – February 2026
 
-### 1. AI Worksheets Product POC
-* **Period:** Jan 2026 — May 2026
-* **Organization:** Wayground
-* **Role:** Independent Company POC
-* **Layer Annotation:** `SYSTEM BOUNDARIES — Compilers & graph engines around AI`
-* **Summary:** Full-stack company proof of concept automating TEKS-aligned educational content across two formats: formal worksheets with compiled TikZ/LaTeX diagrams and gamified mazes powered by deterministic 2D backtracking algorithms.
-* **Key Transition:** *"The model did not need to control every part of the system; some problems are better solved deterministically."*
-* **Core Capability:** Full-Stack AI + Backtracking & LaTeX Compilers
-* **Key Deliverables & Verification:**
-  - React 18 / Vite 6 frontend with an asynchronous FastAPI backend.
-  - Headless TeX Live (`pdflatex`) subprocess pool caching verified 300-DPI diagrams.
-  - Algorithmic 2D crossword and hexagonal maze backtracking solvers.
-* **Technologies:** FastAPI, Python 3.12, React 18, Vite 6, TeX Live (pdflatex), Poppler, Backtracking
-* **Connected System:** [`ai-worksheets`](file:///c:/Users/HP/Documents/Portfolio/app/systems/ai-worksheets)
-* **Journal Reference:** [Chapter 13](JOURNAL.md#chapter-13-when-ai-became-an-application)
+### AI Question Generator
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** AI Engineer / Consultant  
+**One-Line Significance:** Internal Wayground application unifying AI-powered mathematical question generation with application-level guardrails.  
+**Transition:** Isolated Tools $\rightarrow$ Unified Generation Workflows.
 
 ---
 
-### 2. Curriculum Transformation Engine (Curriculum ETL)
-* **Period:** Mar 2026 — Jun 2026
-* **Organization:** Wayground
-* **Role:** Independent Engineering Build
-* **Layer Annotation:** `DISTRIBUTED ETL — Structured extraction & runtime schema validation`
-* **Summary:** Asynchronous Map-Reduce pipeline transforming unstructured state educational standards (PDFs, DOCX) into normalized tabular datasets with dynamic Pydantic schema validation.
-* **Key Transition:** *"Decoupled schema contracts from parsing logic by deriving layouts from sample datasets."*
-* **Core Capability:** Asynchronous Map-Reduce & Schema Extraction
-* **Key Deliverables & Verification:**
-  - Dynamic schema derivation compiling runtime Pydantic validation contracts.
-  - Asynchronous Map-Reduce pipeline executing parallel LLM extraction workers with strict JSON tool calling.
-  - Three-tier integrity gate validating extracted rows before export.
-* **Technologies:** LLM Extraction (Claude), Python, Data Transformation, Dynamic Pydantic Contracts, CSV Integrity
-* **Connected System:** [`curriculum-etl`](file:///c:/Users/HP/Documents/Portfolio/app/systems/curriculum-etl)
-* **Journal Reference:** [Chapter 15](JOURNAL.md#chapter-15-when-the-problem-became-a-transformation-pipeline)
+## 12. February 2026 – March 2026
+
+### AI Worksheets Product POC
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** Full-Stack Lead Engineer (Wayground Company POC)  
+**One-Line Significance:** React 18 + FastAPI application pairing multi-model LLM routing (Portkey, GPT-4o, Gemini 3 Flash) with Dockerized `pdflatex` compilation pools and 2D backtracking solvers.  
+**Transition:** Text Generation $\rightarrow$ Multi-System Compilers & Backtracking Solvers.
 
 ---
 
-### 3. US Mathematics Item Bank Generation Pipeline
-* **Period:** May 2026 — Jul 2026
-* **Organization:** Wayground
-* **Role:** Company Team System (Collaborative Build)
-* **Layer Annotation:** `TEAM SYSTEM — Domain routing & visual compile gates`
-* **Summary:** Company team system generating state-aligned mathematics assessment items. Contributed mathematical image domain routing (SVG vs. TikZ), two-tier compile and visual evaluation gates, and Upper Elementary schemas.
-* **Key Transition:** *"Explicitly distinguished team collaboration from individual contributions to visual routing and evaluation gates."*
-* **Core Capability:** Team System + Visual Domain Routing & Compile Gates
-* **Key Deliverables & Verification:**
-  - Engineered domain-based mathematical image generation routing (SVG vs. TikZ).
-  - Constructed two-tier compile and visual evaluation gates.
-  - Stabilized Upper Elementary pipeline across grade 3–5 standards.
-* **Technologies:** TikZ / LaTeX, SVG Generation, Domain Routing, Vision Evaluation, Prompt Engineering
-* **Connected System:** [`math-item-bank`](file:///c:/Users/HP/Documents/Portfolio/app/systems/math-item-bank)
-* **Journal Reference:** [Chapter 14](JOURNAL.md#chapter-14-from-applications-to-pipelines)
+## 13. March 2026 – April 2026
+
+### Curriculum Transformation Engine — Phase 1
+**Ownership:** `RESEARCH / EXPLORATION`  
+**Role:** AI Engineer / Consultant  
+**One-Line Significance:** Early research and exploratory prototyping using custom agents and Codex to analyze document transformation structures.  
+**Transition:** Unstructured Prototyping $\rightarrow$ Exploration of Transformation Pipelines.
 
 ---
 
-## Phase 4: Independent AI Builds & Advanced Systems (2025 — Present)
+## 14. April 2026 – July 2026
 
-### 1. Loom AI & Atlas AI Systems
-* **Period:** 2025 — 2026
-* **Organization:** Independent AI Builds
-* **Role:** Systems Engineer
-* **Layer Annotation:** `INDEPENDENT SYSTEMS — Stateful workflows & retrieval architectures`
-* **Summary:** Independent AI builds: Loom AI developed end-to-end application architecture with LangGraph workflows; Atlas AI engineered stateful conversational RAG across SEC EDGAR filings and financial market tools.
-* **Key Transition:** *"Shifted from internal workflows into building independent full-stack and stateful agentic systems."*
-* **Core Capability:** End-to-End AI Application Architecture & Stateful Workflows
-* **Key Deliverables & Verification:**
-  - **Loom AI:** End-to-End AI Application Architecture with LangGraph procurement workflows and human approval gates.
-  - **Atlas AI:** Stateful Workflows + Retrieval + Tools with SEC EDGAR filings, Finnhub market feeds, and 178 passing tests.
-* **Technologies:** Next.js 16, React 19, LangGraph, MongoDB Atlas Vector Search, SEC EDGAR, FastAPI
-* **Connected Systems:** [`loom-ai`](file:///c:/Users/HP/Documents/Portfolio/app/systems/loom-ai), [`atlas-ai`](file:///c:/Users/HP/Documents/Portfolio/app/systems/atlas-ai)
-* **Journal Reference:** [Chapters 16 & 17](JOURNAL.md#chapter-16-from-using-ai-to-building-ai-applications)
+### US Mathematics Item Bank Pipeline
+**Ownership:** `COLLABORATIVE TEAM PROJECT`  
+*System built by Wayground AI/ML Team.*  
+**My Specific Contributions:** Worked as part of the team; engineered visual-domain routing (SVG vs. TikZ), two-tier compile/visual verification gates, Integer Linear Programming (ILP) and Min/Max Swap curriculum weight balancing, and SME validation.  
+**Transition:** Single-Agent Pipelines $\rightarrow$ Stateful Multi-Agent LangGraph Orchestration & Constraint Balancing.
 
 ---
 
-### 2. Engineering Design Automation (EDA CAD)
-* **Period:** Feb 2026 — Apr 2026
-* **Organization:** Personal Engineering Build
-* **Role:** Systems Engineer
-* **Layer Annotation:** `PHYSICAL CONSTRAINTS — AI constrained by engineering laws`
-* **Summary:** Mechanical design synthesis where AI interprets natural language design briefs while deterministic physics solvers and OpenCascade CAD kernels calculate and enforce invariant 3D geometry and SVG drawings.
-* **Key Transition:** *"AI interprets. Deterministic systems constrain and verify."*
-* **Core Capability:** AI + Deterministic Systems + Verification
-* **Key Deliverables & Verification:**
-  - Hybrid AI-to-CAD synthesis: LLMs parameterize; deterministic physics algorithms calculate and enforce invariants.
-  - OpenCascade BRep CAD kernel generating valid 3D STEP geometry and SVG technical drawings.
-  - Strict material provenance with verified ASTM/EN tables (no inferred or hallucinated steel grades).
-  - Verified with 424/424 passing tests in main repository state.
-* **Technologies:** AI Interpretation, Python, Deterministic Solvers, OpenCascade CAD / BRep / STEP, SVG Validation
-* **Connected System:** [`design-automation`](file:///c:/Users/HP/Documents/Portfolio/app/systems/design-automation)
-* **Journal Reference:** [Chapter 18](JOURNAL.md#chapter-18-ai-meets-deterministic-engineering)
+## 15. July 2026
+
+### Curriculum Transformation Engine — Phase 2
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** Backend Data Engineer  
+**One-Line Significance:** Asynchronous Claude 3.5 Sonnet Map-Reduce ETL pipeline with Celery/Redis, dynamic Pydantic schema contract synthesis, and 3-Tier Integrity Gates (Reviewer $\rightarrow$ Critic $\rightarrow$ CSV Audit).  
+**Transition:** Heuristic Extraction $\rightarrow$ Production Map-Reduce ETL & Multi-Tier Verification.
 
 ---
 
-### 3. AI Application Reliability & Browser QA
-* **Period:** May 2026 — Jul 2026
-* **Organization:** Personal Engineering Build
-* **Role:** Systems Engineer
-* **Layer Annotation:** `RELIABILITY — Grounding, governance & uncertainty modeling`
-* **Summary:** Autonomous browser testing platform pairing local Ollama reasoning with Playwright execution grounding, Fisher information covariance uncertainty abstention, and human governance authorization.
-* **Key Transition:** *"The question evolved from 'Can AI build this?' to 'How do we know what the AI actually did?'"*
-* **Core Capability:** Agentic Systems + Reliability + Governance
-* **Key Deliverables & Verification:**
-  - Execution grounding: captures real DOM snapshots, network payloads, console logs, and screenshots.
-  - Fisher Information covariance uncertainty modeling: deterministically abstains when telemetry ambiguity is high.
-  - 158 backend tests, 47 governance tests, 12 Next.js pages; dogfooded autonomously against VM Copy.
-* **Technologies:** Ollama (Qwen 2.5 Coder), Playwright, FastAPI, Next.js, Model Context Protocol (MCP), Governance
-* **Connected System:** [`ai-reliability`](file:///c:/Users/HP/Documents/Portfolio/app/systems/ai-reliability)
-* **Journal Reference:** [Chapter 19](JOURNAL.md#chapter-19-the-reliability-question)
+## 16. July 21, 2026
+
+### End of Wayground Engagement
+**Ownership:** `MILESTONE BOUNDARY`  
+**Significance:** Formal conclusion of 2.5-year engagement at Wayground (Quizizz) across SME, content systems, and AI/ML engineering roles.
 
 ---
 
-### 4. Continuous Exploration & Research Horizon
-* **Period:** September 2026 — Present
-* **Organization:** The Engineering Horizon
-* **Role:** Continuous Exploration
-* **Layer Annotation:** `? — An expanding spiral of curiosity and verification`
-* **Summary:** Continuing to build, experiment, learn, and explore reliable AI systems. An expanding spiral: Curiosity → Learning → Contribution → Building → Discovery → Repeat.
-* **Key Transition:** *"The engineering mindset emerged through the work. The next page is yet to be written."*
-* **Core Capability:** AI Systems Engineering
-* **Key Deliverables & Verification:**
-  - Exploring the boundary between stochastic reasoning and deterministic verification.
-  - Investigating autonomous agent reliability, formal verification, and execution grounding.
-  - Still building. Still learning.
-* **Technologies:** Continuous Learning, System Design, Reliability Engineering
+## 17. Late 2025 — Early 2026 (Independent Parallel Builds)
+
+### Loom AI — B2B Textile Marketplace Platform
+**Ownership:** `HACKATHON BUILD`  
+**Role:** System Architect & Full-Stack Author  
+**One-Line Significance:** Next.js 16 + Express Clean Architecture platform with LangGraph procurement workflows and explicit Human-in-the-Loop (HITL) authorization gates.
+
+### Atlas AI — Financial Copilot & SEC Filing RAG
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** Lead Architect & Sole Author  
+**One-Line Significance:** LangGraph multi-agent copilot with SEC EDGAR 10-K/10-Q parsing, MongoDB Atlas Vector Search, Finnhub market feeds, and 178 passing pytests.
+
+---
+
+## 18. February 2026 – April 2026
+
+### Engineering Design Automation (EDA CAD)
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** System Architect & Sole Author  
+**One-Line Significance:** Parametric CAD synthesis pairing natural language briefs with closed-form physics solvers and OpenCascade BRep CAD kernels (STEP/SVG export, 0.0000% volume error, 424 pytests).  
+**Transition:** Software Systems $\rightarrow$ Physical Engineering & Boundary Representation CAD.
+
+---
+
+## 19. May 2026 – July 2026
+
+### AI Application Reliability & Browser QA Harness
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** Reliability Engineer & Author  
+**One-Line Significance:** Autonomous browser testing platform pairing Playwright Chromium execution grounding with local Ollama Qwen 2.5 Coder, Fisher covariance uncertainty abstention, and 205 automated tests.  
+**Transition:** Building AI Systems $\rightarrow$ Autonomous Agent Reliability & Governance.
+
+---
+
+## 20. September 2026 – Present
+
+### Ask Aadil & Continuous Exploration
+**Ownership:** `INDEPENDENTLY BUILT`  
+**Role:** AI Systems & Reliability Engineer  
+**One-Line Significance:** Stateful portfolio knowledge agent with deterministic state machine, 3-state LinkedIn adapter distinction, bitwise draft integrity, and 334 automated assertions across 10 evaluation suites.  
+**Transition:** Reliable AI Systems $\rightarrow$ Governed, Testable, & Grounded Assistants.
