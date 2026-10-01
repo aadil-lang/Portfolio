@@ -1,18 +1,74 @@
 "use client"
 import React, { useState } from 'react'
 import { profile } from '../../data/profile'
-import { Mail, Github, Linkedin, Send, CheckCircle2, Copy, Check, Phone } from 'lucide-react'
+import { Mail, Github, Linkedin, Send, CheckCircle2, Copy, Check, AlertCircle, Loader2 } from 'lucide-react'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    roleOpportunity: '',
+    message: ''
+  })
+
+  type FormState = 'idle' | 'submitting' | 'success' | 'validation_error' | 'server_error' | 'rate_limited'
+  const [status, setStatus] = useState<FormState>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const [copied, setCopied] = useState(false)
   const [copiedPhone, setCopiedPhone] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) return
-    setSubmitted(true)
+
+    // Single in-flight submission & double-click prevention
+    if (status === 'submitting') return
+
+    // Validation
+    if (!formData.name.trim()) {
+      setStatus('validation_error')
+      setErrorMessage('Please enter your name.')
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
+      setStatus('validation_error')
+      setErrorMessage('Please enter a valid email address.')
+      return
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 5) {
+      setStatus('validation_error')
+      setErrorMessage('Please enter a message (at least 5 characters).')
+      return
+    }
+
+    setStatus('submitting')
+    setErrorMessage('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        setStatus('success')
+      } else if (res.status === 429) {
+        setStatus('rate_limited')
+        setErrorMessage(data.error || 'Too many messages sent. Please try again later.')
+      } else {
+        setStatus('server_error')
+        setErrorMessage(data.error || "We couldn't send your message right now. Please try again or use LinkedIn.")
+      }
+    } catch (err) {
+      setStatus('server_error')
+      setErrorMessage("We couldn't send your message right now. Please try again or connect directly via LinkedIn.")
+    }
   }
 
   const handleCopyEmail = () => {
@@ -57,7 +113,7 @@ export default function Contact() {
                   type="button"
                   onClick={handleCopyEmail}
                   title="Copy email address"
-                  className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 transition-colors"
+                  className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 transition-colors cursor-pointer"
                 >
                   {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                 </button>
@@ -78,7 +134,7 @@ export default function Contact() {
                     type="button"
                     onClick={handleCopyPhone}
                     title="Copy phone number"
-                    className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 transition-colors"
+                    className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                   </button>
@@ -117,81 +173,137 @@ export default function Contact() {
 
         {/* Contact Form */}
         <div className="md:col-span-3">
-          <div className="glass p-6 md:p-8 rounded-xl border border-slate-800">
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
+          <div className="glass p-6 md:p-8 rounded-xl border border-slate-800" id="contact-form">
+            {status === 'success' ? (
+              <div className="py-12 text-center space-y-4" role="status" aria-live="polite">
                 <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-white">Message Received!</h3>
-                <p className="text-sm text-slate-300 max-w-sm mx-auto">
-                  Thank you for reaching out, {formData.name}. You can also connect directly via{' '}
+                <p className="text-sm text-slate-300 max-w-sm mx-auto leading-relaxed">
+                  Your message has been sent to Aadil. You can also connect directly via{' '}
                   <a href={`mailto:${profile.email}`} className="text-purple-400 underline">
                     {profile.email}
+                  </a> or on{' '}
+                  <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">
+                    LinkedIn
                   </a>.
                 </p>
                 <button
                   type="button"
                   onClick={() => {
-                    setSubmitted(false)
-                    setFormData({ name: '', email: '', message: '' })
+                    setStatus('idle')
+                    setFormData({ name: '', company: '', email: '', roleOpportunity: '', message: '' })
                   }}
-                  className="text-xs text-slate-400 hover:text-white underline pt-4"
+                  className="text-xs text-slate-400 hover:text-white underline pt-4 cursor-pointer"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <form className="space-y-5" onSubmit={handleSubmit}>
-                <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium text-slate-200 mb-1.5">
-                    Your Name
-                  </label>
-                  <input
-                    id="contact-name"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-sm"
-                    placeholder="Jane Doe"
-                  />
+              <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+                {errorMessage && (
+                  <div className="p-3.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2" role="alert">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="contact-name" className="block text-xs font-medium text-slate-300 mb-1">
+                      Name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      id="contact-name"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      disabled={status === 'submitting'}
+                      className="w-full px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-xs"
+                      placeholder="Jane Doe"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-company" className="block text-xs font-medium text-slate-300 mb-1">
+                      Recruiter / Company <span className="text-slate-500">(Optional)</span>
+                    </label>
+                    <input
+                      id="contact-company"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      disabled={status === 'submitting'}
+                      className="w-full px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-xs"
+                      placeholder="Acme Talent Partners"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="contact-email" className="block text-xs font-medium text-slate-300 mb-1">
+                      Email Address <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      disabled={status === 'submitting'}
+                      className="w-full px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-xs"
+                      placeholder="jane@company.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-role" className="block text-xs font-medium text-slate-300 mb-1">
+                      Role / Opportunity <span className="text-slate-500">(Optional)</span>
+                    </label>
+                    <input
+                      id="contact-role"
+                      value={formData.roleOpportunity}
+                      onChange={(e) => setFormData({ ...formData, roleOpportunity: e.target.value })}
+                      disabled={status === 'submitting'}
+                      className="w-full px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-xs"
+                      placeholder="Senior AI Engineer (Remote)"
+                    />
+                  </div>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium text-slate-200 mb-1.5">
-                    Email Address
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-sm"
-                    placeholder="jane@company.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-slate-200 mb-1.5">
-                    Message or Project Brief
+                  <label htmlFor="contact-message" className="block text-xs font-medium text-slate-300 mb-1">
+                    Message <span className="text-red-400">*</span>
                   </label>
                   <textarea
                     id="contact-message"
                     required
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-sm"
-                    placeholder="Tell me about your project, timeline, or requirements..."
+                    disabled={status === 'submitting'}
+                    className="w-full px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors text-xs"
+                    placeholder="Tell me about your role, team, or project requirements..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium transition-colors shadow-lg shadow-purple-600/25 cursor-pointer"
+                  disabled={status === 'submitting'}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium transition-colors shadow-lg shadow-purple-600/25 cursor-pointer text-xs"
                 >
-                  <Send className="w-4 h-4" /> Send Message
+                  {status === 'submitting' ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Send Message</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}

@@ -22,6 +22,8 @@ import { executeToolPlan } from '@/lib/rag/tools/toolPlanExecutor'
 import { createSingleStepPlan, ToolPlan } from '@/lib/rag/tools/toolPlanner'
 import { approveAuthorization } from '@/lib/rag/tools/authorization'
 import { emailDraftTool, emailSendTool } from '@/lib/rag/tools/emailTools'
+import { resolveDeterministicAction } from '@/lib/rag/actionRegistry'
+import { resolveProjectEntity } from '@/lib/rag/projectResolver'
 
 export type AgentResponse = AgentAnswer & {
   newState: AgentConversationState
@@ -595,6 +597,173 @@ Would you like to send this now? (Say **"Send it"** or click below to confirm).`
         claims: []
       },
       newState: state
+    }
+  }
+
+  // 3. RECRUITER INTERACTION & ACTION ROUTING LAYER
+  // Check for explicit external profile links (LinkedIn, Resume)
+  const isLinkedInNav = lowerQ.includes('linkedin') && (lowerQ.includes('open') || lowerQ.includes('show') || lowerQ.includes('visit') || lowerQ.includes('view') || lowerQ.includes('go to'))
+  if (isLinkedInNav) {
+    const action = resolveDeterministicAction('OPEN_LINKEDIN')
+    if (action) {
+      return {
+        query: cleanQuery,
+        intent: 'contact',
+        answer: "I'll open Aadil's LinkedIn profile for you.",
+        provenance: { sources: ['structured_profile'], layers: ['none'], citations: ['Canonical External Profile'], claims: [] },
+        suggestedAction: {
+          type: 'navigate',
+          label: action.label,
+          payload: { url: action.target, isExternal: true }
+        },
+        newState: state
+      }
+    }
+  }
+
+  const isResumeNav = (lowerQ.includes('resume') || lowerQ.includes('cv')) && (lowerQ.includes('open') || lowerQ.includes('show') || lowerQ.includes('view') || lowerQ.includes('download') || lowerQ.includes('get'))
+  if (isResumeNav) {
+    const action = resolveDeterministicAction('OPEN_RESUME')
+    if (action) {
+      return {
+        query: cleanQuery,
+        intent: 'professional',
+        answer: "I'll open Aadil's official verified resume.",
+        provenance: { sources: ['structured_profile'], layers: ['none'], citations: ['Canonical Resume Document'], claims: [] },
+        suggestedAction: {
+          type: 'navigate',
+          label: action.label,
+          payload: { url: action.target, isExternal: true }
+        },
+        newState: state
+      }
+    }
+  }
+
+  // Check for unapproved / unknown external destination requests ("open facebook", "open tiktok", etc.)
+  const isUnapprovedNav = lowerQ.includes('facebook') || lowerQ.includes('tiktok') || lowerQ.includes('instagram')
+  if (isUnapprovedNav) {
+    return {
+      query: cleanQuery,
+      intent: 'unknown',
+      answer: "I don't have a link or page for that destination in Aadil's portfolio. You can ask me to open Aadil's LinkedIn, GitHub, Resume, Timeline, Journal, or AI Systems Archive.",
+      provenance: { sources: ['structured_profile'], layers: ['none'], citations: ['Approved Action Safeguard'], claims: [] },
+      newState: state
+    }
+  }
+
+  // Check for Contact page navigation ("I want to contact Aadil", "Open contact form", "Take me to contact page", "How can I contact Aadil?")
+  const isContactNav =
+    lowerQ.includes('open contact') ||
+    lowerQ.includes('take me to contact') ||
+    lowerQ.includes('open the contact') ||
+    lowerQ.includes('show contact') ||
+    lowerQ === 'i want to contact aadil' ||
+    lowerQ === 'i want to email aadil' ||
+    lowerQ === 'how can i contact aadil' ||
+    lowerQ === 'how can i reach aadil' ||
+    (lowerQ.includes('want to contact') && !lowerQ.includes('discuss'))
+
+  if (isContactNav) {
+    const action = resolveDeterministicAction('OPEN_CONTACT')
+    return {
+      query: cleanQuery,
+      intent: 'contact',
+      answer: "You can message Aadil directly through the recruiter contact form or connect with him on LinkedIn. I'll open the contact page for you.",
+      provenance: { sources: ['structured_profile'], layers: ['none'], citations: ['Contact Action Registry'], claims: [] },
+      suggestedAction: {
+        type: 'navigate',
+        label: 'Open Contact Form',
+        payload: { url: '/contact#contact-form', isExternal: false }
+      },
+      newState: state
+    }
+  }
+
+  // Check for Timeline / Journey navigation ("Show me career timeline", "Show me AI engineering journey", etc.)
+  const isTimelineNav = lowerQ.includes('career timeline') || lowerQ.includes('open timeline') || lowerQ.includes('show timeline') || (lowerQ.includes('engineering journey') && (lowerQ.includes('show') || lowerQ.includes('open') || lowerQ.includes('take me')))
+  if (isTimelineNav) {
+    const action = resolveDeterministicAction('OPEN_TIMELINE')
+    return {
+      query: cleanQuery,
+      intent: 'timeline',
+      answer: "I'll take you to Aadil's interactive career timeline.",
+      provenance: { sources: ['portfolio'], layers: ['timeline'], citations: ['Timeline Navigation'], claims: [] },
+      suggestedAction: {
+        type: 'navigate',
+        label: action?.label || 'Career Timeline',
+        payload: { url: '/timeline', isExternal: false }
+      },
+      newState: state
+    }
+  }
+
+  // Check for Journal navigation ("Open Engineering Journal", "Show me the journal")
+  const isJournalNav = (lowerQ.includes('engineering journal') || lowerQ.includes('the journal')) && (lowerQ.includes('open') || lowerQ.includes('show') || lowerQ.includes('take me'))
+  if (isJournalNav) {
+    const action = resolveDeterministicAction('OPEN_JOURNAL')
+    return {
+      query: cleanQuery,
+      intent: 'narrative',
+      answer: "I'll open Aadil's 10-chapter Engineering Journal.",
+      provenance: { sources: ['portfolio'], layers: ['journal'], citations: ['Journal Navigation'], claims: [] },
+      suggestedAction: {
+        type: 'navigate',
+        label: action?.label || 'Engineering Journal',
+        payload: { url: '/journal', isExternal: false }
+      },
+      newState: state
+    }
+  }
+
+  // Check for Systems Archive navigation ("Show me the system archive", "Open systems archive")
+  const isSystemsNav = (lowerQ.includes('system archive') || lowerQ.includes('systems archive')) && (lowerQ.includes('open') || lowerQ.includes('show') || lowerQ.includes('take me'))
+  if (isSystemsNav) {
+    const action = resolveDeterministicAction('OPEN_SYSTEM_ARCHIVE')
+    return {
+      query: cleanQuery,
+      intent: 'projects',
+      answer: "I'll take you to the AI Systems Archive.",
+      provenance: { sources: ['portfolio'], layers: ['system'], citations: ['System Archive Navigation'], claims: [] },
+      suggestedAction: {
+        type: 'navigate',
+        label: action?.label || 'Systems Archive',
+        payload: { url: '/systems', isExternal: false }
+      },
+      newState: state
+    }
+  }
+
+  // Check for explicit Project Navigation ("Show me the AI Worksheets project", "Open AI Question Generator", etc.)
+  const isProjectNavCommand = lowerQ.startsWith('show me the ') || lowerQ.startsWith('open the ') || lowerQ.startsWith('take me to the ') || lowerQ.startsWith('show me ') || lowerQ.startsWith('open ')
+  if (isProjectNavCommand && !lowerQ.includes('who') && !lowerQ.includes('what') && !lowerQ.includes('when') && !lowerQ.includes('how')) {
+    const projResolution = resolveProjectEntity(cleanQuery)
+    if (projResolution.isAmbiguous) {
+      return {
+        query: cleanQuery,
+        intent: 'project_overview',
+        answer: 'Aadil built several AI systems including **VM Copy (AI Question Generator)**, **AI Worksheets**, **Curriculum Transformation Engine**, and **AI Application Reliability**. Which specific project would you like to open?',
+        provenance: { sources: ['portfolio'], layers: ['system'], citations: ['Project Ambiguity Resolver'], claims: [] },
+        newState: state
+      }
+    }
+    if (projResolution.resolvedSlug) {
+      const action = resolveDeterministicAction('OPEN_PROJECT', { projectSlug: projResolution.resolvedSlug })
+      if (action) {
+        state.activeProject = projResolution.resolvedSlug
+        return {
+          query: cleanQuery,
+          intent: 'project_overview',
+          answer: `Sure — I'll open the ${action.label} system page for you.`,
+          provenance: { sources: ['portfolio'], layers: ['system'], citations: [`System: ${action.label}`], claims: [] },
+          suggestedAction: {
+            type: 'navigate',
+            label: action.label,
+            payload: { url: action.target, isExternal: false }
+          },
+          newState: state
+        }
+      }
     }
   }
 
@@ -1755,11 +1924,6 @@ ${stages}
         layers: Array.from(layers),
         citations: Array.from(citations),
         claims
-      },
-      suggestedAction: {
-        type: 'navigate',
-        label: 'Open Journal — About & Origins',
-        payload: { url: '/about' }
       }
     }
   }
