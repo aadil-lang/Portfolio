@@ -38,6 +38,8 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
     )
   }
 
+  private currentSessionId: string | null = null
+
   async startListening(
     onTranscript: (result: TranscriptionResult) => void,
     onError: (err: string) => void,
@@ -48,11 +50,14 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
       return
     }
 
-    this.stopListening()
+    await this.stopListening()
 
     const windowObj = window as any
     const SpeechRecognitionClass =
       windowObj.SpeechRecognition || windowObj.webkitSpeechRecognition
+
+    const sessionId = `vses-${Date.now()}`
+    this.currentSessionId = sessionId
 
     try {
       this.recognition = new SpeechRecognitionClass()
@@ -60,7 +65,6 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
       this.recognition.interimResults = true
       this.recognition.lang = 'en-US'
 
-      let finalTranscript = ''
       this.lastSpeechTimestamp = Date.now()
 
       const resetSilenceTimer = (currentText: string) => {
@@ -70,7 +74,13 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
         this.lastSpeechTimestamp = Date.now()
 
         this.silenceTimer = setTimeout(() => {
-          if (currentText && currentText.trim().length > 0) {
+          if (this.currentSessionId === sessionId && currentText && currentText.trim().length > 0) {
+            if (process.env.NODE_ENV !== 'production') {
+              console.log('[VOICE] silence VAD finalize:', {
+                session: sessionId,
+                finalText: currentText.trim()
+              })
+            }
             onTranscript({
               text: currentText.trim(),
               isFinal: true,
@@ -82,28 +92,46 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
       }
 
       this.recognition.onresult = (event: any) => {
+        if (this.currentSessionId !== sessionId) return
+
+        let finalTranscript = ''
         let interimTranscript = ''
-        for (let i = event.resultIndex; i < event.results.length; ++i) {
-          const transcript = event.results[i][0].transcript
-          if (event.results[i].isFinal) {
+
+        for (let i = 0; i < event.results.length; ++i) {
+          const res = event.results[i]
+          const transcript = res[0]?.transcript || ''
+          if (res.isFinal) {
             finalTranscript += transcript
           } else {
             interimTranscript += transcript
           }
         }
 
-        const currentText = (finalTranscript || interimTranscript).trim()
-        if (currentText) {
+        const fullText = (finalTranscript + interimTranscript).trim()
+        const isLastFinal = Boolean(event.results[event.results.length - 1]?.isFinal)
+
+        if (process.env.NODE_ENV !== 'production') {
+          console.log('[VOICE]', {
+            session: sessionId,
+            interim: interimTranscript.trim(),
+            final: finalTranscript.trim(),
+            assembled: fullText,
+            isFinal: isLastFinal
+          })
+        }
+
+        if (fullText) {
           onTranscript({
-            text: currentText,
-            isFinal: Boolean(finalTranscript),
+            text: fullText,
+            isFinal: isLastFinal,
             confidence: event.results[0]?.[0]?.confidence || 0.95
           })
-          resetSilenceTimer(currentText)
+          resetSilenceTimer(fullText)
         }
       }
 
       this.recognition.onerror = (event: any) => {
+        if (this.currentSessionId !== sessionId) return
         this.clearTimers()
         let userMessage = 'Speech recognition error occurred.'
         if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
@@ -115,7 +143,9 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
       }
 
       this.recognition.onend = () => {
-        this.clearTimers()
+        if (this.currentSessionId === sessionId) {
+          this.clearTimers()
+        }
       }
 
       this.recognition.start()
@@ -123,7 +153,9 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
       // Max recording duration timeout (60s default)
       const maxMs = (vadConfig.maxRecordingDurationSeconds || 60) * 1000
       this.maxDurationTimer = setTimeout(() => {
-        this.stopListening()
+        if (this.currentSessionId === sessionId) {
+          this.stopListening()
+        }
       }, maxMs)
     } catch (err: any) {
       this.clearTimers()
@@ -132,6 +164,7 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
   }
 
   async stopListening(): Promise<void> {
+    this.currentSessionId = null
     this.clearTimers()
     if (this.recognition) {
       try {

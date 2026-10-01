@@ -97,6 +97,7 @@ export function VoiceInputButton({ onTranscriptComplete, disabled }: VoiceInputB
 
   const timerRef = useRef<any>(null)
   const sttProvider = useRef(getSTTProvider())
+  const hasSubmittedRef = useRef(false)
 
   const clearTimer = () => {
     if (timerRef.current) {
@@ -113,6 +114,7 @@ export function VoiceInputButton({ onTranscriptComplete, disabled }: VoiceInputB
     setErrorMessage(null)
     setInterimText('')
     setElapsedSeconds(0)
+    hasSubmittedRef.current = false
     setInputState('requesting_permission')
 
     try {
@@ -120,10 +122,16 @@ export function VoiceInputButton({ onTranscriptComplete, disabled }: VoiceInputB
         (result: TranscriptionResult) => {
           setInterimText(result.text)
           if (result.isFinal) {
-            setInputState('transcribed')
-            clearTimer()
-            onTranscriptComplete(result.text)
-            setTimeout(() => setInputState('idle'), 1200)
+            if (!hasSubmittedRef.current && result.text.trim()) {
+              hasSubmittedRef.current = true
+              setInputState('transcribed')
+              clearTimer()
+              if (process.env.NODE_ENV !== 'production') {
+                console.log('[VOICE] submitted (isFinal):', result.text.trim())
+              }
+              onTranscriptComplete(result.text.trim())
+              setTimeout(() => setInputState('idle'), 1200)
+            }
           } else {
             setInputState('listening')
           }
@@ -156,9 +164,14 @@ export function VoiceInputButton({ onTranscriptComplete, disabled }: VoiceInputB
     clearTimer()
     setInputState('processing')
     await sttProvider.current.stopListening()
-    if (interimText.trim()) {
+    const textToSubmit = interimText.trim()
+    if (textToSubmit && !hasSubmittedRef.current) {
+      hasSubmittedRef.current = true
       setInputState('transcribed')
-      onTranscriptComplete(interimText.trim())
+      if (process.env.NODE_ENV !== 'production') {
+        console.log('[VOICE] submitted (manual stop):', textToSubmit)
+      }
+      onTranscriptComplete(textToSubmit)
       setTimeout(() => setInputState('idle'), 1200)
     } else {
       setInputState('idle')
@@ -167,6 +180,7 @@ export function VoiceInputButton({ onTranscriptComplete, disabled }: VoiceInputB
 
   const handleCancel = async () => {
     clearTimer()
+    hasSubmittedRef.current = true
     await sttProvider.current.stopListening()
     setInterimText('')
     setInputState('idle')
