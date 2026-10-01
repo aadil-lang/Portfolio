@@ -546,6 +546,37 @@ Would you like to send this now? (Say **"Send it"** or click below to confirm).`
     }
   }
 
+  // Step D: Ambiguity Boundary Checks (Adel -> Clarification, Rahul -> Non-portfolio fallback)
+  if (lowerQ.includes('who is adel') || lowerQ.includes('tell me about adel')) {
+    return {
+      query: cleanQuery,
+      intent: 'identity',
+      answer: 'If you are asking about **Mohemmed Aadil Khurshid**, I can provide details on his AI systems engineering background, Wayground experience, and portfolio projects. Could you confirm if you meant Aadil?',
+      provenance: {
+        sources: ['structured_profile'],
+        layers: ['none'],
+        citations: ['Ambiguity Boundary Handler — Name Clarification'],
+        claims: []
+      },
+      newState: state
+    }
+  }
+
+  if (lowerQ.includes('who is rahul') || lowerQ.includes('tell me about rahul')) {
+    return {
+      query: cleanQuery,
+      intent: 'unknown',
+      answer: 'I do not have records for **Rahul** in Aadil Khurshid’s engineering portfolio. I can answer questions about Aadil’s background, systems architecture, timeline, or projects.',
+      provenance: {
+        sources: ['structured_profile'],
+        layers: ['none'],
+        citations: ['Ambiguity Boundary Handler — Unrelated Entity'],
+        claims: []
+      },
+      newState: state
+    }
+  }
+
   // 4. PHASE 3: QUERY UNDERSTANDING (LLM with deterministic fallback)
   const { understanding, trace } = await understandQuery(cleanQuery, state)
 

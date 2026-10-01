@@ -244,18 +244,39 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     }
   }
 
-  // 7. Detect Identity Query ("Who is Aadil?")
+  // Clean speech fillers & punctuation for conversational robustness
+  const cleanQ = q
+    .replace(/^(uh|um|er|ah|like|so|mean|i mean|well|you know|basically|actually|honestly)[,\s]+/gi, '')
+    .replace(/[,\s]+(uh|um|er|ah|like|so|you know)[,\s]+/gi, ' ')
+    .replace(/[?.!;,]+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  // 7. Detect Identity Query ("Who is Aadil?", "Who Aadil?", "Who is Adil?", etc.)
   const isIdentity =
     !detectedProjectSlug && (
-      q === 'who is aadil' ||
-      q === 'who is aadil?' ||
-      q === 'who is mohemmed aadil?' ||
-      q === 'who is mohemmed aadil' ||
-      q.includes('who is aadil') ||
-      q.includes('who is mohemmed') ||
-      q.includes('tell me about aadil') ||
-      q.includes('who is this portfolio about') ||
-      q.includes('who is the author')
+      cleanQ === 'who is aadil' ||
+      cleanQ === 'who aadil' ||
+      cleanQ === 'tell me aadil' ||
+      cleanQ === 'aadil who is' ||
+      cleanQ === 'who is mohemmed aadil' ||
+      cleanQ.includes('who is aadil') ||
+      cleanQ.includes('who aadil is') ||
+      cleanQ.includes('who aadil') ||
+      cleanQ.includes('who is mohemmed') ||
+      cleanQ.includes('tell me about aadil') ||
+      cleanQ.includes('tell me something about aadil') ||
+      cleanQ.includes('know about aadil') ||
+      cleanQ.includes('who exactly is aadil') ||
+      cleanQ.includes('who is this portfolio about') ||
+      cleanQ.includes('who is the author') ||
+      // Minor STT spelling variations (Adil, Aadill)
+      cleanQ === 'who is adil' ||
+      cleanQ === 'who is aadill' ||
+      cleanQ === 'tell me about adil' ||
+      cleanQ.includes('who is adil') ||
+      cleanQ.includes('tell me about adil') ||
+      cleanQ.includes('who is aadill')
     )
 
   if (isIdentity) {
@@ -268,15 +289,17 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     }
   }
 
-  // 8. Detect Overview Query ("What does Aadil do?")
+  // 8. Detect Overview Query ("What does Aadil do?", "What Aadil do?")
   const isOverview =
     !detectedProjectSlug && (
-      q.includes('what does aadil do') ||
-      q.includes('what kind of engineer is aadil') ||
-      q.includes('what does aadil work on') ||
-      q.includes('what is aadil\'s work') ||
-      q.includes('what is his focus') ||
-      q.includes('what kind of work')
+      cleanQ === 'what aadil do' ||
+      cleanQ.includes('what does aadil do') ||
+      cleanQ.includes('what aadil do') ||
+      cleanQ.includes('what kind of engineer is aadil') ||
+      cleanQ.includes('what does aadil work on') ||
+      cleanQ.includes('what is aadil\'s work') ||
+      cleanQ.includes('what is his focus') ||
+      cleanQ.includes('what kind of work')
     )
 
   if (isOverview) {
