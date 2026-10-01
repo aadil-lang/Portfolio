@@ -6,6 +6,7 @@ export const profile = {
   phone: '+91-7973949541',
   github: 'https://github.com/aadil-lang',
   linkedin: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6',
+  portfolioUrl: 'https://portfolio-ecru-five-5vd5okcvgi.vercel.app/',
   resumeUrl: '/resume.pdf',
   location: 'Varanasi, Uttar Pradesh, India (Open to Remote Globally)',
   bio: `Mohemmed Aadil Khurshid is an AI Systems Engineer who builds complete software systems around AI—spanning intelligent agentic orchestration, high-throughput backend pipelines, interactive product interfaces, and deterministic verification harnesses.`

@@ -44,6 +44,7 @@ export interface StructuredResume {
     secondaryEmail?: string
     linkedin: string
     github: string
+    portfolio?: string
   }
   summary: string
   technicalSkills: {
@@ -92,7 +93,8 @@ export const resumeData: StructuredResume = {
     email: 'aadil.khurshid95@gmail.com',
     secondaryEmail: 'khurshidaadil0@gmail.com',
     linkedin: 'linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6',
-    github: 'github.com/aadil-lang'
+    github: 'github.com/aadil-lang',
+    portfolio: 'portfolio-ecru-five-5vd5okcvgi.vercel.app'
   },
   summary:
     'AI Engineer with 4+ years of professional experience spanning AI application development, LLM and agentic systems, backend engineering, full-stack applications, and mathematics domain expertise. Experienced in building production-oriented AI workflows and independent engineering systems using Python, FastAPI, LangGraph, RAG, Playwright, and modern LLM tooling. Strong focus on combining LLM capabilities with deterministic logic, structured workflows, validation, testing, and human-in-the-loop controls to build reliable AI systems from concept and architecture through implementation and deployment.',
