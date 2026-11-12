@@ -22,7 +22,7 @@ export const projects: Project[] = [
     solution:
       'I independently designed and built this application for the Wayground/VoyageMath content-team workflow, pairing multi-tier prompt templates with a pure TypeScript Tier-1 Deterministic Evaluator that audits every generated question against defined structural constraints (exact option count, single correct-answer exclusivity, and duplicate distractor rejection) prior to human pedagogical review.',
     keyFeatures: [
-      'Tier-1 Deterministic Evaluator (lib/eval-layer.ts) enforcing 4 options, single CA, and duplicate rejection at 0ms and $0 API cost (deterministic evaluation layer only)',
+      'Tier-1 Deterministic Evaluator (lib/eval-layer.ts) enforcing 4 options, single CA, and duplicate rejection at <1ms and $0 API cost (client-side deterministic evaluation)',
       'Parallel micro-batching (calculateBatches) bounding generation latency to 4–8s',
       'Tier-2/3 adversarial blind-solve verifier (/api/verify)',
       'Dogfooded as live target under AI Application Reliability platform'
@@ -51,7 +51,7 @@ export const projects: Project[] = [
                   "4 unique options",
                   "Exactly 1 CA invariant",
                   "Distractor logic checked",
-                  "0ms local latency"
+                  "<1ms local latency"
             ]
       },
       {
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     id: 'curriculum-etl',
     slug: 'curriculum-etl',
     title: 'Curriculum Transformation Engine',
-    tagline: 'High-throughput Claude Map-Reduce ETL with dynamic schema contracts.',
+    tagline: 'Concurrent Claude Map-Reduce ETL with dynamic schema contracts.',
     summary:
       'Asynchronous distributed ETL engine chunking long unstructured curriculum documents, extracting structured records via parallel Claude tool calling, and enforcing 3-tier integrity gates without hardcoded scrapers.',
     ownershipLabel: 'WAYGROUND · INDEPENDENT BUILD',
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     problem:
       'Curriculum documents from diverse school districts arrive in incompatible, unstructured formats (PDFs, DOCX, web standards) where traditional scrapers constantly break.',
     solution:
-      'Independently engineered by me as part of my professional engineering work at Wayground: built a high-throughput Map-Reduce pipeline that derives schema contracts dynamically from sample inputs, executes parallel LLM extraction workers with strict JSON tool calling, and audits outputs through a 3-tier integrity gate.',
+      'Independently engineered by me as part of my professional engineering work at Wayground: built a concurrent Map-Reduce pipeline that derives schema contracts dynamically from sample inputs, executes parallel LLM extraction workers with strict JSON tool calling, and audits outputs through a 3-tier integrity gate.',
     keyFeatures: [
       'Dynamic schema derivation compiling Pydantic contracts from sample CSVs',
       'Merged evaluate-and-fix review pass cutting API calls by 50%',
@@ -254,14 +254,14 @@ export const projects: Project[] = [
     type: 'Hybrid AI • Deterministic Solvers',
     github: 'https://github.com/aadil-lang/Engineering-design-automation',
     demo: null,
-    technologies: ['AI Interpretation', 'Python', 'Deterministic Solvers', 'CAD (BRep/STEP)', 'Validation (330+ Tests)'],
+    technologies: ['AI Interpretation', 'Python', 'Deterministic Solvers', 'CAD (BRep/STEP)', 'Validation (424 Tests)'],
     problem:
       'Language models hallucinate numerical dimensions and cannot reliably compute allowable stress, torsional shear, or standard nominal diameter series for load-bearing mechanical components.',
     solution:
       'I designed and built this system independently outside professional work: engineered a hybrid architecture where LLMs parse natural language specifications, while pure deterministic Python engineering solvers execute physical formulas with explicit parameter provenance and automated CAD cross-validation.',
     keyFeatures: [
-      '330+ automated tests passing across 22 test suites in src/tests/',
-      '0.0000% volume error verified between BRep solid cylinder and theoretical formula',
+      '424 automated pytests passing across 28 test suites in Dockerized test harness',
+      '0.0000% relative volume discrepancy (< 10⁻⁶) verified between OpenCascade BRep solid cylinder and closed-form calculus',
       'Closed-form Saint-Venant torsion and von Mises shear yield (Ssy = 0.57735 * Sy)',
       'Automated CAD ↔ 2D drawing dimensional cross-verification before export',
       'Software analytical validation only — does not imply physical testing, machine safety certification, or ASME approval'
@@ -272,7 +272,7 @@ export const projects: Project[] = [
       { layer: 'AI Parameter Extraction', components: 'LLM Schema Parsing', details: 'Extracts structured engineering parameters into strict Pydantic schemas' },
       { layer: 'Deterministic Solvers', components: 'Python Mechanical Solvers', details: 'Closed-form Saint-Venant torsion, von Mises distortion-energy, Euler-Bernoulli deflection' },
       { layer: 'CAD Kernel', components: 'OpenCascade / CadQuery / PythonOCC', details: 'Parametric 3D BRep solids, ISO STEP export, 2D ASME SVG blueprints' },
-      { layer: 'Verification Suite', components: 'Automated Pytest Harness', details: '330+ automated tests across 22 test suites verifying zero CAD volume deviation' }
+      { layer: 'Verification Suite', components: 'Automated Pytest Harness', details: '424 automated pytests across 28 test suites verifying zero CAD volume deviation' }
     ],
     codeEvidence: [
       {
@@ -334,7 +334,7 @@ export const projects: Project[] = [
     solution:
       'I designed and built this system independently outside professional work: engineered a local-first platform running Playwright headless Chromium, deterministic behavioral contracts, Fisher covariance uncertainty estimation (forcing abstention when uncertain), a mandatory human governance authorization gate before remediation, and an append-only SHA-256 provenance ledger.',
     keyFeatures: [
-      '215+ automated tests passing across 58 test files in backend/tests/',
+      '205+ automated tests (158 backend test suites + 47 governance & E2E tests) across backend/tests/',
       'Direct dogfooding loop verifying Project 01 (VM Copy) on port 3000 as live target',
       'Dual-transport MCP server (STDIO & Streamable HTTP) providing an MCP tool interface',
       'Mandatory human governance gate blocking unauthorized consequential code alterations'
@@ -478,7 +478,7 @@ export const projects: Project[] = [
     title: 'Atlas AI — Financial Copilot & SEC Filing RAG',
     tagline: 'Telegram-native conversational financial copilot with LangGraph orchestration, SEC EDGAR RAG, and proactive alerts.',
     summary:
-      'A conversational financial copilot built for Telegram featuring LangGraph orchestration, SEC EDGAR and Finnhub market data integration, Google Gemini Embeddings with MongoDB Atlas Vector Search, and a proactive background alert worker validated by 178 automated tests.',
+      'A conversational financial copilot built for Telegram featuring LangGraph orchestration, SEC EDGAR and Finnhub market data integration, Google Gemini Embeddings with MongoDB Atlas Vector Search, and a proactive background alert worker validated by 178 automated tests across full SEC RAG matrix (59 core tests in initial MVP).',
     ownershipLabel: 'INDEPENDENT · HACKATHON PROJECT',
     ownershipCategory: 'hackathon',
     type: 'Agentic Systems • Financial RAG',
@@ -488,9 +488,9 @@ export const projects: Project[] = [
     problem:
       'Retail investors and analysts lack direct conversational access to primary SEC regulatory filings (10-K, 10-Q, 8-K) and market intelligence, frequently having to manually parse multi-hundred-page disclosures or rely on delayed summaries.',
     solution:
-      'I built this system as an independent hackathon project: engineered a Telegram-native conversational copilot powered by a LangGraph state machine, MongoDB Atlas Vector Search, Gemini embeddings, and direct SEC EDGAR / Finnhub API integrations with proactive background alert workers and 178 automated tests.',
+      'I built this system as an independent hackathon project: engineered a Telegram-native conversational copilot powered by a LangGraph state machine, MongoDB Atlas Vector Search, Gemini embeddings, and direct SEC EDGAR / Finnhub API integrations with proactive background alert workers and 178 automated tests (59 in core MVP).',
     keyFeatures: [
-      '178 automated tests passing across graph routing, SEC parser, market data, and alert worker modules in backend/tests/',
+      '178 automated tests passing across graph routing, SEC parser, market data, and alert worker modules in backend/tests/ (59 core tests in initial MVP)',
       'Stateful LangGraph orchestration coordinating context loading, intent routing, specialized research, synthesis, and memory extraction',
       'Semantic RAG over primary SEC EDGAR regulatory filings using Gemini Embeddings and MongoDB Atlas Vector Search',
       'Proactive alert worker (AlertWorker) running in FastAPI lifespan to poll watchlist volatility, new SEC filings, and news',
@@ -582,7 +582,7 @@ export const projects: Project[] = [
     tagline:
       'Grounded conversational agent preserving multi-source boundaries, temporal epistemic states, and deterministic human-in-the-loop action execution.',
     summary:
-      'A production grounded conversational agent providing conversational access across portfolio layers (Timeline, Journal, Systems, Resume, GitHub, LinkedIn, Profile) without merging them into an undifferentiated knowledge blob. Engineered with stateful entity tracking, epistemic temporal reasoning, editable communication drafts, and strict human authorization gates verified by 172 automated tests.',
+      'A production grounded conversational agent providing conversational access across portfolio layers (Timeline, Journal, Systems, Resume, GitHub, LinkedIn, Profile) without merging them into an undifferentiated knowledge blob. Engineered with stateful entity tracking, epistemic temporal reasoning, editable communication drafts, and strict human authorization gates verified by 327 automated assertions across 10 evaluation suites (including 172 core agent hardening & action governance checks).',
     ownershipLabel: 'INDEPENDENT · PERSONAL BUILD',
     ownershipCategory: 'personal-independent',
     type: 'Grounded Conversational Agent • Stateful Hybrid RAG',
@@ -594,15 +594,15 @@ export const projects: Project[] = [
       'TypeScript 5',
       'Hybrid Retrieval (Keyword + Semantic)',
       'Deterministic State Machine',
-      'Playwright (172 Tests)',
+      'Playwright & Vitest (327 Assertions)',
       'Human-in-the-Loop Actions'
     ],
     problem:
       'A normal portfolio exposes information through separate static pages. Ask Aadil needed to provide conversational access across those layers while preserving the critical distinctions between chronology (Timeline), reasoning (Journal), technical evidence (Systems), formal professional records (Resume), code evidence (GitHub), and professional context (LinkedIn). The challenge was not building a generic chatbot, but engineering an agent that knows what it knows, knows what it does not know, knows which source is authoritative, understands whether information is current, and knows what it is actually permitted to execute.',
     solution:
-      'I designed and built this system as an integrated personal engineering build: engineered a deterministic state machine, hybrid source-aware retriever, and human-in-the-loop execution pipeline. Sources are strictly kept separate with explicit authority hierarchies. The agent implements temporal epistemic boundaries (July 2026 historical records are never conflated with current status; absence of a corporate employer is never converted into an unemployment claim), a decoupled 3-state LinkedIn adapter boundary, prompt injection defense over retrieved data, and bitwise-exact draft execution without hidden LLM regeneration, validated by 172 automated tests.',
+      'I designed and built this system as an integrated personal engineering build: engineered a deterministic state machine, hybrid source-aware retriever, and human-in-the-loop execution pipeline. Sources are strictly kept separate with explicit authority hierarchies. The agent implements temporal epistemic boundaries (July 2026 historical records are never conflated with current status; absence of a corporate employer is never converted into an unemployment claim), a decoupled 3-state LinkedIn adapter boundary, prompt injection defense over retrieved data, and bitwise-exact draft execution without hidden LLM regeneration, validated by 327 automated assertions across 10 evaluation suites (including 172 core agent hardening and action governance checks).',
     keyFeatures: [
-      '172 automated verifications passing at 100% across multi-turn entity preservation, temporal reasoning, draft integrity, and browser interactions',
+      '327 automated test verifications passing across 10 suites (including 172 core hardening, entity preservation, temporal reasoning, and browser interaction checks)',
       'Source-aware retrieval maintaining discrete identity and hierarchy across Timeline (When), Journal (Why), Systems (What), Resume (Record), GitHub (Code), LinkedIn (Context), and Structured Profile (App Data)',
       'Epistemic temporal reasoning distinguishing current verified facts, latest documented activity, historical records, and unknown information',
       'Decoupled 3-state LinkedIn adapter boundary: api_unavailable != no job, adapter_ready with null position, and adapter_ready with live position',
@@ -643,9 +643,9 @@ export const projects: Project[] = [
       }
     ],
     whatBecameDeterministic:
-      'Intent classification, entity resolution, draft preservation across intermediate turns, human confirmation gates before external invocation, and 172 automated test assertions covering prompt injection resistance, session isolation, and provenance citations.',
+      'Intent classification, entity resolution, draft preservation across intermediate turns, human confirmation gates before external invocation, and 327 automated test assertions across 10 evaluation suites covering prompt injection resistance, session isolation, and provenance citations.',
     evidence: [
-      '172 automated tests passing at 100% across unit contracts and Playwright browser E2E execution',
+      '327 automated assertions passing across 10 evaluation suites (including 172 core hardening and Playwright browser E2E checks)',
       'Zero draft rewriting: verified executionInput === editedDraft identity across interleaved conversational turns',
       'Prompt injection defense verified across 5 independent sources (Journal, Systems, GitHub, LinkedIn, Resume)'
     ],
@@ -677,5 +677,360 @@ export const projects: Project[] = [
             ]
       }
 ]
+  },
+  {
+    id: 'solace-ai',
+    slug: 'solace-ai',
+    title: 'Solace AI — Mindful Wellness Companion',
+    subtitle: 'Safety-first mobile AI wellness companion with LangGraph SSE streaming, consent-based memory, and zero-retention voice privacy',
+    tagline: 'React Native (Expo 58) + FastAPI/LangGraph wellness sanctuary with deterministic crisis screening, consent-driven memory, and ambiguous SSE containment.',
+    summary:
+      'Built for the Solace Hackathon (November 2026), Solace AI is a cross-platform Expo 58 / FastAPI emotional wellness companion featuring a synchronous deterministic crisis safety interceptor, feature-flagged LangGraph SSE streaming with safe native fallback, consent-gated emotional memory, ephemeral voice journal transcription with immediate memory purge, bilingual English/Urdu Nastaliq contemplative poetry, and Android Keystore-safe offline guest persistence.',
+    ownershipLabel: 'INDEPENDENT · HACKATHON PROJECT',
+    ownershipCategory: 'hackathon',
+    type: 'Mobile AI Companion • Safety & Consent Architecture',
+    github: 'https://github.com/aadil-lang/solace-ai',
+    demo: 'https://aadil-lang.github.io/solace-ai-gallery/',
+    technologies: [
+      'React Native / Expo 58',
+      'TypeScript',
+      'Python 3.12',
+      'FastAPI',
+      'LangGraph',
+      'Google Gemini API',
+      'Supabase Auth & PostgreSQL (RLS)',
+      'SSE Streaming',
+      'Zustand / TanStack Query'
+    ],
+    problem:
+      'Mental wellness AI applications carry severe risks when built as naive chat wrappers: unguarded LLM latency delays crisis intervention, background memory extraction violates intimate user trust, storing raw voice journal audio creates privacy liability, and naive HTTP client retries on transient gateway failures (502/503/504) duplicate user messages in conversation history.',
+    solution:
+      'I designed and built Solace AI independently for the Solace Hackathon as an end-to-end Expo 58 mobile client and FastAPI modular monolith backed by Supabase Row Level Security (RLS). A deterministic crisis safety gate executes synchronously before any graph node or Gemini inference; LangGraph streams tokens via `astream_events` with an automated native fallback; conversational memory requires explicit per-insight user approval with strict isolation from journals and poetry; voice audio is purged in a `finally:` block immediately after transcription; and mobile SSE chat enforces a single-POST policy classifying 502/503/504 as ambiguous delivery.',
+    keyFeatures: [
+      '102 verified unit & mobile checks passing across backend & mobile suites (52/52 backend pytests across 8 modules + 50/50 mobile checks across 7 suites + 0 TypeScript errors; 143 total tests in complete repository matrix)',
+      'Deterministic crisis safety interceptor screening English, Roman Urdu, and Urdu script while rejecting figurative idioms before any LLM call (Tele-MANAS 14416, 112, 988)',
+      'Feature-flagged LangGraph StateGraph orchestration (ENABLE_LANGGRAPH_ROUTING) emitting real-time SSE tokens via adispatch_custom_event with pre-token native fallback',
+      'Consent-based emotional memory with SSE memory_suggestion banners and strict domain isolation (ADR-004) separating voice journals and poetry from chat context',
+      'Zero-retention Voice Journal pipeline enforcing 15 MB bounds and deterministic buffer purge (`del audio_bytes` in `finally:`) plus mandatory draft review before save',
+      'Single-POST SSE delivery guard classifying 502/503/504 as ambiguous delivery to prevent duplicate turns, paired with a 55s cold-start retry budget for idempotent reads',
+      'Multilingual "Words of Solace" poetry (English, Urdu Nastaliq RTL, Bilingual), "Just Let It Out" zero-advice Rant Mode, and offline-first 1500-byte SecureStore chunking'
+    ],
+    architecturePattern: 'solace',
+    systemLayers: [
+      { layer: 'Mobile Client', components: 'Expo SDK 58 / React Native 0.88 / TypeScript', details: 'Expo Router protected guards, Zustand stores, TanStack Query, procedural Reanimated Emotional Landscape, and Android EAS APK build' },
+      { layer: 'Resilient Transport', components: 'ApiService (mobile/services/api.ts)', details: '55s bounded exponential backoff with jitter for idempotent reads; single-POST SSE chat classifying 502/503/504 as ambiguous without blind retry' },
+      { layer: 'Backend Gateway & Auth', components: 'FastAPI (Python 3.12) / Supabase JWT', details: 'JWT claim-derived user identity verification, centralized exception handlers, and 6 Supabase PostgreSQL RLS migrations' },
+      { layer: 'Safety & Orchestration', components: 'LangGraph StateGraph + Deterministic Guard', details: 'Synchronous safety_node screening crisis patterns prior to context retrieval or Gemini streaming, with pre-token native fallback' },
+      { layer: 'Privacy & Wellness Domains', components: 'Voice, Poetry, Check-Ins & Emotional Memory', details: 'Ephemeral in-memory audio transcription, Rant Mode solidarity, Urdu Nastaliq poetry, and consent-only memory persistence' },
+      { layer: 'Verification Suite', components: 'Pytest (52) + Node Mobile Suites (50) + TSC', details: 'Live RLS two-user cross-isolation checks, cold-start & SSE resilience tests, Hermes AOT bundling (1,725 modules), and Pixel 7 emulator QA' }
+    ],
+    context:
+      'Built during the Solace Hackathon (November 2026) to explore how AI systems engineering principles—deterministic boundaries before LLM inference, explicit consent over hidden extraction, and failure containment over blind retries—apply to sensitive human-centered mobile products.',
+    criticalDecision:
+      'Placing deterministic crisis screening (`is_crisis_input`) synchronously ahead of all LangGraph and LLM calls rather than relying on model judgment, keeping LangGraph behind a rollback-safe feature flag with zero full-response buffering, and enforcing a single-POST SSE policy that treats 502/503/504 responses as ambiguous delivery instead of blindly retrying.',
+    whatBroke: [
+      {
+        failure: 'Duplicate Conversational Turns on Gateway 502/503/504',
+        cause: 'If an edge proxy dropped or timed out after the FastAPI route persisted the user message (`chat.py`), automatic client retries created duplicate user turns in conversation history.',
+        detection: 'Resilience audit and `api_cold_start.test.js` analysis flagged retry amplification on non-idempotent SSE POST requests.',
+        response: 'Enforced strict single-POST execution in `streamChat`, explicitly classifying socket drops and HTTP 502/503/504 as ambiguous delivery without blind retry.'
+      },
+      {
+        failure: 'Android Keystore Key-Character & 2048-Byte Storage Limits',
+        cause: 'Storage keys prefixed with `@` or containing special characters, and long reflection/journal notes exceeding 2048 bytes, failed under Android SecureStore.',
+        detection: 'Native Android storage testing and `storage_adapter.test.js` caught Keystore character rejections and size truncation.',
+        response: 'Built `sanitizeKey()` mapping non-alphanumeric characters to `_` on native platforms and 1500-byte note chunking in `useCheckInStore`.'
+      },
+      {
+        failure: 'Figurative Idioms Triggering Crisis False Positives & LangGraph TTFT Tax',
+        cause: 'Naive crisis keyword checks risked flagging idioms like "dying of laughter", while empirical benchmarking showed LangGraph event dispatch added ~1.08s TTFT overhead over direct Gemini streaming (330.6ms vs 1412.9ms).',
+        detection: '`compare_native_vs_graph.py` benchmark and `test_conversational_personality.py` idiom evaluations surfaced both behaviors.',
+        response: 'Added `FALSE_POSITIVE_PATTERNS` filtering alongside multilingual `HIGH_RISK_PATTERNS`, and wrapped LangGraph in `ENABLE_LANGGRAPH_ROUTING` with instant native fallback.'
+      }
+    ],
+    whatBecameDeterministic:
+      'Synchronous pre-LLM crisis pattern screening and figurative idiom exclusion, Android SecureStore key sanitization and 1500-byte chunking, single-POST ambiguous SSE failure containment, ephemeral audio buffer deletion in `finally:`, domain table isolation across RLS policies, and 102 verified unit & mobile checks across backend and mobile suites.',
+    evidence: [
+      '52 / 52 backend unit and orchestration pytests passing across 8 suites (`test_langgraph_orchestration.py`, `test_emotional_landscape.py`, `test_poetry.py`, `test_journal.py`, `test_conversational_personality.py`, `test_rant_and_voice.py`, `test_profile_auth.py`, `test_health.py`)',
+      '50 / 50 mobile verification checks passing across 7 suites (`auth_and_profile`, `phase3_companion`, `poetry`, `journal`, `emotional_landscape`, `storage_adapter`, `api_cold_start`) with `tsc --noEmit` reporting 0 errors',
+      'Live Supabase Row Level Security (RLS) two-user isolation verification confirming zero cross-user overlap across 6 domain tables',
+      'Android EAS preview APK built and verified on Pixel 7 Android 16 (API 36) emulator alongside Hermes AOT bundle export (1,725 modules)'
+    ],
+    tradeoffs: [
+      'Deterministic crisis regex matching guarantees <2ms interception and 0% model refusal drift, but requires explicit pattern maintenance for new slang or idioms.',
+      'Ephemereal audio zero-retention (`del audio_bytes` without cloud object storage) eliminates raw audio breach liability, trading away cross-device playback of past voice recordings.',
+      'Treating 502/503/504 SSE failures as ambiguous without blind auto-retry avoids duplicate conversation turns, asking users to verify thread state before resending.'
+    ],
+    breakthrough:
+      'Demonstrating that safety-critical and privacy-sensitive consumer mobile AI requires deterministic containment at every boundary: pre-LLM safety screening, explicit user consent for memory, ephemeral audio purging, and honest ambiguous-delivery semantics over SSE.',
+    delta:
+      'Extended deterministic AI systems engineering from developer tools and CAD backends into a full-stack mobile React Native + FastAPI/LangGraph consumer product with strict privacy and safety guarantees.',
+    codeEvidence: [
+      {
+        id: 'solace-langgraph-safety-topology',
+        title: 'Safety-First LangGraph StateGraph Topology',
+        decision: 'DETERMINISTIC SAFETY NODE BEFORE CONTEXT OR LLM GENERATION',
+        language: 'python',
+        sourcePath: 'backend/app/orchestration/graph.py',
+        lineRange: '27-59',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/solace-ai',
+        code: "def build_orchestration_graph() -> Any:\n    \"\"\"\n    Compiles the minimal, typed LangGraph orchestration pipeline for Solace AI.\n    \"\"\"\n    builder = StateGraph(OrchestrationState)\n\n    # Register nodes\n    builder.add_node(\"safety\", safety_node)\n    builder.add_node(\"context\", context_node)\n    builder.add_node(\"companion\", companion_node)\n    builder.add_node(\"crisis_terminal\", crisis_terminal_node)\n\n    # Register deterministic workflow transitions\n    builder.add_edge(START, \"safety\")\n    builder.add_conditional_edges(\n        \"safety\",\n        route_after_safety,\n        {\n            \"crisis_terminal\": \"crisis_terminal\",\n            \"context\": \"context\",\n        },\n    )\n    builder.add_conditional_edges(\n        \"context\",\n        route_after_context,\n        {\n            \"companion\": \"companion\",\n        },\n    )\n    builder.add_edge(\"companion\", END)\n    builder.add_edge(\"crisis_terminal\", END)\n\n    return builder.compile()",
+        explanation: "Every chat turn enters the compiled LangGraph StateGraph at the deterministic `safety` node before any user memories are retrieved or any Gemini inference runs. Acute distress diverts straight to `crisis_terminal`, delivering localized emergency resources without model latency or hallucination risk.",
+        principle: 'Screen safety deterministically before expanding context or invoking generative models.',
+        evidence: [
+          '14/14 LangGraph orchestration tests passing',
+          'Sub-2ms crisis routing before LLM calls',
+          'Zero-buffering SSE via astream_events(v2)'
+        ]
+      },
+      {
+        id: 'solace-crisis-screen-idioms',
+        title: 'Synchronous Crisis Screening with Figurative Idiom Filtering',
+        decision: 'AUTHORITATIVE REGEX + FALSE-POSITIVE IDIOM EXCLUSION',
+        language: 'python',
+        sourcePath: 'backend/app/services/memory_service.py',
+        lineRange: '97-116',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/solace-ai',
+        code: "@staticmethod\ndef is_crisis_input(text: str) -> bool:\n    \"\"\"\n    Determines whether user input indicates acute crisis or self-harm intent.\n    Excludes figurative speech and common non-crisis idioms.\n    \"\"\"\n    if not text or len(text.strip()) == 0:\n        return False\n\n    # If it matches an explicit false-positive idiom, do not flag as crisis\n    for fp in FALSE_POSITIVE_PATTERNS:\n        if fp.search(text):\n            return False\n\n    # Check high-risk crisis patterns\n    for pattern in HIGH_RISK_PATTERNS:\n        if pattern.search(text):\n            return True\n\n    return False",
+        explanation: "Mental health screening cannot depend on probabilistic LLM judgment or soft refusals. Solace evaluates incoming messages synchronously across English, Roman Urdu, and Urdu script high-risk patterns while filtering benign idioms (such as 'dying of laughter') before routing.",
+        principle: 'High-stakes safety decisions belong to fast, inspectable deterministic rules.',
+        evidence: [
+          'Localized IN (Tele-MANAS 14416, 112), US (988), GB (116 123) & Global routing',
+          'Multilingual English, Roman Urdu & Urdu script coverage',
+          'Verified false-positive idiom exclusion'
+        ]
+      },
+      {
+        id: 'solace-ambiguous-sse-guard',
+        title: 'Single-POST SSE Guard & Ambiguous 502/503/504 Containment',
+        decision: 'SUPPRESS BLIND RETRIES WHEN DELIVERY STATE IS AMBIGUOUS',
+        language: 'typescript',
+        sourcePath: 'mobile/services/api.ts',
+        lineRange: '748-773',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/solace-ai',
+        code: "try {\n  // POST is executed exactly ONCE to prevent duplicate user messages or double turns on backend\n  let response: Response;\n  try {\n    response = await fetch(url, {\n      method: 'POST',\n      headers,\n      body: JSON.stringify({ content, session_id: sessionId, mode }),\n    });\n  } catch (connErr: unknown) {\n    // Ambiguous connection failure: socket drop, timeout, or TCP reset could happen\n    // while or after the request reached the backend.\n    callbacks.onError?.(\n      \"We couldn't confirm whether your message was sent. Check the conversation before trying again.\"\n    );\n    return;\n  }\n\n  // Treat HTTP 502, 503, and 504 as ambiguous by default: edge proxy or gateway errors\n  // where the backend might have processed lines 49-57 before connection dropped.\n  if (response.status === 502 || response.status === 503 || response.status === 504) {\n    callbacks.onError?.(\n      \"We couldn't confirm whether your message was sent. Check the conversation before trying again.\"\n    );\n    return;\n  }",
+        explanation: "While idempotent reads safely use a 55-second exponential backoff retry budget for Render cold starts, retrying a chat stream POST after a gateway timeout risks duplicating persisted user turns. The mobile client executes the POST strictly once and exposes ambiguity honestly instead of guessing.",
+        principle: 'Never disguise an ambiguous side-effect outcome as a safe retry.',
+        evidence: [
+          '11/11 API cold-start & SSE resilience checks passing',
+          'Strict single-POST execution for non-idempotent streams',
+          'Explicit 502/503/504 ambiguous state reporting'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'ocr-evaluator',
+    slug: 'ocr-evaluator',
+    title: 'OCR Evaluation & Robustness Testing Platform',
+    subtitle: 'Multi-Tier Document Extraction Auditing & Image Degradation Stress Testing',
+    tagline: 'Moving beyond single-number accuracy: CER, WER, critical-field correctness, and risk-aware validation under real-world degradation.',
+    summary:
+      'An engineering-focused OCR evaluation system that measures document extraction accuracy, confidence, critical-field correctness, and robustness under real-world image degradation. It answers the fundamental operational question: "Can this OCR result be trusted?" through Character Error Rate (CER), Word Error Rate (WER), field-level matching, and risk classification (PASS / REVIEW / FAIL), validated by 134 automated backend pytests across 22 test files and 20 browser UI assertions.',
+    type: 'INDEPENDENT ENGINEERING PROJECT',
+    ownershipLabel: 'INDEPENDENT · PERSONAL BUILD',
+    ownershipCategory: 'personal-independent',
+    github: 'https://github.com/aadil-lang/OCR-Evaluator',
+    demo: null,
+    technologies: [
+      'Python 3.12',
+      'FastAPI',
+      'Tesseract OCR',
+      'React',
+      'pytest',
+      'Pillow',
+      'OpenCV',
+      'NumPy'
+    ],
+    architecturePattern: 'ocr',
+    systemLayers: [
+      { layer: 'Interface & Dashboard', components: 'React 18 / Vite / Tailwind CSS', details: 'Interactive document evaluation dashboard, ground-truth vs extraction diffs, and degradation trend charts' },
+      { layer: 'API & Orchestration', components: 'FastAPI (Python 3.12) / Pydantic v2', details: 'REST endpoints for document ingestion, evaluation batch execution, schema validation, and CORS-isolated data streaming' },
+      { layer: 'Extraction Engine', components: 'Tesseract OCR / PyTesseract / PIL', details: 'Automated OCR text extraction with character-level bounding boxes and confidence score collection' },
+      { layer: 'Evaluation & Metrics', components: 'NumPy / Levenshtein Distance', details: 'Multi-tier Character Error Rate (CER), Word Error Rate (WER), exact field matching, and priority risk classification' },
+      { layer: 'Robustness Suite', components: 'OpenCV / PIL Image Degradation Suite', details: 'Controlled degradation across 5 axes: Gaussian blur, additive noise, rotation skew, contrast loss, and JPEG artifacts' },
+      { layer: 'Verification Suite', components: 'pytest (134 Tests) & Playwright (20 UI Assertions)', details: '134 passing backend tests across 22 test files and 20 browser UI evaluation assertions with 0 frontend JavaScript errors' }
+    ],
+    statusNotice: 'INDEPENDENT ENGINEERING BUILD · SEPTEMBER 2026',
+    context:
+      'Legal title deeds, land records, and medical invoices carry severe operational risk when evaluated solely by global character accuracy. A 99% overall score is catastrophic if the 1% error misreads a vital legal survey number (e.g. 128/3 becoming 128/8). This platform turns OCR evaluation from passive benchmarking into an active operational risk gate.',
+    problem:
+      'OCR systems are typically evaluated using a single global accuracy score. For critical documents like legal title deeds, land records, or medical invoices, this metric is dangerously misleading: an engine can boast 99% overall character accuracy while misreading a vital survey number (e.g. 128/3 becoming 128/8). A single unflagged character error in a critical field causes catastrophic downstream failure.',
+    solution:
+      'Built an end-to-end evaluation and robustness testing platform that decouples overall extraction from critical-field auditing. The system evaluates documents across multiple tiers (CER, WER, exact field match, critical-field accuracy, OCR confidence), assigns operational risk classifications (PASS, REVIEW, FAIL), and subjects extraction models to controlled image degradations (Gaussian blur, noise, rotation skew, contrast reduction, JPEG compression). An interactive React dashboard connects to a FastAPI backend for real-time visual inspection.',
+    keyFeatures: [
+      'Multi-tier accuracy metrics: Character Error Rate (CER via Levenshtein edit distance), Word Error Rate (WER), and field-level exact match',
+      'Critical-field auditing: Prioritizes legal survey numbers, registration IDs, and numerical acreage over generic boilerplate text',
+      'Risk classification engine: Categorizes documents into PASS, REVIEW, or FAIL based on field severity rules and OCR confidence scores',
+      'Controlled image degradation suite: Measures resilience under Gaussian blur, additive noise, rotation skew, contrast loss, and JPEG artifacts',
+      'FastAPI backend & React dashboard: Full-stack architecture with schema validation and error-isolated document batch processing'
+    ],
+    evidence: [
+      '134 automated backend pytests passing across 22 test files with 100% pass rate',
+      '20 browser UI evaluation assertions passing with 0 frontend JavaScript errors',
+      'Evaluated across 5 degradation axes with documented accuracy degradation curves',
+      'Tested against anonymized title deed and land record ground-truth datasets'
+    ],
+    tradeoffs: [
+      'Critical fields require domain schema definition over generic unconstrained full-text extraction',
+      'Confidence score calibration varies across OCR engines; normalized thresholds are required'
+    ],
+    breakthrough:
+      'Shifting OCR evaluation from a passive extraction benchmark into an active risk gate: if a critical identifier fails or exhibits low confidence, the pipeline flags it for human review rather than silently passing incorrect data into downstream systems.',
+    criticalDecision:
+      'Enforcing strict priority: a mismatch on a CRITICAL severity field (e.g. Survey Number) immediately triggers a FAIL status, regardless of how high the OCR confidence score was on surrounding text.',
+    whatBroke: [
+      {
+        failure: 'Frontend crashed when rendering documents containing failed critical fields',
+        cause: 'API schema previously returned unexpected null values for failed field confidence intervals',
+        detection: '20 browser UI integration tests failing during initial frontend-to-FastAPI dogfooding',
+        response: 'Hardened backend serializer to guarantee consistent field evaluation contracts across PASS, REVIEW, and FAIL scenarios, verified with 20 browser UI assertions'
+      }
+    ],
+    codeEvidence: [
+      {
+        id: 'ocr-risk-assessment-engine',
+        title: 'Priority Risk Classification Engine',
+        decision: 'CRITICAL FIELD MISMATCH ALWAYS OVERRIDES HIGH STATISTICAL CONFIDENCE',
+        language: 'python',
+        sourcePath: 'src/evaluation/risk.py',
+        lineRange: '15-55',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/OCR-Evaluator',
+        code: `def assess_risk(field_results: dict) -> dict:
+    \"\"\"Determine document risk from field-level evaluation results.
+
+    Risk rules:
+    1. A field mismatch creates a FIELD_MISMATCH risk.
+    2. A CRITICAL field mismatch causes FAIL.
+    3. A HIGH field mismatch causes REVIEW.
+    4. A field with low OCR confidence causes REVIEW.
+    5. CRITICAL field mismatch always takes priority over low-confidence warnings.
+    6. Missing confidence (None) does not create a risk.
+    \"\"\"
+    failed_fields = []
+    low_confidence_fields = []
+
+    for field, result in field_results.items():
+        match = result.get("match", False)
+        confidence = result.get("confidence")
+        severity = FIELD_SEVERITY.get(field, "NORMAL")
+
+        # Field mismatch
+        if not match:
+            failed_fields.append({
+                "field": field,
+                "severity": severity,
+                "reason": "FIELD_MISMATCH",
+            })
+
+        # Low OCR confidence
+        if confidence is not None and confidence < LOW_CONFIDENCE_THRESHOLD:
+            low_confidence_fields.append({
+                "field": field,
+                "severity": severity,
+                "confidence": confidence,
+                "reason": "LOW_CONFIDENCE",
+            })`,
+        explanation:
+          'Critical fields (such as Survey Numbers or Registration IDs) must never be averaged out by high character accuracy on boilerplate text. A single mismatch on a critical field immediately forces a FAIL classification, triggering human review.',
+        principle: 'Never let aggregate accuracy mask a catastrophic failure on a high-severity entity.',
+        evidence: [
+          'Deterministic PASS, REVIEW, FAIL status derivation',
+          'Field-level severity mapping (CRITICAL, HIGH, NORMAL)',
+          'Verified by 8 dedicated risk evaluation pytests'
+        ]
+      },
+      {
+        id: 'ocr-robustness-metadata',
+        title: 'Controlled Image Degradation Metadata Parsing',
+        decision: 'STRUCTURED DEGRADATION TYPING FOR SYSTEMATIC RESILIENCE BENCHMARKING',
+        language: 'python',
+        sourcePath: 'src/evaluation/robustness.py',
+        lineRange: '1-38',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/OCR-Evaluator',
+        code: `DEGRADATION_TYPES = {
+    "blur": "Blur",
+    "contrast": "Contrast",
+    "jpeg": "JPEG",
+    "noise": "Noise",
+    "rotation": "Rotation",
+}
+
+CONTRAST_SEVERITY = {
+    "low": 1.0,
+    "medium": 2.0,
+    "high": 3.0,
+    "extreme": 4.0,
+}
+
+def parse_degradation(document_name: str) -> tuple[str, float]:
+    \"\"\"Parse legacy degradation metadata from a filename.\"\"\"
+    stem = Path(document_name).stem
+
+    for prefix, label in DEGRADATION_TYPES.items():
+        if stem.startswith(f"{prefix}_"):
+            value = stem[len(prefix) + 1:]
+            if prefix == "contrast":
+                severity = CONTRAST_SEVERITY.get(value.lower(), 0.0)
+            else:
+                try:
+                    severity = float(value)
+                except ValueError:
+                    severity = 0.0
+            return label, severity
+
+    return "Unknown", 0.0`,
+        explanation:
+          'Evaluates OCR robustness across 5 controlled degradation axes (Gaussian blur, noise, rotation, contrast, JPEG compression). Filename and manifest metadata ensure accuracy degradation curves are deterministically reproducible.',
+        principle: 'Test systems against controlled physical degradation before deploying into unpredictable production environments.',
+        evidence: [
+          '5 degradation axes with severity calibration',
+          'Automated degradation curve plotting',
+          '11 robustness suite pytests passing'
+        ]
+      },
+      {
+        id: 'ocr-api-cors-resolution',
+        title: 'FastAPI CORS Resolution & Ground-Truth Evaluation Endpoint',
+        decision: 'SECURE CORS ORIGIN RESOLUTION & STANDALONE GROUND-TRUTH INJECTION',
+        language: 'python',
+        sourcePath: 'src/api.py',
+        lineRange: '20-45',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/OCR-Evaluator',
+        code: `DEFAULT_CORS_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+def resolve_cors_origins() -> list:
+    \"\"\"Read CORS origins from OCR_API_CORS_ORIGINS environment variable.\"\"\"
+    raw_value = os.environ.get("OCR_API_CORS_ORIGINS", "")
+    origins = [
+        origin.strip()
+        for origin in raw_value.split(",")
+        if origin.strip()
+    ]
+    return origins or DEFAULT_CORS_ORIGINS
+
+def default_ground_truth_path() -> Path:
+    \"\"\"Locate sample ground-truth document used by demo API.\"\"\"
+    project_root = Path(__file__).resolve().parent.parent
+    return project_root / "data" / "ground_truth" / "test_document.json"`,
+        explanation:
+          'Connects the React evaluation dashboard to the FastAPI backend with clean CORS isolation and fallback ground-truth data injection, allowing offline demonstration and automated browser integration testing.',
+        principle: 'Decouple API evaluation contracts from client deployment environments.',
+        evidence: [
+          'Strict CORS origin resolution for local & production Vite clients',
+          '20 browser UI evaluation assertions passing',
+          '7 API integration pytests passing'
+        ]
+      }
+    ]
   }
 ]

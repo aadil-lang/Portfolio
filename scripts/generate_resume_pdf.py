@@ -32,8 +32,8 @@ html_content = """<!DOCTYPE html>
 
     header {
       border-bottom: 2px solid #0f172a;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
+      padding-bottom: 4px;
+      margin-bottom: 7px;
     }
 
     .name {
@@ -70,7 +70,7 @@ html_content = """<!DOCTYPE html>
     }
 
     .section {
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
 
     .section-title {
@@ -135,8 +135,8 @@ html_content = """<!DOCTYPE html>
     }
 
     .project-block {
-      margin-top: 3px;
-      margin-bottom: 5px;
+      margin-top: 2px;
+      margin-bottom: 4px;
     }
 
     .project-title-bar {
@@ -161,16 +161,22 @@ html_content = """<!DOCTYPE html>
     }
 
     ul.bullets li {
-      font-size: 8.5pt;
+      font-size: 8.4pt;
       color: #334155;
-      margin-bottom: 2px;
+      margin-bottom: 1.5px;
     }
 
     .edu-grid {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
+      align-items: baseline;
+      gap: 16px;
       font-size: 8.5pt;
       margin-bottom: 3px;
+    }
+
+    .edu-grid div {
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -183,7 +189,7 @@ html_content = """<!DOCTYPE html>
     <div class="contact-bar">
       <div class="contact-item"><strong>Email:</strong> <a href="mailto:aadil.khurshid95@gmail.com">aadil.khurshid95@gmail.com</a></div>
       <div class="contact-item"><strong>Phone:</strong> +91-7973949541</div>
-      <div class="contact-item"><strong>Location:</strong> Varanasi, UP, India (Open to Remote Globally)</div>
+      <div class="contact-item"><strong>Location:</strong> Varanasi, UP, India</div>
     </div>
     <div class="contact-bar" style="margin-top: 3px;">
       <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6" target="_blank">linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6</a></div>
@@ -196,7 +202,7 @@ html_content = """<!DOCTYPE html>
   <div class="section">
     <div class="section-title">Professional Summary</div>
     <p class="summary-text">
-      AI Engineer with 4+ years of professional experience spanning AI application development, LLM & agentic workflows, high-throughput backend engineering, full-stack applications, and mathematics domain expertise. Experienced in building production-oriented AI workflows and independent engineering systems using Python, FastAPI, LangGraph, RAG, Playwright, and modern LLM tooling. Strong focus on combining LLM capabilities with deterministic logic, structured workflows, validation, testing, and human-in-the-loop controls to build reliable AI systems from architecture through implementation and deployment.
+      AI Engineer with around 1 year of hands-on AI engineering experience and 4 years of overall professional experience spanning AI application development, backend engineering, full-stack development, and mathematics domain expertise. Experienced in building LLM-powered applications, RAG pipelines, and agentic workflows using Python, FastAPI, LangGraph, Playwright, and modern LLM tooling. Focused on combining LLM capabilities with deterministic logic, structured workflows, validation, automated testing, and human-in-the-loop controls to build reliable AI systems from architecture through implementation and deployment.
     </p>
   </div>
 
@@ -208,16 +214,16 @@ html_content = """<!DOCTYPE html>
       <div class="skill-val">LLMs, LangChain, LangGraph, RAG, Agentic Workflows, Tool Calling, LLM Orchestration, Prompt Engineering, Structured Outputs, Vision AI</div>
       
       <div class="skill-cat">Backend & Python:</div>
-      <div class="skill-val">FastAPI, Python 3.12, Node.js, Express.js, REST APIs, Pydantic v2, Pandas, NumPy, JWT Authentication</div>
+      <div class="skill-val">FastAPI, Python 3.12, Node.js, Express.js, REST APIs, SSE Streaming, Pydantic v2, Pandas, NumPy, JWT Authentication</div>
       
-      <div class="skill-cat">Frontend & Web:</div>
-      <div class="skill-val">React 19, Next.js 16 (App Router), TypeScript 5, Vite, Tailwind CSS, KaTeX, HTML5/CSS3</div>
+      <div class="skill-cat">Frontend & Mobile:</div>
+      <div class="skill-val">React 19, Next.js 16 (App Router), React Native, Expo 58, TypeScript 5, Vite, Tailwind CSS, KaTeX, HTML5/CSS3</div>
       
       <div class="skill-cat">Testing & Automation:</div>
       <div class="skill-val">Playwright (E2E & Visual QA), pytest, Vitest, Automated Testing, API Verification, Git/GitHub</div>
       
       <div class="skill-cat">Data & Infra:</div>
-      <div class="skill-val">MongoDB, MongoDB Atlas Vector Search, SEC EDGAR API, Docker, Docker Compose, TeX Live (pdflatex)</div>
+      <div class="skill-val">Supabase (PostgreSQL & RLS), MongoDB, MongoDB Atlas Vector Search, SEC EDGAR API, Docker, Docker Compose, TeX Live</div>
 
       <div class="skill-cat">AI Dev Tooling:</div>
       <div class="skill-val">Cursor, Claude Code, OpenAI Codex, Antigravity, Ollama, Model Context Protocol (MCP)</div>
@@ -231,8 +237,8 @@ html_content = """<!DOCTYPE html>
     <!-- WAYGROUND 1 -->
     <div class="exp-item">
       <div class="exp-header">
-        <div><span class="exp-role">AI Engineer — AI/ML Team</span> | <span class="exp-company">WAYGROUND</span></div>
-        <div class="exp-period">Jan 2026 – Jul 2026 | Bangalore, India</div>
+        <div><span class="exp-role">AI Engineer — AI/ML Team</span> | <span class="exp-company">WAYGROUND Inc</span></div>
+        <div class="exp-period">Jan 2026 – Jul 2026 | Bengaluru, India</div>
       </div>
 
       <div class="project-block">
@@ -261,43 +267,44 @@ html_content = """<!DOCTYPE html>
 
       <div class="project-block">
         <div class="project-title-bar">
-          <span>US Mathematics Item Bank — AI/ML Team System</span>
-          <span class="project-stack">Python, LangGraph, Pydantic, LLMs, SVG, TikZ, Vision Models</span>
+          <span>Selected Project: US Mathematics Item Bank Generation</span>
+          <span class="project-stack">Python, LangGraph, Pydantic, React, TypeScript, LLMs, Vision Models, SVG, TikZ, ILP</span>
         </div>
         <ul class="bullets">
-          <li>Contributed to a stateful cyclic LangGraph pipeline for mathematics item generation across 12 U.S. state-specific item banks (Middle School & Upper Elementary).</li>
-          <li>Implemented domain-based routing between SVG geometry and TikZ graphs/number lines, conducting cross-model vision-based verification and stabilization.</li>
+          <li>Owned the image-generation workstream across the entire item-bank generation system, designing modular prompts, researching effective prompting patterns, and building evaluation frameworks for generated mathematical visuals.</li>
+          <li>Developed vision-based evaluation workflows to assess generated images for visual correctness and alignment with the intended mathematics questions.</li>
+          <li>Worked on the Upper Elementary item-bank generation pipeline, developing and refining prompts, evaluation logic, and state-specific curriculum constraints.</li>
+          <li>Extended the pipeline by implementing support for new question types and image-based answer options.</li>
+          <li>Contributed to an Integer Linear Programming (ILP)-based stratified sampling mechanism to select questions from the generated bank according to curriculum-weightage targets and minimum/maximum constraints, using a Min/Max Swap strategy.</li>
+          <li>Worked on two item-bank vetting interfaces built with React and TypeScript, fixing UI bugs reported by US mathematics consultants and resolving data issues affecting the review and validation of generated items.</li>
         </ul>
       </div>
 
-      <div class="project-block">
-        <div class="project-title-bar">
-          <span>AI Question Generator — Full-Stack Application</span>
-          <span class="project-stack">FastAPI, Python, Streamlit, LLM Verification Loop</span>
-        </div>
-        <ul class="bullets">
-          <li>Built an AI-assisted mathematics question generation app with standards lookup and interactive LLM verification loop before content delivery.</li>
-        </ul>
-      </div>
     </div>
 
     <!-- WAYGROUND 2 -->
-    <div class="exp-item" style="margin-top: 6px;">
+    <div class="exp-item" style="margin-top: 6px; page-break-before: always;">
       <div class="exp-header">
-        <div><span class="exp-role">Subject Matter Expert — Mathematics</span> | <span class="exp-company">WAYGROUND</span></div>
-        <div class="exp-period">Jan 2024 – Dec 2025 | Bangalore, India</div>
+        <div><span class="exp-role">Subject Matter Expert — Mathematics</span> | <span class="exp-company">WAYGROUND Inc</span></div>
+        <div class="exp-period">Jan 2024 – Dec 2025 | Bengaluru, India</div>
       </div>
+      <ul class="bullets">
+        <li>Developed and reviewed K–12 mathematics content aligned with U.S. state standards, ensuring mathematical accuracy, curriculum alignment, and solution quality.</li>
+        <li>Created and validated mathematical questions, answer choices, and step-by-step solutions across different skills and difficulty levels.</li>
+        <li>Worked with KaTeX for mathematical content formatting and created educational diagrams using Figma.</li>
+      </ul>
 
-      <div class="project-block">
+      <div class="project-block" style="margin-top: 4px;">
         <div class="project-title-bar">
-          <span>VM Copy Question Generator — Production AI Tool</span>
-          <span class="project-stack">Next.js 16, TypeScript 5, Tailwind, Portkey AI Gateway, KaTeX, Vitest</span>
+          <span>VM Copy Question Generator</span>
+          <span class="project-stack">Next.js 16, TypeScript 5, Tailwind CSS, OpenAI, Portkey AI Gateway, KaTeX, Recharts, Vitest</span>
         </div>
         <ul class="bullets">
-          <li>Independently built a Next.js/TypeScript question generation application using OpenAI models to automate math variations and word-problem replicas.</li>
-          <li>Engineered a zero-cost deterministic evaluation layer executing in &lt;1 ms, validating option uniqueness, single-correct answer invariants, and distractor rationales outside the LLM.</li>
-          <li>Implemented blind-solve LLM verification personas and parallel batch partitioning with Portkey AI Gateway, reducing latency by 40%.</li>
-          <li>Developed and reviewed K-12 mathematics content for U.S. state standards, formatting complex equations in KaTeX and producing visual assets in Figma.</li>
+          <li>Independently built an AI-powered application using OpenAI models to generate mathematical question variations and word-problem replicas.</li>
+          <li>Designed a modular prompting architecture combining global system instructions with question-type-specific prompts to preserve source-question intent and enforce generation constraints.</li>
+          <li>Developed an evaluation framework combining LLM-based blind-solve verification with deterministic checks for answer-option uniqueness, single-correct-answer constraints, and distractor quality.</li>
+          <li>Engineered a deterministic evaluation layer executing in under 1 ms to validate critical answer constraints independently of LLM inference.</li>
+          <li>Implemented mathematical chart generation using Recharts and parallel batch processing through Portkey AI Gateway, reducing generation latency by 40%.</li>
         </ul>
       </div>
     </div>
@@ -309,8 +316,40 @@ html_content = """<!DOCTYPE html>
     
     <div class="project-block">
       <div class="project-title-bar">
-        <span>Loom AI — B2B Textile Marketplace</span>
-        <span class="project-stack">Next.js 16, React 19, TypeScript 5, Express, MongoDB Atlas, LangGraph, Playwright</span>
+        <span>Solace AI — Mindful Wellness Companion <span style="font-size: 8pt; font-weight: 500; color: #2563eb;">[Solace Hackathon · Nov 2026]</span></span>
+        <span class="project-stack">Expo 58, React Native, FastAPI, LangGraph, Gemini, Supabase RLS, SSE</span>
+      </div>
+      <ul class="bullets">
+        <li>Built a mobile AI wellness companion featuring synchronous pre-LLM crisis screening (Tele-MANAS 14416 / 112 / 988), consent-based emotional memory, bilingual Urdu/English poetry, and immediate in-memory voice audio purge.</li>
+        <li>Engineered single-POST SSE delivery guards classifying 502/503/504 drops as ambiguous without blind retries; verified by 52 backend pytests and 50 mobile checks (0 TS errors).</li>
+      </ul>
+    </div>
+
+    <div class="project-block" style="margin-top: 3px;">
+      <div class="project-title-bar">
+        <span>Ask Aadil — Stateful Portfolio Agent & Voice Interface <span style="font-size: 8pt; font-weight: 500; color: #2563eb;">[Personal · Sep 2026]</span></span>
+        <span class="project-stack">Next.js 16, React 19, TypeScript 5, Web Speech API, Hybrid RAG, Playwright</span>
+      </div>
+      <ul class="bullets">
+        <li>Built a stateful, grounded portfolio agent with hybrid retrieval, deterministic state routing, bitwise draft integrity under HITL confirmation, and 172 automated test assertions.</li>
+      </ul>
+    </div>
+
+    <div class="project-block" style="margin-top: 3px;">
+      <div class="project-title-bar">
+        <span>OCR Evaluation & Robustness Platform <span style="font-size: 8pt; font-weight: 500; color: #2563eb;">[Independent · Sep 2026]</span></span>
+        <span class="project-stack">Python 3.12, FastAPI, Tesseract OCR, React, pytest, Pillow, OpenCV, NumPy</span>
+      </div>
+      <ul class="bullets">
+        <li>Built an OCR evaluation platform measuring CER, WER, and critical-field accuracy with a priority risk engine (PASS/REVIEW/FAIL) overriding aggregate confidence.</li>
+        <li>Benchmarked robustness across 5 degradation axes (blur, noise, rotation, contrast, JPEG); verified by 134 backend pytests and 20 UI assertions (0 errors).</li>
+      </ul>
+    </div>
+
+    <div class="project-block" style="margin-top: 3px;">
+      <div class="project-title-bar">
+        <span><span style="white-space: nowrap;">Loom AI — B2B Textile Marketplace</span><br><span style="font-size: 8pt; font-weight: 500; color: #64748b; white-space: nowrap;">[Humanity Founders · Aug 2026]</span></span>
+        <span class="project-stack">Next.js 16, React 19, TypeScript 5, Express, MongoDB Atlas, LangGraph,<br>Playwright</span>
       </div>
       <ul class="bullets">
         <li>Built a full-stack B2B textile marketplace separating domain entities, use cases, and adapters with a LangGraph procurement agent for semantic requirement matching.</li>
@@ -320,7 +359,7 @@ html_content = """<!DOCTYPE html>
 
     <div class="project-block" style="margin-top: 3px;">
       <div class="project-title-bar">
-        <span>Atlas AI — Financial Copilot & SEC EDGAR RAG</span>
+        <span>Atlas AI — Financial Copilot & SEC EDGAR RAG <span style="font-size: 8pt; font-weight: 500; color: #64748b; white-space: nowrap;">[Humanity Founders · Aug 2026]</span></span>
         <span class="project-stack">Python 3.12, FastAPI, LangGraph, MongoDB Atlas Vector Search, SEC EDGAR API, Telegram Bot</span>
       </div>
       <ul class="bullets">
@@ -347,8 +386,12 @@ html_content = """<!DOCTYPE html>
       <div>2013 – 2017 | CGPA: 7.66 / 10</div>
     </div>
     <div class="edu-grid">
-      <div><strong>Class XII (CBSE)</strong> — Manas Convent School, Mughalsarai (2013) | 73.2%</div>
-      <div><strong>Class X (CBSE)</strong> — Sunbeam School, Mughalsarai (2011) | CGPA: 9.40</div>
+      <div><strong>Class XII (CBSE)</strong> — Manas Convent School, Mughalsarai</div>
+      <div>2013 | 73.2%</div>
+    </div>
+    <div class="edu-grid">
+      <div><strong>Class X (CBSE)</strong> — Sunbeam School, Mughalsarai</div>
+      <div>2011 | CGPA: 9.40</div>
     </div>
   </div>
 

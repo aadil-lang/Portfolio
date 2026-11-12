@@ -125,6 +125,66 @@ export const githubRepositories: Record<string, GitHubRepoRecord> = {
     readmeExcerpt:
       'Deterministic assessment generator built during Wayground tenure automating isomorphic question variations with client-side mathematical guardrails.',
     lastVerified: '2026-09-29'
+  },
+  'ask-aadil': {
+    owner: 'aadil-lang',
+    repo: 'portfolio',
+    url: 'https://github.com/aadil-lang/portfolio',
+    description:
+      'Three-layer engineering portfolio (Timeline, Journal, Systems) and Ask Aadil: a stateful, source-aware conversational agent with deterministic tool governance and bitwise draft integrity.',
+    primaryLanguage: 'TypeScript',
+    technologies: ['Next.js', 'React', 'TypeScript 5', 'Hybrid RAG', 'Deterministic State Machine', 'Playwright', 'Web Speech API'],
+    hasTests: true,
+    testFramework: 'Node Evaluation Suites + Playwright E2E',
+    verifiedTestCount: 172,
+    architectureNotes:
+      'Maintains discrete source boundaries across Timeline, Journal, Systems, Resume, GitHub, and 3-state LinkedIn adapter. Enforces temporal epistemic boundaries, prompt injection resistance across 5 sources, and human-in-the-loop mail confirmation with zero LLM rewriting (executionInput === editedDraft).',
+    readmeExcerpt:
+      'Interactive three-layer engineering portfolio and grounded conversational agent Ask Aadil verified across epistemic, tool planning, voice robustness, and Playwright browser suites.',
+    lastVerified: '2026-11-10'
+  },
+  'solace-ai': {
+    owner: 'aadil-lang',
+    repo: 'solace-ai',
+    url: 'https://github.com/aadil-lang/solace-ai',
+    description:
+      'Cross-platform Expo 58 / React Native and FastAPI/LangGraph emotional wellness companion with deterministic crisis screening, consent-based memory, and zero-retention voice privacy.',
+    primaryLanguage: 'TypeScript / Python',
+    technologies: [
+      'React Native / Expo 58',
+      'TypeScript',
+      'Python 3.12',
+      'FastAPI',
+      'LangGraph',
+      'Google Gemini API',
+      'Supabase Auth & PostgreSQL (RLS)',
+      'SSE Streaming'
+    ],
+    hasTests: true,
+    testFramework: 'pytest + Node test runner',
+    verifiedTestCount: 102, // 52 backend pytests + 50 mobile suite checks
+    architectureNotes:
+      'Synchronous pre-LLM deterministic crisis screening (is_crisis_input) inside LangGraph safety_node before context retrieval or Gemini streaming. Mobile ApiService executes SSE POST strictly once, classifying 502/503/504 as ambiguous delivery without blind retry; voice endpoint purges raw audio bytes in a finally block; Supabase RLS isolates 6 tables.',
+    readmeExcerpt:
+      'A little space to feel understood — Expo 58 mobile sanctuary and FastAPI/LangGraph backend featuring consent-based emotional memory, Rant Mode, bilingual English/Urdu Nastaliq poetry, ephemeral voice journaling, and Tele-MANAS / 112 / 988 crisis guardrails.',
+    lastVerified: '2026-11-10'
+  },
+  'ocr-evaluator': {
+    owner: 'aadil-lang',
+    repo: 'OCR-Evaluator',
+    url: 'https://github.com/aadil-lang/OCR-Evaluator',
+    description:
+      'Engineering-focused OCR evaluation and robustness platform measuring document accuracy, CER/WER, critical-field correctness, and degradation resilience.',
+    primaryLanguage: 'Python / JavaScript',
+    technologies: ['Python 3.12', 'FastAPI', 'Tesseract OCR', 'React', 'pytest', 'Pillow', 'OpenCV', 'NumPy'],
+    hasTests: true,
+    testFramework: 'pytest',
+    verifiedTestCount: 134,
+    architectureNotes:
+      'Multi-tier evaluation calculating Character Error Rate (CER), Word Error Rate (WER), field-level matching, and critical-field accuracy. Risk classification engine assigns PASS / REVIEW / FAIL decisions based on field severity. Robustness suite tests 5 degradation axes (blur, noise, rotation, contrast, JPEG compression).',
+    readmeExcerpt:
+      'An engineering-focused OCR evaluation system for measuring document extraction accuracy, confidence, critical-field correctness, and robustness under real-world image degradation. 134 automated backend tests passing.',
+    lastVerified: '2026-09-01'
   }
 }
 

@@ -16,6 +16,7 @@ export interface JourneyNode {
   title: string
   organization?: string
   role?: string
+  category?: 'Hackathon Project' | 'Independent Engineering Project' | 'Independent Personal Project' | 'Professional Employment' | string
   provenance: ProvenanceType
   provenanceDetails?: string
   zoneId: 'zone-01' | 'zone-02' | 'zone-03' | 'zone-04'
@@ -33,11 +34,11 @@ export interface JourneyNode {
 }
 
 export const JOURNEY_ZONES = [
-  { id: 'all', label: 'All Zones', startX: 0, endX: 2450 },
+  { id: 'all', label: 'All Zones', startX: 0, endX: 2580 },
   { id: 'zone-01', label: 'Zone 01: Math Foundations (2021–2023)', startX: 40, endX: 520 },
   { id: 'zone-02', label: 'Zone 02: Wayground Systems (2024–2025)', startX: 540, endX: 1020 },
   { id: 'zone-03', label: 'Zone 03: AI/ML Engineering (2026)', startX: 1040, endX: 1840 },
-  { id: 'zone-04', label: 'Zone 04: Systems & Horizon (2026+)', startX: 1860, endX: 2410 }
+  { id: 'zone-04', label: 'Zone 04: Still Building & Exploring (Aug 2026+)', startX: 1860, endX: 2560 }
 ]
 
 export const JOURNEY_NODES: JourneyNode[] = [
@@ -434,43 +435,105 @@ export const JOURNEY_NODES: JourneyNode[] = [
     routeType: 'solid'
   },
 
-  // ZONE 04: INDEPENDENT AI SYSTEMS & HORIZON (2026+)
+  // ZONE 04: INDEPENDENT AI ENGINEERING & RESEARCH (AUG 2026+)
+  // Career Context: Following the July 2026 conclusion of Wayground employment,
+  // all work represents independent engineering, hackathons, and research.
   {
-    id: 'loom-atlas-2026',
+    id: 'loom-ai-2026',
     stationNumber: '17',
     date: 'August 2026',
-    title: 'Loom AI & Atlas AI',
-    organization: 'Independent Hackathon Builds',
+    title: 'Loom AI — B2B Textile Marketplace Platform',
+    organization: 'Humanity Founders Marketplace Hackathon',
     role: 'System Architect & Author',
+    category: 'Hackathon Project',
     provenance: 'INDEPENDENT BUILD',
-    provenanceDetails: 'Independent hackathon projects built in August 2026.',
+    provenanceDetails: 'Independent hackathon project built for Humanity Founders Marketplace Hackathon in August 2026.',
     zoneId: 'zone-04',
-    zoneName: 'ZONE 04 // SYSTEMS & HORIZON',
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
     x: 1920,
     y: 180,
     symbolType: 'circle',
-    significance: 'Loom AI (LangGraph B2B procurement with HITL gates) & Atlas AI (Stateful RAG copilot across SEC EDGAR filings & market feeds with 178 pytests).',
-    transition: 'Built in August 2026: Shifted into stateful agent workflows and financial retrieval architectures.',
+    significance: 'B2B textile marketplace architecture pairing multi-agent LangGraph procurement matching with human-in-the-loop (HITL) order approval gates.',
+    transition: 'Built in August 2026: Shifted into multi-agent LangGraph architectures where sensitive procurement actions require deterministic human approval.',
     details: [
-      'Loom AI: LangGraph B2B procurement workflow engine with human approval authorization gates',
-      'Atlas AI: SEC EDGAR 10-K/10-Q parsing, MongoDB Atlas Vector Search, Finnhub market feeds, 178 pytests'
+      'Multi-agent LangGraph workflow engine coordinating buyer inquiries, supplier quotation matching, and inventory verification',
+      'Human-in-the-loop (HITL) approval queues guaranteeing human sign-off before purchase commitment',
+      'Comprehensive Playwright end-to-end integration and API test harnesses'
     ],
-    technologies: ['Next.js 16', 'LangGraph', 'SEC EDGAR', 'MongoDB Atlas Vector Search', 'FastAPI'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Express', 'MongoDB Atlas', 'LangGraph', 'Playwright'],
     journalAnchor: 'loom-ai',
     systemSlug: 'loom-ai',
     routeType: 'solid'
   },
   {
-    id: 'eda-cad-2026',
+    id: 'atlas-ai-2026',
     stationNumber: '18',
+    date: 'August 2026',
+    title: 'Atlas AI — Financial Copilot & SEC Filing RAG',
+    organization: 'Humanity Founders Finance Hackathon',
+    role: 'Backend & Systems Engineer',
+    category: 'Hackathon Project',
+    provenance: 'INDEPENDENT BUILD',
+    provenanceDetails: 'Independent hackathon project built for Humanity Founders Finance Hackathon in August 2026.',
+    zoneId: 'zone-04',
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 1920,
+    y: 370,
+    symbolType: 'circle',
+    significance: 'Stateful conversational RAG across SEC EDGAR 10-K/10-Q disclosures, Finnhub market feeds, and automated Telegram alert workers.',
+    transition: 'Built in August 2026: Engineered temporal-aware financial RAG with background daemon alert monitoring and 59 core (expanding to 178) pytests.',
+    details: [
+      'Hybrid RAG parsing SEC EDGAR 10-K/10-Q disclosures with chunk-level attribution and financial table preservation',
+      'Vector search retrieval layer powered by MongoDB Atlas Vector Search and Gemini embeddings',
+      'Automated background alert worker daemon sending threshold notifications to Telegram',
+      'Verified with 59 automated tests for core graph MVP, expanding to 178 pytests in complete test runner'
+    ],
+    technologies: ['Python', 'FastAPI', 'LangGraph', 'MongoDB Atlas Vector Search', 'Gemini', 'SEC EDGAR', 'Telegram'],
+    journalAnchor: 'atlas-ai',
+    systemSlug: 'atlas-ai',
+    routeType: 'solid'
+  },
+  {
+    id: 'ocr-evaluator-2026',
+    stationNumber: '19',
+    date: 'September 2026',
+    title: 'OCR Evaluation & Robustness Testing Platform',
+    organization: 'Independent Engineering Project',
+    role: 'Systems & Evaluation Engineer',
+    category: 'Independent Engineering Project',
+    provenance: 'INDEPENDENT BUILD',
+    provenanceDetails: 'Independent engineering system built in September 2026 to measure document extraction accuracy and degradation robustness.',
+    zoneId: 'zone-04',
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 2040,
+    y: 180,
+    symbolType: 'circle',
+    significance: 'Evaluation platform measuring document extraction accuracy, confidence, critical-field correctness, and robustness under controlled image degradation.',
+    transition: 'Built in September 2026: Answers the question "Can this OCR result be trusted?" using CER/WER, field-level matching, and risk classification.',
+    details: [
+      'Multi-tier evaluation: Character Error Rate (CER), Word Error Rate (WER), field-level matching, and critical-field accuracy',
+      'Risk classification engine assigning PASS / REVIEW / FAIL decisions based on field severity and OCR confidence',
+      'Robustness testing under 5 controlled degradations: blur, noise, rotation, contrast, and JPEG compression',
+      'Verified with 134 automated backend pytests across 22 test files, 20 browser UI assertions, and 0 frontend JS errors'
+    ],
+    technologies: ['Python 3.12', 'FastAPI', 'Tesseract OCR', 'React', 'pytest', 'Pillow', 'OpenCV', 'NumPy'],
+    journalAnchor: 'ocr-evaluator',
+    systemSlug: 'ocr-evaluator',
+    routeType: 'solid'
+  },
+  {
+    id: 'eda-cad-2026',
+    stationNumber: '20',
     date: 'September 2026',
     title: 'Engineering Design Automation (EDA CAD)',
-    organization: 'Personal Engineering',
+    organization: 'Independent Engineering Project',
     role: 'System Architect & Sole Author',
+    category: 'Independent Engineering Project',
     provenance: 'INDEPENDENT BUILD',
+    provenanceDetails: 'Independent engineering system built in September 2026.',
     zoneId: 'zone-04',
-    zoneName: 'ZONE 04 // SYSTEMS & HORIZON',
-    x: 2020,
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 2040,
     y: 370,
     symbolType: 'circle',
     significance: 'Parametric CAD synthesis pairing natural language briefs with closed-form physics solvers and OpenCascade BRep CAD kernels (STEP/SVG export).',
@@ -479,57 +542,113 @@ export const JOURNEY_NODES: JourneyNode[] = [
       'Hybrid AI-to-CAD synthesis with OpenCascade BRep CAD kernel generating 3D STEP geometry & SVG technical drawings',
       'Verified material provenance with ASTM/EN tables; 424 passing pytests with 0.0000% volume error'
     ],
-    technologies: ['Python', 'OpenCascade CAD / BRep / STEP', 'Physics Solvers', 'SVG Technical Drawings'],
+    technologies: ['Python', 'FastAPI', 'OpenCascade CAD / BRep / STEP', 'Physics Solvers', 'SVG Technical Drawings'],
     journalAnchor: 'eda-cad',
     systemSlug: 'design-automation',
     routeType: 'solid'
   },
   {
     id: 'ai-reliability-2026',
-    stationNumber: '19',
+    stationNumber: '21',
     date: 'September 2026',
     title: 'AI Application Reliability & QA Harness',
-    organization: 'Personal Engineering',
+    organization: 'Independent Engineering Project',
     role: 'Reliability Engineer & Author',
+    category: 'Independent Engineering Project',
     provenance: 'INDEPENDENT BUILD',
+    provenanceDetails: 'Independent engineering system built in September 2026.',
     zoneId: 'zone-04',
-    zoneName: 'ZONE 04 // SYSTEMS & HORIZON',
-    x: 2120,
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 2160,
     y: 280,
     symbolType: 'circle',
     significance: 'Autonomous browser testing platform pairing Playwright Chromium execution grounding with local Ollama Qwen 2.5 Coder & Fisher covariance uncertainty abstention.',
     transition: 'Built in September 2026: The question evolved from "Can AI build this?" to "How do we know what the AI actually did?"',
     details: [
       'Execution grounding capturing DOM snapshots, network payloads, console logs, and Playwright screenshots',
-      'Fisher Information covariance uncertainty modeling: deterministically abstains when ambiguity is high'
+      'Fisher Information covariance uncertainty modeling: deterministically abstains when ambiguity is high',
+      '158 backend test suites, 47 governance tests; autonomously dogfooded against VM Copy'
     ],
-    technologies: ['Playwright', 'Ollama (Qwen 2.5 Coder)', 'FastAPI', 'Next.js', 'Model Context Protocol (MCP)'],
+    technologies: ['Playwright', 'FastAPI', 'Ollama (Qwen 2.5 Coder)', 'Next.js', 'Model Context Protocol (MCP)'],
     journalAnchor: 'ai-reliability',
     systemSlug: 'ai-reliability',
     routeType: 'solid'
   },
   {
+    id: 'portfolio-ask-aadil-2026',
+    stationNumber: '22',
+    date: 'September – November 2026',
+    title: 'Engineering Portfolio & Ask Aadil',
+    organization: 'Independent Personal Project',
+    role: 'Lead AI Systems Engineer & Author',
+    category: 'Independent Personal Project',
+    provenance: 'INDEPENDENT BUILD',
+    provenanceDetails: 'Three-layer engineering portfolio and grounded conversational agent Ask Aadil.',
+    zoneId: 'zone-04',
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 2280,
+    y: 370,
+    symbolType: 'circle',
+    significance: 'Built this three-layer portfolio (Timeline, Journal, Systems) and Ask Aadil: source-aware hybrid RAG with deterministic state routing, bitwise draft integrity, and voice VAD.',
+    transition: 'Built in September–November 2026: Turned the portfolio into an authoritative AI system that eliminates hallucinations, separates source layers, and governs side effects.',
+    details: [
+      'Preserves strict epistemic boundaries across Timeline, Journal, Systems, Resume, GitHub, and 3-state LinkedIn adapter',
+      'Enforces bitwise draft integrity (executionInput === editedDraft) and voice interface backed by 172 automated assertions'
+    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Hybrid RAG', 'Deterministic State Machine', 'Playwright', 'Web Speech API'],
+    journalAnchor: 'ask-aadil',
+    systemSlug: 'ask-aadil',
+    routeType: 'solid'
+  },
+  {
+    id: 'solace-ai-2026',
+    stationNumber: '23',
+    date: 'November 2026',
+    title: 'Solace AI — Mindful Wellness Companion',
+    organization: 'Solace Hackathon',
+    role: 'System Architect & Sole Author',
+    category: 'Hackathon Project',
+    provenance: 'INDEPENDENT BUILD',
+    provenanceDetails: 'Built independently for the Solace Hackathon (November 2026).',
+    zoneId: 'zone-04',
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 2280,
+    y: 180,
+    symbolType: 'circle',
+    significance: 'Expo 58 + FastAPI/LangGraph mobile wellness sanctuary with deterministic pre-LLM crisis screening, consent-based memory, ephemeral voice purge, and 102 verified checks.',
+    transition: 'Built in November 2026: Extended deterministic safety gates and ambiguous-delivery boundaries into mobile human-centered AI.',
+    details: [
+      'Synchronous pre-LLM crisis screening (Tele-MANAS 14416 / 112 / 988) with figurative idiom filtering inside LangGraph safety_node',
+      'Single-POST SSE delivery guard classifying 502/503/504 as ambiguous, ephemeral audio buffer purge, and 52 backend + 50 mobile verified checks'
+    ],
+    technologies: ['React Native / Expo 58', 'FastAPI', 'LangGraph', 'Google Gemini API', 'Supabase RLS', 'SSE Streaming'],
+    journalAnchor: 'solace-ai',
+    systemSlug: 'solace-ai',
+    routeType: 'solid'
+  },
+  {
     id: 'ongoing-frontier-2026',
-    stationNumber: '20',
-    date: 'September 2026 — Present',
-    title: 'Ask Aadil & Continuous Exploration',
-    organization: 'The Engineering Horizon',
+    stationNumber: '24',
+    date: 'August 2026 — Present',
+    title: 'Independent AI Engineering & Research',
+    organization: 'Independent AI Engineering & Research',
     role: 'Independent AI Engineer & Researcher',
+    category: 'Independent Engineering Project',
     provenance: 'CONTINUING FRONTIER',
     zoneId: 'zone-04',
-    zoneName: 'ZONE 04 // SYSTEMS & HORIZON',
-    x: 2260,
+    zoneName: 'ZONE 04 // STILL BUILDING & EXPLORING (AUG 2026+)',
+    x: 2400,
     y: 280,
     symbolType: 'end-node',
-    significance: 'Developing Ask Aadil stateful portfolio RAG agent with deterministic tool governance, voice interface, and 334 automated assertions.',
-    transition: 'THE MAP CONTINUES → Exploring the boundary between stochastic model output and deterministic verification.',
+    significance: 'Building, experimenting and researching intelligent applications, agentic systems and reliable AI engineering solutions. Demonstrating continuous technical growth across practical systems.',
+    transition: 'AUGUST 2026 — PRESENT → Still building. Still exploring. Pushing the boundary between stochastic reasoning and deterministic verification.',
     details: [
-      'Building Ask Aadil: Portfolio RAG agent with deterministic tool governance and voice interface',
-      'Exploring browser automation reliability, Fisher information uncertainty modeling, and MCP integrations',
-      'The engineering journey is continuously unfolding'
+      'Continuous independent building and exploration since August 2026 across Loom AI, Atlas AI, OCR Evaluator, AI Reliability, EDA, Ask Aadil, and Solace AI',
+      'Exploring agent reliability, Fisher information uncertainty modeling, safety-first mobile AI, and MCP integrations',
+      'Continuous technical growth through shipping practical systems: Curiosity → Learning → Contribution → Building → Discovery → Repeat'
     ],
-    technologies: ['Ask Aadil', 'RAG Governance', 'Voice Interface', 'Continuous Exploration'],
-    journalAnchor: 'ask-aadil',
+    technologies: ['Autonomous Agents', 'LangGraph', 'Playwright', 'FastAPI', 'Next.js', 'Deterministic Solvers'],
+    journalAnchor: 'still-building',
     routeType: 'continuing'
   }
 ]

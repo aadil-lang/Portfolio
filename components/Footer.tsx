@@ -14,12 +14,16 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-5 text-[#858A90]">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 text-[#858A90]">
           <Link href="/experience" className="hover:text-[#F0EEE9] transition-colors">Timeline</Link>
-          <Link href="/journal" className="hover:text-[#F0EEE9] transition-colors">Journal</Link>
           <Link href="/systems" className="hover:text-[#F0EEE9] transition-colors">Systems Archive</Link>
+          <Link href="/architecture" className="hover:text-[#58A6FF] transition-colors">Architecture</Link>
+          <Link href="/journal" className="hover:text-[#F0EEE9] transition-colors">Journal</Link>
+          <Link href="/rag-lab" className="hover:text-[#5A9A78] transition-colors">RAG Lab</Link>
+          <Link href="/verification" className="hover:text-[#78C29A] transition-colors">Verification</Link>
+          <Link href="/compare" className="hover:text-[#A2B4C2] transition-colors">Compare</Link>
           <Link href="/contact" className="hover:text-[#F0EEE9] transition-colors">Contact</Link>
-          <Link href="/ask-aadil" className="hover:text-[#58A6FF] transition-colors">Ask Aadil</Link>
+          <Link href="/recruiter" className="hover:text-[#5A9A78] transition-colors">Quick View</Link>
         </div>
 
         <div className="flex items-center gap-3 text-[#686E77]">

@@ -258,10 +258,13 @@ export function retrieveHybrid(query: string, inputDecision?: RoutingDecision): 
       authority: 'primary',
       layer: 'system',
       entity: 'Stage 5: Autonomous Systems & Governed Reliability',
-      content: `CAREER EVOLUTION — STAGE 5: DETERMINISTIC ENGINEERING & RELIABILITY (Late 2025 — 2026)
+      content: `CAREER EVOLUTION — STAGE 5: DETERMINISTIC ENGINEERING & RELIABILITY (Late 2025 — 2026 / August 2026 — Present: Still Building. Still Exploring.)
 • Loom AI & Atlas AI: Multi-agent LangGraph architectures pairing vector retrieval with proactive alert daemons and human-in-the-loop (HITL) approval queues.
 • Engineering Design Automation (EDA CAD): AI interprets the brief; closed-form physics and OpenCascade CadQuery BRep solid modeling guarantee STEP geometry with 0.0000% volume error (424 tests across 28 suites).
-• AI Application Reliability: Full-circle closed loop. Built a Playwright browser QA harness that tests AI applications (like VM Copy) using covariance uncertainty filtering to deterministically abstain from speculative actions and enforcing cryptographic human authorization.`,
+• OCR Evaluation & Robustness Testing Platform (Sep 2026): Multi-tier document accuracy evaluation (CER, WER, critical-field matching, OCR confidence) with risk classification (PASS/REVIEW/FAIL) and degradation testing across blur, noise, rotation, contrast, and JPEG compression (134 backend pytests + 20 UI assertions).
+• AI Application Reliability: Full-circle closed loop. Built a Playwright browser QA harness that tests AI applications (like VM Copy) using covariance uncertainty filtering to deterministically abstain from speculative actions and enforcing cryptographic human authorization.
+• Engineering Portfolio & Ask Aadil (Sep 2026): Built this bespoke portfolio platform, 36-folio Engineering Journal, Cartographic Journey Map, and Ask Aadil—a strict zero-fabrication hybrid RAG agent with temporal reasoning and UI tool dispatch (172/172 verified checks across test suites).
+• Solace AI (Solace Hackathon, Nov 2026): Cross-platform Expo 58 + FastAPI/LangGraph wellness companion extending deterministic safety screening, consent-based memory, ephemeral audio purging, and ambiguous SSE containment to mobile consumer AI (52 backend pytests + 50 mobile suite checks).`,
       deepLink: '/systems',
       provenanceBadge: '[Systems // EDA & Reliability]',
       ownershipClassification: 'INDEPENDENT_BUILD'
@@ -471,7 +474,7 @@ Core Thesis: ${epilogue.thesis}
 
 7. Build From the Previous Failure:
    ${epilogue.principles[6].description}`,
-      deepLink: '/#epilogue',
+      deepLink: '/journal?spread=18#journal-book',
       provenanceBadge: '[Journal — Foundations]'
     })
   }

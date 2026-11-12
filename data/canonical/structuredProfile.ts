@@ -34,7 +34,7 @@ export const structuredProfile: StructuredProfileData = {
   },
   portfolioUrl: 'https://portfolio-ecru-five-5vd5okcvgi.vercel.app/',
   
-  location: 'Varanasi, Uttar Pradesh, India (Open to Remote Globally)',
+  location: 'Varanasi, Uttar Pradesh, India',
   openToWork: true,
   
   // Verified Educational Credentials from Resume

@@ -87,7 +87,9 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
         (p.slug === 'atlas-ai' && (q.includes('atlas') || q.includes('financial') || q.includes('sec') || q.includes('edgar'))) ||
         (p.slug === 'ai-reliability' && (q.includes('reliability') || q.includes('qa harness') || q.includes('fisher') || q.includes('browser qa'))) ||
         (p.slug === 'binance-bot' && (q.includes('binance') || q.includes('futures bot') || q.includes('trading bot'))) ||
-        (p.slug === 'ask-aadil' && (q.includes('ask aadil') || q.includes('ask-aadil') || q.includes('portfolio agent')))
+        (p.slug === 'ask-aadil' && (q.includes('ask aadil') || q.includes('ask-aadil') || q.includes('portfolio agent'))) ||
+        (p.slug === 'solace-ai' && (q.includes('solace') || q.includes('wellness companion') || q.includes('rant mode') || q.includes('words of solace') || q.includes('emotional landscape'))) ||
+        (p.slug === 'ocr-evaluator' && (q.includes('ocr') || q.includes('cer') || q.includes('wer') || q.includes('tesseract')))
 
       if (slugMatch || titleMatch || aliasMatch) {
         detectedProjectSlug = p.slug

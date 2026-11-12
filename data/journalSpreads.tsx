@@ -50,7 +50,7 @@ export interface SpreadDefinition {
   rightPage: PageDefinition
 }
 
-// Build 16 Spreads (32 Folios: 001 — 032)
+// Build 18 Spreads (36 Folios: 001 — 036)
 export const journalSpreads: SpreadDefinition[] = [
   // =========================================================================
   // SPREAD 00: OPENING // CURIOSITY COMES FIRST & TABLE OF CONTENTS (001 & 002)
@@ -73,7 +73,7 @@ export const journalSpreads: SpreadDefinition[] = [
                 <Compass className="w-3.5 h-3.5" />
                 <span>The Core Operating Loop</span>
               </span>
-              <span className="text-[#6E747C]">1998 — 2026</span>
+              <span className="text-[#484E55]">1998 — 2026</span>
             </div>
 
             {/* Foundational Philosophy Vector */}
@@ -112,7 +112,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-xs font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-xs font-mono text-[#484E55]">
             <span>ENGINEERING LOGBOOK</span>
             <button
               type="button"
@@ -127,7 +127,7 @@ export const journalSpreads: SpreadDefinition[] = [
     },
     rightPage: {
       pageNumber: 2,
-      header: 'TABLE OF CONTENTS // 19 CHAPTERS',
+      header: 'TABLE OF CONTENTS // 22 CHAPTERS',
       marginalLabel: 'INDEX',
       content: ({ onNavigateSpread }) => {
         const tocItems = [
@@ -150,19 +150,22 @@ export const journalSpreads: SpreadDefinition[] = [
           { num: '17', title: 'Stateful Workflows + Retrieval + Tools (Atlas AI)', spread: 11, page: '023' },
           { num: '18', title: 'AI Meets Deterministic Engineering (EDA CAD)', spread: 12, page: '025' },
           { num: '19', title: 'The Reliability Question (Browser QA)', spread: 13, page: '027' },
-          { num: '20', title: 'Still Building (?) [Open Ending]', spread: 14, page: '029' },
-          { num: 'EP', title: 'Epilogue: Systems Catalog & Archive', spread: 15, page: '031' }
+          { num: '20', title: 'Controlled Degradation & Robustness (OCR Evaluator)', spread: 14, page: '029' },
+          { num: '21', title: 'This Portfolio & Ask Aadil (Source-Aware Agent)', spread: 15, page: '031' },
+          { num: '22', title: 'Safety-First Mobile Companions (Solace AI)', spread: 16, page: '033' },
+          { num: 'SY', title: 'Still Building. Still Exploring. (Aug 2026 — Present)', spread: 17, page: '035' },
+          { num: 'EP', title: 'Epilogue: Systems Catalog & Archive', spread: 18, page: '037' }
         ]
 
         return (
           <div className="h-full flex flex-col justify-between space-y-1 text-[#25282A]">
             <div className="space-y-1">
-              <div className="flex items-center justify-between text-[9.5px] font-mono text-[#6A7077] uppercase tracking-widest border-b border-[#DCD7C9] pb-0.5">
+              <div className="flex items-center justify-between text-[9.5px] font-mono text-[#484E55] uppercase tracking-widest border-b border-[#DCD7C9] pb-0.5">
                 <span>Chapter / Chronicle</span>
                 <span>Folio</span>
               </div>
 
-              <div className="space-y-0.5 pt-0.5 text-[9.5px]">
+              <div className="space-y-0.5 pt-0.5 text-[9px] sm:text-[9.5px]">
                 {tocItems.map((item) => (
                   <div
                     key={item.page}
@@ -170,7 +173,7 @@ export const journalSpreads: SpreadDefinition[] = [
                     className="flex items-baseline justify-between py-0.5 px-1 rounded hover:bg-[#EAE6DC]/70 cursor-pointer transition-colors group select-none"
                   >
                     <div className="flex items-baseline gap-1.5 min-w-0 pr-1">
-                      <span className="font-mono text-[8.5px] font-bold text-[#3D5A6E] shrink-0">
+                      <span className="font-mono text-[9.5px] font-bold text-[#3D5A6E] shrink-0">
                         {item.num}
                       </span>
                       <span className="font-serif font-semibold text-[#1E2124] group-hover:text-[#3D5A6E] truncate">
@@ -178,7 +181,7 @@ export const journalSpreads: SpreadDefinition[] = [
                       </span>
                     </div>
                     <div className="flex-1 mx-1 border-b border-dotted border-[#B5AFA2] min-w-[8px]" />
-                    <span className="font-mono text-[9px] text-[#555C62] group-hover:text-[#1E2124] font-medium shrink-0">
+                    <span className="font-mono text-[9px] text-[#484E55] group-hover:text-[#1E2124] font-medium shrink-0">
                       {item.page}
                     </span>
                   </div>
@@ -186,14 +189,14 @@ export const journalSpreads: SpreadDefinition[] = [
               </div>
             </div>
 
-            <div className="p-1.5 rounded bg-[#EFECE3]/70 border border-[#D5D0C0] text-[8.5px] font-mono text-[#5A6066]">
+            <div className="p-1.5 rounded bg-[#EFECE3]/70 border border-[#D5D0C0] text-[9.5px] font-mono text-[#484E55]">
               <span className="text-[#3D5A6E] font-bold">PHYSICAL NOTEBOOK METAPHOR: </span>
               <span>CONTENT → SME → REPRESENTATION → VISUALS → TOOLING → AI → EVALUATION → PIPELINES → RELIABILITY → ?</span>
             </div>
 
-            <div className="pt-1 border-t border-[#DCD7C9] flex items-center justify-between text-[10px] font-mono text-[#6E747C]">
-              <span>32 FOLIOS // COMPLETE JOURNEY</span>
-              <span>19 CHAPTERS</span>
+            <div className="pt-1 border-t border-[#DCD7C9] flex items-center justify-between text-[10px] font-mono text-[#484E55]">
+              <span>38 FOLIOS // COMPLETE JOURNEY</span>
+              <span>22 CHAPTERS + SYNTHESIS</span>
             </div>
           </div>
         )
@@ -219,7 +222,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Graveiens Edu Services Pvt. Ltd.</span>
-              <span className="text-[#6E747C]">May 2021 — Oct 2021</span>
+              <span className="text-[#484E55]">May 2021 — Oct 2021</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -244,7 +247,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>FOUNDATIONS</span>
             <span>LEARNING THE DOMAIN</span>
           </div>
@@ -260,7 +263,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">InhaltMart Educational Services</span>
-              <span className="text-[#6E747C]">Oct 2021 — Feb 2022</span>
+              <span className="text-[#484E55]">Oct 2021 — Feb 2022</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -285,7 +288,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>STRUCTURED NOTATION</span>
             <span>TURN SPREAD FOR CH. 03 →</span>
           </div>
@@ -312,7 +315,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Digiplus · QC K–10 SME</span>
-              <span className="text-[#6E747C]">Jun 2022 — Jul 2022</span>
+              <span className="text-[#484E55]">Jun 2022 — Jul 2022</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -345,7 +348,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>SYSTEMATIC AUDITING</span>
             <span>EVALUATION FIRST</span>
           </div>
@@ -361,7 +364,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Independent Study</span>
-              <span className="text-[#6E747C]">Aug 2022 — Dec 2023</span>
+              <span className="text-[#484E55]">Aug 2022 — Dec 2023</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -381,7 +384,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>ANALYTICAL FOUNDATION</span>
             <span>TURN SPREAD FOR CH. 05 →</span>
           </div>
@@ -408,7 +411,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Wayground (Quizizz) · SME Entry</span>
-              <span className="text-[#6E747C]">Jan 2024 — Mar 2024</span>
+              <span className="text-[#484E55]">Jan 2024 — Mar 2024</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -433,7 +436,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>TECHNICAL REPRESENTATION</span>
             <span>LOCAL DEV VERIFICATION</span>
           </div>
@@ -449,7 +452,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">VoyageMath Content Builder V1</span>
-              <span className="text-[#6E747C]">Mid-Mar 2024 onward</span>
+              <span className="text-[#484E55]">Mid-Mar 2024 onward</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -469,7 +472,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>TOOL ADOPTION</span>
             <span>TURN SPREAD FOR CH. 07 →</span>
           </div>
@@ -496,7 +499,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Figma & Mathematical Visuals</span>
-              <span className="text-[#6E747C]">2024 — 2025</span>
+              <span className="text-[#484E55]">2024 — 2025</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -516,7 +519,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>MATHEMATICAL VISUALS</span>
             <span>VECTOR PRECISION</span>
           </div>
@@ -532,7 +535,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">The Content Pipeline</span>
-              <span className="text-[#6E747C]">Wayground Operations</span>
+              <span className="text-[#484E55]">Wayground Operations</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -552,7 +555,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>WORKFLOW THINKING</span>
             <span>TURN SPREAD FOR CH. 09 →</span>
           </div>
@@ -579,7 +582,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Human-in-the-Loop Productivity</span>
-              <span className="text-[#6E747C]">2025</span>
+              <span className="text-[#484E55]">2025</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -594,7 +597,7 @@ export const journalSpreads: SpreadDefinition[] = [
               <span className="text-[9.5px] font-mono uppercase tracking-widest text-[#3D5A6E] font-bold block">
                 Observed Generation Failure Modes:
               </span>
-              <div className="grid grid-cols-2 gap-1 font-mono text-[8.5px] text-[#3A3E42]">
+              <div className="grid grid-cols-2 gap-1 font-mono text-[9.5px] text-[#3A3E42]">
                 <div className="p-1 rounded bg-[#EFECE3] border border-[#D5D0C0]">• Incomplete StepGuides</div>
                 <div className="p-1 rounded bg-[#EFECE3] border border-[#D5D0C0]">• Incorrect intermediate steps</div>
                 <div className="p-1 rounded bg-[#EFECE3] border border-[#D5D0C0]">• Distractor calculation errors</div>
@@ -607,7 +610,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>HITL WORKFLOW</span>
             <span>VERIFICATION BOTTLENECK</span>
           </div>
@@ -623,7 +626,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Internal Authoring</span>
-              <span className="text-[#6E747C]">2025</span>
+              <span className="text-[#484E55]">2025</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -643,7 +646,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>QUALITY AWARENESS</span>
             <span>TURN SPREAD FOR CH. 11 →</span>
           </div>
@@ -670,7 +673,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">The Engineering Turning Point</span>
-              <span className="text-[#6E747C]">Early 2026</span>
+              <span className="text-[#484E55]">Early 2026</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -693,7 +696,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>SYSTEM TURNING POINT</span>
             <Link href="/projects/vm-copy" className="text-[#3D5A6E] hover:underline font-bold">
               View VM Copy System →
@@ -739,9 +742,24 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>DETERMINISTIC EVALUATION</span>
-            <span>TURN SPREAD FOR CH. 13 →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=vm-copy" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/vm-copy#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-vm-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=vm-copy,ai-worksheets" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <Link href="/projects/vm-copy" className="text-[#3D5A6E] hover:underline font-bold">
+              View VM Copy →
+            </Link>
           </div>
         </div>
       )
@@ -766,7 +784,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">AI Worksheets Product POC (Part 1)</span>
-              <span className="text-[#6E747C]">Full-Stack POC</span>
+              <span className="text-[#484E55]">Full-Stack POC</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -790,7 +808,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </p>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>FULL-STACK ARCHITECTURE</span>
             <Link href="/projects/ai-worksheets" className="text-[#3D5A6E] hover:underline font-bold">
               View Worksheets POC →
@@ -835,9 +853,24 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>SYSTEM BOUNDARIES</span>
-            <span>TURN SPREAD FOR CH. 14 →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=ai-worksheets" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/ai-worksheets#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-ws-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=ai-worksheets,curriculum-etl" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <Link href="/projects/ai-worksheets" className="text-[#3D5A6E] hover:underline font-bold">
+              View AI Worksheets →
+            </Link>
           </div>
         </div>
       )
@@ -862,7 +895,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#7A6028] font-bold uppercase tracking-wider">US Math Item Bank (Team System)</span>
-              <span className="text-[#6E747C]">LangGraph Pipeline</span>
+              <span className="text-[#484E55]">LangGraph Pipeline</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -888,7 +921,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </p>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>STATEFUL PIPELINES</span>
             <Link href="/projects/math-item-bank" className="text-[#7A6028] hover:underline font-bold">
               View Item Bank System →
@@ -929,9 +962,24 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>CONSTRAINED DISTRIBUTION</span>
-            <span>TURN SPREAD FOR CH. 15 →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=math-item-bank" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/math-item-bank#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-ib-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=math-item-bank,curriculum-etl" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <Link href="/projects/math-item-bank" className="text-[#3D5A6E] hover:underline font-bold">
+              View Item Bank →
+            </Link>
           </div>
         </div>
       )
@@ -956,7 +1004,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Curriculum Transformation Engine</span>
-              <span className="text-[#6E747C]">Map-Reduce ETL</span>
+              <span className="text-[#484E55]">Map-Reduce ETL</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -976,7 +1024,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>DISTRIBUTED EXTRACTION</span>
             <Link href="/projects/curriculum-etl" className="text-[#3D5A6E] hover:underline font-bold">
               View Curriculum ETL →
@@ -1005,7 +1053,7 @@ export const journalSpreads: SpreadDefinition[] = [
               Instead of hardcoding brittle extraction logic for every state curriculum, the engine analyzes sample datasets to derive dynamic schema contracts without hardcoded scrapers.
             </p>
 
-            <div className="p-2 rounded bg-[#1C2024] text-[#E5E0D5] font-mono text-[8.5px] space-y-1">
+            <div className="p-2 rounded bg-[#1C2024] text-[#E5E0D5] font-mono text-[9.5px] space-y-1">
               <div className="text-[#71899A]">// Three-Tier Integrity Verification (Reviewer → Critic → CSV Audit)</div>
               <div>Tier 1: Reviewer validates schema structure & tool calling compliance</div>
               <div>Tier 2: Critic tests semantic alignment against curriculum standards</div>
@@ -1017,9 +1065,24 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>WAYGROUND ARC COMPLETE</span>
-            <span>TURN SPREAD FOR CH. 16 →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=curriculum-etl" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/curriculum-etl#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-etl-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=curriculum-etl,vm-copy" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <Link href="/projects/curriculum-etl" className="text-[#3D5A6E] hover:underline font-bold">
+              View Curriculum ETL →
+            </Link>
           </div>
         </div>
       )
@@ -1044,7 +1107,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#58A6FF] font-bold uppercase tracking-wider">The Career Transition</span>
-              <span className="text-[#6E747C]">Mid-2025 — 2026</span>
+              <span className="text-[#484E55]">Mid-2025 — 2026</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -1064,7 +1127,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>INDEPENDENT BUILDS</span>
             <span>SYSTEMS PERSPECTIVE</span>
           </div>
@@ -1080,7 +1143,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Loom AI · B2B Textile Marketplace</span>
-              <span className="text-[#6E747C]">Next.js 16 / LangGraph</span>
+              <span className="text-[#484E55]">Next.js / LangGraph</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -1091,20 +1154,33 @@ export const journalSpreads: SpreadDefinition[] = [
               Loom AI was an independent build exploring Clean Architecture and stateful multi-tier procurement workflows for industrial textile supply chains:
             </p>
 
-            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9px] text-[#3A3E42]">
-              <div>• <strong>Frontend:</strong> Next.js 16 (App Router), React 19, Tailwind CSS</div>
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>Frontend:</strong> Next.js (App Router), React, Tailwind CSS</div>
               <div>• <strong>Backend:</strong> Express / TypeScript adhering to Clean Architecture</div>
               <div>• <strong>Agentic Workflows:</strong> LangGraph state machine coordinating quote requests, vendor match scoring, and procurement negotiation</div>
               <div>• <strong>Human-in-the-Loop:</strong> Explicit authorization gates before executing high-value purchase orders</div>
             </div>
 
-            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#3D5A6E] text-[10px] font-serif italic text-[#1A1D20] leading-snug">
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#3D5A6E] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
               &ldquo;The point was not the tech stack list. The point was learning how to structure complex asynchronous agentic workflows with strict human approval gates.&rdquo;
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>CLEAN ARCHITECTURE</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=loom-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/loom-ai#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-loom-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=loom-ai,atlas-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
             <Link href="/projects/loom-ai" className="text-[#3D5A6E] hover:underline font-bold">
               View Loom AI →
             </Link>
@@ -1132,7 +1208,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Atlas AI · Financial Copilot (Part 1)</span>
-              <span className="text-[#6E747C]">SEC EDGAR & Markets</span>
+              <span className="text-[#484E55]">SEC EDGAR & Markets</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -1154,7 +1230,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </p>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>FINANCIAL RAG</span>
             <Link href="/projects/atlas-ai" className="text-[#3D5A6E] hover:underline font-bold">
               View Atlas AI →
@@ -1196,9 +1272,24 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>PROACTIVE AGENTS</span>
-            <span>TURN SPREAD FOR CH. 18 →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=atlas-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/atlas-ai#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-atlas-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=atlas-ai,solace-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <Link href="/projects/atlas-ai" className="text-[#3D5A6E] hover:underline font-bold">
+              View Atlas AI →
+            </Link>
           </div>
         </div>
       )
@@ -1223,7 +1314,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#2E5F46] font-bold uppercase tracking-wider">Engineering Design Automation (Part 1)</span>
-              <span className="text-[#6E747C]">Mechanical Synthesis</span>
+              <span className="text-[#484E55]">Mechanical Synthesis</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -1234,7 +1325,7 @@ export const journalSpreads: SpreadDefinition[] = [
               In mechanical engineering, a hallucinated calculation causes catastrophic physical failure. I built EDA to investigate how AI can interpret natural-language design briefs while deterministic physics solvers enforce physical laws.
             </p>
 
-            <div className="p-2 rounded bg-[#1C2024] text-[#E5E0D5] font-mono text-[8.5px] space-y-1">
+            <div className="p-2 rounded bg-[#1C2024] text-[#E5E0D5] font-mono text-[9.5px] space-y-1">
               <div className="text-[#71899A]">// Verified Physical Benchmark: Power Transmission Shaft</div>
               <div>Input: 7.5 kW, 1200 RPM, Torque = 59.68 N·m, FoS = 2.2, L = 350 mm</div>
               <div>Material: AISI 1045 Steel (Tensile 565 MPa, Yield 310 MPa)</div>
@@ -1247,7 +1338,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </p>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>PHYSICAL INVARIANTS</span>
             <Link href="/projects/design-automation" className="text-[#2E5F46] hover:underline font-bold">
               View EDA System →
@@ -1286,9 +1377,24 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>CAD SYNTHESIS</span>
-            <span>TURN SPREAD FOR CH. 19 →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=design-automation" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/design-automation#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-eda-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=design-automation,ai-reliability" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <Link href="/projects/design-automation" className="text-[#3D5A6E] hover:underline font-bold">
+              View EDA CAD →
+            </Link>
           </div>
         </div>
       )
@@ -1313,7 +1419,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Browser QA Platform (Part 1)</span>
-              <span className="text-[#6E747C]">Execution Grounding</span>
+              <span className="text-[#484E55]">Execution Grounding</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
@@ -1333,7 +1439,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>TELEMETRY GROUNDING</span>
             <Link href="/projects/ai-reliability" className="text-[#3D5A6E] hover:underline font-bold">
               View Browser QA System →
@@ -1346,7 +1452,7 @@ export const journalSpreads: SpreadDefinition[] = [
       pageNumber: 28,
       header: 'CH. 19 // COVARIANCE UNCERTAINTY & GOVERNANCE',
       marginalLabel: 'GOVERNANCE',
-      content: () => (
+      content: ({ onNavigateSpread }) => (
         <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
@@ -1373,9 +1479,28 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span>RELIABILITY & GOVERNANCE</span>
-            <span>TURN TO CHAPTER 20 [ ? ] →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=ai-reliability" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/ai-reliability#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-rel-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=ai-reliability,ocr-evaluator" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigateSpread(14)}
+              className="text-[#3D5A6E] hover:text-[#1E2124] font-semibold transition-colors"
+            >
+              Turn to Ch. 20 (OCR Evaluator) →
+            </button>
           </div>
         </div>
       )
@@ -1383,36 +1508,349 @@ export const journalSpreads: SpreadDefinition[] = [
   },
 
   // =========================================================================
-  // SPREAD 14: CHAPTER 10 // STILL BUILDING (?) (029 & 030)
+  // SPREAD 14: CHAPTER 20 // CONTROLLED DEGRADATION & ROBUSTNESS: OCR EVALUATOR (029 & 030)
   // =========================================================================
   {
-    id: 'spread-14-chapter-10-open',
+    id: 'spread-14-ocr-evaluator',
     spreadIndex: 14,
-    chapterNumber: '10',
-    chapterTitle: 'Still Building',
-    journeyStage: 'THE OPEN SPIRAL [ ? ]',
+    chapterNumber: '20',
+    chapterTitle: 'Controlled Degradation & Robustness',
+    journeyStage: 'DOCUMENT ACCURACY & PERTURBATION EVALUATION',
     leftPage: {
       pageNumber: 29,
-      header: 'CH. 10 // STILL BUILDING',
+      header: 'CH. 20 // CONTROLLED DEGRADATION MATRIX',
+      marginalLabel: 'OCR EVAL',
+      content: () => (
+        <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">OCR Evaluator · Independent Build</span>
+              <span className="text-[#484E55]">Sep 2026 · Python &amp; FastAPI</span>
+            </div>
+
+            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
+              Why Aggregate OCR Accuracy Lies in Production
+            </h2>
+
+            <p className="text-[11px] text-[#33373B] leading-relaxed">
+              In high-stakes document workflows—such as legal deed transfers, cadastral survey maps, and financial balance sheets—a standard 99.2% character accuracy is meaningless if the missing 0.8% corrupts a Survey Number or decimal point.
+            </p>
+
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>5-Axis Synthetic Perturbation:</strong> Parameterized OpenCV engine generates controlled optical stress across Gaussian blur, affine skew, salt-and-pepper noise, contrast loss, and JPEG artifacts.</div>
+              <div>• <strong>Dynamic Programming Alignment:</strong> Computes Levenshtein distance matrices to derive normalized Character Error Rate (CER) and Word Error Rate (WER) per entity.</div>
+            </div>
+
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#3D5A6E] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
+              &ldquo;The goal was not to make OCR look good on easy PDFs, but to discover exactly where and why the model breaks down under physical document degradation.&rdquo;
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
+            <span>EMPIRICAL BENCHMARK</span>
+            <Link href="/projects/ocr-evaluator" className="text-[#3D5A6E] hover:underline font-bold">
+              View OCR Evaluator →
+            </Link>
+          </div>
+        </div>
+      )
+    },
+    rightPage: {
+      pageNumber: 30,
+      header: 'CH. 20 // CRITICAL-FIELD PRIORITY GATE',
+      marginalLabel: 'ROBUSTNESS',
+      content: ({ onNavigateSpread }) => (
+        <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Critical-Field Priority Decision Gate</span>
+              <span className="text-[#2E5F46] font-bold font-mono">134 Pytests + 20 UI Checks</span>
+            </div>
+
+            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
+              Risk Classification &amp; ERP Quarantine Gates
+            </h2>
+
+            <p className="text-[11px] text-[#33373B] leading-relaxed">
+              Instead of passing documents based on an aggregate confidence score, I implemented a strict two-tier evaluation decision gate (ADR-OCR-01):
+            </p>
+
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>Critical vs Non-Critical Partitioning:</strong> Survey numbers, tax IDs, and monetary amounts are gated at 100% precision. A single character mutation in a critical field forces an automatic FAIL or REVIEW.</div>
+              <div>• <strong>ERP Quarantine Webhook:</strong> Failed documents are isolated from transactional ingestion into an inspection queue with visual diff highlighting.</div>
+              <div>• <strong>134 Passing Pytests:</strong> Verified across normalization, metrics, adversarial degradation, confidence calibration, and risk routing.</div>
+            </div>
+
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#2E5F46] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
+              &ldquo;A document processing system that cannot quarantine its own uncertainties is not an engineering solution—it is an automated liability.&rdquo;
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=ocr-evaluator" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/ocr-evaluator#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-ocr-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=ocr-evaluator,ai-reliability" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigateSpread(15)}
+              className="text-[#3D5A6E] hover:text-[#1E2124] font-semibold transition-colors"
+            >
+              Turn to Ch. 21 (Ask Aadil) →
+            </button>
+          </div>
+        </div>
+      )
+    }
+  },
+
+  // =========================================================================
+  // SPREAD 15: CHAPTER 21 // THIS PORTFOLIO & ASK AADIL (031 & 032)
+  // =========================================================================
+  {
+    id: 'spread-15-portfolio-ask-aadil',
+    spreadIndex: 15,
+    chapterNumber: '21',
+    chapterTitle: 'This Portfolio & Ask Aadil',
+    journeyStage: 'PORTFOLIO ARCHITECTURE & SOURCE-AWARE RAG',
+    leftPage: {
+      pageNumber: 31,
+      header: 'CH. 21 // THIS PORTFOLIO & ASK AADIL',
+      marginalLabel: 'PORTFOLIO',
+      content: () => (
+        <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Portfolio &amp; Ask Aadil (Part 1)</span>
+              <span className="text-[#484E55]">Sep 2026 · Source Authority</span>
+            </div>
+
+            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
+              Turning the Portfolio Itself Into a Grounded System
+            </h2>
+
+            <p className="text-[11px] text-[#33373B] leading-relaxed">
+              Rather than building a static resume site or dumping every note into a flat vector store, I structured this portfolio into three distinct epistemic layers—<strong>Timeline</strong> (When), <strong>Journal</strong> (Why), and <strong>Systems</strong> (What)—and built <strong>Ask Aadil</strong> to navigate them without collapsing source boundaries.
+            </p>
+
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>Source Authority Matrix:</strong> Routes queries strictly across Resume, Profile, Timeline, Journal, Systems, GitHub, and a decoupled 3-state LinkedIn adapter (<code>api_unavailable</code> &ne; empty record).</div>
+              <div>• <strong>Temporal Grounding:</strong> Distinguishes July 2026 Wayground history from the August 2026–Present independent building phase.</div>
+            </div>
+
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#3D5A6E] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
+              &ldquo;An engineering portfolio shouldn&apos;t just claim reliability—the site and its conversational agent should practice it.&rdquo;
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
+            <span>SOURCE-AWARE RAG</span>
+            <Link href="/projects/ask-aadil" className="text-[#3D5A6E] hover:underline font-bold">
+              View Ask Aadil System →
+            </Link>
+          </div>
+        </div>
+      )
+    },
+    rightPage: {
+      pageNumber: 32,
+      header: 'CH. 21 // BITWISE INTEGRITY & CONTROLLED ACTIONS',
+      marginalLabel: 'ASK AADIL',
+      content: ({ onNavigateSpread }) => (
+        <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Portfolio &amp; Ask Aadil (Part 2)</span>
+              <span className="text-[#2E5F46] font-bold font-mono">172 Verified Tests</span>
+            </div>
+
+            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
+              Bitwise Draft Integrity &amp; Epistemic Boundaries
+            </h2>
+
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>Bitwise HITL Actions:</strong> Email drafts lock immutably across interleaved questions so <code>executionInput === editedDraft</code> holds with zero silent LLM rewriting.</div>
+              <div>• <strong>Prompt Injection &amp; Isolation:</strong> Retrieved text across 5 sources remains passive evidence; visitor sessions isolate cleanly on cancel or reset.</div>
+              <div>• <strong>Interactive Layers:</strong> Tactile 38-folio Journal, Cartographic Transit Timeline, Voice controls, and verified Code Evidence.</div>
+            </div>
+
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#2E5F46] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
+              &ldquo;172 automated test assertions verified temporal reasoning, draft integrity, prompt injection defense, and Playwright interactions.&rdquo;
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=ask-aadil" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/ask-aadil#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-aadil-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=ask-aadil,solace-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigateSpread(16)}
+              className="text-[#3D5A6E] hover:text-[#1E2124] font-semibold transition-colors"
+            >
+              Turn to Ch. 22 (Solace AI) →
+            </button>
+          </div>
+        </div>
+      )
+    }
+  },
+
+  // =========================================================================
+  // SPREAD 16: CHAPTER 22 // SAFETY-FIRST MOBILE COMPANIONS: SOLACE AI (033 & 034)
+  // =========================================================================
+  {
+    id: 'spread-16-solace-ai',
+    spreadIndex: 16,
+    chapterNumber: '22',
+    chapterTitle: 'Safety-First Mobile Companions',
+    journeyStage: 'SOLACE AI · SAFETY & CONSENT ARCHITECTURE',
+    leftPage: {
+      pageNumber: 33,
+      header: 'CH. 22 // SOLACE AI: SAFETY BEFORE GENERATION',
+      marginalLabel: 'SOLACE AI',
+      content: () => (
+        <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Solace Hackathon (Part 1)</span>
+              <span className="text-[#484E55]">Nov 2026 · Expo 58 + LangGraph</span>
+            </div>
+
+            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
+              Deterministic Safety &amp; Consent Before LLM Calls
+            </h2>
+
+            <p className="text-[11px] text-[#33373B] leading-relaxed">
+              Building a consumer emotional wellness companion for the Solace Hackathon tested every governance lesson I had learned in a mobile, human-sensitive domain. Models cannot be trusted with crisis detection or silent memory capture.
+            </p>
+
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>Synchronous Safety Node:</strong> <code>is_crisis_input()</code> screens English, Roman Urdu, and Urdu script while excluding idioms (&ldquo;dying of laughter&rdquo;) prior to LangGraph context or Gemini inference, routing to Tele-MANAS <code>14416</code> / <code>112</code> / <code>988</code>.</div>
+              <div>• <strong>LangGraph SSE + Native Fallback:</strong> Streams real-time tokens via <code>astream_events(v2)</code> with automatic pre-token fallback.</div>
+            </div>
+
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#3D5A6E] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
+              &ldquo;Safety, consent, and network ambiguity cannot be left to prompt instructions. They must be enforced structurally in code.&rdquo;
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
+            <span>MOBILE AI ARCHITECTURE</span>
+            <Link href="/projects/solace-ai" className="text-[#3D5A6E] hover:underline font-bold">
+              View Solace AI System →
+            </Link>
+          </div>
+        </div>
+      )
+    },
+    rightPage: {
+      pageNumber: 34,
+      header: 'CH. 22 // CONSENT MEMORY & AMBIGUOUS SSE',
+      marginalLabel: 'PRIVACY',
+      content: ({ onNavigateSpread }) => (
+        <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Solace AI (Part 2)</span>
+              <span className="text-[#2E5F46] font-bold font-mono">52 Backend + 50 Mobile Checks</span>
+            </div>
+
+            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
+              Zero-Retention Audio &amp; Ambiguous Delivery Guards
+            </h2>
+
+            <div className="p-2 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-1 font-mono text-[9.5px] text-[#3A3E42]">
+              <div>• <strong>Consent-Driven Memory (ADR-004):</strong> Insights require explicit banner approval; voice journals &amp; Urdu Nastaliq poetry remain isolated under Supabase RLS.</div>
+              <div>• <strong>Ephemeral Audio Purge:</strong> Base64 voice payloads are transcribed and immediately deleted in <code>finally: del audio_bytes</code>.</div>
+              <div>• <strong>Single-POST SSE Guard:</strong> 502/503/504 drops are surfaced honestly as ambiguous delivery (no blind retry duplicates), with 1500-byte SecureStore chunking offline.</div>
+            </div>
+
+            <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#2E5F46] text-[10.5px] font-serif italic text-[#1A1D20] leading-snug">
+              &ldquo;Verified by 52 backend pytests, 50 mobile verification checks (0 TS errors), live RLS isolation tests, and Pixel 7 Android APK walkthroughs.&rdquo;
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[#DCD7C9] flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#484E55]">
+            <div className="flex items-center gap-2">
+              <Link href="/architecture?system=solace-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Architecture]
+              </Link>
+              <Link href="/projects/solace-ai#decisions" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Decisions]
+              </Link>
+              <Link href="/verification#evid-evid-sol-01" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Evidence]
+              </Link>
+              <Link href="/compare?projects=solace-ai,atlas-ai" className="text-[#3D5A6E] hover:underline font-semibold">
+                [Compare]
+              </Link>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigateSpread(17)}
+              className="text-[#3D5A6E] hover:text-[#1E2124] font-semibold transition-colors"
+            >
+              Turn to Synthesis →
+            </button>
+          </div>
+        </div>
+      )
+    }
+  },
+
+  // =========================================================================
+  // SPREAD 17: SYNTHESIS // STILL BUILDING. STILL EXPLORING. (035 & 036)
+  // =========================================================================
+  {
+    id: 'spread-17-still-building',
+    spreadIndex: 17,
+    chapterNumber: 'SYNTHESIS',
+    chapterTitle: 'Still Building. Still Exploring.',
+    journeyStage: 'THE OPEN SPIRAL · AUG 2026 — PRESENT',
+    leftPage: {
+      pageNumber: 35,
+      header: 'SYNTHESIS // STILL BUILDING. STILL EXPLORING.',
       marginalLabel: 'SPIRAL',
       content: () => (
         <div className="h-full flex flex-col justify-between space-y-2.5 text-[#25282A]">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
               <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">The Continuous Horizon</span>
-              <span className="text-[#6E747C]">Open Ending</span>
+              <span className="text-[#2E5F46] font-bold">August 2026 — Present</span>
             </div>
 
             <h2 className="text-base sm:text-lg font-serif font-bold text-[#1A1D20] leading-snug">
-              Reflecting on the Spiral
+              From August 2026 to Present: Still Building &amp; Exploring
             </h2>
 
             <p className="text-[10.5px] text-[#33373B] leading-relaxed">
-              The spiral binding of this journal is not decorative. It physically carries the accumulated progression:
+              Since August 2026, following my Wayground tenure, the work has been an unbroken stretch of independent building and exploration—spanning Loom AI, Atlas AI, OCR Evaluator, EDA CAD, AI Reliability, this Portfolio &amp; Ask Aadil, and Solace AI:
             </p>
 
             <div className="p-2 rounded bg-[#EFECE3]/80 border border-[#D5D0C0] space-y-1">
-              <span className="text-[8.5px] font-mono uppercase tracking-widest text-[#3D5A6E] font-bold block">
+              <span className="text-[9.5px] font-mono uppercase tracking-widest text-[#3D5A6E] font-bold block">
                 Accumulated Progression
               </span>
               <div className="flex flex-wrap items-center gap-1 text-[9.5px] font-mono font-medium text-[#1E2124]">
@@ -1441,7 +1879,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </p>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>OPEN SPIRAL</span>
             <span className="font-serif italic text-[#3D5A6E] font-semibold">&ldquo;Every system teaches me.&rdquo;</span>
           </div>
@@ -1449,15 +1887,15 @@ export const journalSpreads: SpreadDefinition[] = [
       )
     },
     rightPage: {
-      pageNumber: 30,
-      header: 'CH. 10 // STILL LEARNING',
+      pageNumber: 36,
+      header: 'SYNTHESIS // STILL LEARNING & EXPLORING',
       marginalLabel: 'HORIZON',
-      content: () => (
+      content: ({ onNavigateSpread }) => (
         <div className="h-full flex flex-col justify-between space-y-2 text-[#25282A]">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-1">
-              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">The Engineering Horizon</span>
-              <span className="text-[#2E5F46] font-bold font-mono">STILL BUILDING. STILL LEARNING.</span>
+              <span className="text-[#3D5A6E] font-bold uppercase tracking-wider">Aug 2026 — Present</span>
+              <span className="text-[#2E5F46] font-bold font-mono">STILL BUILDING. STILL EXPLORING.</span>
             </div>
 
             <div className="p-3 rounded bg-[#EFECE3]/85 border-l-2 border-[#2E5F46] space-y-2 shadow-xs">
@@ -1498,9 +1936,15 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
-            <span className="font-bold text-[#1E2124]">PAGE 030 · [ ? ]</span>
-            <span>TURN TO SYSTEMS CATALOG →</span>
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
+            <span className="font-bold text-[#1E2124]">PAGE 036 · [ ? ]</span>
+            <button
+              type="button"
+              onClick={() => onNavigateSpread(18)}
+              className="text-[#3D5A6E] hover:text-[#1E2124] font-semibold transition-colors"
+            >
+              TURN TO SYSTEMS CATALOG →
+            </button>
           </div>
         </div>
       )
@@ -1508,16 +1952,16 @@ export const journalSpreads: SpreadDefinition[] = [
   },
 
   // =========================================================================
-  // SPREAD 15: EPILOGUE // SYSTEMS CATALOG & ARCHIVE (031 & 032)
+  // SPREAD 18: EPILOGUE // SYSTEMS CATALOG & ARCHIVE (037 & 038)
   // =========================================================================
   {
-    id: 'spread-15-systems-catalog',
-    spreadIndex: 15,
+    id: 'spread-18-systems-catalog',
+    spreadIndex: 18,
     chapterNumber: 'EPILOGUE',
     chapterTitle: 'Systems Catalog & Archive',
     journeyStage: 'THE AUTHORITATIVE SYSTEMS ARCHIVE',
     leftPage: {
-      pageNumber: 31,
+      pageNumber: 37,
       header: 'EPILOGUE // SYSTEMS CATALOG',
       marginalLabel: 'CATALOG',
       content: () => (
@@ -1525,7 +1969,7 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-[10px] font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-0.5">
               <span className="font-bold text-[#1E2124]">SYSTEMS CATALOG // REPOSITORY ARCHIVE</span>
-              <span className="text-[#3D5A6E] font-semibold">AUTHORITATIVE</span>
+              <span className="text-[#3D5A6E] font-semibold">11 SYSTEMS VERIFIED</span>
             </div>
 
             <p className="text-[10px] text-[#454A4F] leading-snug">
@@ -1535,65 +1979,77 @@ export const journalSpreads: SpreadDefinition[] = [
             <div className="space-y-1 text-[9.5px]">
               {/* Professional Engineering */}
               <div className="p-1.5 rounded bg-[#EFECE3] border border-[#D5D0C0] space-y-0.5">
-                <span className="font-mono text-[#3D5A6E] font-bold uppercase text-[8.5px] block">
+                <span className="font-mono text-[#3D5A6E] font-bold uppercase text-[9.5px] block">
                   PROFESSIONAL ENGINEERING · WAYGROUND
                 </span>
                 <div className="space-y-0.5 text-[#1E2124]">
                   <div className="flex justify-between items-center">
                     <Link href="/projects/vm-copy" className="hover:underline font-semibold">VM Copy Question Generator</Link>
-                    <span className="font-mono text-[8px] text-[#6E747C]">Independent Build</span>
+                    <span className="font-mono text-[9px] text-[#484E55]">Independent Build</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <Link href="/projects/ai-worksheets" className="hover:underline font-semibold">AI Worksheets Product POC</Link>
-                    <span className="font-mono text-[8px] text-[#6E747C]">Independent Build</span>
+                    <span className="font-mono text-[9px] text-[#484E55]">Independent Build</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <Link href="/projects/curriculum-etl" className="hover:underline font-semibold">Curriculum Transformation Engine</Link>
-                    <span className="font-mono text-[8px] text-[#6E747C]">Independent Build</span>
+                    <span className="font-mono text-[9px] text-[#484E55]">Independent Build</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <Link href="/projects/math-item-bank" className="hover:underline font-semibold text-[#7A6028]">US Math Item Bank Generation Pipeline</Link>
-                    <span className="font-mono text-[8px] text-[#7A6028]">Team System</span>
+                    <span className="font-mono text-[9px] text-[#7A6028]">Team System</span>
                   </div>
                 </div>
               </div>
 
               {/* Independent Engineering */}
               <div className="p-1.5 rounded bg-[#EFECE3] border border-[#D5D0C0] space-y-0.5">
-                <span className="font-mono text-[#2E5F46] font-bold uppercase text-[8.5px] block">
+                <span className="font-mono text-[#2E5F46] font-bold uppercase text-[9.5px] block">
                   INDEPENDENT ENGINEERING · PERSONAL BUILDS
                 </span>
                 <div className="space-y-0.5 text-[#1E2124]">
                   <div className="flex justify-between items-center">
-                    <Link href="/projects/design-automation" className="hover:underline font-semibold">Engineering Design Automation</Link>
-                    <span className="font-mono text-[8px] text-[#2E5F46]">424 Tests</span>
+                    <Link href="/projects/ocr-evaluator" className="hover:underline font-semibold">OCR Evaluation &amp; Robustness Platform</Link>
+                    <span className="font-mono text-[9px] text-[#2E5F46]">134 Pytests</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <Link href="/projects/ai-reliability" className="hover:underline font-semibold">AI Application Reliability & Browser QA</Link>
-                    <span className="font-mono text-[8px] text-[#2E5F46]">158+ Tests</span>
+                    <Link href="/projects/design-automation" className="hover:underline font-semibold">Engineering Design Automation</Link>
+                    <span className="font-mono text-[9px] text-[#2E5F46]">424 Tests</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <Link href="/projects/ai-reliability" className="hover:underline font-semibold">AI Application Reliability &amp; Browser QA</Link>
+                    <span className="font-mono text-[9px] text-[#2E5F46]">158+ Tests</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <Link href="/projects/ask-aadil" className="hover:underline font-semibold">Portfolio Platform &amp; Ask Aadil Agent</Link>
+                    <span className="font-mono text-[9px] text-[#2E5F46]">172 Tests</span>
                   </div>
                 </div>
               </div>
 
               <div className="p-1.5 rounded bg-[#EFECE3] border border-[#D5D0C0] space-y-0.5">
-                <span className="font-mono text-[#3D5A6E] font-bold uppercase text-[8.5px] block">
+                <span className="font-mono text-[#3D5A6E] font-bold uppercase text-[9.5px] block">
                   INDEPENDENT ENGINEERING · HACKATHON BUILDS
                 </span>
                 <div className="space-y-0.5 text-[#1E2124]">
                   <div className="flex justify-between items-center">
-                    <Link href="/projects/loom-ai" className="hover:underline font-semibold">Loom AI — B2B Textile Marketplace</Link>
-                    <span className="font-mono text-[8px] text-[#3D5A6E]">Playwright E2E</span>
+                    <Link href="/projects/solace-ai" className="hover:underline font-semibold">Solace AI — Mindful Wellness Companion</Link>
+                    <span className="font-mono text-[9px] text-[#3D5A6E]">102 Checks</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <Link href="/projects/atlas-ai" className="hover:underline font-semibold">Atlas AI — Financial Copilot & SEC RAG</Link>
-                    <span className="font-mono text-[8px] text-[#3D5A6E]">178 Tests</span>
+                    <Link href="/projects/loom-ai" className="hover:underline font-semibold">Loom AI — B2B Textile Marketplace</Link>
+                    <span className="font-mono text-[9px] text-[#3D5A6E]">Playwright E2E</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <Link href="/projects/atlas-ai" className="hover:underline font-semibold">Atlas AI — Financial Copilot &amp; SEC RAG</Link>
+                    <span className="font-mono text-[9px] text-[#3D5A6E]">178 Tests</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="pt-1.5 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-1.5 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <span>SYSTEMS REPOSITORY</span>
             <Link href="/projects" className="text-[#3D5A6E] hover:underline font-bold">
               View All Systems Directory →
@@ -1603,7 +2059,7 @@ export const journalSpreads: SpreadDefinition[] = [
       )
     },
     rightPage: {
-      pageNumber: 32,
+      pageNumber: 38,
       header: 'EPILOGUE // EVIDENCE & SPECIFICATION',
       marginalLabel: 'EVIDENCE',
       content: ({ onNavigateSpread }) => (
@@ -1611,10 +2067,14 @@ export const journalSpreads: SpreadDefinition[] = [
           <div className="space-y-2">
             <div className="flex items-center justify-between text-[10px] font-mono text-[#5A6066] border-b border-[#DCD7C9] pb-0.5">
               <span className="font-bold text-[#1E2124]">VERIFIED EVIDENCE REGISTRY</span>
-              <span className="text-[#6E747C]">TEST SUITES</span>
+              <span className="text-[#484E55]">ALL TEST SUITES</span>
             </div>
 
             <div className="grid grid-cols-2 gap-1.5 font-mono text-[9px]">
+              <div className="p-1.5 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-0.5">
+                <span className="text-[#3D5A6E] font-bold block">OCR Robustness Platform:</span>
+                <span className="text-[#454A4F]">134 pytests passing; 5-axis degradation benchmarking; ERP quarantine.</span>
+              </div>
               <div className="p-1.5 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-0.5">
                 <span className="text-[#3D5A6E] font-bold block">EDA Solid Geometry:</span>
                 <span className="text-[#454A4F]">0.0000% volume error; 424 automated test suites passing.</span>
@@ -1624,17 +2084,13 @@ export const journalSpreads: SpreadDefinition[] = [
                 <span className="text-[#454A4F]">178 automated tests across graph routing, SEC parser, and alerts.</span>
               </div>
               <div className="p-1.5 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-0.5">
-                <span className="text-[#3D5A6E] font-bold block">AI Browser QA:</span>
-                <span className="text-[#454A4F]">158 backend + 47 governance tests; live VM Copy dogfooding.</span>
-              </div>
-              <div className="p-1.5 rounded bg-[#F7F5EE] border border-[#D5D0C0] space-y-0.5">
-                <span className="text-[#3D5A6E] font-bold block">Loom AI Marketplace:</span>
-                <span className="text-[#454A4F]">Playwright E2E checkout, auth, and LangGraph HITL queue tests.</span>
+                <span className="text-[#3D5A6E] font-bold block">Portfolio &amp; Ask Aadil:</span>
+                <span className="text-[#454A4F]">172 automated assertions; bitwise draft integrity &amp; source authority.</span>
               </div>
             </div>
 
             <div className="p-2 rounded bg-[#EFECE3]/80 border-l-2 border-[#3D5A6E] space-y-1">
-              <span className="text-[8.5px] font-mono uppercase tracking-widest text-[#3D5A6E] font-bold block">
+              <span className="text-[9.5px] font-mono uppercase tracking-widest text-[#3D5A6E] font-bold block">
                 The Distinction Across the Entire Website
               </span>
               <p className="text-[9.5px] text-[#33373B] leading-snug">
@@ -1645,7 +2101,7 @@ export const journalSpreads: SpreadDefinition[] = [
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#6E747C]">
+          <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-[11px] font-mono text-[#484E55]">
             <button
               type="button"
               onClick={() => onNavigateSpread(0)}
@@ -1653,7 +2109,7 @@ export const journalSpreads: SpreadDefinition[] = [
             >
               ← Return to Table of Contents
             </button>
-            <span className="font-bold text-[#1E2124]">PAGE 032 · [ ? ]</span>
+            <span className="font-bold text-[#1E2124]">PAGE 038 · [ ? ]</span>
           </div>
         </div>
       )

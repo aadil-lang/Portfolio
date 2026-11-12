@@ -57,6 +57,14 @@ export function resolveProjectEntity(query: string): ProjectResolution {
     {
       slug: 'ask-aadil',
       keywords: ['ask aadil', 'ask-aadil', 'portfolio agent', 'portfolio rag']
+    },
+    {
+      slug: 'solace-ai',
+      keywords: ['solace ai', 'solace-ai', 'solace hackathon', 'solace', 'wellness companion', 'rant mode', 'words of solace', 'emotional landscape']
+    },
+    {
+      slug: 'ocr-evaluator',
+      keywords: ['ocr evaluator', 'ocr-evaluator', 'ocr evaluation', 'ocr platform', 'ocr robustness', 'tesseract ocr', 'document extraction', 'cer wer', 'ocr']
     }
   ]
 

@@ -148,11 +148,14 @@ export const canonicalKnowledge = {
     },
     subsequentCorporateEmployer: null, // Unrecorded / unverified. Never assume or fabricate.
     currentDocumentedActivity: [
-      'Independent AI systems research and engineering.',
+      'August 2026 — Present: Still building and still exploring across independent AI systems, deterministic tooling, and hackathon builds.',
+      'This Engineering Portfolio & Ask Aadil (Sep 2026): interactive Next.js engineering journal, timeline map, and grounded hybrid RAG assistant (172/172 verified tests across 10+ suites).',
+      'OCR Evaluation & Robustness Testing Platform (Sep 2026): multi-tier extraction evaluation (CER/WER), risk classification, and physical degradation testing (134 backend pytests + 20 UI assertions).',
       'Autonomous agent reliability tooling and diagnostic harnesses (AI Application Reliability Platform).',
-      'Deterministic verification wrappers and governed multi-agent systems.'
+      'Deterministic verification wrappers and governed multi-agent systems.',
+      'Solace AI (Solace Hackathon, Nov 2026): safety-first Expo 58 + FastAPI/LangGraph mobile wellness companion.'
     ],
-    verifiedDate: '2026-09-29'
+    verifiedDate: '2026-11-10'
   },
 
   // 10. CONTACT (Strict Profile Only)

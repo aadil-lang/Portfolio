@@ -22,7 +22,7 @@ export const JourneyMapViewport: React.FC<JourneyMapViewportProps> = ({
   const dragStartRef = useRef({ x: 0, y: 0 })
 
   // Canvas dimensions
-  const canvasWidth = 2400
+  const canvasWidth = 2580
   const canvasHeight = 520
 
   // Calculate Fit-To-Container Zoom & Center

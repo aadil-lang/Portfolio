@@ -162,13 +162,28 @@ for (const p of projectsMetadata) {
     PROJECT_ALIASES['ask aadil'] = p.slug
     PROJECT_ALIASES['portfolio agent'] = p.slug
   }
+  if (p.slug === 'solace-ai') {
+    PROJECT_ALIASES['solace'] = p.slug
+    PROJECT_ALIASES['solace ai'] = p.slug
+    PROJECT_ALIASES['solace hackathon'] = p.slug
+    PROJECT_ALIASES['wellness companion'] = p.slug
+  }
+  if (p.slug === 'ocr-evaluator') {
+    PROJECT_ALIASES['ocr evaluator'] = p.slug
+    PROJECT_ALIASES['ocr evaluation'] = p.slug
+    PROJECT_ALIASES['ocr platform'] = p.slug
+    PROJECT_ALIASES['ocr robustness'] = p.slug
+    PROJECT_ALIASES['ocr'] = p.slug
+    PROJECT_ALIASES['tesseract'] = p.slug
+  }
 }
 
 const TECHNOLOGY_KEYWORDS = [
-  'langgraph', 'fastapi', 'python', 'next.js', 'nextjs', 'react', 'docker',
-  'mongodb', 'opencascade', 'playwright', 'katex', 'tikz', 'latex',
+  'langgraph', 'fastapi', 'python', 'next.js', 'nextjs', 'react', 'react native', 'expo', 'docker',
+  'mongodb', 'supabase', 'opencascade', 'playwright', 'katex', 'tikz', 'latex',
   'claude', 'gemini', 'portkey', 'pydantic', 'typescript', 'vitest',
-  'pytest', 'celery', 'redis', 'tailwind', 'openai', 'cadquery', 'svg'
+  'pytest', 'celery', 'redis', 'tailwind', 'openai', 'cadquery', 'svg', 'sse',
+  'tesseract', 'opencv', 'pillow'
 ]
 
 // ---------------------------------------------------------------------------
@@ -373,7 +388,7 @@ Available intent categories:
 - cross_source: Complete multi-perspective story of a project/topic
 - unknown: Cannot determine or not portfolio-related
 
-Available project slugs: vm-copy, ai-worksheets, curriculum-etl, math-item-bank, design-automation, loom-ai, atlas-ai, ai-reliability, binance-bot, ask-aadil
+Available project slugs: vm-copy, ai-worksheets, curriculum-etl, math-item-bank, design-automation, loom-ai, atlas-ai, ai-reliability, binance-bot, ask-aadil, solace-ai
 
 Respond ONLY with valid JSON matching this schema:
 {

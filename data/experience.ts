@@ -328,7 +328,7 @@ export const experience: TimelineItem[] = [
   },
   {
     id: '2026-math-item-bank',
-    period: '2026',
+    period: 'April 2026 — July 2026',
     organization: 'Wayground',
     role: 'Company Team System',
     title: 'US Mathematics Item Bank Generation Pipeline',
@@ -348,91 +348,196 @@ export const experience: TimelineItem[] = [
   },
 
   // -------------------------------------------------------------------------
-  // 4. AFTER WAYGROUND — INDEPENDENT AI BUILDS (2026 — PRESENT)
-  // Transition: From Using AI → Building AI Systems
+  // 4. AFTER WAYGROUND — INDEPENDENT AI ENGINEERING & RESEARCH (AUGUST 2026 — PRESENT)
+  // Subtitle: Building, experimenting and researching intelligent applications, agentic systems and reliable AI engineering solutions.
+  // Career Context: Professional employment at Wayground ended in July 2026.
+  //                 From August 2026 onward, all projects represent independent technical growth,
+  //                 hackathons, and personal research — NOT professional employment.
   // -------------------------------------------------------------------------
   {
-    id: 'parallel-builds-loom-atlas',
-    period: '2025 — 2026',
-    organization: 'Independent AI Builds',
-    role: 'Systems Engineer',
-    title: 'Loom AI & Atlas AI',
-    layerAnnotation: 'INDEPENDENT SYSTEMS — Stateful workflows & retrieval architectures',
+    id: 'loom-ai-2026',
+    period: 'August 2026',
+    organization: 'Humanity Founders Marketplace Hackathon',
+    role: 'System Architect & Author',
+    category: 'Hackathon Project',
+    title: 'Loom AI — B2B Textile Marketplace Platform',
+    layerAnnotation: 'HACKATHON BUILD — Multi-Agent Procurement & HITL Workflows',
     summary:
-      'Independent AI builds: Loom AI developed end-to-end application architecture with LangGraph workflows; Atlas AI engineered stateful conversational RAG across SEC EDGAR filings and financial market tools.',
-    capability: 'End-to-End AI Application Architecture & Stateful Workflows',
-    transition: 'Shifted from internal workflows into building independent full-stack and stateful agentic systems.',
+      'An AI-enabled textile marketplace pairing multi-agent LangGraph procurement matching with human-in-the-loop (HITL) order approval gates, supplier verification, and Playwright integration tests.',
+    capability: 'Marketplace Architecture + Procurement Matching + HITL Approval Workflows',
+    transition: 'Shifted into multi-agent LangGraph architectures where sensitive procurement actions require deterministic human authorization.',
     details: [
-      'Loom AI: End-to-End AI Application Architecture with LangGraph procurement workflows and human approval gates',
-      'Atlas AI: Stateful Workflows + Retrieval + Tools with SEC EDGAR filings, Finnhub market feeds, and 178 passing tests',
-      'Independent AI builds executed after Wayground (not Wayground projects)'
+      'End-to-end B2B textile marketplace architecture on Next.js and Express with MongoDB Atlas',
+      'LangGraph agent workflows coordinating buyer inquiries, supplier quotation matching, and inventory verification',
+      'Human-in-the-loop (HITL) approval queues guaranteeing human sign-off before purchase commitment',
+      'Comprehensive Playwright end-to-end integration and API test harnesses'
     ],
-    technologies: ['Next.js 16', 'React 19', 'LangGraph', 'MongoDB Atlas Vector Search', 'SEC EDGAR', 'FastAPI'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Express', 'MongoDB Atlas', 'LangGraph', 'Playwright'],
     journalChapterRef: 11,
     systemSlugRef: 'loom-ai',
     isMilestone: true
   },
   {
-    id: '2026-design-automation',
-    period: '2026',
-    organization: 'Personal Engineering',
-    role: 'Systems Engineer',
-    title: 'Engineering Design Automation (EDA)',
-    layerAnnotation: 'PHYSICAL CONSTRAINTS — AI constrained by engineering laws',
+    id: 'atlas-ai-2026',
+    period: 'August 2026',
+    organization: 'Humanity Founders Finance Hackathon',
+    role: 'Backend & Systems Engineer',
+    category: 'Hackathon Project',
+    title: 'Atlas AI — Financial Copilot & SEC Filing RAG',
+    layerAnnotation: 'HACKATHON BUILD — Financial RAG, SEC EDGAR & Autonomous Alerts',
     summary:
-      'Mechanical design synthesis where AI interprets natural language design briefs while deterministic physics solvers and OpenCascade CAD kernels calculate and enforce invariant 3D geometry and SVG drawings.',
-    capability: 'AI + Deterministic Systems + Verification',
-    transition: 'AI interprets. Deterministic systems constrain and verify.',
+      'An AI financial copilot engineered with FastAPI, LangGraph, MongoDB Atlas Vector Search, and Gemini—performing hybrid retrieval across SEC EDGAR 10-K/10-Q filings, Finnhub market feeds, and automated Telegram alert workers.',
+    capability: 'Financial-Document RAG + SEC Filing Research + Automated Alerts + Agentic Workflows',
+    transition: 'Pioneered temporal-aware RAG over structured SEC financial disclosures with background daemon alert monitoring.',
     details: [
-      'Hybrid AI-to-CAD synthesis: LLMs parameterize; deterministic physics algorithms calculate and enforce invariants',
-      'OpenCascade BRep CAD kernel generating valid 3D STEP geometry and SVG technical drawings',
-      'Strict material provenance with verified ASTM/EN tables (no inferred or hallucinated steel grades)',
-      'Verified with 424/424 passing tests in main repository state'
+      'Hybrid RAG parsing SEC EDGAR 10-K/10-Q disclosures with chunk-level attribution and financial table preservation',
+      'Vector search retrieval layer powered by MongoDB Atlas Vector Search and Gemini embeddings',
+      'Automated background alert worker daemon sending threshold notifications to Telegram',
+      'Verified with 59 automated tests for core graph MVP, expanding to 178 pytests in complete test runner'
     ],
-    technologies: ['AI Interpretation', 'Python', 'Deterministic Solvers', 'OpenCascade CAD / BRep / STEP', 'SVG Validation'],
+    technologies: ['Python', 'FastAPI', 'LangGraph', 'MongoDB Atlas Vector Search', 'Gemini', 'SEC EDGAR', 'Telegram'],
+    journalChapterRef: 11,
+    systemSlugRef: 'atlas-ai',
+    isMilestone: true
+  },
+  {
+    id: 'ocr-evaluator-2026',
+    period: 'September 2026',
+    organization: 'Independent Engineering Project',
+    role: 'Systems & Evaluation Engineer',
+    category: 'Independent Engineering Project',
+    title: 'OCR Evaluation & Robustness Testing Platform',
+    layerAnnotation: 'INDEPENDENT BUILD — Multi-Tier OCR Accuracy, Critical-Field Auditing & Degradation Testing',
+    summary:
+      'An engineering-focused evaluation platform measuring document extraction accuracy, confidence, critical-field correctness, and robustness under controlled real-world image degradation. Answers the operational question: "Can this OCR result be trusted?"',
+    capability: 'OCR Accuracy Evaluation + Critical-Field Auditing + Degradation Robustness',
+    transition: 'Recognized that single OCR accuracy numbers hide catastrophic failures in critical fields—built multi-level verification and risk classification.',
+    details: [
+      'Multi-tier evaluation: Character Error Rate (CER), Word Error Rate (WER), field-level exact match, and critical-field accuracy',
+      'Risk classification engine assigning PASS / REVIEW / FAIL decisions based on field severity and OCR confidence thresholds',
+      'Robustness testing under 5 controlled image degradations: Gaussian blur, additive noise, rotation skew, contrast reduction, and JPEG compression',
+      'Verified with 134 automated backend pytests across 22 test files, 20 browser UI assertions, and 0 frontend JavaScript errors'
+    ],
+    technologies: ['Python 3.12', 'FastAPI', 'Tesseract OCR', 'React', 'pytest', 'Pillow', 'OpenCV', 'NumPy'],
+    journalChapterRef: 10,
+    systemSlugRef: 'ocr-evaluator',
+    isMilestone: true
+  },
+  {
+    id: '2026-design-automation',
+    period: 'September 2026',
+    organization: 'Independent Engineering Project',
+    role: 'Systems Engineer & Author',
+    category: 'Independent Engineering Project',
+    title: 'Engineering Design Automation (EDA)',
+    layerAnnotation: 'INDEPENDENT BUILD — AI Constrained by Closed-Form Physics & OpenCascade CAD',
+    summary:
+      'An engineering automation system combining natural-language parameter interpretation, deterministic mechanical engineering calculations (torsion, shear, von Mises yield), and OpenCascade 3D BRep solid geometry generation (STEP/SVG outputs).',
+    capability: 'Natural-Language-to-CAD + Closed-Form Physics + OpenCascade Boundary Representation',
+    transition: 'AI interprets the natural-language brief; deterministic physics and CAD kernels calculate and enforce invariant 3D geometry.',
+    details: [
+      'Natural-language parameter extraction interpreting mechanical design briefs into structured dimensional constraints',
+      'Deterministic torsion, shear stress, and von Mises yield safety factor solvers eliminating LLM arithmetic errors',
+      'OpenCascade CadQuery BRep CAD kernel generating valid 3D STEP geometry and SVG technical drawings',
+      'Verified with 424 tests across 28 suites with 0.0000% volume error between closed-form physics and CAD solids'
+    ],
+    technologies: ['Python', 'FastAPI', 'OpenCascade', 'CadQuery', 'NumPy', 'SVG', 'STEP 3D Geometry'],
     journalChapterRef: 10,
     systemSlugRef: 'design-automation',
     isMilestone: true
   },
   {
     id: '2026-ai-reliability',
-    period: '2026',
-    organization: 'Personal Engineering',
-    role: 'Systems Engineer',
+    period: 'September 2026',
+    organization: 'Independent Engineering Project',
+    role: 'Reliability Engineer & Author',
+    category: 'Independent Engineering Project',
     title: 'AI Application Reliability & Browser QA',
-    layerAnnotation: 'RELIABILITY — Grounding, governance & uncertainty modeling',
+    layerAnnotation: 'INDEPENDENT BUILD — Browser Automation, Uncertainty Abstention & Governance',
     summary:
-      'Autonomous browser testing platform pairing local Ollama reasoning with Playwright execution grounding, Fisher information covariance uncertainty abstention, and human governance authorization.',
-    capability: 'Agentic Systems + Reliability + Governance',
+      'An autonomous platform for testing and diagnosing the reliability of AI-powered applications. Pairs local Ollama (Qwen) reasoning with Playwright execution grounding, Fisher information covariance uncertainty modeling, and cryptographic authorization gates.',
+    capability: 'Browser Automation + Execution Grounding + Uncertainty Modeling + Governance',
     transition: 'The question evolved from "Can AI build this?" to "How do we know what the AI actually did?"',
     details: [
-      'Execution grounding: captures real DOM snapshots, network payloads, console logs, and screenshots',
-      'Fisher Information covariance uncertainty modeling: deterministically abstains when telemetry ambiguity is high',
-      '158 backend tests, 47 governance tests, 12 Next.js pages; dogfooded autonomously against VM Copy'
+      'Execution grounding capturing DOM snapshots, console logs, network payloads, and Playwright screenshots',
+      'Fisher Information covariance uncertainty modeling: deterministically abstaining from speculative execution when telemetry is ambiguous',
+      'Human governance authorization gates enforcing SHA-256 provenance ledgers for all side-effect tool calls',
+      '158 backend test suites and 47 governance tests; autonomously dogfooded against VM Copy Question Generator'
     ],
-    technologies: ['Ollama (Qwen 2.5 Coder)', 'Playwright', 'FastAPI', 'Next.js', 'Model Context Protocol (MCP)', 'Governance'],
+    technologies: ['Python', 'FastAPI', 'Playwright', 'Chromium', 'Ollama (Qwen 2.5 Coder)', 'Model Context Protocol (MCP)', 'SQLite'],
     journalChapterRef: 12,
     systemSlugRef: 'ai-reliability',
     isMilestone: true
   },
   {
-    id: 'future-still-building',
-    period: 'September 2026 — Present',
-    organization: 'The Engineering Horizon',
-    role: 'Continuous Exploration',
-    title: 'Still Building. Still Learning.',
-    layerAnnotation: '? — An expanding spiral of curiosity and verification',
+    id: '2026-portfolio-ask-aadil',
+    period: 'September – November 2026',
+    organization: 'Independent Personal Project',
+    role: 'Lead AI Systems Engineer & Author',
+    category: 'Independent Personal Project',
+    title: 'Engineering Portfolio & Ask Aadil Agent',
+    layerAnnotation: 'INDEPENDENT PERSONAL BUILD — Source-Aware Hybrid RAG, Epistemic Grounding & Voice VAD',
     summary:
-      'Continuing to build, experiment, learn, and explore reliable AI systems. An expanding spiral: Curiosity → Learning → Contribution → Building → Discovery → Repeat. Every system built teaches what to explore next.',
-    capability: 'AI Systems Engineering',
-    transition: 'The engineering mindset emerged through the work. The next page is yet to be written.',
+      'An independent personal AI engineering project: a stateful, source-grounded conversational agent and bespoke portfolio platform featuring deterministic state routing, hybrid retrieval, strict epistemic boundaries, bitwise draft integrity, and voice interaction with speech transcript reconstruction.',
+    capability: 'Source-Aware Hybrid RAG + Epistemic Grounding + HITL Actions + Voice VAD',
+    transition: 'Turned the portfolio itself into an authoritative AI system that eliminates hallucinations, separates source layers, and governs side effects.',
     details: [
-      'Continuing to explore the boundary between stochastic reasoning and deterministic verification',
-      'Investigating autonomous agent reliability, formal verification, and execution grounding',
-      'Still building. Still learning.'
+      'Stateful conversational agent with multi-turn entity resolution, intent routing, and hybrid retrieval across 6 canonical source layers',
+      'Strict epistemic boundaries preventing temporal conflation (Wayground concluded July 2026; post-July is independent research)',
+      'Bitwise draft integrity (executionInput === editedDraft) and visitor confirmation before mail actions without LLM rewriting',
+      'Voice interface with Voice Activity Detection (VAD), barge-in support, and speech transcript reconstruction fixing duplicate interim/final phrases',
+      'Validated across 172 automated test assertions spanning temporal reasoning, prompt injection defense, and Playwright browser flows'
     ],
-    technologies: ['Continuous Learning', 'System Design', 'Reliability Engineering'],
-    journalChapterRef: 14,
+    technologies: ['Next.js', 'React', 'TypeScript', 'Hybrid Retrieval', 'Deterministic State Machine', 'Playwright', 'Web Speech API'],
+    journalChapterRef: 20,
+    systemSlugRef: 'ask-aadil',
+    isMilestone: true
+  },
+  {
+    id: 'solace-ai-2026',
+    period: 'November 2026',
+    organization: 'Solace Hackathon',
+    role: 'System Architect & Sole Author',
+    category: 'Hackathon Project',
+    title: 'Solace AI — Mindful Wellness Companion',
+    layerAnnotation: 'HACKATHON BUILD — Safety-First Mobile AI & Consent Architecture',
+    summary:
+      'An Android wellness companion application built for the Solace Hackathon. Features synchronous pre-LLM crisis screening (Tele-MANAS 14416 / 112 / 988), 6-state mood check-ins, persistent companion chat, breathing/grounding exercises, voice AI with zero-retention audio purging, and consent-based memory controls.',
+    capability: 'Cross-Platform Mobile AI + Deterministic Crisis Safety + Consent Architecture',
+    transition: 'Extended deterministic safety gates and ambiguous-delivery containment to mobile consumer AI with strict user privacy.',
+    details: [
+      'Pre-LLM deterministic crisis screening (is_crisis_input) running synchronously inside LangGraph safety_node before context retrieval or Gemini streaming',
+      'Mood check-ins with 6 states, home dashboard, persistent companion conversations, and Just Let It Out freeform release',
+      'Discover section with animated breathing exercises, grounding routines, and voice AI with raw audio byte purging in a finally block',
+      'Mobile ApiService executing SSE POST strictly once, classifying 502/503/504 as ambiguous delivery without blind retry',
+      'Supabase Auth, PostgreSQL Row-Level Security across 6 tables, and Expo SecureStore chunked below Android Keystore 2048-byte limits',
+      'Verified on standalone Android APK (Pixel 7 emulator, Android 16 API 36) with 52 backend pytests + 50 mobile checks passing with 0 TS errors'
+    ],
+    technologies: ['React Native / Expo 58', 'TypeScript', 'FastAPI', 'LangGraph', 'Google Gemini API', 'Supabase Auth & RLS', 'SSE Streaming'],
+    journalChapterRef: 21,
+    systemSlugRef: 'solace-ai',
+    isMilestone: true
+  },
+  {
+    id: 'future-still-building',
+    period: 'August 2026 — Present',
+    organization: 'Independent AI Engineering & Research',
+    role: 'Independent AI Systems Engineer & Researcher',
+    category: 'Independent Engineering Project',
+    title: 'Independent AI Engineering & Research: Still Building. Still Exploring.',
+    layerAnnotation: 'CONTINUING FRONTIER — Building, Experimenting & Researching Intelligent Applications',
+    summary:
+      'Building, experimenting and researching intelligent applications, agentic systems and reliable AI engineering solutions. Following the conclusion of formal employment at Wayground in July 2026, dedicated to continuous technical growth and shipping independent systems across hackathons, engineering tools, and reliability platforms.',
+    capability: 'Autonomous Agent Reliability + Deterministic Verification + Stateful AI Architectures',
+    transition: 'Curiosity → Learning → Contribution → Building → Discovery → Repeat. Continuous technical growth through shipping practical systems.',
+    details: [
+      'Continuous technical growth through shipping practical systems: Loom AI, Atlas AI, OCR Evaluator, AI Reliability, EDA, Ask Aadil, and Solace AI',
+      'Researching the boundary between stochastic model reasoning and deterministic solvers (formal CAD kernels, physics, verification wrappers)',
+      'Investigating Fisher information covariance uncertainty modeling, Playwright-governed browser execution, and safety-first mobile companions',
+      'Open to high-impact AI Systems Engineering and backend architecture roles globally'
+    ],
+    technologies: ['Autonomous Agents', 'LangGraph', 'Playwright', 'FastAPI', 'Next.js', 'Deterministic Solvers', 'Safety Architectures'],
+    journalChapterRef: 22,
     isEnd: true
   }
 ]

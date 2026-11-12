@@ -1278,7 +1278,7 @@ ${pos.description ? `• **Details:** ${pos.description}` : ''}`
 
 **Epistemic Boundary & Policy:**
 • **Absence of a current corporate employer must never be converted into an unemployment claim.**
-• While Aadil concluded his formal engagement with Wayground in **July 2026**, he is actively engaged in independent AI systems research, engineering open-source projects, and publishing research in Chapter 10 of his Engineering Journal (*Still Building ?*).
+• While Aadil concluded his formal engagement with Wayground in **July 2026**, from **August 2026 — Present** he is **still building and still exploring**—engaged in independent AI systems research, building this Engineering Portfolio & Ask Aadil agent, shipping hackathon builds like Solace AI, and publishing Chapter 10 of his Engineering Journal (*Still Building ?*).
 • His active work focuses on the boundary between stochastic model reasoning and deterministic verification, autonomous agent harnesses, and systems architecture.
 • He is actively open to high-impact AI Systems Engineering opportunities, but treating the lack of a documented corporate employer in connected sources as "unemployment" is an unfounded assertion.`
 
@@ -1321,8 +1321,8 @@ ${pos.description ? `• **Details:** ${pos.description}` : ''}`
     answer = `**The connected sources do not currently verify a corporate employer after July 2026.**
 
 **Temporal Reasoning & Source Distinction:**
-• **Latest Documented Corporate Employer:** **Wayground** (AI/ML Team), where he served as AI Engineer / Consultant until concluding in **July 2026**. Evidence from July 2026 cannot automatically be presented as current September 2026 corporate employment.
-• **Current Verified Information:** As of September 2026, he is engaged in independent AI systems research and engineering as documented in Chapter 10 of his Engineering Journal (*Still Building ?*).
+• **Latest Documented Corporate Employer:** **Wayground** (AI/ML Team), where he served as AI Engineer / Consultant until concluding in **July 2026**. Evidence from July 2026 cannot automatically be presented as current post-July 2026 corporate employment.
+• **Current Verified Information (August 2026 — Present):** As documented in Chapter 10 of his Engineering Journal (*Still Building ?*), he is **still building and still exploring**—engaged in independent AI systems research and engineering, including this Engineering Portfolio & Ask Aadil (Sep 2026) and Solace AI (Nov 2026 · Solace Hackathon).
 • **Unknown / Unverified Information:** Any subsequent corporate employer is unrecorded and unknown in the connected verified sources.
 • **Status:** Open to high-impact AI Systems Engineering and backend architecture roles globally.`
 
@@ -1406,12 +1406,17 @@ ${pos.description ? `• **Details:** ${pos.description}` : ''}`
       reference: 'Journal Chapter 10'
     })
 
-    answer = `Based on verified records, Aadil concluded his formal engagement with Wayground's AI/ML team in **July 2026**.
+    answer = `Based on verified records, Aadil concluded his formal engagement with Wayground's AI/ML team in **July 2026**. From **August 2026 — Present: Independent AI Engineering & Research**, he is actively building, experimenting, and researching intelligent applications, agentic systems, and reliable AI engineering solutions across 7 shipped independent projects:
 
-As documented in Chapter 10 of his Engineering Journal (*Still Building ?*), his latest documented work focuses on:
-1. **The Boundary Between Stochastic Reasoning & Deterministic Verification:** Investigating where language models should stop and deterministic solvers (formal algorithms, CAD solids, closed-form physics) should take over.
-2. **Autonomous Agent Reliability & Diagnostic Harnesses:** Researching Fisher information covariance matrices and Playwright-governed execution boundaries to prevent model drift.
-3. **Open Positioning:** Open to high-impact AI Systems Engineering and backend architecture roles globally.
+1. **Loom AI (August 2026 · Hackathon Project):** Next.js & Express B2B textile marketplace with multi-agent LangGraph procurement workflows, human-in-the-loop (HITL) approval gates, and Playwright tests.
+2. **Atlas AI (August 2026 · Hackathon Project):** Financial copilot RAG across SEC EDGAR 10-K/10-Q filings with automated Telegram alert worker (59 core MVP tests, 178 complete pytests).
+3. **OCR Evaluation & Robustness Testing Platform (September 2026 · Independent Engineering Project):** Multi-tier document accuracy evaluation (CER/WER), critical-field auditing, risk classification (PASS/REVIEW/FAIL), and degradation testing (134 backend pytests + 20 UI assertions).
+4. **AI Application Reliability Platform (September 2026 · Independent Engineering Project):** Autonomous browser testing platform pairing local Ollama Qwen with Playwright execution grounding and Fisher covariance uncertainty abstention (158 backend test suites + 47 governance tests).
+5. **Engineering Design Automation (September 2026 · Independent Engineering Project):** Natural-language-to-CAD mechanical synthesis with closed-form physics and OpenCascade 3D solid STEP geometry (424 tests across 28 suites with 0.0000% volume error).
+6. **Ask Aadil & Portfolio (September–November 2026 · Independent Personal Project):** Bespoke Next.js engineering platform, 36-folio journal, cartographic journey map, and stateful zero-fabrication hybrid RAG agent with voice VAD (172/172 verified test assertions).
+7. **Solace AI (November 2026 · Hackathon Project):** Safety-first Expo 58 + FastAPI/LangGraph mobile companion with deterministic crisis screening, consent-based memory, and ephemeral voice privacy (52 backend pytests + 50 mobile suite checks).
+
+As documented in Chapter 10 of his Engineering Journal (*Still Building ?*), his continuous research investigates the boundary between stochastic reasoning and deterministic verification, autonomous agent reliability harnesses, and formal governance.
 
 The open ending on his timeline is intentional—reflecting the continuous cycle: *Curiosity → Learning → Contribution → Building → Discovery → Repeat*.`
 
@@ -1427,8 +1432,8 @@ The open ending on his timeline is intentional—reflecting the continuous cycle
       },
       suggestedAction: {
         type: 'navigate',
-        label: 'Open Journal — Chapter 10 [?]',
-        payload: { url: '/?spread=14#journal' }
+        label: 'Open Journal — Synthesis',
+        payload: { url: '/journal?spread=17#journal-book' }
       }
     }
   }
@@ -1984,7 +1989,7 @@ ${stages}
     layers.add('system')
 
     claims.push({
-      claim: 'Enumeration of 10 canonical systems from authoritative Project Registry',
+      claim: 'Enumeration of 11 canonical systems from authoritative Project Registry',
       sourceType: 'portfolio',
       layer: 'system',
       reference: 'Canonical Project Registry'
@@ -2042,7 +2047,7 @@ ${stages}
       suggestedAction: {
         type: 'navigate',
         label: 'Open Journal — Epilogue',
-        payload: { url: '/?spread=14#epilogue' }
+        payload: { url: '/journal?spread=18#journal-book' }
       }
     }
   }
@@ -2391,6 +2396,48 @@ This architectural pattern emerged directly from Aadil’s observation that prom
 2. **Direct SEC EDGAR Integration:** Retrieves raw regulatory filings (Form 10-K, 10-Q, 8-K) via SEC EDGAR APIs, eliminating intermediary news hallucinations.
 3. **Atlas Vector Search & Gemini Embeddings:** Embeds dense financial items into MongoDB Atlas Vector Search.
 4. **Proactive Background Worker:** Runs within FastAPI application lifespan monitoring volatility alerts, verified by automated test suites.`
+    } else if (decision.detectedProjectSlug === 'solace-ai') {
+      claims.push({
+        claim: 'Synchronous pre-LLM crisis screening (is_crisis_input) and feature-flagged LangGraph SSE orchestration',
+        sourceType: 'portfolio',
+        layer: 'system',
+        reference: 'Solace AI Specification',
+        url: '/projects/solace-ai'
+      })
+      claims.push({
+        claim: '52 backend pytests and 50 mobile verification checks passing with 0 TypeScript errors',
+        sourceType: 'github',
+        reference: 'aadil-lang/solace-ai',
+        url: 'https://github.com/aadil-lang/solace-ai'
+      })
+
+      answer = `**Solace AI** pairs an Expo 58 / React Native mobile sanctuary with a FastAPI & LangGraph backend enforcing strict safety and privacy boundaries:
+
+1. **Deterministic Safety Gate First:** Every turn enters the LangGraph pipeline at \`safety_node\` (\`is_crisis_input\`), synchronously evaluating English, Roman Urdu, and Urdu script crisis patterns while filtering figurative idioms before any memory lookup or Gemini inference runs, immediately routing acute distress to localized helplines (**Tele-MANAS 14416**, **112**, **988**).
+2. **Feature-Flagged LangGraph SSE Streaming:** Streams tokens via \`astream_events(v2)\` and \`adispatch_custom_event("token")\` with automatic pre-token fallback to the native SSE stream.
+3. **Consent-Based Memory & Ephemeral Voice Privacy:** Emotional memories require explicit per-insight user approval, journals and poetry stay isolated under Supabase RLS, and voice transcription buffers are deleted immediately in a \`finally:\` block (\`del audio_bytes\`).
+4. **Ambiguous SSE Containment:** \`streamChat\` executes a single \`POST\` and classifies 502/503/504 drops as ambiguous delivery without blind auto-retry, verified alongside **52 backend pytests** and **50 mobile checks** (0 TypeScript errors).`
+    } else if (decision.detectedProjectSlug === 'ocr-evaluator') {
+      claims.push({
+        claim: 'Multi-tier OCR evaluation (CER/WER) with priority risk classification and image degradation testing',
+        sourceType: 'portfolio',
+        layer: 'system',
+        reference: 'OCR Evaluator Specification',
+        url: '/projects/ocr-evaluator'
+      })
+      claims.push({
+        claim: '134 automated backend pytests and 20 browser UI assertions passing with 0 JavaScript errors',
+        sourceType: 'github',
+        reference: 'aadil-lang/OCR-Evaluator',
+        url: 'https://github.com/aadil-lang/OCR-Evaluator'
+      })
+
+      answer = `**OCR Evaluation & Robustness Testing Platform** is an engineering system measuring document extraction accuracy, confidence, critical-field correctness, and robustness under controlled real-world image degradation:
+
+1. **Multi-Tier Accuracy Evaluation:** Measures Character Error Rate (CER via Levenshtein distance), Word Error Rate (WER), exact field match, and critical-field accuracy rather than relying on a single deceptive aggregate score.
+2. **Priority Risk Classification:** The risk engine in \`src/evaluation/risk.py\` assigns operational status (**PASS**, **REVIEW**, **FAIL**) where a mismatch on a CRITICAL field (e.g. Survey Number or Registration ID) immediately overrides high OCR confidence on surrounding boilerplate text.
+3. **Controlled Image Degradation Testing:** Tests OCR engines across 5 physical degradation axes: Gaussian blur, additive noise, rotation skew, contrast reduction, and JPEG compression.
+4. **FastAPI & React Architecture:** Full-stack dashboard connecting React/Vite frontend to a FastAPI backend, validated with **134 automated backend pytests across 22 test files** and **20 browser UI assertions** (0 frontend JavaScript errors).`
     } else {
       const chunkText = semanticChunks.map(c => c.content).join('\n\n')
       answer = `According to the **Systems Archive** and **GitHub evidence** for **${project?.title || decision.detectedProjectSlug}**:
@@ -2565,7 +2612,7 @@ ${matchingProjects
         sourceType: 'portfolio',
         layer: 'journal',
         reference: 'Journal Chapter 06',
-        url: '/?spread=6#journal'
+        url: '/journal?spread=6#journal-book'
       })
 
       answer = `Aadil built **VM Copy Question Generator** because generative LLMs were breaking down in real assessment production:
@@ -2589,7 +2636,7 @@ This transition from prompt tinkering to deterministic systems engineering forme
         suggestedAction: {
           type: 'navigate',
           label: 'Open Journal — Chapter 06',
-          payload: { url: '/?spread=6#journal' }
+          payload: { url: '/journal?spread=6#journal-book' }
         }
       }
     }
@@ -2620,7 +2667,7 @@ This transition from prompt tinkering to deterministic systems engineering forme
       sourceType: 'portfolio',
       layer: 'journal',
       reference: 'Journal Chapter 06 // Generation Wasn’t Enough',
-      url: '/journal?spread=6'
+      url: '/journal?spread=6#journal-book'
     })
 
     answer = `Aadil’s path into AI engineering was not a conventional textbook transition, but an **expansion of curiosity driven by solving real workflow bottlenecks**:
@@ -2646,7 +2693,7 @@ The core operating principle of this evolution has remained constant:
       suggestedAction: {
         type: 'navigate',
         label: 'Open Journal — Chapter 01',
-        payload: { url: '/?spread=1#journal' }
+        payload: { url: '/journal?spread=1#journal-book' }
       }
     }
   }

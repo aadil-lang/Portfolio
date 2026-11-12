@@ -145,6 +145,7 @@ The portfolio distinguishes independently built systems from team systems and do
 • **Ask Aadil** — Stateful, source-grounded portfolio knowledge agent with deterministic state machine and visitor-approved actions.
 
 **Hackathon Projects:**
+• **Solace AI** — Safety-first Expo 58 / React Native & FastAPI/LangGraph wellness companion with deterministic pre-LLM crisis screening, consent-based memory, zero-retention voice privacy, and ambiguous SSE containment (52 backend pytests + 50 mobile suite checks).
 • **Loom AI** — Clean-architecture B2B textile procurement platform with compound text search, LangGraph workflows, and Human-in-the-Loop approval queues.
 • **Atlas AI** — Multi-agent financial copilot parsing SEC EDGAR 10-K/10-Q filings with deterministic retrieval boundaries and 178 automated tests.
 
@@ -282,14 +283,14 @@ The historical record confirms his Wayground contract concluded in **July 2026**
         return { answer, citations }
       }
 
-      const answer = `Based on verified records, Aadil concluded his formal engagement with Wayground's AI/ML team in **July 2026**. The connected sources do not currently verify a subsequent corporate employer.
+      const answer = `Based on verified records, Aadil concluded his formal engagement with Wayground's AI/ML team in **July 2026**. The connected sources do not verify a subsequent corporate employer (so any unrecorded corporate role cannot automatically be presented as current). From **August 2026 — Present: Independent AI Engineering & Research**, he is building, experimenting, and researching intelligent applications, agentic systems, and reliable AI engineering solutions across 7 shipped independent projects:
+1. **Loom AI & Atlas AI (Aug 2026 · Hackathon Projects):** Multi-agent LangGraph marketplace with HITL gates and financial SEC EDGAR RAG copilot with Telegram alerts.
+2. **OCR Evaluation Platform (Sep 2026 · Independent Engineering Project):** Multi-tier document extraction accuracy (CER/WER), critical-field auditing, and degradation testing (134 backend pytests + 20 UI assertions).
+3. **Engineering Design Automation & AI Reliability (Sep 2026 · Independent Engineering Projects):** OpenCascade 3D CAD geometry generation (424 tests) and Playwright-governed browser QA with Fisher covariance uncertainty abstention.
+4. **This Portfolio & Ask Aadil (Sep–Nov 2026 · Independent Personal Project):** Bespoke Next.js engineering platform, 36-folio Engineering Journal, Cartographic Journey Map, and Ask Aadil grounded hybrid RAG agent with voice VAD (172 tests).
+5. **Solace AI (Nov 2026 · Hackathon Project):** Safety-first Expo 58 + FastAPI/LangGraph mobile wellness companion with deterministic crisis screening and consent-based memory (52 backend pytests + 50 mobile checks).
 
-As documented in Chapter 10 of his Engineering Journal (*Still Building ?*), his latest documented work focuses on:
-1. **The Boundary Between Stochastic Reasoning & Deterministic Verification:** Investigating where language models should stop and deterministic solvers (formal algorithms, CAD solids, closed-form physics) should take over.
-2. **Autonomous Agent Reliability & Diagnostic Harnesses:** Researching Fisher information covariance matrices and Playwright-governed execution boundaries to prevent model drift.
-3. **Open Positioning:** Open to high-impact AI Systems Engineering and backend architecture roles globally.
-
-The open ending on his timeline reflects the continuous operating loop: *Curiosity → Learning → Contribution → Building → Discovery → Repeat*.`
+As documented in Chapter 10 of his Engineering Journal (*Still Building ?*), the open ending on his timeline reflects the continuous operating loop: *Curiosity → Learning → Contribution → Building → Discovery → Repeat*.`
 
       return { answer, citations }
     }

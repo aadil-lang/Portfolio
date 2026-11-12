@@ -5,6 +5,12 @@ import { projects } from '../../../data/projects'
 import { chapters } from '../../../data/chapters'
 import ArchitectureViz from '../../../components/ArchitectureViz'
 import CodeEvidence from '../../../components/CodeEvidence'
+import OcrEvaluationExplorer from '../../../components/evidence/OcrEvaluationExplorer'
+import CadModelViewer from '../../../components/evidence/CadModelViewer'
+import SolaceVideoShowcase from '../../../components/evidence/SolaceVideoShowcase'
+import AskAadilEvaluationExplorer from '../../../components/evidence/AskAadilEvaluationExplorer'
+import EngineeringDecisions from '../../../components/decisions/EngineeringDecisions'
+import { projectDecisions } from '../../../data/decisions/projectDecisions'
 import {
   ArrowLeft,
   ArrowRight,
@@ -59,23 +65,24 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
   const tradeoffs = chapter?.failuresAndTradeoffs || project.tradeoffs || []
   const breakthrough = chapter?.breakthrough || project.breakthrough
   const delta = chapter?.accumulatedCapability || project.delta
+  const decisions = projectDecisions[project.slug] || []
 
   return (
-    <article className="max-w-5xl mx-auto space-y-12 pb-16">
+    <article className="max-w-5xl mx-auto space-y-12 pb-16 px-4 sm:px-6">
       {/* Navigation Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#242930] pb-4 pt-2">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-mono text-[#9EA4AA] hover:text-[#F0EEE9] transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" /> Back to Project Directory
+          <ArrowLeft className="w-3.5 h-3.5" /> Back to Project Directory
         </Link>
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs uppercase font-mono font-bold tracking-wider px-2.5 py-1 rounded bg-purple-950/60 text-purple-300 border border-purple-800/60">
+          <span className="text-xs uppercase font-mono font-bold tracking-wider px-2.5 py-1 rounded bg-[#18261F] text-[#5A9A78] border border-[#234030]">
             {project.ownershipLabel}
           </span>
           {project.type && (
-            <span className="text-xs uppercase font-mono tracking-wider px-2.5 py-1 rounded bg-slate-900 text-slate-400 border border-slate-800">
+            <span className="text-xs uppercase font-mono tracking-wider px-2.5 py-1 rounded bg-[#16191D] text-[#858A90] border border-[#262B32]">
               {project.type}
             </span>
           )}
@@ -84,23 +91,23 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
       {/* Header & Subtitle */}
       <header className="space-y-4">
-        <div className="text-xs font-mono uppercase tracking-widest text-purple-400">
-          Engineering Investigation // Case Study
+        <div className="text-xs font-mono uppercase tracking-widest text-[#5A9A78] font-semibold">
+          Engineering Specification // Case Study
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight font-serif">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F0EEE9] leading-tight font-serif">
           {project.title}
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">
+        <p className="text-base sm:text-lg text-[#C8C6BF] leading-relaxed max-w-4xl">
           {project.subtitle || project.tagline || project.summary}
         </p>
 
         {/* Tech Badges */}
         {project.technologies && project.technologies.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="flex flex-wrap gap-1.5 pt-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-xs font-mono rounded-full bg-slate-900 border border-slate-700/80 text-slate-300"
+                className="px-2.5 py-1 text-xs font-mono rounded bg-[#16191D] border border-[#2A2F36] text-[#A2B4C2]"
               >
                 {tech}
               </span>
@@ -109,15 +116,15 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         )}
 
         {/* Action Links */}
-        <div className="flex flex-wrap gap-3 pt-4">
+        <div className="flex flex-wrap items-center gap-3 pt-3 font-mono text-xs">
           {project.demo && (
             <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 font-medium text-white transition-colors shadow-lg shadow-purple-600/25"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded border border-[#3E4652] bg-[#22272E] hover:bg-[#2C333D] text-[#F0EEE9] font-medium transition-colors shadow-sm"
             >
-              <ExternalLink className="w-4 h-4" /> Live Demo
+              <ExternalLink className="w-3.5 h-3.5 text-[#5A9A78]" /> Live Demonstration
             </a>
           )}
           {project.github && (
@@ -125,28 +132,28 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded border border-[#262B32] bg-[#16191D] hover:bg-[#1E232A] text-[#D8D6D0] hover:text-white transition-colors"
             >
-              <Github className="w-4 h-4" /> View Source
+              <Github className="w-3.5 h-3.5 text-[#71899A]" /> View Source Repository
             </a>
           )}
           {chapter && (
             <Link
               href="/journal"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-purple-500/40 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded border border-[#2A3542] bg-[#161E28] hover:bg-[#1B2735] text-[#8CC4FF] text-xs font-medium transition-colors"
             >
-              <BookOpen className="w-4 h-4 text-purple-400" /> Journal Chapter {chapter.number}
+              <BookOpen className="w-3.5 h-3.5 text-[#58A6FF]" /> Journal Chapter {chapter.number}
             </Link>
           )}
         </div>
 
-        {/* Attribution & Disclosure Banner where applicable */}
+        {/* Attribution Notice where applicable */}
         {project.statusNotice && (
-          <div className="mt-6 p-4 sm:p-5 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-200/90 text-xs sm:text-sm leading-relaxed flex items-start gap-3">
+          <div className="mt-4 p-4 rounded-xl border border-amber-500/30 bg-[#1F1B14] text-amber-200/90 text-xs sm:text-sm leading-relaxed flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
             <div className="space-y-1">
               <div className="font-bold font-mono uppercase text-amber-300 text-xs">
-                Context & Attribution Notice · Team System
+                Context & Attribution Notice
               </div>
               <p>{project.statusNotice}</p>
             </div>
@@ -154,39 +161,70 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         )}
       </header>
 
+      {/* Sticky Quick-Jump Navigation Bar */}
+      <nav className="sticky top-[61px] z-30 bg-[#121518]/95 backdrop-blur-md border-y border-[#262B32] py-2 px-3 rounded-lg flex items-center gap-2 overflow-x-auto text-[11px] font-mono shadow-md">
+        <span className="text-[#686E77] shrink-0 uppercase tracking-wider font-semibold">Jump to:</span>
+        <a href="#context-problem" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">01. Context & Problem</a>
+        <a href="#architecture" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">02. Architecture</a>
+        {project.systemLayers && project.systemLayers.length > 0 && (
+          <a href="#layers" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">03. Layers</a>
+        )}
+        {['ocr-evaluator', 'design-automation', 'solace-ai', 'ask-aadil'].includes(project.slug) && (
+          <a href="#interactive-evidence" className="shrink-0 px-2.5 py-1 rounded bg-[#18261F] hover:bg-[#20362B] text-[#5A9A78] hover:text-[#78C49C] border border-[#234030] transition-colors font-bold flex items-center gap-1">
+            <Sparkles className="w-3 h-3 text-[#5A9A78]" />
+            <span>Interactive Demo</span>
+          </a>
+        )}
+        {criticalDecision && (
+          <a href="#decision" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">04. Decision</a>
+        )}
+        {project.codeEvidence && project.codeEvidence.length > 0 && (
+          <a href="#code-evidence" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">05. Code Evidence</a>
+        )}
+        {whatBroke && whatBroke.length > 0 && (
+          <a href="#failures" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">06. Failures</a>
+        )}
+        {evidence && evidence.length > 0 && (
+          <a href="#evidence" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">07. Verification</a>
+        )}
+        {((decisions && decisions.length > 0) || (tradeoffs && tradeoffs.length > 0)) && (
+          <a href="#decisions" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">08. Decisions & Trade-offs</a>
+        )}
+      </nav>
+
       {/* 01. Context & 02. Problem Grid */}
-      <section className="grid md:grid-cols-2 gap-6">
-        <div className="p-6 rounded-xl glass border border-slate-800 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold">
-            <Layers className="w-4 h-4" />
+      <section id="context-problem" className="grid md:grid-cols-2 gap-6 scroll-mt-28">
+        <div className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-3">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#71899A] font-semibold">
+            <Layers className="w-4 h-4 text-[#71899A]" />
             <span>01. Operational Context</span>
           </div>
-          <h2 className="text-xl font-bold text-white font-serif">Context</h2>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <h2 className="text-xl font-bold text-[#F0EEE9] font-serif">Context</h2>
+          <p className="text-sm text-[#C8C6BF] leading-relaxed">
             {context}
           </p>
         </div>
 
-        <div className="p-6 rounded-xl glass border border-slate-800 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-rose-400 font-semibold">
-            <Flame className="w-4 h-4" />
+        <div className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-3">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#D48A63] font-semibold">
+            <Flame className="w-4 h-4 text-[#D48A63]" />
             <span>02. Engineering Problem</span>
           </div>
-          <h2 className="text-xl font-bold text-white font-serif">Engineering Problem</h2>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <h2 className="text-xl font-bold text-[#F0EEE9] font-serif">Engineering Problem</h2>
+          <p className="text-sm text-[#C8C6BF] leading-relaxed">
             {problem}
           </p>
         </div>
       </section>
 
       {/* 03. Architecture Visualization */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-          <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-            <Layers className="w-5 h-5 text-purple-400" />
+      <section id="architecture" className="space-y-4 scroll-mt-28">
+        <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+          <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+            <Layers className="w-5 h-5 text-[#5A9A78]" />
             <h2>03. Architecture & Execution Flow</h2>
           </div>
-          <span className="text-[11px] font-mono text-purple-300 uppercase tracking-wider">
+          <span className="text-[11px] font-mono text-[#5A9A78] uppercase tracking-wider">
             Verified Pipeline
           </span>
         </div>
@@ -195,13 +233,13 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
       {/* 04. Full-Stack System Layers */}
       {project.systemLayers && project.systemLayers.length > 0 && (
-        <section className="space-y-4">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-            <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-              <Cpu className="w-5 h-5 text-purple-400" />
+        <section id="layers" className="space-y-4 scroll-mt-28">
+          <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+            <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+              <Cpu className="w-5 h-5 text-[#71899A]" />
               <h2>04. Full-Stack System Layers</h2>
             </div>
-            <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+            <span className="text-[11px] font-mono text-[#858A90] uppercase tracking-wider">
               End-to-End Implementation
             </span>
           </div>
@@ -210,15 +248,15 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
             {project.systemLayers.map((layer, idx) => (
               <div
                 key={layer.layer}
-                className="glass p-4 rounded-xl border border-slate-800 space-y-2 hover:border-purple-500/40 transition-colors"
+                className="p-4 rounded-xl border border-[#262B32] bg-[#14171A] space-y-2 hover:border-[#3E4652] transition-colors"
               >
-                <span className="text-purple-400 font-semibold uppercase tracking-wider text-[11px] font-mono block">
+                <span className="text-[#5A9A78] font-semibold uppercase tracking-wider text-[11px] font-mono block">
                   0{idx + 1}. {layer.layer}
                 </span>
-                <div className="text-xs font-mono font-bold text-slate-100 bg-slate-900/90 px-2.5 py-1 rounded border border-slate-800">
+                <div className="text-xs font-mono font-bold text-[#F0EEE9] bg-[#181C21] px-2.5 py-1 rounded border border-[#2A303A]">
                   {layer.components}
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed pt-1">
+                <p className="text-xs text-[#9EA4AA] leading-relaxed pt-1">
                   {layer.details}
                 </p>
               </div>
@@ -227,15 +265,25 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         </section>
       )}
 
+      {/* Interactive Engineering Evidence & Technical Demonstrations */}
+      {['ocr-evaluator', 'design-automation', 'solace-ai', 'ask-aadil'].includes(project.slug) && (
+        <section id="interactive-evidence" className="space-y-4 scroll-mt-28">
+          {project.slug === 'ocr-evaluator' && <OcrEvaluationExplorer />}
+          {project.slug === 'design-automation' && <CadModelViewer />}
+          {project.slug === 'solace-ai' && <SolaceVideoShowcase />}
+          {project.slug === 'ask-aadil' && <AskAadilEvaluationExplorer />}
+        </section>
+      )}
+
       {/* 05. Critical Engineering Decision */}
       {criticalDecision && (
-        <section className="p-6 rounded-xl glass border border-purple-500/30 bg-purple-950/20 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-purple-300 font-semibold">
-            <Sparkles className="w-4 h-4 text-purple-400" />
+        <section id="decision" className="p-6 rounded-xl border border-[#2A3542] bg-[#141A22] space-y-3 scroll-mt-28">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#58A6FF] font-semibold">
+            <Sparkles className="w-4 h-4 text-[#58A6FF]" />
             <span>05. Critical Engineering Decision</span>
           </div>
-          <h2 className="text-xl font-bold text-white font-serif">Critical Engineering Decision</h2>
-          <p className="text-sm sm:text-base text-purple-100/90 leading-relaxed">
+          <h2 className="text-xl font-bold text-[#F0EEE9] font-serif">Critical Engineering Decision</h2>
+          <p className="text-sm sm:text-base text-[#C8C6BF] leading-relaxed">
             {criticalDecision}
           </p>
         </section>
@@ -243,13 +291,13 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
       {/* Engineering Evidence // Code Excerpts */}
       {project.codeEvidence && project.codeEvidence.length > 0 && (
-        <section className="space-y-6">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-            <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-              <Binary className="w-5 h-5 text-purple-400" />
+        <section id="code-evidence" className="space-y-6 scroll-mt-28">
+          <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+            <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+              <Binary className="w-5 h-5 text-[#5A9A78]" />
               <h2>Engineering Evidence // Code Excerpts</h2>
             </div>
-            <span className="text-[11px] font-mono text-purple-300 uppercase tracking-wider">
+            <span className="text-[11px] font-mono text-[#5A9A78] uppercase tracking-wider">
               Deterministic Mechanisms & Boundaries
             </span>
           </div>
@@ -264,13 +312,13 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
       {/* 06. What Broke (Failure Analysis) */}
       {whatBroke && whatBroke.length > 0 && (
-        <section className="space-y-4">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-            <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-              <Flame className="w-5 h-5 text-rose-400" />
+        <section id="failures" className="space-y-4 scroll-mt-28">
+          <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+            <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+              <Flame className="w-5 h-5 text-[#D48A63]" />
               <h2>06. What Broke (Failure Analysis & Containment)</h2>
             </div>
-            <span className="text-[11px] font-mono text-rose-400 uppercase tracking-wider">
+            <span className="text-[11px] font-mono text-[#D48A63] uppercase tracking-wider">
               Empirical Defect Logs
             </span>
           </div>
@@ -279,18 +327,18 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
             {whatBroke.map((item, idx) => (
               <div
                 key={idx}
-                className="glass p-5 rounded-xl border border-slate-800 space-y-3 bg-slate-950/40"
+                className="p-5 rounded-xl border border-[#2B231D] bg-[#161311] space-y-3"
               >
-                <div className="flex items-center gap-2 text-rose-300 font-semibold text-sm">
-                  <span className="text-xs font-mono px-2 py-0.5 rounded bg-rose-500/20 border border-rose-500/30">
+                <div className="flex items-center gap-2 text-[#D48A63] font-semibold text-sm">
+                  <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#2B1F18] border border-[#472E22]">
                     Defect 0{idx + 1}
                   </span>
                   <span>{item.failure}</span>
                 </div>
-                <div className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
-                  <p><strong className="text-slate-400 font-mono">Cause:</strong> {item.cause}</p>
-                  <p><strong className="text-slate-400 font-mono">Detection:</strong> {item.detection}</p>
-                  <p><strong className="text-slate-400 font-mono">Response:</strong> {item.response}</p>
+                <div className="space-y-1.5 text-xs text-[#C8C6BF] leading-relaxed">
+                  <p><strong className="text-[#858A90] font-mono">Cause:</strong> {item.cause}</p>
+                  <p><strong className="text-[#858A90] font-mono">Detection:</strong> {item.detection}</p>
+                  <p><strong className="text-[#858A90] font-mono">Response:</strong> {item.response}</p>
                 </div>
               </div>
             ))}
@@ -300,13 +348,13 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
       {/* 07. What Became Deterministic */}
       {whatBecameDeterministic && (
-        <section className="p-6 rounded-xl glass border border-slate-800 bg-slate-950/70 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+        <section className="p-6 rounded-xl border border-[#234030] bg-[#131A16] space-y-3">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5A9A78] font-semibold">
             <Binary className="w-4 h-4" />
             <span>07. Authority Boundary</span>
           </div>
-          <h2 className="text-xl font-bold text-white font-serif">What Became Deterministic</h2>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-mono text-xs sm:text-sm bg-slate-900/80 p-4 rounded-lg border border-slate-800">
+          <h2 className="text-xl font-bold text-[#F0EEE9] font-serif">What Became Deterministic</h2>
+          <p className="text-sm text-[#C8C6BF] leading-relaxed font-mono text-xs sm:text-sm bg-[#0E1511] p-4 rounded-lg border border-[#1E3025]">
             {whatBecameDeterministic}
           </p>
         </section>
@@ -314,21 +362,21 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
       {/* 08. Evidence & Ground Truth */}
       {evidence && evidence.length > 0 && (
-        <section className="p-6 rounded-xl glass border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-            <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <h2>08. Evidence & Ground Truth</h2>
+        <section id="evidence" className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-4 scroll-mt-28">
+          <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+            <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+              <ShieldCheck className="w-5 h-5 text-[#5A9A78]" />
+              <h2>08. Evidence & Verification Metrics</h2>
             </div>
-            <span className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider">
+            <span className="text-[11px] font-mono text-[#5A9A78] uppercase tracking-wider">
               Source Verified
             </span>
           </div>
 
           <ul className="grid sm:grid-cols-2 gap-3 pt-2">
             {evidence.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 bg-slate-900/60 p-3.5 rounded-lg border border-slate-800/80">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-[#C8C6BF] bg-[#181C21] p-3.5 rounded-lg border border-[#262B32]">
+                <CheckCircle2 className="w-4 h-4 text-[#5A9A78] shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
@@ -336,54 +384,56 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         </section>
       )}
 
-      {/* 09. Architectural Trade-offs */}
-      {tradeoffs && tradeoffs.length > 0 && (
-        <section className="p-6 rounded-xl glass border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-            <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-              <Scale className="w-5 h-5 text-indigo-400" />
-              <h2>09. Trade-offs</h2>
+      {/* 09. Engineering Decisions & Architectural Trade-offs */}
+      {decisions && decisions.length > 0 ? (
+        <EngineeringDecisions decisions={decisions} projectTitle={project.title} />
+      ) : tradeoffs && tradeoffs.length > 0 ? (
+        <section id="decisions" className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-4 scroll-mt-28">
+          <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+            <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+              <Scale className="w-5 h-5 text-[#71899A]" />
+              <h2>09. Engineering Decisions & Trade-offs</h2>
             </div>
-            <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
+            <span className="text-[11px] font-mono text-[#71899A] uppercase tracking-wider">
               System Decisions
             </span>
           </div>
 
           <ul className="space-y-3 pt-2">
             {tradeoffs.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 bg-slate-900/40 p-3.5 rounded-lg border border-slate-800">
-                <span className="text-xs font-mono text-purple-400 font-bold shrink-0 mt-0.5">0{i + 1}.</span>
+              <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-[#C8C6BF] bg-[#181C21] p-3.5 rounded-lg border border-[#262B32]">
+                <span className="text-xs font-mono text-[#5A9A78] font-bold shrink-0 mt-0.5">0{i + 1}.</span>
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </section>
-      )}
+      ) : null}
 
-      {/* 10. What This Project Changed & Engineering Delta */}
+      {/* 10. System Breakthrough & Engineering Delta */}
       {(breakthrough || delta) && (
         <section className="grid md:grid-cols-2 gap-6">
           {breakthrough && (
-            <div className="p-6 rounded-xl glass border border-slate-800 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold">
+            <div className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-3">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5A9A78] font-semibold">
                 <Sparkles className="w-4 h-4" />
                 <span>What This Project Changed</span>
               </div>
-              <h2 className="text-xl font-bold text-white font-serif">System Breakthrough</h2>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <h2 className="text-xl font-bold text-[#F0EEE9] font-serif">System Breakthrough</h2>
+              <p className="text-sm text-[#C8C6BF] leading-relaxed">
                 {breakthrough}
               </p>
             </div>
           )}
 
           {delta && (
-            <div className="p-6 rounded-xl glass border border-slate-800 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">
+            <div className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-3">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#71899A] font-semibold">
                 <TrendingUp className="w-4 h-4" />
                 <span>Engineering Delta</span>
               </div>
-              <h2 className="text-xl font-bold text-white font-serif">Engineering Delta</h2>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <h2 className="text-xl font-bold text-[#F0EEE9] font-serif">Engineering Delta</h2>
+              <p className="text-sm text-[#C8C6BF] leading-relaxed">
                 {delta}
               </p>
             </div>
@@ -391,71 +441,71 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         </section>
       )}
 
-      {/* 09 — Related Journal Entry & Timeline Progression */}
-      <section className="p-6 rounded-xl glass border border-slate-800 bg-slate-900/30 space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-          <div className="flex items-center gap-2 text-xl font-semibold text-slate-100 font-serif">
-            <BookOpen className="w-5 h-5 text-purple-400" />
+      {/* 11 — Related Journal Entry & Timeline Progression */}
+      <section className="p-6 rounded-xl border border-[#262B32] bg-[#14171A] space-y-4">
+        <div className="flex items-center justify-between pb-2 border-b border-[#242930]">
+          <div className="flex items-center gap-2 text-xl font-semibold text-[#F0EEE9] font-serif">
+            <BookOpen className="w-5 h-5 text-[#71899A]" />
             <h2>Related Journal Entry & Timeline Context</h2>
           </div>
-          <span className="text-[11px] font-mono text-purple-300 uppercase tracking-wider">
+          <span className="text-[11px] font-mono text-[#71899A] uppercase tracking-wider">
             Traceability // Cross-Links
           </span>
         </div>
-        <p className="text-sm text-slate-300 leading-relaxed">
+        <p className="text-sm text-[#9EA4AA] leading-relaxed">
           {chapter
             ? `This system's architectural evolution and empirical failures are analyzed in Chapter ${chapter.number} of the Engineering Journal.`
             : 'This system is documented across the chronological timeline and engineering archive.'}
         </p>
-        <div className="flex flex-wrap gap-3 pt-2">
+        <div className="flex flex-wrap gap-3 pt-2 font-mono text-xs">
           {chapter && (
             <Link
               href="/journal"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-950/60 border border-purple-800/80 hover:bg-purple-900/60 text-purple-200 text-xs font-mono uppercase tracking-wider transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#181C21] border border-[#2B3542] hover:bg-[#22272E] text-[#D8D6D0] hover:text-white transition-colors"
             >
-              <BookOpen className="w-4 h-4 text-purple-400" />
+              <BookOpen className="w-3.5 h-3.5 text-[#58A6FF]" />
               Journal Chapter {chapter.number}: {chapter.title} →
             </Link>
           )}
           <Link
             href="/experience"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-mono uppercase tracking-wider transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#181C21] border border-[#262B32] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#D8D6D0] transition-colors"
           >
-            <Compass className="w-4 h-4 text-slate-400" />
+            <Compass className="w-3.5 h-3.5 text-[#5A9A78]" />
             View Timeline Evolution →
           </Link>
         </div>
       </section>
 
       {/* Project Navigation Footer */}
-      <footer className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <footer className="pt-8 border-t border-[#242930] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
         {prevProject ? (
           <Link
             href={`/projects/${prevProject.slug}`}
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-[#9EA4AA] hover:text-[#F0EEE9] transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" /> Previous: {prevProject.title}
+            <ArrowLeft className="w-3.5 h-3.5" /> Previous: {prevProject.title}
           </Link>
         ) : (
-          <span className="text-slate-600 text-xs font-mono">Start of Catalog</span>
+          <span className="text-[#686E77]">Start of Catalog</span>
         )}
 
         <Link
           href="/projects"
-          className="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-purple-400 hover:text-purple-300 text-xs font-mono uppercase tracking-wider transition-colors"
+          className="px-4 py-2 rounded bg-[#181C21] border border-[#262B32] text-[#5A9A78] hover:text-[#78B896] uppercase tracking-wider transition-colors font-semibold"
         >
-          Project Directory
+          [ Complete Projects Directory ]
         </Link>
 
         {nextProject ? (
           <Link
             href={`/projects/${nextProject.slug}`}
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-[#9EA4AA] hover:text-[#F0EEE9] transition-colors"
           >
-            Next: {nextProject.title} <ArrowRight className="w-4 h-4" />
+            Next: {nextProject.title} <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         ) : (
-          <span className="text-slate-600 text-xs font-mono">End of Catalog</span>
+          <span className="text-[#686E77]">End of Catalog</span>
         )}
       </footer>
     </article>

@@ -35,6 +35,8 @@ export function resolveCanonicalProjectSlug(rawSlug: string): string {
   if (clean === 'worksheets') return 'ai-worksheets'
   if (clean === 'curriculum') return 'curriculum-etl'
   if (clean === 'item-bank') return 'math-item-bank'
+  if (clean === 'solace' || clean === 'solace-hackathon') return 'solace-ai'
+  if (clean === 'ocr' || clean === 'ocr-evaluation' || clean === 'ocr-pipeline') return 'ocr-evaluator'
   return clean
 }
 
@@ -142,6 +144,22 @@ export function getAskAadilPageContext(pathname: string): AskAadilPageContext {
             'What browser testing agent does this use?',
             'Show me the AI reliability test suite.',
             'Show me AI Reliability\'s GitHub repository.'
+          ]
+        }
+      }
+
+      if (proj.slug === 'solace-ai') {
+        return {
+          pathname: cleanPath,
+          pageType: 'project',
+          projectSlug: 'solace-ai',
+          title: proj.title,
+          contextGreeting: "You're viewing Solace AI.",
+          suggestedPrompts: [
+            'How does Solace AI handle crisis safety?',
+            'How does Solace enforce consent-based emotional memory?',
+            'How many tests verify Solace AI?',
+            'Show me Solace AI\'s GitHub repository.'
           ]
         }
       }

@@ -37,6 +37,12 @@ export const githubOpenTool: AskAadilTool = {
       } else if (rawProject === 'atlas-ai' || rawProject === 'atlas') {
         targetUrl = 'https://github.com/aadil-khurshid/Atlas-AI'
         label = 'Open Atlas AI GitHub Repository'
+      } else if (rawProject === 'solace-ai' || rawProject === 'solace') {
+        targetUrl = 'https://github.com/aadil-lang/solace-ai'
+        label = 'Open Solace AI GitHub Repository'
+      } else if (rawProject === 'ocr-evaluator' || rawProject === 'ocr') {
+        targetUrl = 'https://github.com/aadil-lang/OCR-Evaluator'
+        label = 'Open OCR Evaluator GitHub Repository'
       }
     }
 

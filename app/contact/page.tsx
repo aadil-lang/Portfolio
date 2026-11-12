@@ -90,7 +90,7 @@ export default function Contact() {
       <div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">Get in Touch</h1>
         <p className="text-lg text-slate-300 max-w-2xl leading-relaxed">
-          Have an AI engineering role, an enterprise consulting engagement, or an agentic workflow project in mind? Reach out and let&apos;s build together.
+          Interested in discussing full-time AI engineering roles, stateful multi-agent architectures, or production reliability? Reach out and let&apos;s build together.
         </p>
       </div>
 

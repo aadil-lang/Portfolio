@@ -34,7 +34,7 @@ export const projectsMetadata: ProjectMetadata[] = [
       system: '/projects/vm-copy'
     },
     externalRefs: {
-      github: 'https://github.com/aadilkhurshid/vm-copy-generator'
+      github: 'https://github.com/aadil-lang/vm-copy-question-generator'
     },
     evidence: [
       'Production deployment at Wayground reducing variant authoring cycle time from hours to minutes.',
@@ -74,7 +74,7 @@ export const projectsMetadata: ProjectMetadata[] = [
       system: '/projects/ai-worksheets'
     },
     externalRefs: {
-      github: 'https://github.com/aadilkhurshid/ai-worksheets-poc'
+      github: 'https://github.com/aadil-lang/Worksheets-MS-Formal-Gamified'
     },
     evidence: [
       'Containerized microservice stack generating TEKS-aligned printable worksheets with automated TikZ/LaTeX rendering.',
@@ -165,8 +165,8 @@ export const projectsMetadata: ProjectMetadata[] = [
     problem:
       'Generative AI lacks physical grounding and spatial consistency required for manufacturing-grade 3D mechanical components and engineering drawings.',
     dates: {
-      start: '2025-08',
-      end: '2026-02'
+      start: '2026-08',
+      end: '2026-09'
     },
     ownership: 'independent',
     role: 'System Architect & Sole Author (Personal Engineering Build)',
@@ -185,7 +185,7 @@ export const projectsMetadata: ProjectMetadata[] = [
       system: '/projects/design-automation'
     },
     externalRefs: {
-      github: 'https://github.com/aadilkhurshid/engineering-design-automation'
+      github: 'https://github.com/aadil-lang/Engineering-design-automation'
     },
     evidence: [
       'Converts unstructured mechanical specifications into ISO-compliant STEP BRep solids and technical drawings.',
@@ -203,8 +203,8 @@ export const projectsMetadata: ProjectMetadata[] = [
     problem:
       'Fragmented textile procurement workflows lacking unified structured search across technical fiber specs, GSM densities, and compliance certifications.',
     dates: {
-      start: '2025-10',
-      end: '2026-01'
+      start: '2026-08',
+      end: '2026-08'
     },
     ownership: 'hackathon',
     role: 'System Architect & Full-Stack Author (Hackathon Project)',
@@ -223,7 +223,7 @@ export const projectsMetadata: ProjectMetadata[] = [
       system: '/projects/loom-ai'
     },
     externalRefs: {
-      github: 'https://github.com/aadilkhurshid/loom-ai-b2b'
+      github: 'https://github.com/aadil-lang/loom-ai'
     },
     evidence: [
       'Clean Architecture backend with strict inward dependency rule isolating business logic from drivers.',
@@ -240,8 +240,8 @@ export const projectsMetadata: ProjectMetadata[] = [
     problem:
       'Financial LLM applications hallucinate financial metrics and secondary summaries when not anchored directly to regulatory source filings.',
     dates: {
-      start: '2025-11',
-      end: '2026-02'
+      start: '2026-08',
+      end: '2026-08'
     },
     ownership: 'hackathon',
     role: 'Lead Architect & Sole Author (Hackathon Project)',
@@ -261,7 +261,7 @@ export const projectsMetadata: ProjectMetadata[] = [
       system: '/projects/atlas-ai'
     },
     externalRefs: {
-      github: 'https://github.com/aadilkhurshid/atlas-ai-finance'
+      github: 'https://github.com/aadil-lang/Atlas-AI'
     },
     evidence: [
       'StateGraph agentic workflow with semantic section chunking for Form 10-K, 10-Q, and 8-K filings.',
@@ -279,8 +279,8 @@ export const projectsMetadata: ProjectMetadata[] = [
     problem:
       'Autonomous testing agents hallucinate spurious UI failures and struggle to separate visual shifts from actual behavioral regressions.',
     dates: {
-      start: '2026-01',
-      end: '2026-06'
+      start: '2026-09',
+      end: '2026-09'
     },
     ownership: 'independent',
     role: 'Reliability Engineer & Author (Personal Engineering Build)',
@@ -298,7 +298,7 @@ export const projectsMetadata: ProjectMetadata[] = [
       system: '/projects/ai-reliability'
     },
     externalRefs: {
-      github: 'https://github.com/aadilkhurshid/ai-application-reliability'
+      github: 'https://github.com/aadil-lang/ai-engineering-lab'
     },
     evidence: [
       'Dual-agent diagnostic harness pairing Playwright browser exploration with local Ollama visual diagnostics.',
@@ -362,19 +362,98 @@ export const projectsMetadata: ProjectMetadata[] = [
       'Human-in-the-Loop Actions'
     ],
     portfolioRefs: {
-      timeline: ['exp-ai-reliability-harness'],
-      journal: ['spread-14-chapter-10-still-building'],
+      timeline: ['2026-portfolio-ask-aadil', 'future-still-building'],
+      journal: ['spread-14-portfolio-ask-aadil', 'spread-16-chapter-10-open'],
       system: '/projects/ask-aadil'
     },
     externalRefs: {
       github: 'https://github.com/aadil-lang/portfolio'
     },
     evidence: [
-      '172 automated test verifications passing at 100% across multi-turn entity preservation, temporal reasoning, and browser interactions.',
+      '327 automated test assertions across 10 evaluation suites (including 172 core hardening checks passing at 100% across multi-turn entity preservation, temporal reasoning, and browser interactions).',
       'Bitwise draft integrity: zero LLM rewriting between visitor review and mail client execution (executionInput === editedDraft).',
       'Strict epistemic boundaries: July 2026 records are historical; absence of corporate employer is never converted to unemployment claim.',
       'Decoupled 3-state LinkedIn adapter boundary separating api_unavailable from empty profiles.'
     ],
     lastVerified: '2026-09-29'
+  },
+  {
+    slug: 'solace-ai',
+    title: 'Solace AI — Mindful Wellness Companion',
+    summary:
+      'Cross-platform Expo 58 / React Native + FastAPI/LangGraph AI wellness companion featuring synchronous deterministic crisis screening, SSE streaming with ambiguous failure containment, consent-based emotional memory, and zero-retention voice privacy.',
+    problem:
+      'Wellness chatbots risk delayed crisis intervention, silent unconsented memory extraction, raw voice audio retention liability, and duplicate user turns on gateway timeouts.',
+    dates: {
+      start: '2026-11',
+      end: '2026-11'
+    },
+    ownership: 'hackathon',
+    role: 'System Architect & Sole Author (Solace Hackathon)',
+    technologies: [
+      'React Native / Expo 58',
+      'TypeScript',
+      'Python 3.12',
+      'FastAPI',
+      'LangGraph',
+      'Google Gemini API',
+      'Supabase Auth & PostgreSQL (RLS)',
+      'SSE Streaming',
+      'Zustand / TanStack Query'
+    ],
+    portfolioRefs: {
+      timeline: ['solace-ai-2026'],
+      journal: ['spread-15-solace-ai'],
+      system: '/projects/solace-ai'
+    },
+    externalRefs: {
+      github: 'https://github.com/aadil-lang/solace-ai'
+    },
+    evidence: [
+      '52 / 52 backend pytests passing across 8 suites (LangGraph orchestration, crisis screening, poetry, voice journal, emotional landscape, profile auth).',
+      '50 / 50 mobile automated checks passing across 7 suites with 0 TypeScript errors (`tsc --noEmit`).',
+      'Deterministic crisis screening (`is_crisis_input`) executing synchronously before LangGraph/Gemini calls with false-positive idiom filtering and localized Tele-MANAS 14416 / 112 / 988 routing.',
+      'Single-POST SSE delivery guard classifying 502/503/504 as ambiguous delivery without blind retries, plus ephemeral voice buffer purge (`del audio_bytes` in `finally:`) and Supabase RLS two-user isolation.'
+    ],
+    lastVerified: '2026-11-10'
+  },
+  {
+    slug: 'ocr-evaluator',
+    title: 'OCR Evaluation & Robustness Testing Platform',
+    summary:
+      'Engineering-focused OCR evaluation system measuring document extraction accuracy, confidence, critical-field correctness, and robustness under controlled real-world image degradation.',
+    problem:
+      'Single-score OCR accuracy hides catastrophic failures in critical fields (e.g. Survey Numbers on land deeds). Aggregate accuracy cannot answer whether an OCR result can be trusted for automated processing.',
+    dates: {
+      start: '2026-08',
+      end: '2026-09'
+    },
+    ownership: 'independent',
+    role: 'Systems & Evaluation Engineer (Independent Engineering Build)',
+    technologies: [
+      'Python 3.12',
+      'FastAPI',
+      'Tesseract OCR',
+      'React',
+      'pytest',
+      'Pillow',
+      'OpenCV',
+      'NumPy'
+    ],
+    portfolioRefs: {
+      timeline: ['ocr-evaluator-2026', 'future-still-building'],
+      journal: ['spread-16-chapter-10-open', 'spread-17-systems-catalog'],
+      system: '/projects/ocr-evaluator'
+    },
+    externalRefs: {
+      github: 'https://github.com/aadil-lang/OCR-Evaluator'
+    },
+    evidence: [
+      '134 automated backend tests passing across 22 test files covering metrics, normalization, risk, and robustness.',
+      '20 browser UI evaluation assertions passing with 0 frontend JavaScript errors.',
+      'Controlled image degradation across 5 axes: Gaussian blur, additive noise, rotation skew, contrast reduction, and JPEG compression.',
+      'Risk classification engine assigning PASS / REVIEW / FAIL decisions prioritizing critical fields over statistical averages.'
+    ],
+    lastVerified: '2026-09-01'
   }
 ]

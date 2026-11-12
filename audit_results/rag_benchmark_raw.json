@@ -1,0 +1,131 @@
+{
+  "aggregateMetrics": {
+    "meanPrecisionAtK": 0.3,
+    "meanRecallAtK": 1,
+    "meanReciprocalRank": 0.8333,
+    "meanNdcgAtK": 0.7937,
+    "totalEvaluated": 12
+  },
+  "caseResults": [
+    {
+      "testId": "eval-eda-volume-test-count",
+      "query": "How many pytests does Engineering Design Automation have and what is its net volume error?",
+      "category": "sufficient_evidence",
+      "precisionAt5": 0.4,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 0.9468,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-solace-screening-latency",
+      "query": "What is the crisis screening latency and test count for Solace AI?",
+      "category": "sufficient_evidence",
+      "precisionAt5": 0.4,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 1,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-ocr-evaluator-axes",
+      "query": "What synthetic perturbation axes does the OCR Evaluator test across and how many tests back it?",
+      "category": "sufficient_evidence",
+      "precisionAt5": 0.4,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 1,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-ai-reliability-fisher",
+      "query": "How does AI Application Reliability enforce agent governance and prevent rogue patches?",
+      "category": "sufficient_evidence",
+      "precisionAt5": 0.4,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 0.9558,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-atlas-test-reconciliation",
+      "query": "Does Atlas AI have 59 tests or 178 tests?",
+      "category": "conflicting_or_qualified",
+      "precisionAt5": 0.4,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 0.9828,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-eda-cnc-tolerance",
+      "query": "Does the EDA 0.0000% volume error prove physical CNC machining tolerance?",
+      "category": "conflicting_or_qualified",
+      "precisionAt5": 0.2,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 1,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-vm-copy-guardrails",
+      "query": "What deterministic guardrails does VM Copy Question Generator implement?",
+      "category": "sufficient_evidence",
+      "precisionAt5": 0.2,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 1,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-timeline-current-status",
+      "query": "What is Aadil currently doing since August 2026 and where did he work previously?",
+      "category": "sufficient_evidence",
+      "precisionAt5": 0.6,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 0.9508,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-abstention-google-kubernetes",
+      "query": "What Kubernetes cluster version does Aadil maintain at Google?",
+      "category": "out_of_domain_abstention",
+      "precisionAt5": 0,
+      "recallAt5": 1,
+      "reciprocalRank": 0,
+      "ndcgAt5": 0,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-abstention-personal-trivia",
+      "query": "What is Aadil's favorite movie and personal hobbies outside engineering?",
+      "category": "out_of_domain_abstention",
+      "precisionAt5": 0,
+      "recallAt5": 1,
+      "reciprocalRank": 0,
+      "ndcgAt5": 0,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-false-premise-fea",
+      "query": "How does EDA run non-linear Finite Element Analysis (FEA) mesh convergence for shaft fatigue?",
+      "category": "false_premise_abstention",
+      "precisionAt5": 0.4,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 0.6885,
+      "abstentionCorrect": true
+    },
+    {
+      "testId": "eval-partial-evidence-model-weights",
+      "query": "What neural network loss function was used to train the underlying weights of Ollama Qwen 2.5 Coder in AI Reliability?",
+      "category": "partial_evidence",
+      "precisionAt5": 0.2,
+      "recallAt5": 1,
+      "reciprocalRank": 1,
+      "ndcgAt5": 1,
+      "abstentionCorrect": true
+    }
+  ]
+}

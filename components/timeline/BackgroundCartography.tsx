@@ -6,7 +6,7 @@ interface BackgroundCartographyProps {
 }
 
 export const BackgroundCartography: React.FC<BackgroundCartographyProps> = ({
-  width = 2400,
+  width = 2580,
   height = 520
 }) => {
   return (
@@ -134,7 +134,7 @@ export const BackgroundCartography: React.FC<BackgroundCartographyProps> = ({
       {/* ZONE 04: INDEPENDENT SYSTEMS & HORIZON */}
       <g transform="translate(1860, 30)">
         <rect
-          width="500"
+          width="680"
           height="460"
           fill="#16191D"
           stroke="#2A2F36"
@@ -143,7 +143,7 @@ export const BackgroundCartography: React.FC<BackgroundCartographyProps> = ({
           opacity="0.5"
         />
         <rect
-          width="500"
+          width="680"
           height="28"
           fill="#1E232A"
           rx="12"
@@ -158,7 +158,7 @@ export const BackgroundCartography: React.FC<BackgroundCartographyProps> = ({
           fontWeight="bold"
           letterSpacing="0.08em"
         >
-          ZONE 04 // SYSTEMS & HORIZON (2026+)
+          ZONE 04 // STILL BUILDING &amp; EXPLORING (AUG 2026 — PRESENT)
         </text>
       </g>
     </g>

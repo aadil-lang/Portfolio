@@ -1,0 +1,20 @@
+{
+  "version": "CORPUS_V1.0",
+  "releaseDate": "2026-11-11",
+  "documentCount": 14,
+  "chunkCount": 16,
+  "projectCount": 7,
+  "totalTokenCount": 919,
+  "integrityHash": "sha256-455b08a8196902c1f87399f0f28105d5d2c1d41be2750beda78241dcf1a18eb2",
+  "canonicalChunksSha256": "455b08a8196902c1f87399f0f28105d5d2c1d41be2750beda78241dcf1a18eb2",
+  "canonicalDocsSha256": "af80ce6478da0f9ab0e2f48b68a5ecf5ddf654a61c4c3450f0c2c04c1c56bb14",
+  "canonicalFullCorpusSha256": "8e8538cb2add770d2941172d42369ab8742ec11f76935ff8be53f513de9f41c9",
+  "legacyDraftFingerprint": "sha256-e9a712f56b107acb318d45290b8f6738c831",
+  "sourceProvenanceList": [
+    "data/canonical/structuredProfile.ts",
+    "data/experience.ts",
+    "data/projects.ts",
+    "data/canonical/quantitativeClaims.ts",
+    "components/evidence/CadModelViewer.tsx"
+  ]
+}

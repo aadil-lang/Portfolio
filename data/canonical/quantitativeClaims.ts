@@ -39,7 +39,7 @@ export const quantitativeClaims: QuantitativeClaimItem[] = [
     status: 'verified',
     evidenceSource: 'Analytical geometry verification solver vs OpenCascade GProp_GProps evaluation',
     verificationDetails:
-      'Verified by comparing analytical cylinder/cone volume integrals against OpenCascade BRep CAD solid mass property integrals.'
+      'Verified by comparing analytical stepped cylinder volume integrals against OpenCascade BRep CAD solid mass property integrals (< 10⁻⁶ relative discrepancy). Note: Represents software calculus consistency between closed-form physics equations and CAD solid kernel mass integrals; does not represent physical machining or CNC manufacturing tolerances.'
   },
   {
     id: 'claim-atlas-tests-spec',
@@ -115,5 +115,98 @@ export const quantitativeClaims: QuantitativeClaimItem[] = [
     evidenceSource: 'Curriculum-Transformation Map-Reduce codebase pipeline architecture',
     verificationDetails:
       'Verified in code architecture: Reviewer node validates schema, Critic tests semantic alignment, and CSV Audit evaluates row delimiters and null thresholds.'
+  },
+  {
+    id: 'claim-ask-aadil-327-assertions',
+    claim: '327 automated assertions passing across 10 Ask Aadil evaluation and verification suites',
+    projectSlug: 'ask-aadil',
+    metricValue: 327,
+    unit: 'assertions',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/ask-aadil' },
+      { source: 'portfolio', layer: 'journal', ref: 'Spread 14 // Folio 030' }
+    ],
+    status: 'verified',
+    evidenceSource: 'Ask Aadil 10 evaluation test scripts in scripts/ directory',
+    verificationDetails:
+      'Verified across 10 evaluation test files: test_retrieval_foundation (13), test_query_understanding (38), test_hardening_agent_qa (132), test_ui_context_integration (13), test_tool_registry (19), test_tool_planning (20), test_controlled_actions (29), test_recruiter_contact_layer (18), test_nlu_conversational_robustness (29), test_grounded_conversational_evaluation (16).'
+  },
+  {
+    id: 'claim-ask-aadil-172-tests',
+    claim: '172 automated core hardening verifications passing across agent QA, action governance, and Playwright suites',
+    projectSlug: 'ask-aadil',
+    metricValue: 172,
+    unit: 'verifications',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/ask-aadil' },
+      { source: 'portfolio', layer: 'journal', ref: 'Spread 14 // Folio 030' },
+      { source: 'resume', ref: 'Personal & Hackathon AI Projects — Ask Aadil' }
+    ],
+    status: 'verified',
+    evidenceSource: 'Ask Aadil hardening QA, tool governance, and Playwright browser test slice',
+    verificationDetails:
+      'Verified across temporal reasoning boundaries, 3-state LinkedIn adapter distinction, bitwise draft preservation, prompt injection resistance across 5 sources, and Playwright interactions (132 agent QA + 29 controlled actions + 11 browser E2E).'
+  },
+  {
+    id: 'claim-solace-52-backend-tests',
+    claim: '52 automated backend pytests passing across 8 unit and LangGraph orchestration suites',
+    projectSlug: 'solace-ai',
+    metricValue: 52,
+    unit: 'tests',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/solace-ai' },
+      { source: 'portfolio', layer: 'journal', ref: 'Spread 15 // Folio 032' },
+      { source: 'resume', ref: 'Personal & Hackathon AI Projects — Solace AI' }
+    ],
+    status: 'verified',
+    evidenceSource: 'Solace AI backend pytest suite (python -m pytest -o asyncio_mode=auto)',
+    verificationDetails:
+      'Verified 52/52 passing tests across test_conversational_personality.py, test_emotional_landscape.py, test_health.py, test_journal.py, test_langgraph_orchestration.py, test_poetry.py, test_profile_auth.py, and test_rant_and_voice.py.'
+  },
+  {
+    id: 'claim-solace-50-mobile-checks',
+    claim: '50 automated mobile verification checks passing across 7 suites with 0 TypeScript errors',
+    projectSlug: 'solace-ai',
+    metricValue: 50,
+    unit: 'tests',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/solace-ai' },
+      { source: 'portfolio', layer: 'journal', ref: 'Spread 15 // Folio 032' },
+      { source: 'resume', ref: 'Personal & Hackathon AI Projects — Solace AI' }
+    ],
+    status: 'verified',
+    evidenceSource: 'Solace AI mobile test runner (npm test) and TypeScript compiler (tsc --noEmit)',
+    verificationDetails:
+      'Verified 50/50 checks passing across auth_and_profile, phase3_companion, poetry, journal, emotional_landscape, storage_adapter, and api_cold_start suites, with 0 TypeScript errors.'
+  },
+  {
+    id: 'claim-ocr-134-backend-tests',
+    claim: '134 automated backend pytests passing across 22 test files',
+    projectSlug: 'ocr-evaluator',
+    metricValue: 134,
+    unit: 'tests',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/ocr-evaluator' },
+      { source: 'portfolio', layer: 'timeline', ref: 'ocr-evaluator-2026' }
+    ],
+    status: 'verified',
+    evidenceSource: 'OCR Evaluation Pipeline backend pytest runner',
+    verificationDetails:
+      'Verified 134/134 passing tests across test_adversarial_evaluation, test_batch_error_isolation, test_confidence, test_critical_fields, test_evaluator, test_extractor, test_faithfulness, test_metrics, test_normalization, test_risk, test_robustness, and test_api.'
+  },
+  {
+    id: 'claim-ocr-20-ui-assertions',
+    claim: '20 browser UI evaluation assertions passing with 0 frontend JavaScript errors',
+    projectSlug: 'ocr-evaluator',
+    metricValue: 20,
+    unit: 'tests',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/ocr-evaluator' },
+      { source: 'portfolio', layer: 'timeline', ref: 'ocr-evaluator-2026' }
+    ],
+    status: 'verified',
+    evidenceSource: 'OCR Evaluation Pipeline browser UI verification runner',
+    verificationDetails:
+      'Verified 20/20 UI assertions passing across file uploads, ground-truth diff rendering, critical-field highlighting, and error recovery with 0 console errors.'
   }
 ]

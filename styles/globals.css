@@ -183,6 +183,141 @@ body {
   background: #353C45;
 }
 
+/* Interactive 3D Engineering Cube System */
+.cube-perspective {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.cube-isometric-stage {
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cube-scene {
+  --cube-size: 200px;
+  --cube-half: 100px;
+  position: relative;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .cube-scene {
+    --cube-size: 220px;
+    --cube-half: 110px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cube-scene {
+    --cube-size: 240px;
+    --cube-half: 120px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cube-scene {
+    --cube-size: 260px;
+    --cube-half: 130px;
+  }
+}
+
+.cube-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+  transform-style: preserve-3d;
+}
+
+/* Structural 3D Cube Material System */
+.cube-face-glass {
+  background: linear-gradient(135deg, rgba(20, 32, 28, 0.94) 0%, rgba(12, 18, 22, 0.96) 60%, rgba(8, 12, 16, 0.98) 100%);
+  border: 1.5px solid rgba(90, 154, 120, 0.45);
+  box-shadow: 
+    inset 0 0 24px rgba(90, 154, 120, 0.16),
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    0 0 20px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cube-face-active {
+  border-color: rgba(120, 194, 154, 0.95);
+  box-shadow: 
+    inset 0 0 30px rgba(90, 154, 120, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    0 0 35px rgba(90, 154, 120, 0.4);
+}
+
+/* Metallic Edge Corner Brackets */
+.cube-corner-tl,
+.cube-corner-tr,
+.cube-corner-bl,
+.cube-corner-br {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.cube-corner-tl {
+  top: 4px;
+  left: 4px;
+  border-top: 2.5px solid #78C29A;
+  border-left: 2.5px solid #78C29A;
+}
+
+.cube-corner-tr {
+  top: 4px;
+  right: 4px;
+  border-top: 2.5px solid #78C29A;
+  border-right: 2.5px solid #78C29A;
+}
+
+.cube-corner-bl {
+  bottom: 4px;
+  left: 4px;
+  border-bottom: 2.5px solid #78C29A;
+  border-left: 2.5px solid #78C29A;
+}
+
+.cube-corner-br {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 2.5px solid #78C29A;
+  border-right: 2.5px solid #78C29A;
+}
+
+/* Cylindrical Cybernetic Base Ring */
+.cube-cybernetic-base {
+  position: absolute;
+  bottom: -45px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(90, 154, 120, 0.3);
+  transform: rotateX(75deg);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(90, 154, 120, 0.2) 0%, rgba(90, 154, 120, 0.05) 50%, transparent 70%);
+  box-shadow: 
+    0 0 40px rgba(90, 154, 120, 0.25),
+    inset 0 0 25px rgba(90, 154, 120, 0.2);
+}
+
+.cube-cybernetic-inner-ring {
+  position: absolute;
+  inset: 25px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(120, 194, 154, 0.5);
+}
+
 /* Accessibility: Respect prefers-reduced-motion with meaningful instant fallback */
 @media (prefers-reduced-motion: reduce) {
   *,

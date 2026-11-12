@@ -67,7 +67,7 @@ export type Project = {
   problem?: string
   solution?: string
   keyFeatures?: string[]
-  architecturePattern?: 'atlas' | 'textile' | 'taskmanager' | 'overview' | 'reliability' | 'eda' | 'qgen' | 'worksheets' | 'etl' | 'ask-aadil'
+  architecturePattern?: 'atlas' | 'textile' | 'taskmanager' | 'overview' | 'reliability' | 'eda' | 'qgen' | 'worksheets' | 'etl' | 'ask-aadil' | 'solace' | 'ocr'
   statusNotice?: string
   systemLayers?: SystemLayerItem[]
   context?: string
@@ -87,6 +87,7 @@ export type TimelineItem = {
   title: string
   organization?: string
   role?: string
+  category?: 'Hackathon Project' | 'Independent Engineering Project' | 'Independent Personal Project' | 'Professional Employment' | string
   layerAnnotation: string
   summary: string
   details?: string[]

@@ -37,6 +37,11 @@ export const MilestoneInspector: React.FC<MilestoneInspectorProps> = ({
             >
               Station {node.stationNumber} • {node.provenance}
             </span>
+            {node.category && (
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold uppercase tracking-wider bg-[#1B2228] text-[#8CC4FF] border border-[#2B3B4C]">
+                {node.category}
+              </span>
+            )}
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#686E77]">
               {node.zoneName}
             </span>

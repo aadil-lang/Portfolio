@@ -1062,6 +1062,60 @@ GOVERNANCE   Human Cryptographic Role Approval Gate
 LEDGER       SQLite SHA-256 Audit Trail
 ```
 
+#### Evaluation & Robustness Platform (OCR Evaluator — Sep 2026)
+```text
+ENGINE       Tesseract OCR / Multi-Level Extraction (CER / WER / Fields)
+API          FastAPI / Python 3.12 / Pydantic Schema Contracts
+RISK ENGINE  Deterministic Severity Matrix (CRITICAL -> FAIL / HIGH -> REVIEW)
+ROBUSTNESS   5 Degradation Axes (Blur, Noise, Rotation, Contrast, JPEG)
+UI           React 18 / Vite / Interactive Ground-Truth Diff Viewer
+TESTS        134 Backend Pytests + 20 Browser UI Assertions (0 Console Errors)
+```
+
+#### Safety-First Mobile Companion (Solace AI — Nov 2026, Solace Hackathon)
+```text
+MOBILE       React Native / Expo 58 / TypeScript / SecureStore Chunking
+API          FastAPI / Python 3.12 / Supabase JWT + PostgreSQL RLS
+ORCHESTRATE  LangGraph StateGraph (Safety -> Context -> Companion) + SSE
+PRIVACY      Consent-Based Memory Banners + Ephemeral Audio Purge (del audio_bytes)
+RESILIENCE   55s Cold-Start Backoff + Single-POST Ambiguous 502/503/504 Guard
+TESTS        52 Backend Pytests + 50 Mobile Checks (0 TypeScript Errors)
+```
+
+---
+
+## August 2026 – Present: Independent AI Engineering & Research
+
+Following the July 2026 conclusion of my Wayground engagement, August 2026 onward represents an ongoing period of **independent AI engineering and research**—building, experimenting, and researching intelligent applications, agentic systems, and reliable AI engineering solutions. **This is not professional employment; it demonstrates continuous practical growth across hackathons, personal builds, and verification platforms.**
+
+### Chapter: Loom AI & Atlas AI (August 2026 · Hackathon Projects)
+Shipped two stateful agentic systems for Humanity Founders Hackathons:
+- **Loom AI (Marketplace Hackathon)**: B2B textile procurement matching on Next.js 16 and Express with multi-agent LangGraph workflows and human-in-the-loop (HITL) order authorization queues.
+- **Atlas AI (Finance Hackathon)**: Conversational copilot parsing SEC EDGAR 10-K/10-Q disclosures with MongoDB Atlas Vector Search, Gemini embeddings, and proactive Telegram alert workers (59 core MVP, 178 complete pytests).
+
+### Chapter: OCR Evaluation & Robustness Platform (September 2026 · Independent Engineering)
+Proved that single-number aggregate accuracy hides catastrophic entity failures on critical records:
+- Evaluates documents across multiple tiers: Character Error Rate (CER), Word Error Rate (WER), exact field match, and critical-field accuracy.
+- Priority risk classification engine (`src/evaluation/risk.py`) forcing a FAIL status if a critical identifier mismatches, overriding high OCR confidence.
+- Benchmarked across 5 image degradations (blur, noise, rotation, contrast, JPEG compression), verified by **134 backend pytests** and **20 UI assertions**.
+
+### Chapter: This Engineering Portfolio & Ask Aadil (September–November 2026 · Independent Personal)
+Rather than presenting a flat resume page or merging everything into an undifferentiated vector database, I architected **this Portfolio & Ask Aadil** as a three-layer system:
+- **Timeline (`/experience`)**: Chronology of what happened, distinguishing professional employment from independent engineering.
+- **Engineering Journal (`/journal`)**: Reflective notebook explaining why each step happened, what broke, and what each system taught me.
+- **Systems Archive (`/projects` & `/systems`)**: Detailed architectural breakdowns, system layers, failure modes, and verbatim `CodeEvidence`.
+- **Ask Aadil (`lib/rag/`)**: Stateful, source-aware hybrid retrieval agent preserving discrete source authority (Timeline, Journal, Systems, Resume, GitHub, Profile, and a 3-state LinkedIn adapter), temporal epistemic boundaries, prompt injection resistance across 5 sources, voice interface with VAD and transcript reconstruction, and human-in-the-loop action governance with bitwise draft integrity (`executionInput === editedDraft`), verified by **172 automated assertions**.
+
+### Chapter: Solace AI — Mindful Wellness Companion (November 2026 · Solace Hackathon)
+Extended deterministic safety gates, privacy containment, and honest failure semantics into a cross-platform **Expo 58 / React Native** + **FastAPI / LangGraph** mobile companion:
+- Synchronous pre-LLM crisis screening (`is_crisis_input` in `safety_node`) routing acute distress to **Tele-MANAS 14416**, **112**, and **988** while rejecting figurative idioms.
+- Consent-based emotional memory isolated from voice journals and bilingual English/Urdu Nastaliq poetry under **Supabase PostgreSQL RLS**.
+- Zero-retention voice transcription purging raw audio buffers in `finally: del audio_bytes`, plus a single-POST SSE delivery guard classifying `502/503/504` as ambiguous without blind retry duplicates.
+- Verified on standalone Android APK (Pixel 7 emulator, Android 16 API 36) with **52/52 backend pytests** and **50/50 mobile verification checks** (`tsc --noEmit` 0 errors).
+
+### Continuing Horizon (August 2026 – Present)
+The spiral stays intentionally open (`?`): **still building, still exploring** reliable AI workflows, deterministic verification wrappers, safety-first mobile companions, and governed agentic tools.
+
 ---
 
 > **"I did not simply build more and more AI projects.**  

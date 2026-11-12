@@ -20,6 +20,90 @@ import {
 } from './voiceTypes'
 import { DEFAULT_VAD_CONFIG } from './textToSpeechProvider'
 
+export interface SpeechAssemblyResult {
+  fullText: string
+  finalText: string
+  interimText: string
+  isLastFinal: boolean
+}
+
+/**
+ * Deterministic Web Speech API result-list assembler.
+ * Follows W3C SpeechRecognitionResultList specification:
+ * - Iterates through event.results maintaining result indices and isFinal status.
+ * - Accumulates distinct finalized segments (isFinal === true) preserving legitimate
+ *   repetitions across segments (e.g. repeated sentences).
+ * - Preserves legitimate word repetitions within any result (e.g. "very very good").
+ * - Reconciles unfinalized interim results (isFinal === false) when they contain
+ *   the finalized prefix (Chromium cumulative streaming hypothesis), so the interim
+ *   portion exclusively represents trailing provisional speech without duplication.
+ */
+export function assembleSpeechTranscript(
+  eventOrResults: any,
+  optResultIndex?: number
+): SpeechAssemblyResult {
+  const results = eventOrResults?.results || eventOrResults
+  if (!results || !results.length) {
+    return {
+      fullText: '',
+      finalText: '',
+      interimText: '',
+      isLastFinal: false
+    }
+  }
+
+  const finalParts: string[] = []
+  const interimParts: string[] = []
+
+  for (let i = 0; i < results.length; ++i) {
+    const res = results[i]
+    if (!res) continue
+    const text = (res[0]?.transcript || '').trim()
+    if (!text) continue
+
+    if (res.isFinal) {
+      finalParts.push(text)
+    } else {
+      interimParts.push(text)
+    }
+  }
+
+  const finalTranscript = finalParts.join(' ').trim()
+  const rawInterim = interimParts.join(' ').trim()
+  let activeInterim = rawInterim
+
+  if (finalTranscript && rawInterim) {
+    const lowerFinal = finalTranscript.toLowerCase()
+    const lowerInterim = rawInterim.toLowerCase()
+
+    if (lowerInterim === lowerFinal) {
+      activeInterim = ''
+    } else if (lowerInterim.startsWith(lowerFinal + ' ')) {
+      activeInterim = rawInterim.slice(finalTranscript.length).trim()
+    } else if (finalParts.length > 0) {
+      const lastFinal = finalParts[finalParts.length - 1]
+      const lowerLastFinal = lastFinal.toLowerCase()
+      if (lowerInterim === lowerLastFinal) {
+        activeInterim = ''
+      } else if (lowerInterim.startsWith(lowerLastFinal + ' ')) {
+        activeInterim = rawInterim.slice(lastFinal.length).trim()
+      }
+    }
+  }
+
+  const fullText = (
+    finalTranscript + (activeInterim ? (finalTranscript ? ' ' : '') + activeInterim : '')
+  ).trim()
+  const isLastFinal = Boolean(results[results.length - 1]?.isFinal)
+
+  return {
+    fullText,
+    finalText: finalTranscript,
+    interimText: activeInterim,
+    isLastFinal
+  }
+}
+
 /**
  * Browser-native Web Speech API Speech-to-Text Provider with VAD
  */
@@ -76,8 +160,8 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
         this.silenceTimer = setTimeout(() => {
           if (this.currentSessionId === sessionId && currentText && currentText.trim().length > 0) {
             if (process.env.NODE_ENV !== 'production') {
-              console.log('[VOICE] silence VAD finalize:', {
-                session: sessionId,
+              console.log('[VOICE DIAGNOSTICS] silence VAD finalize:', {
+                sessionId,
                 finalText: currentText.trim()
               })
             }
@@ -94,28 +178,25 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
       this.recognition.onresult = (event: any) => {
         if (this.currentSessionId !== sessionId) return
 
-        let finalTranscript = ''
-        let interimTranscript = ''
-
-        for (let i = 0; i < event.results.length; ++i) {
-          const res = event.results[i]
-          const transcript = res[0]?.transcript || ''
-          if (res.isFinal) {
-            finalTranscript += transcript
-          } else {
-            interimTranscript += transcript
-          }
-        }
-
-        const fullText = (finalTranscript + interimTranscript).trim()
-        const isLastFinal = Boolean(event.results[event.results.length - 1]?.isFinal)
+        const assembly = assembleSpeechTranscript(event.results, event.resultIndex)
+        const fullText = assembly.fullText
+        const isLastFinal = assembly.isLastFinal
 
         if (process.env.NODE_ENV !== 'production') {
-          console.log('[VOICE]', {
-            session: sessionId,
-            interim: interimTranscript.trim(),
-            final: finalTranscript.trim(),
-            assembled: fullText,
+          const resultItems: Array<{ index: number; transcript: string; isFinal: boolean }> = []
+          for (let i = 0; i < (event.results?.length || 0); ++i) {
+            resultItems.push({
+              index: i,
+              transcript: event.results[i]?.[0]?.transcript || '',
+              isFinal: Boolean(event.results[i]?.isFinal)
+            })
+          }
+          console.log('[VOICE DIAGNOSTICS]', {
+            sessionId,
+            resultIndex: event.resultIndex,
+            resultCount: event.results?.length || 0,
+            results: resultItems,
+            assembledText: fullText,
             isFinal: isLastFinal
           })
         }
@@ -124,7 +205,7 @@ export class WebSpeechSTTProvider implements SpeechToTextProvider {
           onTranscript({
             text: fullText,
             isFinal: isLastFinal,
-            confidence: event.results[0]?.[0]?.confidence || 0.95
+            confidence: event.results?.[0]?.[0]?.confidence || 0.95
           })
           resetSilenceTimer(fullText)
         }

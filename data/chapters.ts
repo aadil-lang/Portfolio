@@ -29,9 +29,9 @@ export const chapters: Chapter[] = [
     problem:
       'Standard language model completions cannot guarantee structural invariants or mathematical ground truth. In assessment workflows, models frequently output 3 or 5 options instead of exactly 4, mark multiple options or zero options as the correct answer, generate duplicate distractor values under different option labels, or omit the educational rationale explaining why an incorrect choice represents a typical student misconception.',
     solution:
-      'Engineered a Next.js 16 (App Router) and React 19 application pairing multi-provider model routing with an in-memory Tier-1 Deterministic Evaluator (`lib/eval-layer.ts`) and parallel micro-batch generation (`calculateBatches`). Every generated question passes through programmatic structural assertions before reaching the frontend, where interactive status badges and an adversarial blind-solve verification loop (`/api/verify`) allow rapid inspection and automated repair.',
+      'Engineered a Next.js (App Router) and React application pairing multi-provider model routing with an in-memory Tier-1 Deterministic Evaluator (`lib/eval-layer.ts`) and parallel micro-batch generation (`calculateBatches`). Every generated question passes through programmatic structural assertions before reaching the frontend, where interactive status badges and an adversarial blind-solve verification loop (`/api/verify`) allow rapid inspection and automated repair.',
     architectureDescription:
-      'Input Base Item & SME Notes → Multimodal Vision Pre-Analysis (Single extraction of coordinates and HTML tables) → Parallel Micro-Batch Dispatch (Batches of 2–3 items via Promise.all) → Multi-Model Router (OpenAI, Gemini, NaraRouter) → Tier-1 Deterministic Evaluator (0ms latency, zero API cost) → React 19 UI with Score Badges → Tier-2/3 Adversarial Blind-Solve Verifier (/api/verify).',
+      'Input Base Item & SME Notes → Multimodal Vision Pre-Analysis (Single extraction of coordinates and HTML tables) → Parallel Micro-Batch Dispatch (Batches of 2–3 items via Promise.all) → Multi-Model Router (OpenAI, Gemini, NaraRouter) → Tier-1 Deterministic Evaluator (0ms latency, zero API cost) → React UI with Score Badges → Tier-2/3 Adversarial Blind-Solve Verifier (/api/verify).',
     breakthrough:
       'Decoupling generation from validation: rather than prompting the language model to inspect its own work, the system places a zero-cost deterministic TypeScript evaluator outside the model to enforce structural and mathematical invariants.',
     criticalDecision:
@@ -77,7 +77,7 @@ export const chapters: Chapter[] = [
     ],
     accumulatedCapability:
       'Discovered that generative models cannot be trusted with structural or mathematical invariants. Established the core pattern of placing deterministic code boundaries between probabilistic outputs and downstream users.',
-    technologies: ['Next.js 16', 'React 19', 'TypeScript 5', 'Tailwind CSS v4', 'OpenAI SDK', 'Google Generative AI', 'DOMPurify'],
+    technologies: ['Next.js App Router', 'React', 'TypeScript 5', 'Tailwind CSS', 'OpenAI SDK', 'Google Generative AI', 'DOMPurify'],
     slug: 'vm-copy'
   },
   {
@@ -431,6 +431,123 @@ export const chapters: Chapter[] = [
       'The culmination of the engineering journey: moving from an educational SME wrestling with ungrounded models in Project 01 to building the mathematically governed reliability platform that tests, evaluates, and governs AI systems themselves.',
     technologies: ['Python 3.12', 'FastAPI', 'Playwright (Chromium)', 'Ollama (Qwen 2.5)', 'MCP Integration', 'Fisher Covariance', 'SQLite', 'SHA-256 Ledger', 'Pytest (215+ Tests)'],
     slug: 'ai-reliability'
+  },
+  {
+    id: 'ask-aadil',
+    number: '07',
+    title: 'Engineering Portfolio & Ask Aadil',
+    subtitle: 'Three-layer epistemic architecture and a source-grounded conversational agent with visitor-approved actions',
+    layer: 'Source-Aware RAG & Governance',
+    ownershipLabel: 'INDEPENDENT · PERSONAL BUILD',
+    timeline: 'September 2026',
+    context:
+      'Rather than publishing a static portfolio or wrapping all career notes inside a flat vector store, this portfolio was designed as three distinct layers—Timeline (When), Journal (Why), and Systems (What)—with Ask Aadil providing grounded conversational access across those boundaries.',
+    problem:
+      'Generic portfolio chatbots flatten diverse evidence into an undifferentiated vector blob, conflate past employment (July 2026 Wayground conclusion) with present status, confuse unavailable APIs with empty profiles, and mutate draft communications between user review and execution.',
+    solution:
+      'Built a Next.js / TypeScript three-layer portfolio alongside Ask Aadil: a deterministic state machine, source-aware hybrid retriever, 3-state LinkedIn adapter boundary (`api_unavailable`, `adapter_ready` with null position, `adapter_ready` with active position), prompt injection defense over retrieved content, and human-in-the-loop mail execution enforcing bitwise draft integrity (`executionInput === editedDraft`).',
+    architectureDescription:
+      'Visitor Session (Text + Voice Activity Controls) → Intent & Entity Router (`intentRouter.ts`, `projectResolver.ts`) → Source Authority Matrix (`sourceAuthority.ts`) → Hybrid Source-Aware Retriever (`knowledgeIndex.ts`) → Grounded Synthesis & Provenance Badges → Editable Draft + Explicit Human Confirmation Gate.',
+    breakthrough:
+      'Keeping Timeline, Journal, Systems, Resume, GitHub, and LinkedIn separated by explicit source authority rules while treating retrieved text strictly as passive evidence.',
+    criticalDecision:
+      'Refusing to collapse all portfolio layers into one vector index and locking `editedDraft` immutably across interleaved conversational turns so `executionInput === editedDraft` holds bitwise.',
+    whatBroke: [
+      {
+        failure: 'Temporal Conflation of Past Wayground Tenure',
+        cause: 'Similarity retrieval surfaced July 2026 Wayground chunks as present employment.',
+        detection: 'Temporal reasoning QA checks flagged July 2026 evidence presented as current corporate employment.',
+        response: 'Added deterministic temporal epistemic classification separating July 2026 historical records from August 2026–Present independent building.'
+      },
+      {
+        failure: 'Draft Drift Across Interleaved Questions',
+        cause: 'Asking a technical question while an email draft awaited confirmation caused regeneration drift.',
+        detection: 'Draft integrity test asserting `executionInput === editedDraft` caught formatting and phrasing changes.',
+        response: 'Locked `editedDraft` onto conversation state immutably across intermediate retrieval turns.'
+      }
+    ],
+    whatBecameDeterministic:
+      'Source authority routing, temporal boundary classification, 3-state LinkedIn adapter reporting, bitwise draft preservation (`executionInput === editedDraft`), and 172 automated verification checks.',
+    evidenceAndMetrics: [
+      '172 automated test verifications passing across temporal reasoning, LinkedIn state distinction, draft integrity, prompt injection, and Playwright E2E suites',
+      '132 hardening epistemic assertions verified via `scripts/test_hardening_agent_qa.ts`',
+      'Zero LLM rewriting between visitor draft edits and execution payload'
+    ],
+    tradeoffs: [
+      'Maintaining explicit source authority rules requires structured metadata schemas instead of a single flat embedding collection, eliminating cross-source hallucinations.',
+      'Mandatory explicit confirmation before opening the mail client adds one turn, preventing unconsented external actions.'
+    ],
+    failuresAndTradeoffs: [
+      'Flat vector retrieval erased source provenance and temporal boundaries.',
+      'Solved via separate canonical registries and explicit provenance badges per source layer.'
+    ],
+    accumulatedCapability:
+      'Turned the portfolio itself into a live demonstration of governed AI systems engineering: transparent provenance, temporal honesty, and controlled actions.',
+    technologies: ['Next.js 13', 'React 18', 'TypeScript 5', 'Hybrid Retrieval', 'Deterministic State Machine', 'Web Speech API', 'Playwright'],
+    slug: 'ask-aadil'
+  },
+  {
+    id: 'solace-ai',
+    number: '08',
+    title: 'Solace AI — Mindful Wellness Companion',
+    subtitle: 'Safety-first mobile companion with deterministic crisis screening, consent-based memory, and ambiguous SSE containment',
+    layer: 'Safety & Consent-First Mobile AI',
+    ownershipLabel: 'INDEPENDENT · HACKATHON PROJECT',
+    timeline: 'November 2026',
+    context:
+      'Built during the Solace Hackathon (November 2026), Solace AI investigates how deterministic systems engineering principles—pre-LLM guardrails, explicit user consent, zero-retention privacy, and honest ambiguous-delivery semantics—translate into a human-centered mobile emotional wellness companion.',
+    problem:
+      'Mental health chatbots built as thin LLM wrappers fail users in four critical ways: generative latency delays urgent crisis support, hidden memory extraction erodes privacy trust, cloud-stored voice notes create breach liability, and blind mobile client retries on 502/503/504 gateway drops duplicate user messages in conversation threads.',
+    solution:
+      'Engineered an Expo SDK 58 / React Native client paired with a FastAPI modular monolith and Supabase PostgreSQL Row Level Security (RLS). Every chat turn passes through a synchronous crisis screening gate (`is_crisis_input`) prior to LangGraph context lookup or Gemini inference, streams tokens over SSE via `astream_events(v2)` with pre-token native fallback, proposes emotional memories strictly via explicit consent banners isolated from voice journals and poetry (ADR-004), deletes raw voice audio in a `finally:` block, and enforces single-POST ambiguous delivery classification on mobile SSE chat.',
+    architectureDescription:
+      'Expo 58 Mobile Client (Zustand, SecureStore 1500-byte Chunking, Reanimated Landscape) → Single-POST SSE Client (55s Cold-Start Backoff for Reads; 502/503/504 Ambiguity Guard for Chat) → FastAPI JWT Auth → LangGraph StateGraph (Synchronous Crisis Safety Node → Consent-Aware Context Node → Gemini Streaming Companion Node) → Supabase PostgreSQL RLS (6 Isolated Tables).',
+    breakthrough:
+      'Treating safety screening, emotional consent, audio retention, and uncertain network states as deterministic system invariants rather than conversational prompt instructions.',
+    criticalDecision:
+      'Running deterministic crisis regex screening synchronously before LangGraph or Gemini inference while isolating voice journals, poetry, and landscape reflections from emotional memory ingestion, and suppressing blind auto-retries on ambiguous SSE stream failures.',
+    whatBroke: [
+      {
+        failure: 'Ambiguous 502/503/504 SSE Drops Risking Duplicate Chat Turns',
+        cause: 'When a gateway timed out after FastAPI persisted the incoming user message, blind client retries risked duplicating conversation turns.',
+        detection: 'Resilience audit and `api_cold_start.test.js` SSE single-event assertions.',
+        response: 'Enforced strict single-POST execution in `streamChat` and surfaced honest ambiguous delivery messaging without a blind Retry action.'
+      },
+      {
+        failure: 'Android Keystore Character & 2048-Byte Value Limits',
+        cause: 'Keys starting with `@` or long offline notes triggered Keystore rejections and truncation on native Android.',
+        detection: '`storage_adapter.test.js` and `journal.test.js` Android Keystore constraint tests.',
+        response: 'Implemented `sanitizeKey()` mapping non-alphanumeric characters to `_` and 1500-byte chunked storage in `useCheckInStore`.'
+      },
+      {
+        failure: 'Figurative Idioms vs. Crisis Detection & LangGraph TTFT Tax',
+        cause: 'Idioms such as "dying of laughter" risked false crisis triggers, while empirical benchmarking (`compare_native_vs_graph.py`) measured ~1.08s TTFT overhead for LangGraph event dispatch.',
+        detection: 'Benchmark comparison and conversational personality safety tests.',
+        response: 'Added `FALSE_POSITIVE_PATTERNS` filtering alongside multilingual `HIGH_RISK_PATTERNS`, and wrapped LangGraph behind `ENABLE_LANGGRAPH_ROUTING` with pre-token native fallback.'
+      }
+    ],
+    whatBecameDeterministic:
+      'Pre-LLM multilingual crisis screening and figurative idiom exclusion, Android SecureStore key sanitization and 1500-byte chunking, single-POST ambiguous SSE delivery classification, `finally:` block raw audio buffer deletion (`del audio_bytes`), RLS user-isolation boundaries, and 102 directly verified automated checks.',
+    evidenceAndMetrics: [
+      '52 / 52 backend pytests passing across 8 suites (`test_langgraph_orchestration.py`, `test_emotional_landscape.py`, `test_poetry.py`, `test_journal.py`, `test_conversational_personality.py`, `test_rant_and_voice.py`, `test_profile_auth.py`, `test_health.py`)',
+      '50 / 50 mobile verification checks passing across 7 suites (`npm test`) with `tsc --noEmit` exiting with 0 TypeScript errors',
+      'Live Supabase Row Level Security (RLS) two-user isolation check confirming zero cross-user data leakage across 6 domain tables',
+      'Hermes AOT Android bundle export (1,725 modules) and Pixel 7 Android 16 (API 36) emulator verification'
+    ],
+    tradeoffs: [
+      'Zero-retention audio purging (`del audio_bytes` without cloud storage) guarantees voice privacy at the cost of cross-device audio replay.',
+      'Deterministic crisis regex matching eliminates model refusal drift and latency (<2ms), requiring ongoing maintenance of idiomatic patterns.',
+      'Suppressing automatic SSE retries on 502/503/504 prevents duplicate database turns while asking the user to inspect thread history before resending.'
+    ],
+    failuresAndTradeoffs: [
+      'Blind retries on non-idempotent SSE chat streams risk duplicate persisted user messages when gateway drops occur mid-flight.',
+      'Resolved by executing streamChat POST strictly once and classifying 502/503/504 as ambiguous delivery.',
+      'Domain tables for Voice Journal and Words of Solace remain strictly isolated from Companion memory unless explicit consent is granted.'
+    ],
+    accumulatedCapability:
+      'Extended deterministic AI engineering from backend/developer tools into a full-stack React Native (Expo 58) + FastAPI/LangGraph mobile product grounded in safety, consent, and honest failure semantics.',
+    technologies: ['React Native / Expo 58', 'TypeScript', 'Python 3.12', 'FastAPI', 'LangGraph', 'Google Gemini API', 'Supabase RLS', 'SSE Streaming'],
+    slug: 'solace-ai'
   }
 ]
 

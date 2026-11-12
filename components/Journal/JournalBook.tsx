@@ -7,26 +7,44 @@ import SpiralBinding from './SpiralBinding'
 import { journalSpreads } from '../../data/journalSpreads'
 
 const HASH_ANCHOR_MAP: Record<string, number> = {
+  'toc': 0,
   'graveiens': 1,
   'inhaltmart': 1,
-  'digipplus': 1,
-  'goal-pursuit': 1,
-  'wayground': 2,
-  'figma-visuals': 3,
+  'digipplus': 2,
+  'digiplus': 2,
+  'goal-pursuit': 2,
+  'wayground': 3,
+  'voyagemath-v1': 3,
+  'figma-visuals': 4,
   'voyagemath-builder': 4,
   'ai-workflow': 5,
+  'item-authoring': 5,
   'vm-copy-generator': 6,
+  'vm-copy': 6,
   'ai-transition': 6,
   'ai-question-generator': 6,
   'ai-worksheets-poc': 7,
-  'curriculum-transformation-engine': 8,
-  'us-item-bank': 9,
-  'eda-cad': 10,
-  'loom-ai': 11,
+  'ai-worksheets': 7,
+  'us-item-bank': 8,
+  'math-item-bank': 8,
+  'curriculum-transformation-engine': 9,
+  'curriculum-etl': 9,
+  'loom-ai': 10,
   'atlas-ai': 11,
-  'ai-reliability': 12,
-  'wayground-conclusion': 13,
-  'ask-aadil': 14
+  'eda-cad': 12,
+  'design-automation': 12,
+  'ai-reliability': 13,
+  'browser-qa': 13,
+  'ocr-evaluator': 14,
+  'ask-aadil': 15,
+  'portfolio': 15,
+  'solace-ai': 16,
+  'still-building': 17,
+  'synthesis': 17,
+  'open-spiral': 17,
+  'epilogue': 18,
+  'systems': 18,
+  'catalog': 18
 }
 
 export default function JournalBook() {
@@ -171,13 +189,6 @@ export default function JournalBook() {
 
           {/* Folio View */}
           <div className="relative w-full flex justify-center">
-            {/* Spiral Spine (Desktop double-page view) */}
-            {!isMobile && (
-              <div className="absolute left-1/2 top-4 bottom-4 -translate-x-1/2 z-20 pointer-events-none">
-                <SpiralBinding />
-              </div>
-            )}
-
             <JournalSpreadView
               initialSpreadIndex={initialSpread}
               onCloseJournal={handleCloseJournal}

@@ -23,14 +23,20 @@ export const VectorRoutes: React.FC = () => {
   // 3. US Math Item Bank Team Branch (x: 1440, y: 280 -> x: 1540, y: 370 -> x: 1660, y: 280)
   const itemBankBranchD = `M 1440,280 L 1490,370 L 1540,370 L 1610,370 L 1660,280`
 
-  // 4. Loom AI & Atlas AI Branch (x: 1780, y: 280 -> x: 1920, y: 180 -> x: 2120, y: 280)
-  const loomBranchD = `M 1780,280 L 1840,180 L 1920,180 L 2020,180 L 2120,280`
+  // 4. Loom AI & OCR Evaluator Top Branch (x: 1780, y: 280 -> 1840, 180 -> 1920, 180 [Loom] -> 2040, 180 [OCR] -> 2100, 180 -> 2160, 280)
+  const loomOcrBranchD = `M 1780,280 L 1840,180 L 1920,180 L 2040,180 L 2100,180 L 2160,280`
 
-  // 5. EDA CAD Branch (x: 1890, y: 280 -> x: 1980, y: 370 -> x: 2120, y: 280)
-  const edaBranchD = `M 1890,280 L 1940,370 L 1980,370 L 2060,370 L 2120,280`
+  // 5. Atlas AI & EDA CAD Bottom Branch (x: 1780, y: 280 -> 1840, 370 -> 1920, 370 [Atlas] -> 2040, 370 [EDA] -> 2100, 370 -> 2160, 280)
+  const atlasEdaBranchD = `M 1780,280 L 1840,370 L 1920,370 L 2040,370 L 2100,370 L 2160,280`
 
-  // 6. Continuing Frontier Line (x: 2260, y: 280 -> x: 2380, y: 280)
-  const continuingPathD = `M 2260,280 L 2380,280`
+  // 6. Solace AI Hackathon Top Branch (x: 2160, y: 280 -> 2210, 180 -> 2280, 180 [Solace] -> 2350, 180 -> 2400, 280)
+  const solaceBranchD = `M 2160,280 L 2210,180 L 2280,180 L 2350,180 L 2400,280`
+
+  // 7. Portfolio & Ask Aadil Bottom Branch (x: 2160, y: 280 -> 2210, 370 -> 2280, 370 [Ask Aadil] -> 2350, 370 -> 2400, 280)
+  const portfolioBranchD = `M 2160,280 L 2210,370 L 2280,370 L 2350,370 L 2400,280`
+
+  // 8. Continuing Frontier Line (x: 2400, y: 280 -> x: 2520, y: 280)
+  const continuingPathD = `M 2400,280 L 2520,280`
 
   return (
     <g className="vector-routes pointer-events-none">
@@ -83,18 +89,36 @@ export const VectorRoutes: React.FC = () => {
         strokeLinecap="round"
       />
 
-      {/* Loom / Atlas Branch */}
+      {/* Loom AI & OCR Evaluator Branch */}
       <path
-        d={loomBranchD}
+        d={loomOcrBranchD}
         fill="none"
         stroke="#4E8765"
         strokeWidth="2"
         strokeLinecap="round"
       />
 
-      {/* EDA CAD Branch */}
+      {/* Atlas AI & EDA CAD Branch */}
       <path
-        d={edaBranchD}
+        d={atlasEdaBranchD}
+        fill="none"
+        stroke="#4E8765"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      {/* Portfolio & Ask Aadil Branch */}
+      <path
+        d={portfolioBranchD}
+        fill="none"
+        stroke="#4E8765"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      {/* Solace AI Hackathon Branch */}
+      <path
+        d={solaceBranchD}
         fill="none"
         stroke="#4E8765"
         strokeWidth="2"
@@ -112,7 +136,7 @@ export const VectorRoutes: React.FC = () => {
       />
 
       <text
-        x="2280"
+        x="2415"
         y="265"
         fill="#9EA4AA"
         fontSize="9.5"

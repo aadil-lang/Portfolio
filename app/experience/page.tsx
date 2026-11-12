@@ -72,6 +72,60 @@ export default function ExperiencePage() {
             <span className="text-[#4E8765] font-bold">Reliable AI Systems Engineering</span>
           </div>
         </div>
+
+        {/* Three Distinct Career Stages */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+          {/* Stage 1 */}
+          <div className="p-4 rounded-xl bg-[#14171A] border border-[#262B32] space-y-2">
+            <div className="flex items-center justify-between text-[10px] font-mono">
+              <span className="px-1.5 py-0.5 rounded bg-[#1C222A] text-[#71899A] font-semibold border border-[#2B3542]">
+                STAGE 1 // EMPLOYMENT
+              </span>
+              <span className="text-[#858A90]">2024 — Jul 2026</span>
+            </div>
+            <h2 className="font-serif font-bold text-sm text-[#F0EEE9]">
+              Professional Engineering Experience
+            </h2>
+            <p className="text-xs text-[#9EA4AA] leading-relaxed">
+              Wayground (Quizizz) tenure concluding July 2026. Built enterprise content automation, TikZ/SVG diagram engines, VM Copy deterministic evaluator, and high-throughput Claude Map-Reduce ETL pipelines.
+            </p>
+          </div>
+
+          {/* Stage 2 */}
+          <div className="p-4 rounded-xl bg-[#171A1E] border border-[#3E4752] space-y-2 relative overflow-hidden">
+            <div className="flex items-center justify-between text-[10px] font-mono">
+              <span className="px-1.5 py-0.5 rounded bg-[#1B261F] text-[#4E8765] font-semibold border border-[#294D36]">
+                STAGE 2 // INDEPENDENT BUILDS
+              </span>
+              <span className="text-[#8CC4FF] font-semibold">Aug 2026 — Present</span>
+            </div>
+            <h2 className="font-serif font-bold text-sm text-[#F0EEE9]">
+              Independent AI Engineering &amp; Research
+            </h2>
+            <p className="text-xs text-[#C8C6BF] leading-relaxed">
+              Building, experimenting and researching intelligent applications, agentic systems and reliable AI engineering solutions. Shipped 7 independent systems across hackathons, engineering tools, and reliability platforms.
+            </p>
+            <div className="text-[10px] font-mono text-[#71899A] pt-1 border-t border-[#22272E]">
+              Not corporate employment • Continuous practical growth
+            </div>
+          </div>
+
+          {/* Stage 3 */}
+          <div className="p-4 rounded-xl bg-[#14171A] border border-[#262B32] space-y-2">
+            <div className="flex items-center justify-between text-[10px] font-mono">
+              <span className="px-1.5 py-0.5 rounded bg-[#201C18] text-[#D48A63] font-semibold border border-[#443328]">
+                STAGE 3 // SPECIALIZATIONS
+              </span>
+              <span className="text-[#858A90]">Architecture</span>
+            </div>
+            <h2 className="font-serif font-bold text-sm text-[#F0EEE9]">
+              Continued Technical Growth
+            </h2>
+            <p className="text-xs text-[#9EA4AA] leading-relaxed">
+              Progression from prompt-based apps to deterministic systems: RAG &amp; retrieval, LangGraph agentic workflows, OpenCascade CAD physics kernels, Fisher uncertainty modeling, mobile AI, and human-in-the-loop governance.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* ============================================================= */}
@@ -133,16 +187,23 @@ export default function ExperiencePage() {
                 {/* Header */}
                 <div className="flex items-start justify-between gap-2 border-b border-[#20242A] pb-2.5">
                   <div className="space-y-1">
-                    <span
-                      className="px-2 py-0.5 rounded text-[9.5px] font-mono font-bold uppercase tracking-wider border inline-block"
-                      style={{
-                        backgroundColor: colors.badgeBg,
-                        color: colors.badgeText,
-                        borderColor: colors.badgeBorder
-                      }}
-                    >
-                      {node.provenance}
-                    </span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span
+                        className="px-2 py-0.5 rounded text-[9.5px] font-mono font-bold uppercase tracking-wider border inline-block"
+                        style={{
+                          backgroundColor: colors.badgeBg,
+                          color: colors.badgeText,
+                          borderColor: colors.badgeBorder
+                        }}
+                      >
+                        {node.provenance}
+                      </span>
+                      {node.category && (
+                        <span className="px-2 py-0.5 rounded text-[9px] font-mono font-semibold uppercase tracking-wider bg-[#1B2228] text-[#8CC4FF] border border-[#2B3B4C] inline-block">
+                          {node.category}
+                        </span>
+                      )}
+                    </div>
                     <h3 className="font-bold text-[#F0EEE9] font-serif text-base leading-tight">
                       {node.title}
                     </h3>

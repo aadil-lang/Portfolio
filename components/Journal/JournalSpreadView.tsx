@@ -21,11 +21,10 @@ export function FolioPage({ page, side, chapterTitle = '', onNavigateSpread }: F
 
   return (
     <div
-      className={`p-6 sm:p-7 md:p-8 flex flex-col justify-between relative h-full w-full select-none overflow-hidden ${
-        isLeft
-          ? 'pl-8 sm:pl-9 lg:pl-8 pr-6 sm:pr-7 lg:pr-11 bg-gradient-to-r from-[#F9F7F1] via-[#F7F5EE] to-[#ECE7DC] shadow-[inset_-16px_0_20px_-8px_rgba(40,32,24,0.22)]'
-          : 'pl-6 sm:pl-7 lg:pl-11 pr-8 sm:pr-9 lg:pr-8 bg-gradient-to-r from-[#ECE7DC] via-[#F7F5EE] to-[#F9F7F1] shadow-[inset_16px_0_20px_-8px_rgba(40,32,24,0.22)]'
-      }`}
+      className={`p-6 sm:p-7 md:p-8 flex flex-col justify-between relative h-full w-full select-none overflow-hidden ${isLeft
+          ? 'pl-12 sm:pl-12 md:pl-12 lg:pl-8 pr-5 sm:pr-7 lg:pr-11 bg-gradient-to-r from-[#F9F7F1] via-[#F7F5EE] to-[#ECE7DC] shadow-[inset_-16px_0_20px_-8px_rgba(40,32,24,0.22)]'
+          : 'pl-12 sm:pl-12 md:pl-12 lg:pl-11 pr-5 sm:pr-7 lg:pr-8 bg-gradient-to-r from-[#ECE7DC] via-[#F7F5EE] to-[#F9F7F1] shadow-[inset_16px_0_20px_-8px_rgba(40,32,24,0.22)]'
+        }`}
     >
       {/* Punched holes along inner binding margin */}
       <PunchedHoleStrip side={isLeft ? 'right' : 'left'} />
@@ -50,24 +49,29 @@ export function FolioPage({ page, side, chapterTitle = '', onNavigateSpread }: F
       </div>
 
       {/* Folio Body Content - Fixed height scrollable area if content exceeds */}
-      <div className="py-2.5 sm:py-3 flex-1 overflow-y-auto overflow-x-hidden scrollbar-none">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={`${page.header} folio content`}
+        className="py-2.5 sm:py-3 flex-1 overflow-y-auto overflow-x-hidden scrollbar-none focus:outline-none focus:ring-1 focus:ring-[#5A9A78] focus:ring-offset-1 focus:ring-offset-[#F7F5EE] rounded"
+      >
         {page.content({ onNavigateSpread })}
       </div>
 
       {/* Folio Bottom: Page Number on Outer Margin */}
-      <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-xs font-mono text-[#6E747C] shrink-0">
+      <div className="pt-2 border-t border-[#DCD7C9] flex items-center justify-between text-xs font-mono text-[#484E55] shrink-0">
         {isLeft ? (
           <>
             <span className="font-bold text-[#1E2124]">
               {String(page.pageNumber).padStart(3, '0')}
             </span>
-            <span className="text-[10px] uppercase tracking-widest hidden sm:inline text-[#6E747C]">
+            <span className="text-[10px] uppercase tracking-widest hidden sm:inline text-[#484E55]">
               {chapterTitle}
             </span>
           </>
         ) : (
           <>
-            <span className="text-[10px] uppercase tracking-widest hidden sm:inline text-[#6E747C]">
+            <span className="text-[10px] uppercase tracking-widest hidden sm:inline text-[#484E55]">
               ENGINEERING CHRONICLE
             </span>
             <span className="font-bold text-[#1E2124]">
@@ -90,6 +94,7 @@ export default function JournalSpreadView({
   const [flipDirection, setFlipDirection] = useState<'forward' | 'backward'>('forward')
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState<boolean>(false)
+  const [mobilePageSide, setMobilePageSide] = useState<'left' | 'right'>('left')
 
   const activeSpread = journalSpreads[currentSpreadIndex] || journalSpreads[0]
   const currentSpread = activeSpread
@@ -114,6 +119,7 @@ export default function JournalSpreadView({
   // Page turn navigation
   const handleTurnSpread = (direction: 'forward' | 'backward') => {
     if (isFlipping) return
+    setMobilePageSide('left')
 
     if (direction === 'forward' && currentSpreadIndex < totalSpreads - 1) {
       if (prefersReducedMotion || isMobile) {
@@ -148,6 +154,7 @@ export default function JournalSpreadView({
 
   const handleNavigateSpreadDirect = (index: number) => {
     if (index === currentSpreadIndex || isFlipping) return
+    setMobilePageSide('left')
     const dir = index > currentSpreadIndex ? 'forward' : 'backward'
     if (prefersReducedMotion || isMobile) {
       setCurrentSpreadIndex(index)
@@ -222,41 +229,40 @@ export default function JournalSpreadView({
             <button
               type="button"
               onClick={() => handleNavigateSpreadDirect(0)}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
-                currentSpreadIndex === 0
+              className={`min-h-[28px] min-w-[28px] inline-flex items-center justify-center px-2 py-1 rounded transition-colors ${currentSpreadIndex === 0
                   ? 'bg-[#2B323A] text-[#F0EEE9] font-bold border border-[#444D58]'
                   : 'bg-[#191D22] hover:bg-[#20252B] text-[#858A90] border border-[#262B32]'
-              }`}
+                }`}
               title="Table of Contents (Pages 001–002)"
             >
               TOC
             </button>
 
             {[
-              { label: '01', spread: 1, title: 'Ch. 01: Learning the Problem' },
-              { label: '02', spread: 2, title: 'Ch. 02: KaTeX & Representation' },
-              { label: '03', spread: 3, title: 'Ch. 03: Figma & Visual Thinking' },
-              { label: '04', spread: 4, title: 'Ch. 04: Seeing the Workflow' },
-              { label: '05', spread: 5, title: 'Ch. 05: AI in Content Workflow' },
-              { label: '06', spread: 6, title: 'Ch. 06: VM Copy Question Generator' },
-              { label: '07', spread: 7, title: 'Ch. 07: AI Worksheets & ETL' },
-              { label: 'Team', spread: 9, title: 'Team System: Item Bank Pipeline' },
-              { label: '08', spread: 10, title: 'Ch. 08: Engineering Design Automation' },
-              { label: '09', spread: 12, title: 'Ch. 09: Browser QA & Reliability' },
-              { label: '10 [?]', spread: 14, title: 'Ch. 10: Still Building (?)' },
-              { label: 'Catalog', spread: 15, title: 'Systems Catalog & Full Archive' }
+              { label: '01', spread: 1, title: 'Ch. 01 & 02: Problem Domain & Representation' },
+              { label: '06', spread: 6, title: 'Ch. 11 & 12: VM Copy Question Generator' },
+              { label: '07', spread: 7, title: 'Ch. 13: AI Worksheets Product POC' },
+              { label: 'ETL', spread: 9, title: 'Ch. 15: Curriculum Transformation Engine' },
+              { label: '16', spread: 10, title: 'Ch. 16: Loom AI' },
+              { label: '17', spread: 11, title: 'Ch. 17: Atlas AI' },
+              { label: '18', spread: 12, title: 'Ch. 18: Engineering Design Automation' },
+              { label: '19', spread: 13, title: 'Ch. 19: AI Application Reliability & Browser QA' },
+              { label: '20', spread: 14, title: 'Ch. 20: OCR Evaluator & Robustness Platform' },
+              { label: '21', spread: 15, title: 'Ch. 21: Portfolio & Ask Aadil' },
+              { label: '22', spread: 16, title: 'Ch. 22: Solace AI (Safety-First Mobile Companion)' },
+              { label: 'Synthesis', spread: 17, title: 'Aug 2026 — Present: Still Building. Still Exploring.' },
+              { label: 'Catalog', spread: 18, title: 'Systems Catalog & Full Archive' }
             ].map((btn) => {
-              const isActive = currentSpreadIndex === btn.spread || (btn.spread === 7 && currentSpreadIndex === 8) || (btn.spread === 10 && currentSpreadIndex === 11) || (btn.spread === 12 && currentSpreadIndex === 13)
+              const isActive = currentSpreadIndex === btn.spread
               return (
                 <button
                   key={btn.label}
                   type="button"
                   onClick={() => handleNavigateSpreadDirect(btn.spread)}
-                  className={`px-1.5 py-0.5 rounded hidden sm:inline-block transition-colors ${
-                    isActive
+                  className={`min-h-[28px] min-w-[28px] px-1.5 py-1 rounded hidden sm:inline-flex items-center justify-center transition-colors ${isActive
                       ? 'bg-[#2B323A] text-[#F0EEE9] font-bold border border-[#444D58]'
-                      : 'bg-[#191D22] hover:bg-[#20252B] text-[#686E77] hover:text-[#9EA4AA] border border-[#262B32]'
-                  }`}
+                      : 'bg-[#191D22] hover:bg-[#20252B] text-[#858A90] hover:text-[#9EA4AA] border border-[#262B32]'
+                    }`}
                   title={btn.title}
                 >
                   {btn.label}
@@ -269,7 +275,7 @@ export default function JournalSpreadView({
               id="close-journal-button"
               data-testid="close-journal-button"
               onClick={onCloseJournal}
-              className="px-2 py-0.5 rounded bg-[#191D22] hover:bg-[#262C35] text-[#858A90] hover:text-[#F0EEE9] border border-[#2B313A] hover:border-[#4B5563] ml-1.5 transition-colors flex items-center gap-1 font-mono text-[10px]"
+              className="min-h-[28px] min-w-[28px] px-2 py-1 rounded bg-[#191D22] hover:bg-[#262C35] text-[#858A90] hover:text-[#F0EEE9] border border-[#2B313A] hover:border-[#4B5563] ml-1.5 transition-colors inline-flex items-center justify-center gap-1 font-mono text-[10px]"
               title="Close Book"
               aria-label="Close Book"
             >
@@ -280,29 +286,29 @@ export default function JournalSpreadView({
         </div>
 
         {/* Bottom Line: The Accumulated Journey Ribbon */}
-        <div className="flex items-center gap-1 overflow-x-auto text-[9.5px] font-mono py-1 px-2 rounded bg-[#111316] border border-[#22252B] text-[#6E747C] scrollbar-none">
+        <div className="flex items-center gap-1 overflow-x-auto text-[9.5px] font-mono py-1 px-2 rounded bg-[#111316] border border-[#22252B] text-[#858A90] scrollbar-none">
           <span className="text-[#8E8B82] uppercase tracking-widest text-[8.5px] font-bold mr-1 shrink-0">Journey:</span>
           {[
             { label: 'CONTENT', range: [1] },
             { label: 'SME', range: [1, 2] },
             { label: 'REPRESENTATION', range: [2] },
-            { label: 'VISUALS', range: [3] },
+            { label: 'VISUALS', range: [3, 4] },
             { label: 'TOOLING', range: [4] },
             { label: 'AI', range: [5, 6, 7] },
-            { label: 'AGENTS', range: [8, 9, 10, 11] },
-            { label: 'RELIABILITY', range: [12, 13] },
-            { label: '?', range: [14, 15] }
+            { label: 'PIPELINES', range: [8, 9] },
+            { label: 'AGENTS', range: [10, 11] },
+            { label: 'RELIABILITY & EVAL', range: [12, 13, 14, 15, 16] },
+            { label: 'SYNTHESIS', range: [17, 18] }
           ].map((step, idx) => {
             const isStepActive = step.range.includes(currentSpreadIndex)
             return (
               <React.Fragment key={step.label}>
                 {idx > 0 && <span className="text-[#2C3138] shrink-0">→</span>}
                 <span
-                  className={`px-1 py-0.2 rounded shrink-0 transition-colors ${
-                    isStepActive
-                      ? 'bg-[#3D5A6E] text-[#F7F5EE] font-bold shadow-sm'
-                      : 'text-[#686E77] hover:text-[#9EA4AA]'
-                  }`}
+                  className={`px-1 py-0.2 rounded shrink-0 transition-colors ${isStepActive
+                      ? 'bg-[#3D5A6E] text-[#F7F5EE] font-bold shadow-xs'
+                      : 'text-[#8E95A0] hover:text-[#C5CAD1]'
+                    }`}
                 >
                   {step.label}
                 </span>
@@ -312,42 +318,6 @@ export default function JournalSpreadView({
         </div>
       </div>
 
-      {/* Tactile Margin Navigation Arrow: Turn Back Spread */}
-      {prevLabel && (
-        <button
-          type="button"
-          id="book-prev-spread-arrow"
-          data-testid="book-prev-spread-arrow"
-          onClick={() => handleTurnSpread('backward')}
-          aria-label={`Turn page back to ${prevLabel}`}
-          title={`[ Turn page back to ${prevLabel} ]`}
-          className="book-margin-arrow absolute -left-2 sm:-left-4 md:-left-12 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-2.5 md:p-3 rounded-full sm:rounded-lg bg-[#181B1F] hover:bg-[#22272E] border border-[#3E454F] hover:border-[#536B7A] text-[#F0EEE9] shadow-[0_14px_30px_rgba(0,0,0,0.9)] flex flex-col items-center gap-1 group cursor-pointer"
-        >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#71899A] group-hover:text-[#F0EEE9] group-hover:-translate-x-1 transition-transform" />
-          <span className="text-[9px] font-mono text-[#858A90] group-hover:text-[#D8D6D0] uppercase tracking-wider hidden lg:block">
-            PREV
-          </span>
-        </button>
-      )}
-
-      {/* Tactile Margin Navigation Arrow: Turn Next Spread */}
-      {nextLabel && (
-        <button
-          type="button"
-          id="book-next-spread-arrow"
-          data-testid="book-next-spread-arrow"
-          onClick={() => handleTurnSpread('forward')}
-          aria-label={`Turn page to ${nextLabel}`}
-          title={`[ Turn page to ${nextLabel} ]`}
-          className="book-margin-arrow absolute -right-2 sm:-right-4 md:-right-12 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-2.5 md:p-3 rounded-full sm:rounded-lg bg-[#181B1F] hover:bg-[#22272E] border border-[#3E454F] hover:border-[#536B7A] text-[#F0EEE9] shadow-[0_14px_30px_rgba(0,0,0,0.9)] flex flex-col items-center gap-1 group cursor-pointer"
-        >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#71899A] group-hover:text-[#F0EEE9] group-hover:translate-x-1 transition-transform" />
-          <span className="text-[9px] font-mono text-[#858A90] group-hover:text-[#D8D6D0] uppercase tracking-wider hidden lg:block">
-            NEXT
-          </span>
-        </button>
-      )}
-
       {/* ========================================================================= */}
       {/* THE PHYSICAL OPEN SPIRAL-BOUND NOTEBOOK ON THE DESK */}
       {/* ========================================================================= */}
@@ -356,6 +326,41 @@ export default function JournalSpreadView({
         className="relative rounded-2xl p-2 sm:p-2.5 bg-[#21252A] border border-[#363B43] book-desk-shadow mx-auto max-w-5xl flex items-stretch overflow-visible h-[640px] sm:h-[680px] lg:h-[700px]"
         style={{ perspective: 2800 }}
       >
+        {/* Tactile Margin Navigation Arrow: Turn Back Spread */}
+        {prevLabel && (
+          <button
+            type="button"
+            id="book-prev-spread-arrow"
+            data-testid="book-prev-spread-arrow"
+            onClick={() => handleTurnSpread('backward')}
+            aria-label={`Turn page back to ${prevLabel}`}
+            title={`[ Turn page back to ${prevLabel} ]`}
+            className="book-margin-arrow absolute left-1.5 sm:left-2 xl:-left-14 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-2.5 md:p-3 rounded-full sm:rounded-lg bg-[#181B1F] hover:bg-[#22272E] border border-[#3E454F] hover:border-[#536B7A] text-[#F0EEE9] shadow-[0_14px_30px_rgba(0,0,0,0.9)] flex flex-col items-center gap-1 group cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#71899A] group-hover:text-[#F0EEE9] group-hover:-translate-x-1 transition-transform" />
+            <span className="text-[9px] font-mono text-[#858A90] group-hover:text-[#D8D6D0] uppercase tracking-wider hidden lg:block">
+              PREV
+            </span>
+          </button>
+        )}
+
+        {/* Tactile Margin Navigation Arrow: Turn Next Spread */}
+        {nextLabel && (
+          <button
+            type="button"
+            id="book-next-spread-arrow"
+            data-testid="book-next-spread-arrow"
+            onClick={() => handleTurnSpread('forward')}
+            aria-label={`Turn page to ${nextLabel}`}
+            title={`[ Turn page to ${nextLabel} ]`}
+            className="book-margin-arrow absolute right-1.5 sm:right-2 xl:-right-14 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-2.5 md:p-3 rounded-full sm:rounded-lg bg-[#181B1F] hover:bg-[#22272E] border border-[#3E454F] hover:border-[#536B7A] text-[#F0EEE9] shadow-[0_14px_30px_rgba(0,0,0,0.9)] flex flex-col items-center gap-1 group cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#71899A] group-hover:text-[#F0EEE9] group-hover:translate-x-1 transition-transform" />
+            <span className="text-[9px] font-mono text-[#858A90] group-hover:text-[#D8D6D0] uppercase tracking-wider hidden lg:block">
+              NEXT
+            </span>
+          </button>
+        )}
         {/* Left Stacked Page Block Edge (Thickness of bound sheets) */}
         <div className="absolute left-1 top-2.5 bottom-2.5 w-2 sm:w-2.5 page-block-edge pointer-events-none z-30 rounded-l-sm" />
 
@@ -382,13 +387,50 @@ export default function JournalSpreadView({
           />
         </div>
 
-        {/* Warm Technical Archival Paper Spread Body - FIXED HEIGHT */}
+        {/* Warm Technical Archival Paper Spread Body */}
         <div className="flex-1 w-full bg-[#F7F5EE] rounded-lg overflow-hidden relative h-full flex flex-col justify-between shadow-[inset_0_0_12px_rgba(0,0,0,0.06)] border border-[#E5E0D5]">
 
-          {/* ============================================================== */}
-          {/* LAYER 1: BASE SPREAD (Always shows real pages, no blank white) */}
-          {/* ============================================================== */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 flex-1 w-full h-full relative z-10">
+          {/* Mobile Folio Selector Strip (lg:hidden) */}
+          <div className="lg:hidden flex items-center justify-between pl-12 pr-3 sm:pl-12 sm:pr-4 py-1.5 bg-[#EAE6DB] border-b border-[#D5D0C0] text-[11px] font-mono text-[#484E55] shrink-0 z-20 gap-2">
+            <span className="text-[10px] text-[#555C62] uppercase font-bold tracking-wider truncate max-w-[100px] sm:max-w-[160px]">
+              {activeSpread.chapterNumber === 'OPENING' || activeSpread.chapterNumber === 'EPILOGUE' || activeSpread.chapterNumber === 'SYNTHESIS'
+                ? activeSpread.chapterNumber
+                : `CH. ${activeSpread.chapterNumber}`}
+            </span>
+            <div className="flex items-center gap-1.5" role="tablist" aria-label="Folio selection">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={mobilePageSide === 'left'}
+                aria-controls="mobile-folio-panel"
+                onClick={() => setMobilePageSide('left')}
+                className={`min-h-[32px] inline-flex items-center px-2 py-1 rounded text-[10.5px] font-mono transition-colors ${
+                  mobilePageSide === 'left'
+                    ? 'bg-[#3D5A6E] text-[#F7F5EE] font-bold shadow-xs'
+                    : 'bg-[#DCD7C9] text-[#484E55] hover:text-[#1E2124]'
+                }`}
+              >
+                Page {activeSpread.leftPage.pageNumber} (Verso)
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={mobilePageSide === 'right'}
+                aria-controls="mobile-folio-panel"
+                onClick={() => setMobilePageSide('right')}
+                className={`min-h-[32px] inline-flex items-center px-2 py-1 rounded text-[10.5px] font-mono transition-colors ${
+                  mobilePageSide === 'right'
+                    ? 'bg-[#3D5A6E] text-[#F7F5EE] font-bold shadow-xs'
+                    : 'bg-[#DCD7C9] text-[#484E55] hover:text-[#1E2124]'
+                }`}
+              >
+                Page {activeSpread.rightPage.pageNumber} (Recto)
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Dual Folio View (>= 1024px) */}
+          <div className="hidden lg:grid lg:grid-cols-2 flex-1 w-full h-full relative z-10">
             {/* Left Folio (Verso Page) */}
             <div className="h-full w-full">
               {isFlipping && flipDirection === 'backward' && targetSpread ? (
@@ -426,6 +468,25 @@ export default function JournalSpreadView({
                 />
               )}
             </div>
+          </div>
+
+          {/* Mobile Single Folio View (< 1024px) */}
+          <div id="mobile-folio-panel" role="tabpanel" className="lg:hidden flex-1 w-full h-full relative z-10">
+            {mobilePageSide === 'left' ? (
+              <FolioPage
+                page={activeSpread.leftPage}
+                side="left"
+                chapterTitle={activeSpread.chapterTitle}
+                onNavigateSpread={handleNavigateSpreadDirect}
+              />
+            ) : (
+              <FolioPage
+                page={activeSpread.rightPage}
+                side="right"
+                chapterTitle={activeSpread.chapterTitle}
+                onNavigateSpread={handleNavigateSpreadDirect}
+              />
+            )}
           </div>
         </div>
 
@@ -604,7 +665,7 @@ export default function JournalSpreadView({
       </div>
 
       {/* Bottom Desk Reading Status & Spread Counter */}
-      <footer className="mt-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#6E747C] px-3 max-w-5xl mx-auto">
+      <footer className="mt-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#858A90] px-3 max-w-5xl mx-auto">
         <div>
           {prevLabel ? (
             <button
@@ -632,11 +693,14 @@ export default function JournalSpreadView({
             SPREAD {String(currentSpreadIndex + 1).padStart(2, '0')} OF {String(totalSpreads).padStart(2, '0')}
           </span>
           <span className="text-[#3A404A]">·</span>
-          <span>
+          <span className="hidden sm:inline">
             PAGES {String(currentSpread.leftPage.pageNumber).padStart(3, '0')} — {String(currentSpread.rightPage.pageNumber).padStart(3, '0')}
           </span>
+          <span className="sm:hidden font-mono text-[#D8D6D0]">
+            PAGE {String(mobilePageSide === 'left' ? currentSpread.leftPage.pageNumber : currentSpread.rightPage.pageNumber).padStart(3, '0')}
+          </span>
           <span className="text-[#3A404A] hidden lg:inline">·</span>
-          <span className="italic text-[#7E858E] hidden lg:inline">
+          <span className="italic text-[#858A90] hidden lg:inline">
             &ldquo;Every system I build is also a system that teaches me.&rdquo;
           </span>
         </div>
@@ -652,7 +716,7 @@ export default function JournalSpreadView({
               <ChevronRight className="w-4 h-4" />
             </button>
           ) : (
-            <span className="text-[#555A62]">[ End of Volume I ]</span>
+            <span className="text-[#8E95A0]">[ End of Volume I ]</span>
           )}
         </div>
       </footer>

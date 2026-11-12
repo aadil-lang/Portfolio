@@ -29,6 +29,10 @@ const CANONICAL_ROUTES: Record<string, { url: string; label: string }> = {
   'ai-worksheets': { url: '/systems/ai-worksheets', label: 'View AI Worksheets Pipeline' },
   'binance-bot': { url: '/systems/binance-bot', label: 'View Crypto Bot System' },
   'ask-aadil': { url: '/systems/ask-aadil', label: 'View Ask Aadil System Spec' },
+  'solace-ai': { url: '/systems/solace-ai', label: 'View Solace AI Specification' },
+  'solace': { url: '/systems/solace-ai', label: 'View Solace AI Specification' },
+  'ocr-evaluator': { url: '/systems/ocr-evaluator', label: 'View OCR Evaluation Platform' },
+  'ocr': { url: '/systems/ocr-evaluator', label: 'View OCR Evaluation Platform' },
 
   // Portfolio Pages / Sections
   'journal': { url: '/journal', label: 'Open Engineering Journal' },

@@ -194,7 +194,7 @@ ${ch.connectedSystemSlug ? `Connected System: /projects/${ch.connectedSystemSlug
         source_type: 'portfolio',
         source_id: `journal-ch-${ch.number}`,
         source_title: `Journal // Ch. ${ch.number}: ${ch.title}`,
-        source_url: `/?spread=${ch.spread}#journal`,
+        source_url: `/journal?spread=${ch.spread}#journal-book`,
         portfolio_layer: 'journal',
         chapter: ch.number,
         project: ch.connectedSystemSlug,
@@ -246,7 +246,7 @@ ${epilogue.conclusion}`,
       source_type: 'portfolio',
       source_id: 'journal-epilogue',
       source_title: `Journal // ${epilogue.title}`,
-      source_url: '/#epilogue',
+      source_url: '/journal?spread=18#journal-book',
       portfolio_layer: 'journal',
       content_type: 'narrative',
       authority_type: 'primary',
@@ -466,6 +466,14 @@ export function queryQuantitativeRegistry(query: string, projectSlug?: string): 
       }
     }
 
+    // 5. Solace AI tests query
+    const isSolaceQuery = (lowerQ.includes('solace') || lowerQ.includes('wellness companion'))
+    if (isSolaceQuery && claimSlug === 'solace-ai') {
+      if (lowerQ.includes('test') || lowerQ.includes('suite') || lowerQ.includes('pytest') || lowerQ.includes('mobile') || lowerQ.includes('how many')) {
+        match = true
+      }
+    }
+
     // 5. Keyword & unit matches
     if (
       (lowerQ.includes('test') && claimText.includes('test')) ||
@@ -522,7 +530,12 @@ export function queryCodeEvidence(query: string, projectSlug?: string): Knowledg
       (lowerQ.includes('alertworker') && contentLower.includes('alertworker')) ||
       (lowerQ.includes('stategraph') && contentLower.includes('stategraph')) ||
       (lowerQ.includes('playwright') && contentLower.includes('playwright')) ||
-      (lowerQ.includes('covariance') && contentLower.includes('covariance'))
+      (lowerQ.includes('covariance') && contentLower.includes('covariance')) ||
+      (lowerQ.includes('crisis') && (contentLower.includes('is_crisis_input') || pathLower.includes('memory_service'))) ||
+      (lowerQ.includes('safety_node') && contentLower.includes('safety_node')) ||
+      (lowerQ.includes('streamchat') && contentLower.includes('streamchat')) ||
+      (lowerQ.includes('502') && contentLower.includes('502')) ||
+      (lowerQ.includes('sse') && contentLower.includes('sse'))
     ) {
       match = true
     }

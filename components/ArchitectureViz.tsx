@@ -3,7 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Bot, Cpu, Database, Globe, Layers, ShieldCheck, Terminal, Workflow, FileText, CheckCircle2, ArrowRight } from 'lucide-react'
 
-type PatternType = 'reliability' | 'eda' | 'worksheets' | 'qgen' | 'atlas' | 'textile' | 'taskmanager' | 'overview' | 'etl' | 'ask-aadil'
+type PatternType = 'reliability' | 'eda' | 'worksheets' | 'qgen' | 'atlas' | 'textile' | 'taskmanager' | 'overview' | 'etl' | 'ask-aadil' | 'solace' | 'ocr'
 
 interface Step {
   title: string
@@ -116,7 +116,29 @@ const patternConfigs: Record<PatternType, { label: string; steps: Step[] }> = {
       { title: 'Source-Aware Retrieval', subtitle: 'Timeline (When), Journal (Why), Systems (What), Resume, GitHub & LinkedIn', icon: Database },
       { title: 'Grounded Answer & Badging', subtitle: 'Non-speculative synthesis citing granular provenance badges', icon: Bot },
       { title: 'Controlled Action Pipeline', subtitle: 'Contextual draft generation with editable natural-language refinement', icon: Terminal },
-      { title: 'Explicit Execution Gate', subtitle: 'Human-in-the-loop confirmation gate prior to mail client execution (172 tests)', icon: ShieldCheck }
+      { title: 'Explicit Execution Gate', subtitle: 'Human-in-the-loop confirmation gate prior to mail client execution (327 assertions / 172 core verifications)', icon: ShieldCheck }
+    ]
+  },
+  solace: {
+    label: 'Solace AI — Safety-First Mobile Wellness Companion Architecture',
+    steps: [
+      { title: 'Expo 58 Mobile Client', subtitle: 'React Native, Zustand, SecureStore chunked offline persistence & Reanimated UI', icon: Globe },
+      { title: 'Ambiguous SSE Resilience', subtitle: '55s cold-start backoff for reads; single-POST policy flagging 502/503/504 as ambiguous', icon: Terminal },
+      { title: 'FastAPI & Supabase RLS', subtitle: 'JWT claim identity extraction & strict auth.uid() isolation across 6 SQL migrations', icon: Database },
+      { title: 'Deterministic Safety Gate', subtitle: 'Synchronous regex + idiom guard routing acute crisis to Tele-MANAS 14416 / 112 in <2ms', icon: ShieldCheck },
+      { title: 'LangGraph SSE Pipeline', subtitle: 'Feature-flagged StateGraph with astream_events token streaming & native fallback', icon: Workflow },
+      { title: 'Consent & Ephemeral Privacy', subtitle: 'Explicit memory approval banners, domain isolation & finally-block audio buffer purge', icon: Bot }
+    ]
+  },
+  ocr: {
+    label: 'OCR Evaluation & Multi-Tier Robustness Testing Architecture',
+    steps: [
+      { title: 'Document Ingestion', subtitle: 'Ground-truth legal title deeds, land records & invoice manifests', icon: FileText },
+      { title: '5-Axis Degradation Engine', subtitle: 'Controlled Gaussian blur, additive noise, rotation skew, contrast loss & JPEG artifacts', icon: Layers },
+      { title: 'Tesseract OCR Pipeline', subtitle: 'Text extraction, character bounding boxes & confidence score extraction', icon: Terminal },
+      { title: 'Multi-Tier Evaluation', subtitle: 'Levenshtein CER, Word Error Rate (WER) & exact-field matching', icon: Cpu },
+      { title: 'Priority Risk Gate', subtitle: 'Critical-field mismatch forces FAIL regardless of surrounding confidence', icon: ShieldCheck },
+      { title: 'Dashboard & Verification', subtitle: 'React UI dashboard, degradation curves & 134 automated pytests', icon: CheckCircle2 }
     ]
   }
 }

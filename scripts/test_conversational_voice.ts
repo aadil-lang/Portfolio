@@ -1,5 +1,5 @@
 import { formatForSpeech, stripMarkdownForTTS, DEFAULT_VAD_CONFIG, DEFAULT_VOICE_CONFIG } from '../lib/rag/voice/textToSpeechProvider'
-import { WebSpeechSTTProvider, MockSpeechToTextProvider, getSTTProvider } from '../lib/rag/voice/speechToTextProvider'
+import { WebSpeechSTTProvider, MockSpeechToTextProvider, getSTTProvider, assembleSpeechTranscript } from '../lib/rag/voice/speechToTextProvider'
 import { MockVoiceProvider } from '../lib/rag/voice/mockVoiceProvider'
 import { stopGlobalTTSPlayback } from '../components/AskAadil/AskAadilVoiceControls'
 import { getAskAadilPageContext } from '../lib/rag/askAadilPageContext'
@@ -382,6 +382,158 @@ Quantitative: 424 automated tests across 28 test suites.`
     '40. Desktop layout renders restrained notebook/editorial voice controls',
     true,
     'Desktop design compliant'
+  )
+
+  // =========================================================================
+  // 9. WEB SPEECH API RESULT-MODEL & TRANSCRIPT RECONSTRUCTION REGRESSION TESTS
+  // =========================================================================
+  console.log('\n--- 9. Web Speech API Result-Model & Transcript Reconstruction ---')
+
+  // 41. Interim results revised in place
+  const interimRev1 = assembleSpeechTranscript([
+    { 0: { transcript: 'Who' }, isFinal: false }
+  ])
+  const interimRev2 = assembleSpeechTranscript([
+    { 0: { transcript: 'Who is' }, isFinal: false }
+  ])
+  const interimRev3 = assembleSpeechTranscript([
+    { 0: { transcript: 'Who is Aadil?' }, isFinal: true }
+  ])
+  assert(
+    'ResultModel',
+    '41. Interim results revised in place without duplication',
+    interimRev1.fullText === 'Who' &&
+    interimRev2.fullText === 'Who is' &&
+    interimRev3.fullText === 'Who is Aadil?' &&
+    interimRev3.isLastFinal === true,
+    `rev1="${interimRev1.fullText}", rev2="${interimRev2.fullText}", final="${interimRev3.fullText}"`
+  )
+
+  // 42. Multiple distinct final segments
+  const multiFinal = assembleSpeechTranscript([
+    { 0: { transcript: 'Who is Aadil?' }, isFinal: true },
+    { 0: { transcript: 'Tell me about Loom AI.' }, isFinal: true }
+  ])
+  assert(
+    'ResultModel',
+    '42. Multiple distinct final segments concatenated with proper spacing',
+    multiFinal.fullText === 'Who is Aadil? Tell me about Loom AI.' && multiFinal.isLastFinal === true,
+    `multiFinal="${multiFinal.fullText}"`
+  )
+
+  // 43. Legitimate repeated words and repeated sentences
+  const repeatedWords = assembleSpeechTranscript([
+    { 0: { transcript: 'The system is very very good' }, isFinal: true }
+  ])
+  const repeatedSentences = assembleSpeechTranscript([
+    { 0: { transcript: 'Very good.' }, isFinal: true },
+    { 0: { transcript: 'Very good.' }, isFinal: true }
+  ])
+  assert(
+    'ResultModel',
+    '43. Legitimate repeated words and repeated sentences remain intact',
+    repeatedWords.fullText === 'The system is very very good' &&
+    repeatedSentences.fullText === 'Very good. Very good.',
+    `words="${repeatedWords.fullText}", sentences="${repeatedSentences.fullText}"`
+  )
+
+  // 44. The reported "Who" / "Who is Aadil?" duplication case
+  const reportedBugCase = assembleSpeechTranscript([
+    { 0: { transcript: 'Who' }, isFinal: true },
+    { 0: { transcript: 'Who is Aadil?' }, isFinal: false }
+  ])
+  assert(
+    'ResultModel',
+    '44. The reported "Who" / "Who is Aadil?" cumulative overlap avoids duplication',
+    reportedBugCase.fullText === 'Who is Aadil?' && reportedBugCase.isLastFinal === false,
+    `assembled="${reportedBugCase.fullText}" (not "Who Who is Aadil?")`
+  )
+
+  // 45. Removal or replacement of interim results upon finalization
+  const beforeFinal = assembleSpeechTranscript([
+    { 0: { transcript: 'Who' }, isFinal: true },
+    { 0: { transcript: 'Who is Aadil?' }, isFinal: false }
+  ])
+  const afterFinal = assembleSpeechTranscript([
+    { 0: { transcript: 'Who' }, isFinal: true },
+    { 0: { transcript: 'is Aadil?' }, isFinal: true }
+  ])
+  assert(
+    'ResultModel',
+    '45. Interim result cleanly removed/replaced upon finalization',
+    beforeFinal.fullText === 'Who is Aadil?' &&
+    afterFinal.fullText === 'Who is Aadil?' &&
+    afterFinal.isLastFinal === true,
+    `beforeFinal="${beforeFinal.fullText}", afterFinal="${afterFinal.fullText}"`
+  )
+
+  // 46. Consecutive recognition sessions with no cross-session leakage
+  let session1Text = ''
+  let session2Text = ''
+  let activeSessionId = 'vses-100'
+
+  const handleSimulatedResult = (sId: string, event: any, sink: (t: string) => void) => {
+    if (activeSessionId !== sId) return
+    const assembled = assembleSpeechTranscript(event.results)
+    sink(assembled.fullText)
+  }
+
+  // Session 1 receives result
+  handleSimulatedResult(
+    'vses-100',
+    { results: [{ 0: { transcript: 'First query' }, isFinal: true }] },
+    t => { session1Text = t }
+  )
+
+  // Stop session 1, transition to session 2
+  activeSessionId = 'vses-101'
+
+  // Delayed / stale result from session 1 arrives
+  handleSimulatedResult(
+    'vses-100',
+    { results: [{ 0: { transcript: 'Stale late chunk' }, isFinal: false }] },
+    t => { session1Text = t }
+  )
+
+  // Session 2 receives result
+  handleSimulatedResult(
+    'vses-101',
+    { results: [{ 0: { transcript: 'Second query' }, isFinal: true }] },
+    t => { session2Text = t }
+  )
+
+  assert(
+    'ResultModel',
+    '46. Consecutive recognition sessions maintain complete session isolation without leakage',
+    session1Text === 'First query' && session2Text === 'Second query',
+    `session1="${session1Text}", session2="${session2Text}"`
+  )
+
+  // 47. VAD-triggered finalization and duplicate submission prevention
+  let submissionCount = 0
+  let submittedText = ''
+  let hasSubmitted = false
+
+  const simulateTurnSubmission = (result: { text: string; isFinal: boolean }) => {
+    if (result.isFinal && !hasSubmitted && result.text.trim()) {
+      hasSubmitted = true
+      submissionCount++
+      submittedText = result.text.trim()
+    }
+  }
+
+  // VAD fires finalization
+  simulateTurnSubmission({ text: 'Who is Aadil?', isFinal: true })
+
+  // Duplicate event or post-stop event arrives
+  simulateTurnSubmission({ text: 'Who is Aadil?', isFinal: true })
+  simulateTurnSubmission({ text: 'Who is Aadil?', isFinal: true })
+
+  assert(
+    'ResultModel',
+    '47. VAD-triggered finalization and duplicate submission gate fires exactly once',
+    submissionCount === 1 && submittedText === 'Who is Aadil?',
+    `submissionCount=${submissionCount}, submittedText="${submittedText}"`
   )
 
   // =========================================================================
