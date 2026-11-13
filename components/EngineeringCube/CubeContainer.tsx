@@ -13,6 +13,8 @@ interface CubeContainerProps {
   onSwipeHorizontal: (direction: 1 | -1) => void
   onSwipeVertical: (direction: 1 | -1) => void
   onDragRotate?: () => void
+  onPanStart?: () => void
+  onPanEnd?: () => void
 }
 
 const SWIPE_THRESHOLD_PX = 30
@@ -24,7 +26,9 @@ export function CubeContainer({
   onSelectFace,
   onSwipeHorizontal,
   onSwipeVertical,
-  onDragRotate
+  onDragRotate,
+  onPanStart,
+  onPanEnd
 }: CubeContainerProps) {
   const [isGrabbing, setIsGrabbing] = useState(false)
   const [showDragHint, setShowDragHint] = useState(true)
@@ -33,6 +37,7 @@ export function CubeContainer({
   const handlePanStart = () => {
     setIsGrabbing(true)
     hasMovedRef.current = false
+    onPanStart?.()
   }
 
   const handlePan = () => {
@@ -44,6 +49,7 @@ export function CubeContainer({
     info: PanInfo
   ) => {
     setIsGrabbing(false)
+    onPanEnd?.()
     const absX = Math.abs(info.offset.x)
     const absY = Math.abs(info.offset.y)
 

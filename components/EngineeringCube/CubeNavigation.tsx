@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react'
+import { ChevronLeft, ChevronRight, RotateCcw, Play, Pause } from 'lucide-react'
 import { CUBE_CAPABILITIES, CubeFaceIndex } from '../../data/cubeCapabilities'
 
 interface CubeNavigationProps {
@@ -10,6 +10,8 @@ interface CubeNavigationProps {
   onPrev: () => void
   onNext: () => void
   onReset: () => void
+  isAutoRotating?: boolean
+  onToggleAutoRotate?: () => void
 }
 
 export function CubeNavigation({
@@ -17,7 +19,9 @@ export function CubeNavigation({
   onSelectFace,
   onPrev,
   onNext,
-  onReset
+  onReset,
+  isAutoRotating,
+  onToggleAutoRotate
 }: CubeNavigationProps) {
   const activeCapability = CUBE_CAPABILITIES[activeFace]
 
@@ -84,6 +88,26 @@ export function CubeNavigation({
               <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
             </button>
           )}
+
+          {onToggleAutoRotate && (
+            <button
+              type="button"
+              onClick={onToggleAutoRotate}
+              aria-label={isAutoRotating ? 'Pause auto-rotation' : 'Resume auto-rotation'}
+              title={isAutoRotating ? 'Pause auto-rotation' : 'Resume auto-rotation (5s)'}
+              className={`min-w-[34px] min-h-[34px] inline-flex items-center justify-center rounded-lg border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A9A78] ${
+                isAutoRotating
+                  ? 'border-[#5A9A78]/50 bg-[#16231C] text-[#78C29A] hover:bg-[#1D3227]'
+                  : 'border-[#2A2F36] bg-[#181C21] text-[#9EA4AA] hover:text-[#F0EEE9] hover:bg-[#22272E]'
+              }`}
+            >
+              {isAutoRotating ? (
+                <Pause className="w-3.5 h-3.5" aria-hidden="true" />
+              ) : (
+                <Play className="w-3.5 h-3.5" aria-hidden="true" />
+              )}
+            </button>
+          )}
         </div>
       </div>
 
@@ -96,7 +120,7 @@ export function CubeNavigation({
           {activeCapability.title}
         </span>
         <span className="text-[#686E77] hidden sm:inline shrink-0">
-          Click faces or use arrows
+          {isAutoRotating ? 'Auto-cycles 5s (Hover to pause)' : 'Paused (Click play or drag)'}
         </span>
       </div>
     </nav>

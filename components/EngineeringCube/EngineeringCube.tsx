@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CUBE_CAPABILITIES } from '../../data/cubeCapabilities'
 import { CubeContainer } from './CubeContainer'
 import { CubeInfoPanel } from './CubeInfoPanel'
@@ -10,6 +10,38 @@ import { useCubeState } from './useCubeState'
 
 export default function EngineeringCube() {
   const { state, dispatch, environment } = useCubeState()
+  const [isAutoRotateEnabled, setIsAutoRotateEnabled] = useState(true)
+  const [isHovered, setIsHovered] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
+
+  // 5-second automatic rotation cycling through all 6 faces in sequential order (0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 0)
+  // Pauses on hover, keyboard focus, pointer drag, or when user pauses explicitly via toggle
+  // WCAG 2.2.2 Pause, Stop, Hide compliant
+  useEffect(() => {
+    if (
+      environment.shouldUseFlatGrid ||
+      !isAutoRotateEnabled ||
+      isHovered ||
+      isFocused ||
+      isDragging
+    ) {
+      return
+    }
+
+    const timer = setInterval(() => {
+      dispatch({ type: 'STEP_NEXT' })
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [
+    environment.shouldUseFlatGrid,
+    isAutoRotateEnabled,
+    isHovered,
+    isFocused,
+    isDragging,
+    state.activeFace
+  ])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     switch (e.key) {
@@ -63,11 +95,17 @@ export default function EngineeringCube() {
   }
 
   const activeCapability = CUBE_CAPABILITIES[state.activeFace]
+  const isAutoRotating =
+    isAutoRotateEnabled && !isHovered && !isFocused && !isDragging
 
   return (
     <section
       aria-label="Interactive 3D engineering capabilities cube"
       onKeyDown={handleKeyDown}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocusCapture={() => setIsFocused(true)}
+      onBlurCapture={() => setIsFocused(false)}
       tabIndex={0}
       className="w-full flex flex-col items-center space-y-4 focus-visible:outline-none"
     >
@@ -87,6 +125,8 @@ export default function EngineeringCube() {
         onSwipeVertical={(direction) =>
           dispatch({ type: 'STEP_VERTICAL', direction })
         }
+        onPanStart={() => setIsDragging(true)}
+        onPanEnd={() => setIsDragging(false)}
       />
 
       {/* Full Capability Details & Action Links Panel (External to cube) */}
@@ -99,6 +139,8 @@ export default function EngineeringCube() {
         onPrev={() => dispatch({ type: 'STEP_PREV' })}
         onNext={() => dispatch({ type: 'STEP_NEXT' })}
         onReset={() => dispatch({ type: 'RESET' })}
+        isAutoRotating={isAutoRotating}
+        onToggleAutoRotate={() => setIsAutoRotateEnabled((prev) => !prev)}
       />
     </section>
   )
