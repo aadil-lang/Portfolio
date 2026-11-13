@@ -16,7 +16,7 @@ export default function VerificationPage() {
           badgeLabel="EVIDENCE & RIGOR // VERIFICATION"
           title="Why this matters"
           summary="Inspect the portfolio's evidence registry, quantitative claims, reproduction instructions and verification results."
-          supportingMessage="Trace engineering claims to supporting evidence, review known limitations, compare reported metrics, and understand which verification procedures have actually been executed across dedicated dashboard checks, regression baselines, and upstream project suites."
+          supportingMessage="Trace engineering claims to supporting evidence, review known limitations, compare reported metrics, and verify exactly 33 master evidence records, 15 system verification summaries, 771 dedicated verification checks, and 758 assertions in earlier regression baseline across dedicated dashboard checks, regression baselines, and upstream project suites."
           accentColor="purple"
         />
       </div>

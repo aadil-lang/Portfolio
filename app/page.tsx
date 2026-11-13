@@ -51,11 +51,17 @@ export default function HomePage() {
       {/* ------------------------------------------------------------- */}
       {/* SECTION 01 — HERO & PROFESSIONAL POSITIONING                  */}
       {/* ------------------------------------------------------------- */}
-      <section className="relative max-w-6xl mx-auto pt-6 sm:pt-12 px-4 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl">
+      <section className="relative max-w-6xl mx-auto pt-6 sm:pt-10 px-4 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl">
         {/* Animated Cybernetic Environment Background */}
         <HeroBackground />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-6 sm:py-10">
+        {/* Section Index Anchor */}
+        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono text-[#686E77] pb-3 border-b border-[#262B32]/50">
+          <span className="text-[#5A9A78] font-bold tracking-wider">01 // HERO & POSITIONING</span>
+          <span className="tracking-widest uppercase">PORTFOLIO SPEC-2026 · DETERMINISTIC SYSTEMS</span>
+        </div>
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-6 sm:py-8">
           <div className="lg:col-span-7 text-center lg:text-left space-y-6">
             {/* Availability Status Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16191D]/90 border border-[#2A2F36] text-[#9EA4AA] text-xs font-mono backdrop-blur-md">
@@ -80,21 +86,21 @@ export default function HomePage() {
               &ldquo;I build complete software systems around AI: stateful multi-agent orchestration, concurrent Python/FastAPI backend pipelines, grounded RAG architectures, and deterministic verification harnesses.&rdquo;
             </blockquote>
 
-            {/* Engineering Trajectory Progression */}
+            {/* Evolutionary Trajectory Progression */}
             <div className="p-3 rounded-lg bg-[#14171A]/80 border border-[#262B32] max-w-3xl mx-auto lg:mx-0 shadow-xs backdrop-blur-sm">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#71899A] block mb-1.5 font-bold">
-                Engineering Trajectory
+                Evolutionary Progression
               </span>
               <div className="text-[10.5px] sm:text-xs font-mono font-medium text-[#C8C6BF] flex flex-wrap items-center justify-center lg:justify-start gap-1.5">
-                <span className="text-[#9EA4AA]">Mechanical Engineering</span>
+                <span className="text-[#9EA4AA]">Content</span>
                 <span className="text-[#5A6066]">→</span>
-                <span className="text-[#9EA4AA]">Python & Full-Stack</span>
+                <span className="text-[#9EA4AA]">AI Workflows</span>
                 <span className="text-[#5A6066]">→</span>
-                <span className="text-[#9EA4AA]">AI Applications & RAG</span>
+                <span className="text-[#9EA4AA]">AI Systems</span>
                 <span className="text-[#5A6066]">→</span>
-                <span className="text-[#9EA4AA]">Deterministic Evaluation</span>
+                <span className="text-[#9EA4AA]">Systems Engineering</span>
                 <span className="text-[#5A6066]">→</span>
-                <span className="text-[#78C29A] font-bold">Governed Agentic Systems</span>
+                <span className="text-[#78C29A] font-bold">Governed Agents</span>
               </div>
             </div>
 
@@ -142,6 +148,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
       {/* ------------------------------------------------------------- */}
       {/* SECTION 02 — TECHNICAL EXPERTISE & COMPETENCY MATRIX          */}
       {/* ------------------------------------------------------------- */}
@@ -149,7 +158,7 @@ export default function HomePage() {
         <div className="border-b border-[#242930] pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
             <span className="text-xs uppercase tracking-wider font-mono text-[#5A9A78] block">
-              STACK & CAPABILITIES // TAXONOMY
+              02 // TECHNICAL EXPERTISE & COMPETENCY MATRIX
             </span>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F0EEE9] font-serif">
               Technical Expertise
@@ -283,6 +292,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
       {/* ------------------------------------------------------------- */}
       {/* SECTION 03 — FEATURED ENGINEERING SYSTEMS (PRIORITIZED 4-PACK)*/}
       {/* ------------------------------------------------------------- */}
@@ -290,7 +302,7 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#242930] pb-3">
           <div>
             <span className="text-xs uppercase tracking-wider font-mono text-[#5A9A78] block">
-              FEATURED // CORE SYSTEMS
+              03 // FEATURED ENGINEERING SYSTEMS
             </span>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F0EEE9] font-serif">
               Flagship Engineering Projects
@@ -457,22 +469,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
       {/* ------------------------------------------------------------- */}
       {/* SECTION 04 — ABOUT // THE TWO-CHAPTER CAREER TRAJECTORY       */}
       {/* ------------------------------------------------------------- */}
       <section className="max-w-4xl mx-auto px-4 space-y-6">
         <div className="p-6 sm:p-8 rounded-xl border border-[#262B32] bg-[#14171A] space-y-6">
           <div className="space-y-1">
-            <span className="text-xs uppercase font-mono tracking-wider text-[#71899A] block">
-              TRAJECTORY // NARRATIVE
+            <span className="text-xs uppercase font-mono tracking-wider text-[#5A9A78] block">
+              04 // CAREER TRAJECTORY & ENGINEERING JOURNEY // FROM CONTENT TO SYSTEMS
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F0EEE9] font-serif">
-              The Engineering Journey
+              From Content to Systems: The Engineering Journey
             </h2>
           </div>
 
           <p className="text-sm sm:text-base text-[#C8C6BF] leading-relaxed">
-            I hold a Mechanical Engineering degree from Panjab University, where my work centered on closed-form physics and deterministic mathematical constraints. Moving into full-stack and Python software engineering, I encountered real-world workflows that could not be solved by LLM prompt wrappers alone. That realization shaped my engineering philosophy: <em>generative models propose candidates, but deterministic engineering, compilers, and state machines decide what is true.</em>
+            I hold a B.Tech (Hons.) in Mechanical Engineering from Lovely Professional University and began my professional career as a Mathematics Subject Matter Expert and Content Developer (Graveiens, InhaltMart, Digiplus). Working hands-on with mathematical content pipelines exposed real-world edge cases that prompting alone could never solve. That realization drove my transition: I moved from authoring content manually to automating question pipelines, building local Tier-1 deterministic evaluation engines, and engineering reliable multi-agent systems—grounded in the principle that <em>generative models propose candidates, but deterministic engineering, compilers, and state machines decide what is true.</em>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
@@ -531,6 +546,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
       {/* ------------------------------------------------------------- */}
       {/* SECTION 05 — ASK AADIL LIVE AGENT SHOWCASE                    */}
       {/* ------------------------------------------------------------- */}
@@ -540,7 +558,7 @@ export default function HomePage() {
             <div className="space-y-1.5">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#162332] text-[#58A6FF] font-mono text-[11px] border border-[#388BFD]/40">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>LIVE GROUNDED AGENT // ZERO FABRICATION</span>
+                <span>05 // ASK AADIL LIVE AGENT SHOWCASE</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#F0EEE9] font-serif">
                 Query this portfolio conversationally with Ask Aadil
@@ -563,14 +581,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
       {/* ------------------------------------------------------------- */}
       {/* SECTION 06 — CONTACT & COLLABORATE                            */}
       {/* ------------------------------------------------------------- */}
       <section className="max-w-4xl mx-auto px-4">
         <div className="p-6 sm:p-8 rounded-xl border border-[#262B32] bg-[#14171A] text-center space-y-4">
           <div className="space-y-1">
-            <span className="text-xs uppercase font-mono tracking-wider text-[#71899A] block">
-              COLLABORATION // CONNECT
+            <span className="text-xs uppercase font-mono tracking-wider text-[#5A9A78] block">
+              06 // COLLABORATION & CONTACT
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-[#F0EEE9] font-serif">
               Let&apos;s Build Verifiable AI Systems
