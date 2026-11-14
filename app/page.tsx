@@ -63,14 +63,6 @@ export default function HomePage() {
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-6 sm:py-8">
           <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-            {/* Availability Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16191D]/90 border border-[#2A2F36] text-[#9EA4AA] text-xs font-mono backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#5A9A78] animate-pulse" />
-              <span className="font-semibold text-[#D8D6D0]">AVAILABLE FOR OPPORTUNITIES</span>
-              <span className="text-[#686E77]">//</span>
-              <span>REMOTE & HYDERABAD</span>
-            </div>
-
             {/* Disciplined Primary Headline */}
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-5xl xl:text-5xl font-bold tracking-tight text-[#F0EEE9] font-serif leading-tight">
@@ -599,7 +591,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-[#9EA4AA] max-w-xl mx-auto text-xs sm:text-sm leading-relaxed">
-            Interested in discussing full-time AI engineering roles, stateful multi-agent workflows, or production reliability? I am actively available for remote and Hyderabad-based opportunities.
+            Interested in discussing full-time AI engineering roles, stateful multi-agent workflows, or production reliability? Feel free to reach out to connect.
           </p>
 
           {/* Direct Email Callout */}
