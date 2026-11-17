@@ -89,13 +89,13 @@ export const sourceConflicts: SourceConflict[] = [
       reference: 'public/resume.pdf — Professional Experience'
     },
     claim_b: {
-      claim: 'Authored production Next.js tools (Content Builder, VM Copy) during SME tenure that initiated transition to AI/ML team',
+      claim: 'Authored VM Copy and contributed SME testing/validation to VoyageMath Content Builder during SME tenure prior to transition to AI/ML team',
       source: 'portfolio',
       layer: 'journal',
-      reference: 'Engineering Journal — Chapters 04, 05, and 06'
+      reference: 'Engineering Journal — Chapters 04, 05, and 06 (Spread 06)'
     },
     status: 'resolved_by_context',
     notes:
-      'Crucial distinction: Formal HR employment title remained Subject Matter Expert during 2024–2025, but personal initiative in building software tools and VM Copy directly catalyzed the internal promotion into the AI/ML Engineering team in January 2026.'
+      'Crucial distinction: Formal HR employment title remained Subject Matter Expert during 2024–2025. Software engineering of Content Builder V1 was conducted by Wayground Engineering team (Aadil contributed SME validation, testing, and feedback). Aadil personally authored VM Copy (Oct–mid-Nov 2025), which was adopted for team use in Nov 2025 prior to the Jan 2026 AI/ML Team transition.'
   }
 ]

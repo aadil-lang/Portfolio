@@ -26,6 +26,16 @@ import { journalChapters } from '@/data/canonical/journalChapters'
 import { prologue, epilogue } from '@/data/chapters'
 import { timelineData } from '@/data/experience'
 import { getGitHubRepoEvidence, GitHubRepoRecord } from '@/lib/rag/sources/githubAdapter'
+import {
+  queryCanonicalStructuredKnowledge,
+  sanitizeRetrievalEvidence
+} from '@/lib/rag/canonicalRAGAdapter'
+import {
+  queryKnowledgeBaseStructured,
+  isChunkEligibleForPublicRetrieval,
+  isEvidenceItemEligibleForPublicRetrieval,
+  AccessLevel
+} from '@/lib/rag/knowledgeBaseIngestion'
 
 export interface StructuredRetrievalResult {
   profile?: StructuredProfileData
@@ -58,14 +68,53 @@ export interface HybridRetrievalResult {
  * Dispatches query across Structured, Semantic, CodeEvidence, and Quantitative tiers
  * using source authority boundaries and explicit source planning.
  */
-export function retrieveHybrid(query: string, inputDecision?: RoutingDecision): HybridRetrievalResult {
+export function retrieveHybrid(
+  query: string,
+  inputDecision?: RoutingDecision,
+  accessLevel: AccessLevel = 'PUBLIC'
+): HybridRetrievalResult {
   const decision = inputDecision || classifyAndRoute(query)
   const sourcePlan = planSourceRetrieval(decision, query)
   const structuredResult: StructuredRetrievalResult = {}
   const evidenceItems: EvidenceItem[] = []
-  const allChunks = buildKnowledgeIndex()
+  const allChunks = buildKnowledgeIndex(accessLevel)
   const retrievalPaths: string[] = []
   const lowerQ = query.toLowerCase()
+
+  // ---------------------------------------------------------------------------
+  // 0. CANONICAL STRUCTURED REGISTRY TIER (Phase 2.5)
+  // ---------------------------------------------------------------------------
+  const canonicalStructured = queryCanonicalStructuredKnowledge(query, decision.detectedProjectSlug)
+  if (canonicalStructured.matched) {
+    retrievalPaths.push('canonical_structured_registry')
+    structuredResult.exactAnswer = canonicalStructured.exactAnswer
+    for (const ce of canonicalStructured.canonicalEvidence) {
+      if (!evidenceItems.some(e => e.id === ce.id)) {
+        evidenceItems.push(ce)
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // 0b. STRUCTURED KNOWLEDGE BASE & ADR TIER (Phase 2.5E)
+  // ---------------------------------------------------------------------------
+  const kbStructured = queryKnowledgeBaseStructured(query, decision.detectedProjectSlug, accessLevel)
+  if (kbStructured.matched) {
+    const eligibleEvidence = kbStructured.evidence.filter(e =>
+      isEvidenceItemEligibleForPublicRetrieval(e, accessLevel)
+    )
+    if (eligibleEvidence.length > 0 || kbStructured.exactAnswer) {
+      retrievalPaths.push('structured_knowledge_base')
+      if (!structuredResult.exactAnswer && kbStructured.exactAnswer) {
+        structuredResult.exactAnswer = kbStructured.exactAnswer
+      }
+      for (const ke of eligibleEvidence) {
+        if (!evidenceItems.some(e => e.id === ke.id)) {
+          evidenceItems.push(ke)
+        }
+      }
+    }
+  }
 
   // ---------------------------------------------------------------------------
   // 1. STRUCTURED QUANTITATIVE CLAIMS TIER
@@ -597,14 +646,21 @@ ${githubEvidence.architectureNotes}`,
 
   const meaningfulTokens = queryTokens.filter(t => !STOP_WORDS.has(t))
 
-  // Allow chunks: filter out forbidden sources
+  // Allow chunks: filter out forbidden sources and ineligible chunks
   const candidateChunks = allChunks.filter(chunk => {
+    // Governance enforcement: Exclude any chunk ineligible for the requested access level
+    if (!isChunkEligibleForPublicRetrieval(chunk, accessLevel)) {
+      return false
+    }
+
     if (decision.rule.forbiddenSources && decision.rule.forbiddenSources.includes(chunk.metadata.source_type)) {
       return false
     }
     // Allow CodeEvidence and QuantitativeClaim chunks if queried
     if (isCodeIntent && chunk.metadata.source_type === 'code_evidence') return true
     if (isQuantitativeIntent && chunk.metadata.source_type === 'quantitative_claim') return true
+    if (chunk.metadata.source_type === 'canonical_record') return true
+    if (chunk.metadata.source_type === 'knowledge_base') return true
 
     const sourceMatch = decision.rule.preferredSources.includes(chunk.metadata.source_type)
     const layerMatch =
@@ -635,6 +691,25 @@ ${githubEvidence.architectureNotes}`,
     // Boost Quantitative claims when query looks for tests/metrics
     if (isQuantitativeIntent && chunk.metadata.source_type === 'quantitative_claim') {
       score += 30
+    }
+
+    // Boost canonical and knowledge base records for authoritative primary grounding
+    if (chunk.metadata.source_type === 'canonical_record' || chunk.metadata.source_type === 'knowledge_base') {
+      score += 15
+    }
+
+    // Boost exact Case Study or ADR matches
+    if (chunk.metadata.caseStudyId && lowerQ.includes(chunk.metadata.caseStudyId.toLowerCase())) {
+      score += 35
+    }
+    if (chunk.metadata.adrId && lowerQ.includes(chunk.metadata.adrId.toLowerCase())) {
+      score += 40
+    }
+    if (chunk.metadata.knowledgeCategory === 'ADR' && lowerQ.includes('adr')) {
+      score += 20
+    }
+    if (chunk.metadata.knowledgeCategory === 'CROSS_PROJECT_PATTERN' && (lowerQ.includes('pattern') || lowerQ.includes('principle'))) {
+      score += 20
     }
 
     // Boost project match
@@ -684,23 +759,37 @@ ${githubEvidence.architectureNotes}`,
         codeSnippet: c.metadata.codeSnippet,
         ownership: c.metadata.ownership,
         ownershipClassification: c.metadata.ownershipClassification,
-        quantitativeData: c.metadata.quantitativeData
+        quantitativeData: c.metadata.quantitativeData,
+        caseStudyId: c.metadata.caseStudyId,
+        adrId: c.metadata.adrId,
+        contentAnchor: c.metadata.contentAnchor,
+        governedMetricCaveats: c.metadata.governedMetricCaveats,
+        mandatoryCaveatText: c.metadata.mandatoryCaveatText,
+        epistemicConfidence: c.metadata.epistemicConfidence,
+        evidenceStatus: c.metadata.evidenceStatus,
+        executionLocality: c.metadata.executionLocality
       })
     }
   })
+
+  // Sanitize evidence items to enforce confidentiality boundary & publication governance
+  const baseSanitizedEvidence = sanitizeRetrievalEvidence(evidenceItems)
+  const sanitizedEvidence = baseSanitizedEvidence.filter(e =>
+    isEvidenceItemEligibleForPublicRetrieval(e, accessLevel)
+  )
 
   return {
     decision,
     sourcePlan,
     structured: structuredResult,
     semanticChunks: topChunks,
-    evidenceItems,
+    evidenceItems: sanitizedEvidence,
     githubEvidence,
     debug: {
       query,
       retrievalPath: retrievalPaths,
-      selectedSources: Array.from(new Set(evidenceItems.map(e => e.sourceType))),
-      selectedChunksCount: evidenceItems.length,
+      selectedSources: Array.from(new Set(sanitizedEvidence.map(e => e.sourceType))),
+      selectedChunksCount: sanitizedEvidence.length,
       quantitativeMatches: quantMatches.map(q => q.id),
       codeEvidenceMatches: codeMatches.map(c => c.id),
       scores: scoredChunks.slice(0, 5).map(s => ({

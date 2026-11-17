@@ -669,8 +669,8 @@ Would you like to send this now? (Say **"Send it"** or click below to confirm).`
     return {
       query: cleanQuery,
       intent: 'contact',
-      answer: "You can message Aadil directly through the recruiter contact form or connect with him on LinkedIn. I'll open the contact page for you.",
-      provenance: { sources: ['structured_profile'], layers: ['none'], citations: ['Contact Action Registry'], claims: [] },
+      answer: `You can reach Aadil directly at **${structuredProfile.email}**, connect with him on LinkedIn, or message him through the recruiter contact form. I'll open the contact page for you.`,
+      provenance: { sources: ['structured_profile'], layers: ['none'], citations: ['[Structured Profile]', 'Contact Action Registry'], claims: [] },
       suggestedAction: {
         type: 'navigate',
         label: 'Open Contact Form',
@@ -778,7 +778,7 @@ Would you like to send this now? (Say **"Send it"** or click below to confirm).`
     return {
       query: cleanQuery,
       intent: 'unknown',
-      answer: `I don't have that information in Aadil's portfolio.
+      answer: `I don't have that information in Aadil's portfolio (I don't have that documented).
 
 My knowledge is strictly grounded in Aadil's **Timeline**, **Engineering Journal**, **Systems Archive**, **verified Resume**, and **GitHub repositories**. I do not generate speculative facts or unverified assertions.
 
@@ -1206,6 +1206,31 @@ ${pos.description ? `• **Details:** ${pos.description}` : ''}`
   const uncertainties: string[] = []
 
   let answer = ''
+
+  // -------------------------------------------------------------------------
+  // 0. AUTHORITATIVE CANONICAL / KNOWLEDGE BASE STRUCTURED EXACT ANSWER
+  // -------------------------------------------------------------------------
+  if (retrieval.structured?.exactAnswer) {
+    const itemSources = retrieval.evidenceItems.map(e => e.sourceType)
+    const itemLayers = retrieval.evidenceItems
+      .map(e => e.layer)
+      .filter((l): l is PortfolioLayer => Boolean(l))
+    const itemCitations = retrieval.evidenceItems
+      .map(e => e.provenanceBadge || e.source)
+      .filter((c): c is string => Boolean(c))
+
+    return {
+      query,
+      intent: decision.intent,
+      answer: retrieval.structured.exactAnswer,
+      provenance: {
+        sources: Array.from(new Set(itemSources.length ? itemSources : ['canonical_record' as SourceType])),
+        layers: Array.from(new Set(itemLayers.length ? itemLayers : ['canonical' as PortfolioLayer])),
+        citations: Array.from(new Set(itemCitations.length ? itemCitations : ['[Canonical Registry]'])),
+        claims: []
+      }
+    }
+  }
 
 
 
@@ -1707,7 +1732,7 @@ ${formattedClaims}
 
     return {
       query,
-      intent: 'career_evolution' as QueryIntent,
+      intent: 'narrative',
       answer: `Aadil's evolution from mathematics content to AI systems engineering was not an arbitrary pivot—it was a direct consequence of solving increasingly complex friction points where language models broke:
 
 ${stages}
@@ -1715,8 +1740,8 @@ ${stages}
 **Core Causal Spine:**
 1. **Mathematical Foundations (2021–2022):** Deconstructed why students make calculation errors and realized mathematical representation is an inseparable part of correctness.
 2. **Product Environment & Visuals (2024):** Transitioned to Wayground, validating VoyageMath KaTeX rendering and scaling 500+ items with Figma coordinate geometry.
-3. **From Generation to Evaluation (Early 2025):** Hit the ceiling of prompt engineering. Built VM Copy with in-memory deterministic evaluation (\`lib/eval-layer.ts\`) because LLMs cannot reliably enforce their own structural constraints.
-4. **Distributed Pipelines (Mid 2025):** Scaled from single tools to distributed systems (AI Worksheets 2D solvers, Item Bank visual routing, and Celery ETL with 3-tier integrity).
+3. **From Generation to Evaluation (Late 2025):** Hit the ceiling of prompt engineering. Built VM Copy with in-memory deterministic evaluation (\`lib/eval-layer.ts\`) during SME tenure (Oct–Nov 2025) because LLMs cannot reliably enforce their own structural constraints.
+4. **Distributed Pipelines (2026):** Scaled from single tools to distributed systems on the Wayground AI/ML team (AI Worksheets 2D solvers, Item Bank visual routing, and Celery ETL with 3-tier integrity).
 5. **Deterministic Engineering & Governed Reliability (2026):** Combined mechanical engineering physics with OpenCascade BRep CAD (0.0000% volume error) and built the browser QA harness with Fisher covariance uncertainty filtering to test and govern AI systems themselves.`,
       provenance: {
         sources: Array.from(sources),
@@ -1795,11 +1820,12 @@ ${stages}
 
 **Ownership & Contribution Boundary:**
 • **System Overview:** A high-throughput stateful LangGraph pipeline generating 10,000+ curriculum items across diverse mathematical domains.
-• **Collaborative Team Engineering:** Engineered collaboratively with the **Wayground AI and engineering team**.
+• **Collaborative Team Engineering:** Engineered collaboratively with the **Wayground AI and engineering team** as a team system.
 • **Aadil's Documented Contributions:**
   - **Visual Domain Routing:** Engineering the routing logic to choose between SVG (for coordinate geometry, graphs, and spatial items) versus TikZ (for algebra and statistical diagrams).
   - **Compile Gates:** Designing programmatic compilation verification gates that catch LaTeX and visual rendering failures before items enter review.
   - **Curriculum Balancing:** Balancing curriculum weightage across Texas (TEKS) and Common Core standards using **Min/Max Swap optimization**.
+  - **Upper Elementary Stabilization:** Upper Elementary geometry and coordinate system stabilization.
   - **SME Review Loop:** Integrating human pedagogical review stages into the automated graph.`,
       provenance: {
         sources: Array.from(sources),

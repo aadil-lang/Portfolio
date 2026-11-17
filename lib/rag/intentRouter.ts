@@ -419,6 +419,8 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     q.includes('start building ai') ||
     q.includes('how did') ||
     q.includes('why did') ||
+    q.includes('why was') ||
+    q.includes('why built') ||
     q.includes('curiosity') ||
     q.includes('transition') ||
     q.includes('move from') ||

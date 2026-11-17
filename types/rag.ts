@@ -6,12 +6,15 @@ export type SourceType =
   | 'structured_profile'
   | 'code_evidence'
   | 'quantitative_claim'
+  | 'canonical_record'
+  | 'knowledge_base'
 
 export type PortfolioLayer =
   | 'timeline'
   | 'journal'
   | 'system'
   | 'resume'
+  | 'canonical'
   | 'none'
 
 export type OwnershipType =
@@ -113,7 +116,7 @@ export interface SourceChunkMetadata {
   ownershipClassification?: 'SYSTEM_CAPABILITY' | 'AADIL_CONTRIBUTION' | 'TEAM_OWNERSHIP' | 'INDEPENDENT_BUILD'
   date?: string
   technologies?: string[]
-  content_type: 'narrative' | 'architecture' | 'spec' | 'code' | 'metric' | 'profile' | 'experience' | 'code_evidence' | 'quantitative_claim'
+  content_type: 'narrative' | 'architecture' | 'spec' | 'code' | 'metric' | 'profile' | 'experience' | 'code_evidence' | 'quantitative_claim' | 'canonical_record' | 'principle'
   authority_type: AuthorityType
   last_verified: string
   sourcePath?: string
@@ -129,6 +132,55 @@ export interface SourceChunkMetadata {
     evidenceSource?: string
     verificationDetails?: string
   }
+
+  // Canonical Grounding Extensions (Phase 2.5)
+  canonicalCareerIds?: string[]
+  canonicalProjectIds?: string[]
+  canonicalClaimIds?: string[]
+  canonicalEvidenceIds?: string[]
+  temporalContext?: string
+  visibility?: 'PUBLIC' | 'RESTRICTED' | 'PROPRIETARY'
+  contentHash?: string
+  indexVersion?: string
+  governedMetricCaveats?: string[]
+  historicalDisclosures?: string[]
+
+  // Knowledge Base & Case Study Ingestion Extensions (Phase 2.5E)
+  caseStudyId?: string
+  adrId?: string
+  knowledgeCategory?:
+    | 'CASE_STUDY_OVERVIEW'
+    | 'ADR'
+    | 'INCIDENT_DIAGNOSTICS'
+    | 'ROOT_CAUSE'
+    | 'VERIFICATION_MATRIX'
+    | 'CROSS_PROJECT_PATTERN'
+    | 'DOCUMENTED_METRIC'
+    | 'TIMELINE_SPINE'
+  evidenceStatus?:
+    | 'SOURCE_VERIFIED'
+    | 'TEST_VERIFIED'
+    | 'REPORT_SUPPORTED'
+    | 'HISTORY_SUPPORTED'
+    | 'CONTEXT_SUPPORTED'
+    | 'PARTIALLY_VERIFIED'
+    | 'CONFLICTING'
+    | 'PROPOSED'
+    | 'UNVERIFIED'
+  epistemicConfidence?: 'HIGH' | 'MEDIUM' | 'LOW'
+  executionLocality?:
+    | 'LOCAL_WORKSPACE_EXECUTED'
+    | 'UNEXECUTED_IN_THIS_REPO'
+    | 'EXTERNAL_REPOSITORY'
+    | 'PROPRIETARY_CLUSTER'
+  mandatoryCaveatText?: string
+  contentAnchor?: string
+  mappedJournalChapters?: string[]
+}
+
+export interface EngineeringKnowledgeChunkMetadata extends SourceChunkMetadata {
+  source_type: 'knowledge_base'
+  portfolio_layer: 'canonical'
 }
 
 export interface KnowledgeChunk {
@@ -283,6 +335,15 @@ export interface EvidenceItem {
     evidenceSource?: string
     verificationDetails?: string
   }
+  // Phase 2.5E Knowledge Base & Caveat Extensions
+  caseStudyId?: string
+  adrId?: string
+  contentAnchor?: string
+  governedMetricCaveats?: string[]
+  mandatoryCaveatText?: string
+  epistemicConfidence?: 'HIGH' | 'MEDIUM' | 'LOW'
+  evidenceStatus?: string
+  executionLocality?: string
 }
 
 export interface SourcePlan {
