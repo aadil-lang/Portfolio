@@ -1,0 +1,234 @@
+[
+  {
+    "line": 1213,
+    "code": "      claims.push({\r\n        claim: 'Live LinkedIn API integration is marked api_unavailable; does not mean no current job',\r\n        sourceType: 'linkedin',\r\n        reference: 'lib/rag/sources/linkedinAdapter.ts',\r\n        url: structuredProfile.linkedinUrl\r\n      })\r"
+  },
+  {
+    "line": 1250,
+    "code": "      claims.push({\r\n        claim: 'Live LinkedIn adapter reports no active current position (current_position: null)',\r\n        sourceType: 'linkedin',\r\n        reference: 'lib/rag/sources/linkedinAdapter.ts',\r\n        url: structuredProfile.linkedinUrl\r\n      })\r"
+  },
+  {
+    "line": 1289,
+    "code": "      claims.push({\r\n        claim: `Live LinkedIn adapter confirms current position: ${pos.title} at ${pos.company}`,\r\n        sourceType: 'linkedin',\r\n        reference: 'lib/rag/sources/linkedinAdapter.ts',\r\n        url: structuredProfile.linkedinUrl\r\n      })\r"
+  },
+  {
+    "line": 1436,
+    "code": "    claims.push({\r\n      claim: 'Aadil does not currently work at Wayground; formal tenure concluded in July 2026',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/resumeData.ts'\r\n    })\r"
+  },
+  {
+    "line": 1476,
+    "code": "    claims.push({\r\n      claim: 'Absence of a current corporate employer must never be converted into an unemployment claim',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Chapter 10'\r\n    })\r"
+  },
+  {
+    "line": 1521,
+    "code": "    claims.push({\r\n      claim: 'No current corporate employer is verified after July 2026; latest corporate tenure was Wayground (Jan–Jul 2026)',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/resumeData.ts'\r\n    })\r"
+  },
+  {
+    "line": 1563,
+    "code": "    claims.push({\r\n      claim: 'Aadil\\'s most recent role was AI Engineer / Consultant at Wayground (Jan 2026 – Jul 2026)',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/resumeData.ts'\r\n    })\r"
+  },
+  {
+    "line": 1608,
+    "code": "    claims.push({\r\n      claim: 'Concluded formal Wayground AI/ML tenure in July 2026; ongoing research into verification boundaries',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Chapter 10'\r\n    })\r"
+  },
+  {
+    "line": 1726,
+    "code": "    claims.push({\r\n      claim: 'Aadil was in the Subject Matter Expert — Mathematics role for exactly 2 years (24 months, January 2024 – December 2025)',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/resumeData.ts'\r\n    })\r"
+  },
+  {
+    "line": 1764,
+    "code": "    claims.push({\r\n      claim: 'September 2022 marks conclusion of Digiplus tenure and transition to independent quantitative discipline',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/canonicalRegistry.ts'\r\n    })\r"
+  },
+  {
+    "line": 1799,
+    "code": "    claims.push({\r\n      claim: 'Formal Wayground tenure concluded July 2026; subsequent activity is independent AI systems research and engineering',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Chapter 10'\r\n    })\r"
+  },
+  {
+    "line": 1838,
+    "code": "    claims.push({\r\n      claim: 'Aadil did not work at Wayground in 2022; joined in January 2024 as Mathematics SME and transitioned to AI/ML team in January 2026',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/resumeData.ts'\r\n    })\r"
+  },
+  {
+    "line": 1908,
+    "code": "    claims.push({\r\n      claim: 'Formal corporate deployment of VM Copy is unevidenced; internal team usage began November 2025 during SME tenure',\r\n      sourceType: 'portfolio',\r\n      reference: 'data/canonical/canonicalRegistry.ts'\r\n    })\r"
+  },
+  {
+    "line": 1949,
+    "code": "    claims.push({\r\n      claim: 'Aadil did not lead a team of 50 engineers; worked as individual contributor SME and AI Engineer/Consultant',\r\n      sourceType: 'resume',\r\n      reference: 'data/canonical/resumeData.ts'\r\n    })\r"
+  },
+  {
+    "line": 2030,
+    "code": "    claims.push({\r\n      claim: `Verified source code implementation in ${codeEvidenceItem.sourcePath || 'repository'} (${codeEvidenceItem.lineRange || 'lines'})`,\r\n      sourceType: 'code_evidence',\r\n      reference: `${codeEvidenceItem.sourcePath || 'source'}:${codeEvidenceItem.lineRange || ''}`\r\n    })\r"
+  },
+  {
+    "line": 2090,
+    "code": "      claims.push({\r\n        claim: c.claim,\r\n        sourceType: 'quantitative_claim',\r\n        reference: c.evidenceSource || 'Canonical Test Runner'\r\n      })\r"
+  },
+  {
+    "line": 2138,
+    "code": "    claims.push({\r\n      claim: 'Progression from manual mathematics content authoring (2021) through KaTeX, VM Copy deterministic evaluation, and distributed pipelines to autonomous reliability harnesses (2026)',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Timeline & 19 Journal Chapters'\r\n    })\r"
+  },
+  {
+    "line": 2187,
+    "code": "    claims.push({\r\n      claim: 'VoyageMath was built by the Wayground engineering team; Aadil contributed SME testing, bug reports, and KaTeX rendering validation',\r\n      sourceType: 'portfolio',\r\n      layer: 'system',\r\n      reference: 'Canonical Project Registry (VoyageMath)'\r\n    })\r"
+  },
+  {
+    "line": 2226,
+    "code": "    claims.push({\r\n      claim: 'US Mathematics Item Bank was engineered collaboratively with the Wayground team; Aadil contributed visual domain routing, compile gates, and Min/Max Swap optimization',\r\n      sourceType: 'portfolio',\r\n      layer: 'system',\r\n      reference: 'Canonical Project Registry (math-item-bank)'\r\n    })\r"
+  },
+  {
+    "line": 2299,
+    "code": "    claims.push({\r\n      claim: 'Resume lists GRAVEIENS EDUSERVICES PVT. LTD. as corporate employer of record',\r\n      sourceType: 'resume',\r\n      reference: 'public/resume.pdf — Earlier Experience'\r\n    })\r"
+  },
+  {
+    "line": 2304,
+    "code": "    claims.push({\r\n      claim: 'Timeline records Digituala as client/brand for K-12 mathematics solutions',\r\n      sourceType: 'portfolio',\r\n      layer: 'timeline',\r\n      reference: 'app/experience/page.tsx — May 2021'\r\n    })\r"
+  },
+  {
+    "line": 2355,
+    "code": "    claims.push({\r\n      claim: 'Aadil is an AI Systems Engineer with a Mechanical Engineering background (B.Tech Hons., 2017)',\r\n      sourceType: 'structured_profile',\r\n      reference: 'Structured Profile & Resume Education'\r\n    })\r"
+  },
+  {
+    "line": 2360,
+    "code": "    claims.push({\r\n      claim: 'Began as Mathematics Content Developer & SME, progressing into AI systems and deterministic verification',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Prologue & About'\r\n    })\r"
+  },
+  {
+    "line": 2397,
+    "code": "    claims.push({\r\n      claim: 'Core operating loop: Curiosity → Learning → Contribution → Building → Discovery → Repeat',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Opening & Prologue'\r\n    })\r"
+  },
+  {
+    "line": 2437,
+    "code": "    claims.push({\r\n      claim: 'Enumeration of 11 canonical systems from authoritative Project Registry',\r\n      sourceType: 'portfolio',\r\n      layer: 'system',\r\n      reference: 'Canonical Project Registry'\r\n    })\r"
+  },
+  {
+    "line": 2477,
+    "code": "    claims.push({\r\n      claim: 'Codification of 7 Foundational Principles from Journal Epilogue',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Epilogue'\r\n    })\r"
+  },
+  {
+    "line": 2518,
+    "code": "    claims.push({\r\n      claim: 'Mathematics Item Bank is documented as a team system; Aadil contributed representation routing, compilation gates, and Upper Elementary stabilization',\r\n      sourceType: 'portfolio',\r\n      layer: 'system',\r\n      reference: 'Canonical Project Registry & Systems Archive'\r\n    })\r"
+  },
+  {
+    "line": 2564,
+    "code": "    claims.push({\r\n      claim: 'AI Systems Engineer building reliable software systems around AI: LangGraph, deterministic verification, and ETL',\r\n      sourceType: 'structured_profile',\r\n      reference: 'Structured Profile'\r\n    })\r"
+  },
+  {
+    "line": 2590,
+    "code": "    claims.push({\r\n      claim: 'Verified contact channels and profile destinations',\r\n      sourceType: 'structured_profile',\r\n      reference: 'structuredProfile configuration',\r\n      url: '/'\r\n    })\r"
+  },
+  {
+    "line": 2678,
+    "code": "          claims.push({\r\n            claim: `${p.title} uses ${techName} (${p.ownership})`,\r\n            sourceType: 'portfolio',\r\n            layer: 'system',\r\n            reference: p.title,\r\n            url: p.portfolioRefs.system\r\n          })\r"
+  },
+  {
+    "line": 2743,
+    "code": "      claims.push({\r\n        claim: 'Solace AI is a mobile wellness companion; Loom AI / EDA is an industrial 3D CAD engine',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'Systems Archive Comparative Analysis'\r\n      })\r"
+  },
+  {
+    "line": 2777,
+    "code": "      claims.push({\r\n        claim: 'VM Copy validates math questions in-memory; AI Worksheets generates full worksheets with headless TikZ/LaTeX rendering',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'Systems Archive Comparative Analysis'\r\n      })\r"
+  },
+  {
+    "line": 2811,
+    "code": "      claims.push({\r\n        claim: 'Ask Aadil is a grounded conversational portfolio agent; Atlas AI is an SEC EDGAR financial research copilot',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'Systems Archive Comparative Analysis'\r\n      })\r"
+  },
+  {
+    "line": 2854,
+    "code": "      claims.push({\r\n        claim: project.summary || `System overview for ${project.title}`,\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: project.title,\r\n        url: project.portfolioRefs?.system || `/projects/${project.slug}`\r\n      })\r"
+  },
+  {
+    "line": 2863,
+    "code": "        claims.push({\r\n          claim: githubEvidence.description,\r\n          sourceType: 'github',\r\n          reference: `${githubEvidence.owner}/${githubEvidence.repo}`,\r\n          url: githubEvidence.url\r\n        })\r"
+  },
+  {
+    "line": 2935,
+    "code": "      claims.push({\r\n        claim: 'Tier-1 deterministic TypeScript evaluator checks 4 unique options and single correct answer',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'VM Copy Question Generator Architecture',\r\n        url: '/projects/vm-copy'\r\n      })\r"
+  },
+  {
+    "line": 2942,
+    "code": "      claims.push({\r\n        claim: 'The deterministic evaluation runs locally without another model call',\r\n        sourceType: 'github',\r\n        reference: 'aadilkhurshid/vm-copy-generator',\r\n        url: 'https://github.com/aadilkhurshid/vm-copy-generator'\r\n      })\r"
+  },
+  {
+    "line": 2976,
+    "code": "      claims.push({\r\n        claim: 'Deterministic closed-form physics solvers for torque, shear, and diameter sizing',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'Engineering Design Automation Specification',\r\n        url: '/projects/design-automation'\r\n      })\r"
+  },
+  {
+    "line": 2983,
+    "code": "      claims.push({\r\n        claim: '424 automated test cases passing across 28 test suites',\r\n        sourceType: 'github',\r\n        reference: 'aadilkhurshid/engineering-design-automation',\r\n        url: 'https://github.com/aadilkhurshid/engineering-design-automation'\r\n      })\r"
+  },
+  {
+    "line": 2996,
+    "code": "      claims.push({\r\n        claim: 'StateGraph LangGraph workflow with primary SEC EDGAR 10-K/10-Q/8-K parsing',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'Atlas AI Specification',\r\n        url: '/projects/atlas-ai'\r\n      })\r"
+  },
+  {
+    "line": 3011,
+    "code": "      claims.push({\r\n        claim: 'Synchronous pre-LLM crisis screening (is_crisis_input) and feature-flagged LangGraph SSE orchestration',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'Solace AI Specification',\r\n        url: '/projects/solace-ai'\r\n      })\r"
+  },
+  {
+    "line": 3018,
+    "code": "      claims.push({\r\n        claim: '52 backend pytests and 50 mobile verification checks passing with 0 TypeScript errors',\r\n        sourceType: 'github',\r\n        reference: 'aadil-lang/solace-ai',\r\n        url: 'https://github.com/aadil-lang/solace-ai'\r\n      })\r"
+  },
+  {
+    "line": 3032,
+    "code": "      claims.push({\r\n        claim: 'Multi-tier OCR evaluation (CER/WER) with priority risk classification and image degradation testing',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'OCR Evaluator Specification',\r\n        url: '/projects/ocr-evaluator'\r\n      })\r"
+  },
+  {
+    "line": 3039,
+    "code": "      claims.push({\r\n        claim: '134 automated backend pytests and 20 browser UI assertions passing with 0 JavaScript errors',\r\n        sourceType: 'github',\r\n        reference: 'aadil-lang/OCR-Evaluator',\r\n        url: 'https://github.com/aadil-lang/OCR-Evaluator'\r\n      })\r"
+  },
+  {
+    "line": 3099,
+    "code": "      claims.push({\r\n        claim: 'Frontend and evaluation engine built with Next.js 16 and TypeScript 5',\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: 'VM Copy Systems Specification',\r\n        url: '/projects/vm-copy'\r\n      })\r"
+  },
+  {
+    "line": 3106,
+    "code": "      claims.push({\r\n        claim: 'Portkey AI Gateway used for resilient model routing and telemetry',\r\n        sourceType: 'github',\r\n        reference: 'aadilkhurshid/vm-copy-generator',\r\n        url: 'https://github.com/aadilkhurshid/vm-copy-generator'\r\n      })\r"
+  },
+  {
+    "line": 3140,
+    "code": "      claims.push({\r\n        claim: `Technology stack for ${project.title}: ${project.technologies.join(', ')}`,\r\n        sourceType: 'portfolio',\r\n        layer: 'system',\r\n        reference: project.title,\r\n        url: project.portfolioRefs?.system || `/projects/${project.slug}`\r\n      })\r"
+  },
+  {
+    "line": 3221,
+    "code": "      claims.push({\r\n        claim: 'Prompting was insufficient to guarantee assessment invariants; led to deterministic wrapper pattern',\r\n        sourceType: 'portfolio',\r\n        layer: 'journal',\r\n        reference: 'Journal Chapter 06',\r\n        url: '/journal?spread=6#journal-book'\r\n      })\r"
+  },
+  {
+    "line": 3262,
+    "code": "    claims.push({\r\n      claim: 'Journey began with K-12 math content creation and visual diagramming in 2021',\r\n      sourceType: 'portfolio',\r\n      layer: 'timeline',\r\n      reference: 'Timeline 2021 // Content Developer',\r\n      url: '/experience'\r\n    })\r"
+  },
+  {
+    "line": 3269,
+    "code": "    claims.push({\r\n      claim: 'Curiosity expanded: Content -> SME -> Representation -> Visuals -> Tooling -> AI -> Agents -> Reliability',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal TOC // The Operating Loop',\r\n      url: '/journal'\r\n    })\r"
+  },
+  {
+    "line": 3276,
+    "code": "    claims.push({\r\n      claim: 'Building VM Copy at Wayground led directly to internal transition into AI/ML team in Jan 2026',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Chapter 06 // Generation Wasn’t Enough',\r\n      url: '/journal?spread=6#journal-book'\r\n    })\r"
+  },
+  {
+    "line": 3323,
+    "code": "    claims.push({\r\n      claim: '4 years professional experience spanning AI engineering, backend pipelines, and math SME',\r\n      sourceType: 'resume',\r\n      reference: 'public/resume.pdf — Summary'\r\n    })\r"
+  },
+  {
+    "line": 3328,
+    "code": "    claims.push({\r\n      claim: 'AI Engineer / Consultant at Wayground (Jan 2026 – Jul 2026)',\r\n      sourceType: 'resume',\r\n      reference: 'public/resume.pdf — Wayground AI/ML Team'\r\n    })\r"
+  },
+  {
+    "line": 3333,
+    "code": "    claims.push({\r\n      claim: 'B.Tech (Hons.) in Mechanical Engineering from Lovely Professional University (2017)',\r\n      sourceType: 'resume',\r\n      reference: 'public/resume.pdf — Education'\r\n    })\r"
+  },
+  {
+    "line": 3385,
+    "code": "    claims.push({\r\n      claim: 'Timeline: Conceived and deployed at Wayground in 2024',\r\n      sourceType: 'portfolio',\r\n      layer: 'timeline',\r\n      reference: 'Timeline 2024'\r\n    })\r"
+  },
+  {
+    "line": 3391,
+    "code": "    claims.push({\r\n      claim: 'Journal: Prompting was insufficient to guarantee assessment invariants',\r\n      sourceType: 'portfolio',\r\n      layer: 'journal',\r\n      reference: 'Journal Chapter 06'\r\n    })\r"
+  },
+  {
+    "line": 3397,
+    "code": "    claims.push({\r\n      claim: 'Systems: In-memory TypeScript evaluator with 4 unique options and rationale check',\r\n      sourceType: 'portfolio',\r\n      layer: 'system',\r\n      reference: '/projects/vm-copy'\r\n    })\r"
+  },
+  {
+    "line": 3436,
+    "code": "    claims.push({\r\n      claim: `Excerpt from ${chunk.metadata.source_title}`,\r\n      sourceType: chunk.metadata.source_type,\r\n      layer: chunk.metadata.portfolio_layer,\r\n      reference: chunk.metadata.source_id,\r\n      url: chunk.metadata.source_url\r\n    })\r"
+  }
+]

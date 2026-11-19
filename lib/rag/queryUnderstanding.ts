@@ -15,12 +15,14 @@
  * a normalized retrieval query — but NEVER determines factual content.
  */
 
-import { QueryIntent, AgentConversationState, RequestMode } from '@/types/rag'
+import { QueryIntent, AgentConversationState, RequestMode, SessionMemory } from '@/types/rag'
 import { ToolPlan, createSingleStepPlan } from '@/lib/rag/tools/toolPlanner'
 import { projectsMetadata } from '@/data/canonical/projectsMetadata'
 import { classifyAndRoute, RoutingDecision } from '@/lib/rag/intentRouter'
 import { sourceAuthorityRules } from '@/data/canonical/sourceAuthority'
 import { structuredProfile } from '@/data/canonical/structuredProfile'
+import { resolveContextualQuery } from '@/lib/rag/contextResolver'
+import { getActiveTopic, formatSessionContextForPrompt } from '@/lib/rag/sessionMemory'
 
 // ---------------------------------------------------------------------------
 // TYPES
@@ -40,6 +42,8 @@ export interface QueryUnderstanding {
   entities: string[]
   /** Resolved project slug from canonical registry */
   project?: string
+  /** Phase 2.1: Multi-entity comparison project slugs */
+  comparisonProjects?: string[]
   /** Detected technologies */
   technologies?: string[]
   /** Source layers to prioritize */
@@ -80,6 +84,7 @@ export type QueryUnderstandingFailureType =
 
 export interface ConversationContext {
   activeProject?: string
+  comparisonProjects?: string[]
   activeEntities?: string[]
   activeTopic?: string
   previousInformationNeed?: string
@@ -87,6 +92,7 @@ export interface ConversationContext {
   recentQuestion?: string
   recentAnswerSummary?: string
   turnCount: number
+  sessionMemory?: SessionMemory
 }
 
 // ---------------------------------------------------------------------------
@@ -195,15 +201,24 @@ export function extractConversationContext(state?: AgentConversationState): Conv
     return { turnCount: 1 }
   }
 
-  // Build a compact context from the existing state
+  const memory = state.sessionMemory
+  const activeTopic = getActiveTopic(memory)
+  const activeProject = activeTopic?.entitySlug || state.activeProject
+
+  // Build a compact context from the existing state and session memory
   const ctx: ConversationContext = {
-    activeProject: state.activeProject,
-    activeEntities: [],
+    activeProject,
+    comparisonProjects: memory?.comparisonEntities,
+    activeEntities: activeTopic ? [activeTopic.displayTitle] : [],
+    activeTopic: activeTopic?.displayTitle,
     turnCount: state.turnCount || 1,
+    recentQuestion: state.recentQuestion,
+    recentAnswerSummary: state.recentAnswerSummary,
+    sessionMemory: memory
   }
 
-  if (state.activeEntity) {
-    ctx.activeEntities = [state.activeEntity]
+  if (state.activeEntity && !ctx.activeEntities?.includes(state.activeEntity)) {
+    ctx.activeEntities = [...(ctx.activeEntities || []), state.activeEntity]
   }
 
   if (state.currentIntent && state.currentIntent !== 'unknown') {
@@ -453,6 +468,12 @@ function buildQueryUnderstandingPrompt(
   }
   if (context.recentAnswerSummary) {
     prompt += `PREVIOUS ANSWER SUMMARY: ${context.recentAnswerSummary}\n`
+  }
+  if (context.sessionMemory) {
+    const sessionSummary = formatSessionContextForPrompt(context.sessionMemory)
+    if (sessionSummary) {
+      prompt += `SESSION MEMORY CONTEXT:\n${sessionSummary}\n`
+    }
   }
 
   prompt += `\nClassify this query. Output ONLY valid JSON.`
@@ -711,7 +732,15 @@ function buildDeterministicUnderstanding(
 
   const lowerQ = query.toLowerCase()
 
-  if (lowerQ.includes('github') || lowerQ.includes('repo')) {
+  const isHypotheticalOrConceptual =
+    lowerQ.includes('what happens if') ||
+    lowerQ.includes('what if') ||
+    lowerQ.includes('how does it handle') ||
+    lowerQ.includes('unavailable') ||
+    lowerQ.includes('offline') ||
+    lowerQ.includes('fallback')
+
+  if ((lowerQ.includes('github') || lowerQ.includes('repo')) && !isHypotheticalOrConceptual) {
     requestMode = 'navigation'
     requestedTool = 'github.open'
     if (project) toolArgs = { project }
@@ -820,21 +849,96 @@ export async function understandQuery(
   const context = extractConversationContext(prevState)
   const startTime = Date.now()
 
-  // 1. Try LLM understanding
+  // Phase 2.1: Run contextual resolution engine
+  const contextRes = resolveContextualQuery(query, prevState?.sessionMemory, prevState)
+
+  // 1. Ambiguity detection interception (Scenario D)
+  if (contextRes.type === 'ambiguity_detected' && contextRes.clarificationQuestion) {
+    const understanding: QueryUnderstanding = {
+      intent: 'technical',
+      informationNeed: 'Ambiguous entity reference requires clarification',
+      entities: contextRes.resolvedEntities,
+      normalizedRetrievalQuery: query,
+      confidence: 0.95,
+      source: 'deterministic_fallback',
+      needsClarification: true,
+      clarificationQuestion: contextRes.clarificationQuestion,
+      requestMode: 'clarification'
+    }
+    const trace: QueryUnderstandingTrace = {
+      originalQuestion: query,
+      resolvedContext: context,
+      queryUnderstanding: understanding,
+      normalizedRetrievalQuery: query,
+      failureType: 'QUERY_UNDERSTANDING_SUCCESS',
+      llmLatencyMs: 0
+    }
+    return { understanding, trace }
+  }
+
+  // 2. Misunderstanding recovery interception (Scenario E)
+  if (contextRes.type === 'misunderstanding_recovery' && contextRes.clarificationQuestion) {
+    const understanding: QueryUnderstanding = {
+      intent: 'unknown',
+      informationNeed: 'User reported misunderstanding; clarifying information need',
+      entities: contextRes.resolvedEntities,
+      project: contextRes.activeProject,
+      normalizedRetrievalQuery: query,
+      confidence: 0.95,
+      source: 'deterministic_fallback',
+      needsClarification: true,
+      clarificationQuestion: contextRes.clarificationQuestion,
+      requestMode: 'clarification'
+    }
+    const trace: QueryUnderstandingTrace = {
+      originalQuestion: query,
+      resolvedContext: context,
+      queryUnderstanding: understanding,
+      normalizedRetrievalQuery: query,
+      failureType: 'QUERY_UNDERSTANDING_SUCCESS',
+      llmLatencyMs: 0
+    }
+    return { understanding, trace }
+  }
+
+  // 3. Try LLM understanding
   let understanding = await callLlmForUnderstanding(query, context)
   const llmLatencyMs = Date.now() - startTime
 
   let failureType: QueryUnderstandingFailureType = 'QUERY_UNDERSTANDING_SUCCESS'
 
   if (!understanding) {
-    // 2. Fallback to deterministic router
+    // 4. Fallback to deterministic router
     understanding = buildDeterministicUnderstanding(query, context, prevState)
     failureType = understanding.intent === 'unknown'
       ? 'QUERY_UNDERSTANDING_FAILURE'
       : 'QUERY_UNDERSTANDING_SUCCESS'
   }
 
-  // 3. Always merge with deterministic entity extraction for safety
+  // 5. Apply contextual resolution results (corrections, multi-entity, topic restoration, pronouns)
+  if (contextRes.resolved) {
+    if (contextRes.activeProject) {
+      understanding.project = contextRes.activeProject
+    }
+    if (contextRes.comparisonProjects && contextRes.comparisonProjects.length > 0) {
+      understanding.comparisonProjects = contextRes.comparisonProjects
+    }
+    if (contextRes.normalizedQuery && contextRes.type !== 'direct_match') {
+      understanding.normalizedRetrievalQuery = contextRes.normalizedQuery
+    }
+    if (contextRes.type === 'correction') {
+      understanding.intent = 'project_overview'
+    }
+    if (contextRes.resolvedEntities.length > 0) {
+      for (const ent of contextRes.resolvedEntities) {
+        if (!understanding.entities.includes(ent)) {
+          understanding.entities.push(ent)
+        }
+      }
+    }
+  }
+
+  // 6. Always merge with deterministic entity extraction for safety
   const detEntities = extractEntitiesDeterministic(query)
 
   // If LLM didn't detect a project but deterministic did, use deterministic
@@ -847,7 +951,7 @@ export async function understandQuery(
     understanding.technologies = detEntities.technologies
   }
 
-  // 4. Apply follow-up resolution from conversation context
+  // 7. Apply follow-up resolution from conversation context
   const followUp = resolveFollowUp(query, context)
   if (followUp.resolved && !understanding.project) {
     understanding.project = followUp.project
@@ -863,7 +967,7 @@ export async function understandQuery(
     }
   }
 
-  // 5. Build the trace
+  // 8. Build the trace
   const trace: QueryUnderstandingTrace = {
     originalQuestion: query,
     resolvedContext: context,
@@ -891,6 +995,7 @@ export function toRoutingDecision(understanding: QueryUnderstanding): RoutingDec
     intent: understanding.intent,
     rule,
     detectedProjectSlug: understanding.project,
+    comparisonProjectSlugs: understanding.comparisonProjects,
     detectedTechnologies: understanding.technologies,
     detectedYearOrPeriod: understanding.timeScope,
     sourcesNeeded: understanding.sourcesNeeded,

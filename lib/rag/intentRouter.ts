@@ -6,6 +6,7 @@ export interface RoutingDecision {
   intent: QueryIntent
   rule: AuthorityRule
   detectedProjectSlug?: string
+  comparisonProjectSlugs?: string[]
   detectedTechnologies?: string[]
   detectedYearOrPeriod?: string
   sourcesNeeded?: string[]
@@ -22,27 +23,13 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
 
   // 0. Detect Unsupported Personal & Undocumented Queries
   const isUnsupportedPersonal =
-    q.includes('favorite') ||
-    q.includes('favourite') ||
+    /\b(favorite|favourite|hobbies|hobby|birthday|movie|food|actor|song|music|pet|salary|compensation|income|marital)\b/i.test(q) ||
     q.includes('last weekend') ||
     q.includes('next month') ||
     q.includes('personal life') ||
-    q.includes('hobbies') ||
-    q.includes('hobby') ||
-    q.includes('birthday') ||
     q.includes('birth date') ||
     q.includes('exact age') ||
     q.includes('how old') ||
-    q.includes('movie') ||
-    q.includes('food') ||
-    q.includes('actor') ||
-    q.includes('song') ||
-    q.includes('music') ||
-    q.includes('pet') ||
-    q.includes('salary') ||
-    q.includes('compensation') ||
-    q.includes('income') ||
-    q.includes('marital') ||
     q.includes('work at google') ||
     q.includes('worked at google') ||
     q.includes('work for google') ||
@@ -72,30 +59,65 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     }
   }
 
-  // Check explicit project mentions
-  if (!detectedProjectSlug) {
-    for (const p of projectsMetadata) {
-      const slugMatch = q.includes(p.slug)
-      const titleMatch = q.includes(p.title.toLowerCase())
-      const aliasMatch =
-        (p.slug === 'vm-copy' && (q.includes('vm copy') || q.includes('question generator') || q.includes('vm-copy'))) ||
-        (p.slug === 'ai-worksheets' && (q.includes('worksheet') || q.includes('worksheets'))) ||
-        (p.slug === 'curriculum-etl' && (q.includes('etl') || q.includes('curriculum transformation') || q.includes('map-reduce'))) ||
-        (p.slug === 'math-item-bank' && (q.includes('item bank') || q.includes('item-bank') || q.includes('team system'))) ||
-        (p.slug === 'design-automation' && (q.includes('eda') || q.includes('cad') || q.includes('design automation') || q.includes('shaft') || q.includes('opencascade'))) ||
-        (p.slug === 'loom-ai' && (q.includes('loom') || q.includes('textile') || q.includes('marketplace'))) ||
-        (p.slug === 'atlas-ai' && (q.includes('atlas') || q.includes('financial') || q.includes('sec') || q.includes('edgar'))) ||
-        (p.slug === 'ai-reliability' && (q.includes('reliability') || q.includes('qa harness') || q.includes('fisher') || q.includes('browser qa'))) ||
-        (p.slug === 'binance-bot' && (q.includes('binance') || q.includes('futures bot') || q.includes('trading bot'))) ||
-        (p.slug === 'ask-aadil' && (q.includes('ask aadil') || q.includes('ask-aadil') || q.includes('portfolio agent'))) ||
-        (p.slug === 'solace-ai' && (q.includes('solace') || q.includes('wellness companion') || q.includes('rant mode') || q.includes('words of solace') || q.includes('emotional landscape'))) ||
-        (p.slug === 'ocr-evaluator' && (q.includes('ocr') || q.includes('cer') || q.includes('wer') || q.includes('tesseract')))
+  // Check comparison query and collect project mentions
+  const comparisonKeywords = /(compare|comparison|versus|\bvs\b|difference between|how do .+ and .+ compare|tradeoffs between|which one|which project)/i
+  const isComparisonQuery = comparisonKeywords.test(q)
+  const mentionedProjects: string[] = []
 
-      if (slugMatch || titleMatch || aliasMatch) {
-        detectedProjectSlug = p.slug
-        break
+  // Check explicit project mentions
+  for (const p of projectsMetadata) {
+    const slugMatch = q.includes(p.slug)
+    const titleMatch = q.includes(p.title.toLowerCase())
+    const aliasMatch =
+      (p.slug === 'vm-copy' && (q.includes('vm copy') || q.includes('question generator') || q.includes('vm-copy'))) ||
+      (p.slug === 'ai-worksheets' && (q.includes('ai worksheets') || q.includes('worksheet') || q.includes('worksheets'))) ||
+      (p.slug === 'curriculum-etl' && (q.includes('curriculum etl') || q.includes('curriculum transformation') || q.includes('etl') || q.includes('map-reduce'))) ||
+      (p.slug === 'math-item-bank' && (q.includes('item bank') || q.includes('item-bank') || q.includes('team system') || q.includes('math item bank'))) ||
+      (p.slug === 'design-automation' && (q.includes('design automation') || q.includes('eda') || q.includes('cad') || q.includes('shaft') || q.includes('opencascade'))) ||
+      (p.slug === 'loom-ai' && (q.includes('loom ai') || q.includes('loom') || q.includes('textile') || q.includes('marketplace'))) ||
+      (p.slug === 'atlas-ai' && (q.includes('atlas ai') || q.includes('atlas') || q.includes('financial') || q.includes('sec') || q.includes('edgar'))) ||
+      (p.slug === 'ai-reliability' && (q.includes('ai reliability') || q.includes('reliability') || q.includes('qa harness') || q.includes('fisher') || q.includes('browser qa'))) ||
+      (p.slug === 'binance-bot' && (q.includes('binance') || q.includes('futures bot') || q.includes('trading bot'))) ||
+      (p.slug === 'ask-aadil' && (q.includes('ask aadil') || q.includes('ask-aadil') || q.includes('portfolio agent'))) ||
+      (p.slug === 'solace-ai' && (q.includes('solace ai') || q.includes('solace') || q.includes('wellness companion') || q.includes('rant mode') || q.includes('words of solace') || q.includes('emotional landscape'))) ||
+      (p.slug === 'ocr-evaluator' && (q.includes('ocr evaluator') || q.includes('ocr') || q.includes('cer') || q.includes('wer') || q.includes('tesseract')))
+
+    if (slugMatch || titleMatch || aliasMatch) {
+      if (!mentionedProjects.includes(p.slug)) {
+        mentionedProjects.push(p.slug)
       }
     }
+  }
+
+  // Sort mentionedProjects by order of appearance in query
+  if (mentionedProjects.length > 1) {
+    mentionedProjects.sort((a, b) => {
+      const getPos = (slug: string) => {
+        const p1 = q.indexOf(slug)
+        const p2 = q.indexOf(slug.replace(/-/g, ' '))
+        if (p1 !== -1 && p2 !== -1) return Math.min(p1, p2)
+        if (p1 !== -1) return p1
+        if (p2 !== -1) return p2
+        return 9999
+      }
+      return getPos(a) - getPos(b)
+    })
+  }
+
+  // If comparison intent exists AND at least two projects are mentioned, route immediately to comparison!
+  if (isComparisonQuery && mentionedProjects.length >= 2) {
+    return {
+      intent: 'comparison',
+      rule: sourceAuthorityRules.comparison,
+      detectedProjectSlug: mentionedProjects[0],
+      comparisonProjectSlugs: mentionedProjects,
+      detectedTechnologies: [],
+      confidence: 0.98
+    }
+  }
+
+  if (!detectedProjectSlug && mentionedProjects.length > 0) {
+    detectedProjectSlug = mentionedProjects[0]
   }
 
   // Contact Confirmation / Draft Edit check
@@ -187,10 +209,14 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     }
   }
 
-  // 4. Detect Specific Contribution to Team Systems
+  // 4. Detect Specific Contribution to Team Systems & Authorship
   const isContribution =
     q.includes('contribute') ||
     q.includes('contribution') ||
+    q.includes('who authored') ||
+    q.includes('who built') ||
+    q.includes('content builder') ||
+    q.includes('voyagemath') ||
     (detectedProjectSlug === 'math-item-bank' && (q.includes('what did') || q.includes('role') || q.includes('part') || q.includes('work on')))
 
   if (isContribution) {
@@ -212,7 +238,7 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     q.includes('current focus') ||
     q.includes('currently work') ||
     q.includes('currently work at') ||
-    q.includes('work at wayground') ||
+    (q.includes('work at wayground') && (q.includes('currently') || q.includes('now') || q.includes('still') || q.startsWith('does '))) ||
     q.includes('unemployed') ||
     q.includes('most recent job')
 
@@ -410,7 +436,35 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     }
   }
 
-  // 13. Detect Narrative & Reasoning ("Why", "Curiosity", "What broke", "Transition")
+  // 13. Detect Technical Implementation & Architecture ("How does it work", "Validate", "Tests", "Evaluator", "Latency")
+  if (
+    q.includes('evaluator') ||
+    q.includes('how fast') ||
+    q.includes('latency') ||
+    q.includes('how does') ||
+    q.includes('validate') ||
+    q.includes('validation') ||
+    q.includes('distractor') ||
+    q.includes('guardrail') ||
+    q.includes('architecture') ||
+    q.includes('how it works') ||
+    q.includes('test') ||
+    q.includes('tests') ||
+    q.includes('solver') ||
+    q.includes('algorithm') ||
+    q.includes('spec') ||
+    q.includes('implementation')
+  ) {
+    return {
+      intent: 'technical',
+      rule: sourceAuthorityRules.technical,
+      detectedProjectSlug,
+      detectedTechnologies,
+      confidence: 0.93
+    }
+  }
+
+  // 14. Detect Narrative & Reasoning ("Why", "Curiosity", "What broke", "Transition")
   if (
     q.includes('how did aadil move') ||
     q.includes('move from mathematics') ||
@@ -440,37 +494,17 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
     }
   }
 
-  // 14. Detect Technical Implementation & Architecture ("How does it work", "Validate", "Tests")
-  if (
-    q.includes('how does') ||
-    q.includes('validate') ||
-    q.includes('guardrail') ||
-    q.includes('architecture') ||
-    q.includes('how it works') ||
-    q.includes('test') ||
-    q.includes('tests') ||
-    q.includes('solver') ||
-    q.includes('algorithm') ||
-    q.includes('spec') ||
-    q.includes('implementation')
-  ) {
-    return {
-      intent: 'technical',
-      rule: sourceAuthorityRules.technical,
-      detectedProjectSlug,
-      detectedTechnologies,
-      confidence: 0.93
-    }
-  }
-
-  // 15. Detect Chronology ("When", "Dates", "Timeline", "Years")
+  // 15. Detect Chronology ("When", "Dates", "Timeline", "Years", specific milestones)
   if (
     q.includes('when was') ||
     q.includes('when did') ||
     q.includes('timeline') ||
     q.includes('chronology') ||
     q.includes('what year') ||
-    q.includes('dates')
+    q.includes('dates') ||
+    q.includes('what happened in') ||
+    q.includes('september 2022') ||
+    q.includes('after july')
   ) {
     return {
       intent: 'timeline',

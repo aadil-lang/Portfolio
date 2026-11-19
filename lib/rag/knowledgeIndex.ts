@@ -556,8 +556,25 @@ export function queryQuantitativeRegistry(query: string, projectSlug?: string): 
   const lowerQ = query.toLowerCase()
   const results: QuantitativeClaimItem[] = []
 
+  let effectiveSlug = projectSlug
+  if (!effectiveSlug && !lowerQ.includes('compare') && !lowerQ.includes('versus') && !lowerQ.includes(' vs ')) {
+    if (lowerQ.includes('eda') || lowerQ.includes('design automation') || lowerQ.includes('shaft') || lowerQ.includes('opencascade')) {
+      effectiveSlug = 'design-automation'
+    } else if (lowerQ.includes('loom') || lowerQ.includes('textile')) {
+      effectiveSlug = 'loom-ai'
+    } else if (lowerQ.includes('atlas') || lowerQ.includes('sec-filing')) {
+      effectiveSlug = 'atlas-ai'
+    } else if (lowerQ.includes('solace') || lowerQ.includes('companion')) {
+      effectiveSlug = 'solace-ai'
+    } else if (lowerQ.includes('vm copy') || lowerQ.includes('vm-copy') || lowerQ.includes('question generator')) {
+      effectiveSlug = 'vm-copy'
+    } else if (lowerQ.includes('reliability') || lowerQ.includes('qa harness')) {
+      effectiveSlug = 'ai-reliability'
+    }
+  }
+
   for (const claim of quantitativeClaims) {
-    if (projectSlug && claim.projectSlug && claim.projectSlug !== projectSlug) {
+    if (effectiveSlug && claim.projectSlug && claim.projectSlug !== effectiveSlug) {
       continue
     }
 
@@ -617,6 +634,22 @@ export function queryQuantitativeRegistry(query: string, projectSlug?: string): 
         lowerQ.includes('suite') ||
         lowerQ.includes('pytest') ||
         lowerQ.includes('mobile') ||
+        lowerQ.includes('how many')
+      ) {
+        match = true
+      }
+    }
+
+    // 5b. Loom AI tests query
+    const isLoomQuery =
+      lowerQ.includes('loom') ||
+      lowerQ.includes('textile') ||
+      lowerQ.includes('procurement') ||
+      lowerQ.includes('marketplace')
+    if (isLoomQuery && claimSlug === 'loom-ai') {
+      if (
+        lowerQ.includes('test') ||
+        lowerQ.includes('suite') ||
         lowerQ.includes('how many')
       ) {
         match = true

@@ -81,36 +81,53 @@ export function retrieveHybrid(
   const retrievalPaths: string[] = []
   const lowerQ = query.toLowerCase()
 
+  // Phase 2.1: Target project slugs (including multi-entity comparison projects)
+  const targetProjectSlugs = [
+    ...(decision.detectedProjectSlug ? [decision.detectedProjectSlug] : []),
+    ...(decision.comparisonProjectSlugs || [])
+  ]
+  const uniqueTargetSlugs = [...new Set(targetProjectSlugs)]
+
   // ---------------------------------------------------------------------------
-  // 0. CANONICAL STRUCTURED REGISTRY TIER (Phase 2.5)
+  // 0. CANONICAL STRUCTURED REGISTRY TIER (Phase 2.5 & Phase 2.1 Multi-Entity)
   // ---------------------------------------------------------------------------
-  const canonicalStructured = queryCanonicalStructuredKnowledge(query, decision.detectedProjectSlug)
-  if (canonicalStructured.matched) {
-    retrievalPaths.push('canonical_structured_registry')
-    structuredResult.exactAnswer = canonicalStructured.exactAnswer
-    for (const ce of canonicalStructured.canonicalEvidence) {
-      if (!evidenceItems.some(e => e.id === ce.id)) {
-        evidenceItems.push(ce)
+  for (const slug of (uniqueTargetSlugs.length > 0 ? uniqueTargetSlugs : [decision.detectedProjectSlug])) {
+    const canonicalStructured = queryCanonicalStructuredKnowledge(query, slug)
+    if (canonicalStructured.matched) {
+      if (!retrievalPaths.includes('canonical_structured_registry')) {
+        retrievalPaths.push('canonical_structured_registry')
+      }
+      if (!structuredResult.exactAnswer && canonicalStructured.exactAnswer) {
+        structuredResult.exactAnswer = canonicalStructured.exactAnswer
+      }
+      for (const ce of canonicalStructured.canonicalEvidence) {
+        if (!evidenceItems.some(e => e.id === ce.id)) {
+          evidenceItems.push(ce)
+        }
       }
     }
   }
 
   // ---------------------------------------------------------------------------
-  // 0b. STRUCTURED KNOWLEDGE BASE & ADR TIER (Phase 2.5E)
+  // 0b. STRUCTURED KNOWLEDGE BASE & ADR TIER (Phase 2.5E & Phase 2.1 Multi-Entity)
   // ---------------------------------------------------------------------------
-  const kbStructured = queryKnowledgeBaseStructured(query, decision.detectedProjectSlug, accessLevel)
-  if (kbStructured.matched) {
-    const eligibleEvidence = kbStructured.evidence.filter(e =>
-      isEvidenceItemEligibleForPublicRetrieval(e, accessLevel)
-    )
-    if (eligibleEvidence.length > 0 || kbStructured.exactAnswer) {
-      retrievalPaths.push('structured_knowledge_base')
-      if (!structuredResult.exactAnswer && kbStructured.exactAnswer) {
-        structuredResult.exactAnswer = kbStructured.exactAnswer
-      }
-      for (const ke of eligibleEvidence) {
-        if (!evidenceItems.some(e => e.id === ke.id)) {
-          evidenceItems.push(ke)
+  for (const slug of (uniqueTargetSlugs.length > 0 ? uniqueTargetSlugs : [decision.detectedProjectSlug])) {
+    const kbStructured = queryKnowledgeBaseStructured(query, slug, accessLevel)
+    if (kbStructured.matched) {
+      const eligibleEvidence = kbStructured.evidence.filter(e =>
+        isEvidenceItemEligibleForPublicRetrieval(e, accessLevel)
+      )
+      if (eligibleEvidence.length > 0 || kbStructured.exactAnswer) {
+        if (!retrievalPaths.includes('structured_knowledge_base')) {
+          retrievalPaths.push('structured_knowledge_base')
+        }
+        if (!structuredResult.exactAnswer && kbStructured.exactAnswer) {
+          structuredResult.exactAnswer = kbStructured.exactAnswer
+        }
+        for (const ke of eligibleEvidence) {
+          if (!evidenceItems.some(e => e.id === ke.id)) {
+            evidenceItems.push(ke)
+          }
         }
       }
     }
@@ -564,27 +581,29 @@ ${team.map(p => `• ${p.title} (${p.slug}):
     })
   }
 
-  // Project-Specific Match
-  if (decision.detectedProjectSlug) {
-    retrievalPaths.push(`project_metadata_${decision.detectedProjectSlug}`)
-    const proj = projectsMetadata.find(p => p.slug === decision.detectedProjectSlug)
-    if (proj && !evidenceItems.some(e => e.id === `evidence-project-${proj.slug}`)) {
-      structuredResult.matchedProjects = [proj]
-      let ownershipClass: 'SYSTEM_CAPABILITY' | 'AADIL_CONTRIBUTION' | 'TEAM_OWNERSHIP' | 'INDEPENDENT_BUILD' = 'INDEPENDENT_BUILD'
-      if (proj.ownership === 'team') {
-        ownershipClass = proj.slug === 'math-item-bank' ? 'AADIL_CONTRIBUTION' : 'TEAM_OWNERSHIP'
-      } else if (proj.ownership === 'independent') {
-        ownershipClass = 'INDEPENDENT_BUILD'
-      }
+  // Project-Specific & Multi-Entity Comparison Matches
+  if (uniqueTargetSlugs.length > 0) {
+    const matched: ProjectMetadata[] = []
+    for (const slug of uniqueTargetSlugs) {
+      retrievalPaths.push(`project_metadata_${slug}`)
+      const proj = projectsMetadata.find(p => p.slug === slug)
+      if (proj && !evidenceItems.some(e => e.id === `evidence-project-${proj.slug}`)) {
+        matched.push(proj)
+        let ownershipClass: 'SYSTEM_CAPABILITY' | 'AADIL_CONTRIBUTION' | 'TEAM_OWNERSHIP' | 'INDEPENDENT_BUILD' = 'INDEPENDENT_BUILD'
+        if (proj.ownership === 'team') {
+          ownershipClass = proj.slug === 'math-item-bank' ? 'AADIL_CONTRIBUTION' : 'TEAM_OWNERSHIP'
+        } else if (proj.ownership === 'independent') {
+          ownershipClass = 'INDEPENDENT_BUILD'
+        }
 
-      evidenceItems.push({
-        id: `evidence-project-${proj.slug}`,
-        source: 'Canonical Project Registry',
-        sourceType: 'portfolio',
-        authority: 'primary',
-        layer: 'system',
-        entity: proj.title,
-        content: `CANONICAL SPECIFICATION // ${proj.title}
+        evidenceItems.push({
+          id: `evidence-project-${proj.slug}`,
+          source: 'Canonical Project Registry',
+          sourceType: 'portfolio',
+          authority: 'primary',
+          layer: 'system',
+          entity: proj.title,
+          content: `CANONICAL SPECIFICATION // ${proj.title}
 Slug: ${proj.slug}
 Ownership: ${proj.ownership} (${proj.role})
 Dates: ${proj.dates?.start} to ${proj.dates?.end}
@@ -593,11 +612,15 @@ Problem: ${proj.problem}
 Technologies: ${proj.technologies.join(', ')}
 Evidence:
 ${proj.evidence?.map(e => `• ${e}`).join('\n')}`,
-        deepLink: proj.portfolioRefs?.system || `/projects/${proj.slug}`,
-        provenanceBadge: `[Systems Archive — ${proj.title}]`,
-        ownership: proj.ownership,
-        ownershipClassification: ownershipClass
-      })
+          deepLink: proj.portfolioRefs?.system || `/projects/${proj.slug}`,
+          provenanceBadge: `[Systems Archive — ${proj.title}]`,
+          ownership: proj.ownership,
+          ownershipClassification: ownershipClass
+        })
+      }
+    }
+    if (matched.length > 0) {
+      structuredResult.matchedProjects = matched
     }
   }
 
@@ -605,25 +628,26 @@ ${proj.evidence?.map(e => `• ${e}`).join('\n')}`,
   // 6. EXTERNAL GITHUB REPOSITORY EVIDENCE TIER
   // ---------------------------------------------------------------------------
   let githubEvidence: GitHubRepoRecord | null = null
-  if (decision.detectedProjectSlug) {
-    githubEvidence = getGitHubRepoEvidence(decision.detectedProjectSlug)
-    if (githubEvidence && !evidenceItems.some(e => e.id === `evidence-github-${decision.detectedProjectSlug}`)) {
+  for (const slug of uniqueTargetSlugs) {
+    const gh = getGitHubRepoEvidence(slug)
+    if (gh && !evidenceItems.some(e => e.id === `evidence-github-${slug}`)) {
+      if (!githubEvidence) githubEvidence = gh
       evidenceItems.push({
-        id: `evidence-github-${decision.detectedProjectSlug}`,
+        id: `evidence-github-${slug}`,
         source: 'GitHub',
         sourceType: 'github',
         authority: 'primary',
         layer: 'none',
-        entity: `${githubEvidence.owner}/${githubEvidence.repo}`,
+        entity: `${gh.owner}/${gh.repo}`,
         content: `GITHUB CODE EVIDENCE:
-Repository: ${githubEvidence.owner}/${githubEvidence.repo} (${githubEvidence.url})
-Description: ${githubEvidence.description}
-Primary Language: ${githubEvidence.primaryLanguage}
-Automated Tests: ${githubEvidence.hasTests ? `${githubEvidence.verifiedTestCount} tests (${githubEvidence.testFramework})` : 'None'}
+Repository: ${gh.owner}/${gh.repo} (${gh.url})
+Description: ${gh.description}
+Primary Language: ${gh.primaryLanguage}
+Automated Tests: ${gh.hasTests ? `${gh.verifiedTestCount} tests (${gh.testFramework})` : 'None'}
 Architecture Notes:
-${githubEvidence.architectureNotes}`,
-        deepLink: githubEvidence.url,
-        provenanceBadge: `[GitHub — ${githubEvidence.owner}/${githubEvidence.repo}]`
+${gh.architectureNotes}`,
+        deepLink: gh.url,
+        provenanceBadge: `[GitHub — ${gh.owner}/${gh.repo}]`
       })
     }
   }
@@ -712,8 +736,8 @@ ${githubEvidence.architectureNotes}`,
       score += 20
     }
 
-    // Boost project match
-    if (decision.detectedProjectSlug && chunk.metadata.project === decision.detectedProjectSlug) {
+    // Boost project match (including comparison projects)
+    if (chunk.metadata.project && uniqueTargetSlugs.includes(chunk.metadata.project)) {
       score += 20
     }
 

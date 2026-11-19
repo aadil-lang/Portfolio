@@ -1,0 +1,1107 @@
+[
+  {
+    "file": "components\\evidence\\SolaceVideoShowcase.tsx",
+    "line": 103,
+    "text": "href=\"https://github.com/aadil-lang/solace-ai\""
+  },
+  {
+    "file": "components\\evidence\\SolaceVideoShowcase.tsx",
+    "line": 108,
+    "text": "github.com/aadil-lang/solace-ai"
+  },
+  {
+    "file": "data\\adapters\\engineeringCaseStudyAdapter.ts",
+    "line": 160,
+    "text": "if (fullText.includes('github.com/wayground') || fullText.includes('github.com/quizizz')) {"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 567,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/Engineering-design-automation',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 599,
+    "text": "sourceUrl: 'https://github.com/aadilkhurshid/engineering-design-automation',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 643,
+    "text": "sourceUrl: 'https://github.com/aadilkhurshid/engineering-design-automation',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 699,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/ai-engineering-lab',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 729,
+    "text": "sourceUrl: 'https://github.com/aadilkhurshid/ai-application-reliability',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 778,
+    "text": "sourceUrl: 'https://github.com/aadilkhurshid/ai-application-reliability',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 833,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/loom-ai',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 897,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/loom-ai',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 958,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/Atlas-AI',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1022,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/Atlas-AI',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1064,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/Atlas-AI',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1120,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/portfolio',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1199,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/portfolio',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1261,
+    "text": "demo: 'https://aadil-lang.github.io/solace-ai-gallery/',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1262,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/solace-ai',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1346,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/solace-ai',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1396,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/solace-ai',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1433,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/solace-ai',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1497,
+    "text": "publicRepoOverride: 'https://github.com/aadil-lang/OCR-Evaluator',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1565,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/OCR-Evaluator',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1617,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/OCR-Evaluator',"
+  },
+  {
+    "file": "data\\adapters\\projectsAdapter.ts",
+    "line": 1666,
+    "text": "sourceUrl: 'https://github.com/aadil-lang/OCR-Evaluator',"
+  },
+  {
+    "file": "data\\adapters\\resumeAdapter.ts",
+    "line": 127,
+    "text": "github: 'github.com/aadil-lang',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 584,
+    "text": "publicUrl: 'https://github.com/aadil-lang/Engineering-design-automation',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 633,
+    "text": "publicUrl: 'https://github.com/aadil-lang/OCR-benchmark-evaluator',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 684,
+    "text": "publicUrl: 'https://github.com/aadil-lang/solace-ai',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 773,
+    "text": "publicUrl: 'https://github.com/aadil-lang/ai-application-reliability',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1211,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/Engineering-design-automation (tests/test_cad_engine.py)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1225,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/Engineering-design-automation (tests/test_cad_engine.py:lines 45-210)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1242,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/OCR-benchmark-evaluator (tests/)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1256,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/OCR-benchmark-evaluator (e2e/ocr_ui.spec.ts)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1298,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/solace-ai (backend/tests/)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1312,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/solace-ai (mobile/__tests__/)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1329,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/ai-application-reliability (tests/)',"
+  },
+  {
+    "file": "data\\canonical\\canonicalRegistry.ts",
+    "line": 1343,
+    "text": "repositoryPathOrArtifact: 'https://github.com/aadil-lang/ai-application-reliability (tests/governance/)',"
+  },
+  {
+    "file": "data\\canonical\\sourceConflicts.ts",
+    "line": 33,
+    "text": "claim: 'Profile links to \"github.com/aadil-lang\"',"
+  },
+  {
+    "file": "data\\canonical\\sourceConflicts.ts",
+    "line": 38,
+    "text": "claim: 'Profile links to \"github.com/aadilkhurshid\"',"
+  },
+  {
+    "file": "data\\canonical\\structuredProfile.ts",
+    "line": 32,
+    "text": "primary: 'https://github.com/aadil-lang',"
+  },
+  {
+    "file": "data\\canonical\\structuredProfile.ts",
+    "line": 33,
+    "text": "legacyOrAlternate: 'https://github.com/aadilkhurshid'"
+  },
+  {
+    "file": "data\\profile.ts",
+    "line": 7,
+    "text": "github: 'https://github.com/aadil-lang',"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 2602,
+    "text": "• **GitHub:** [github.com/aadil-lang](${structuredProfile.githubUrls.primary})"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 2946,
+    "text": "url: 'https://github.com/aadilkhurshid/vm-copy-generator'"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 2987,
+    "text": "url: 'https://github.com/aadilkhurshid/engineering-design-automation'"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 3022,
+    "text": "url: 'https://github.com/aadil-lang/solace-ai'"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 3043,
+    "text": "url: 'https://github.com/aadil-lang/OCR-Evaluator'"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 3110,
+    "text": "url: 'https://github.com/aadilkhurshid/vm-copy-generator'"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 3154,
+    "text": "• **Source Evidence:** Systems Archive & GitHub repository (\\`${githubEvidence?.owner || 'aadilkhurshid'}/${githubEvidence?.repo || project.slug}\\`).`"
+  },
+  {
+    "file": "lib\\rag\\askAadilAgent.ts",
+    "line": 3409,
+    "text": "• **Technical Evidence (GitHub):** Repository [aadilkhurshid/vm-copy-generator](https://github.com/aadilkhurshid/vm-copy-generator) implements the zero-cost client evaluation assertions with automated Vitest suites."
+  },
+  {
+    "file": "lib\\rag\\canonicalRAGAdapter.ts",
+    "line": 705,
+    "text": "// Prohibit github.com links to proprietary projects"
+  },
+  {
+    "file": "lib\\rag\\canonicalRAGAdapter.ts",
+    "line": 706,
+    "text": "if (link && link.includes('github.com') && !link.includes('aadil-lang')) {"
+  },
+  {
+    "file": "lib\\rag\\knowledgeBaseIngestion.ts",
+    "line": 575,
+    "text": "chunk.content.includes('github.com/wayground') ||"
+  },
+  {
+    "file": "lib\\rag\\knowledgeBaseIngestion.ts",
+    "line": 576,
+    "text": "chunk.content.includes('github.com/quizizz') ||"
+  },
+  {
+    "file": "lib\\rag\\knowledgeBaseIngestion.ts",
+    "line": 577,
+    "text": "(meta.source_url && (meta.source_url.includes('github.com/wayground') || meta.source_url.includes('github.com/quizizz')))"
+  },
+  {
+    "file": "lib\\rag\\knowledgeBaseIngestion.ts",
+    "line": 599,
+    "text": "item.content.includes('github.com/wayground') ||"
+  },
+  {
+    "file": "lib\\rag\\knowledgeBaseIngestion.ts",
+    "line": 600,
+    "text": "item.content.includes('github.com/quizizz') ||"
+  },
+  {
+    "file": "lib\\rag\\knowledgeBaseIngestion.ts",
+    "line": 601,
+    "text": "(item.deepLink && (item.deepLink.includes('github.com/wayground') || item.deepLink.includes('github.com/quizizz')))"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 30,
+    "text": "url: 'https://github.com/aadilkhurshid/engineering-design-automation',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 47,
+    "text": "url: 'https://github.com/aadilkhurshid/atlas-ai-finance',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 64,
+    "text": "url: 'https://github.com/aadil-lang/Curriculum-Transformation',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 81,
+    "text": "url: 'https://github.com/aadilkhurshid/ai-application-reliability',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 98,
+    "text": "url: 'https://github.com/aadilkhurshid/loom-ai-b2b',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 115,
+    "text": "url: 'https://github.com/aadilkhurshid/vm-copy-generator',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 132,
+    "text": "url: 'https://github.com/aadil-lang/portfolio',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 149,
+    "text": "url: 'https://github.com/aadil-lang/solace-ai',"
+  },
+  {
+    "file": "lib\\rag\\sources\\githubAdapter.ts",
+    "line": 175,
+    "text": "url: 'https://github.com/aadil-lang/OCR-Evaluator',"
+  },
+  {
+    "file": "lib\\rag\\tools\\navigationTools.ts",
+    "line": 35,
+    "text": "targetUrl = 'https://github.com/aadilkhurshid/loom-ai-b2b'"
+  },
+  {
+    "file": "lib\\rag\\tools\\navigationTools.ts",
+    "line": 38,
+    "text": "targetUrl = 'https://github.com/aadil-khurshid/Atlas-AI'"
+  },
+  {
+    "file": "lib\\rag\\tools\\navigationTools.ts",
+    "line": 41,
+    "text": "targetUrl = 'https://github.com/aadil-lang/solace-ai'"
+  },
+  {
+    "file": "lib\\rag\\tools\\navigationTools.ts",
+    "line": 44,
+    "text": "targetUrl = 'https://github.com/aadil-lang/OCR-Evaluator'"
+  },
+  {
+    "file": "lib\\rag\\tools\\toolPlanValidator.ts",
+    "line": 238,
+    "text": "if (!target.toLowerCase().startsWith('https://github.com/')) {"
+  },
+  {
+    "file": "package-lock.json",
+    "line": 38,
+    "text": "\"url\": \"https://github.com/sponsors/sindresorhus\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 462,
+    "text": "\"url\": \"https://github.com/sponsors/sindresorhus\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 494,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 548,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 738,
+    "text": "\"url\": \"https://github.com/sponsors/rawify\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 787,
+    "text": "\"url\": \"https://github.com/sponsors/ljharb\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 854,
+    "text": "\"url\": \"https://github.com/sponsors/ljharb\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 916,
+    "text": "\"url\": \"https://github.com/sponsors/antonk52\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 996,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1156,
+    "text": "\"url\": \"https://github.com/sponsors/jonschlinkert\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1195,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1238,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1264,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1307,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1350,
+    "text": "\"url\": \"https://github.com/sponsors/feross\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1430,
+    "text": "\"url\": \"https://github.com/sponsors/ljharb\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1452,
+    "text": "\"url\": \"https://github.com/sponsors/feross\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1550,
+    "text": "\"url\": \"https://github.com/sponsors/ljharb\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1607,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1663,
+    "text": "\"url\": \"https://github.com/sponsors/SuperchupuDev\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1694,
+    "text": "\"url\": \"https://github.com/sponsors/jonschlinkert\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1753,
+    "text": "\"url\": \"https://github.com/sponsors/ai\""
+  },
+  {
+    "file": "package-lock.json",
+    "line": 1794,
+    "text": "\"url\": \"https://github.com/sponsors/colinhacks\""
+  },
+  {
+    "file": "PHASE_6_2_CONTENT_AND_EVIDENCE_REGISTER.md",
+    "line": 69,
+    "text": "| **GitHub** | `https://github.com/aadilkhurshid` | Public profile. Verified against `structuredProfile.githubUrls.primary`. |"
+  },
+  {
+    "file": "PHASE_6_2_RECRUITER_QUICK_VIEW_AUDIT.md",
+    "line": 69,
+    "text": "| **Primary GitHub** | `data/canonical/structuredProfile.ts:32` | `https://github.com/aadil-lang` |"
+  },
+  {
+    "file": "research\\audits\\ASK_AADIL_RETRIEVAL_AND_GROUNDING_AUDIT.md",
+    "line": 92,
+    "text": "- `Public Repository · github.com/aadil-lang/vm-copy-question-generator`"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 25,
+    "text": "| `vm-copy` | VM Copy Question Generator | `https://github.com/aadil-lang/vm-copy-question-generator` | `aadil-lang` | Public | Yes (TypeScript assertions, `lib/eval-layer.ts`) | Next.js 16, TypeScript, Portkey, OpenAI | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 26,
+    "text": "| `ai-worksheets` | AI Worksheets Product POC | `https://github.com/aadil-lang/Worksheets-MS-Formal-Gamified` | `aadil-lang` | Public | Yes (Subprocess compilation gates, 2D solvers) | FastAPI, Python 3.12, React 18, Vite 6, TeX Live | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 27,
+    "text": "| `curriculum-etl` | Curriculum Transformation Engine | `https://github.com/aadil-lang/Curriculum-Transformation` | `aadil-lang` | Public | Yes (Pydantic contract schemas, CSV audits) | Python 3.12, Claude 3.5 Sonnet, Pydantic, Pandas | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 29,
+    "text": "| `design-automation` | Engineering Design Automation (EDA CAD) | `https://github.com/aadil-lang/Engineering-design-automation` | `aadil-lang` | Public | Yes (424 pytests across 28 suites) | Python 3.12, FastAPI, OpenCascade, CadQuery, NumPy | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 30,
+    "text": "| `ai-reliability` | AI Application Reliability Platform | `https://github.com/aadil-lang/ai-engineering-lab` | `aadil-lang` | Public | Yes (158 test suites + 47 governance tests) | Python 3.12, Playwright, MCP, Ollama | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 31,
+    "text": "| `loom-ai` | Loom AI — B2B Textile Marketplace | `https://github.com/aadil-lang/loom-ai` | `aadil-lang` | Public | Yes (Playwright integration & API tests) | Next.js 16, Express, MongoDB Atlas, LangGraph | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 32,
+    "text": "| `atlas-ai` | Atlas AI — Financial Copilot & SEC RAG | `https://github.com/aadil-lang/Atlas-AI` | `aadil-lang` | Public | Yes (59 MVP tests, 178 full pytests) | Python 3.12, FastAPI, LangGraph, SEC EDGAR | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 33,
+    "text": "| `ask-aadil` | Engineering Portfolio & Ask Aadil | `https://github.com/aadil-lang/portfolio` | `aadil-lang` | Public | Yes (172 core hardening checks, 327 assertions) | Next.js 16, React 19, TypeScript 5, Hybrid RAG | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 34,
+    "text": "| `solace-ai` | Solace AI — Mindful Wellness Companion | `https://github.com/aadil-lang/solace-ai` | `aadil-lang` | Public | Yes (52 backend pytests + 50 mobile checks) | React Native, Expo 58, FastAPI, LangGraph, Gemini | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 35,
+    "text": "| `ocr-evaluator` | OCR Evaluation & Robustness Platform | `https://github.com/aadil-lang/OCR-Evaluator` | `aadil-lang` | Public | Yes (134 backend pytests + 20 UI assertions) | Python 3.12, FastAPI, Tesseract OCR, React | **VERIFIED PRIMARY EVIDENCE** |"
+  },
+  {
+    "file": "research\\audits\\GITHUB_EVIDENCE_AND_REPOSITORY_AUDIT.md",
+    "line": 44,
+    "text": "- **Remediation Recommendation:** Ensure all public portfolio links and resume headers point consistently to `https://github.com/aadil-lang`, with `aadilkhurshid` documented in `sourceConflicts.ts` as a legacy handle."
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 39,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/vm-copy-question-generator` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 58,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/Worksheets-MS-Formal-Gamified` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 76,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/Curriculum-Transformation` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 114,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/Engineering-design-automation` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 133,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/ai-engineering-lab` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 151,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/loom-ai` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 169,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/Atlas-AI` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 189,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/portfolio` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 208,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/solace-ai` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\PROJECT_CHRONOLOGY_AND_OWNERSHIP_AUDIT.md",
+    "line": 226,
+    "text": "- **Repository Reference:** `https://github.com/aadil-lang/OCR-Evaluator` (Public / Validated)"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_0_CONSUMER_MIGRATION_ARCHITECTURE.md",
+    "line": 173,
+    "text": "- `vm-copy` public GitHub repo listed (`https://github.com/aadil-lang/vm-copy-question-generator`) despite being employer proprietary (`publicUrl: null`)."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 30,
+    "text": "- `vm-copy`: `github: null` (previously leaked `https://github.com/aadil-lang/vm-copy-question-generator`)."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 31,
+    "text": "- `ai-worksheets`: `github: null` (previously leaked `https://github.com/aadil-lang/Worksheets-MS-Formal-Gamified`)."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 32,
+    "text": "- `curriculum-etl`: `github: null` (previously leaked `https://github.com/aadil-lang/Curriculum-Transformation`)."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 80,
+    "text": "| `design-automation` | `INDEPENDENT · PERSONAL BUILD` | `2026-08 to 2026-09` · `independent` | `proj-design-automation` (`OPEN_SOURCE_MIT`, `2026-08 to 2026-09`) | `INDEPENDENT · PERSONAL BUILD` (`personal-independent`) | `2026-08 to 2026-09` · `independent` | `https://github.com/aadil-lang/Engineering-design-automation` | Yes (Software calculus vs CNC physical manufacturing) |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 81,
+    "text": "| `ocr-evaluator` | `INDEPENDENT · PERSONAL BUILD` | `2026-08 to 2026-09` · `independent` | `proj-ocr-evaluator` (`OPEN_SOURCE_MIT`, `2026-09 to 2026-10`) | `INDEPENDENT · PERSONAL BUILD` (`personal-independent`) | `2026-09 to 2026-10` · `independent` | `https://github.com/aadil-lang/OCR-benchmark-evaluator` | No |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 82,
+    "text": "| `ai-reliability` | `INDEPENDENT · PERSONAL BUILD` | `2026-09 to 2026-09` · `independent` | `proj-ai-reliability` (`OPEN_SOURCE_MIT`, `2026-10 to 2026-11`) | `INDEPENDENT · PERSONAL BUILD` (`personal-independent`) | `2026-10 to 2026-11` · `independent` | `https://github.com/aadil-lang/ai-application-reliability` | No |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 83,
+    "text": "| `loom-ai` | `INDEPENDENT · HACKATHON PROJECT` | `2026-08 to 2026-08` · `hackathon` | Independent Hackathon Spec | `INDEPENDENT · HACKATHON PROJECT` (`hackathon`) | `2026-08 to 2026-08` · `hackathon` | `https://github.com/aadil-lang/loom-ai` | No |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 84,
+    "text": "| `atlas-ai` | `INDEPENDENT · HACKATHON PROJECT` | `2026-08 to 2026-08` · `hackathon` | Independent Hackathon Spec | `INDEPENDENT · HACKATHON PROJECT` (`hackathon`) | `2026-08 to 2026-08` · `hackathon` | `https://github.com/aadil-lang/Atlas-AI` | No |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 85,
+    "text": "| `ask-aadil` | `INDEPENDENT · PERSONAL BUILD` | `2026-09 to 2026-09` · `independent` | `proj-ask-aadil` (`PERSONAL_PROPRIETARY`, `2026-10 to PRESENT`) | `INDEPENDENT · PERSONAL BUILD` (`personal-independent`) | `2026-10 to PRESENT` · `independent` | `https://github.com/aadil-lang/portfolio` | No |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 86,
+    "text": "| `solace-ai` | `INDEPENDENT · HACKATHON PROJECT` | `2026-11 to 2026-11` · `hackathon` | `proj-solace-ai` (`OPEN_SOURCE_MIT`, `2026-11 to 2026-11`) | `INDEPENDENT · HACKATHON PROJECT` (`hackathon`) | `2026-11 to 2026-11` · `hackathon` | `https://github.com/aadil-lang/solace-ai` | No |"
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_2_PROJECTS_REGISTRY_MIGRATION_REPORT.md",
+    "line": 138,
+    "text": "Test Suite 2 includes an adversarial regression assertion that constructs a mock `EMPLOYER_PROPRIETARY` project record injected with a spoofed `publicUrl: 'https://github.com/leaked/proprietary-repo'`. Passing this record through `getGovernedProjectPublicUrl()` returns `null`, proving that no consumer can bypass the publication boundary."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_4_JOURNAL_CHAPTER_GROUNDING_REPORT.md",
+    "line": 207,
+    "text": "Under no circumstance can an internal repository URL (e.g. `github.com/wayground/...`) leak through journal chapter projections. The automated validator in `test_journal_grounding.ts` verifies this with an adversarial test that deliberately injects an employer git URL and confirms the validator rejects it with `CONFIDENTIALITY LEAK`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\PHASE_2_5A_ENGINEERING_CASE_STUDY_REPORT.md",
+    "line": 312,
+    "text": "- Automated regex scanning across all case study content confirms **0 private corporate GitHub repository URLs** (e.g. `github.com/wayground/...` or `github.com/quizizz/...`)."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 57,
+    "text": "- Hosted at: `https://github.com/aadil-lang/vm-copy-question-generator`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 81,
+    "text": "- Hosted at: `https://github.com/aadil-lang/Worksheets-MS-Formal-Gamified`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 103,
+    "text": "- Hosted at: `https://github.com/aadil-lang/Curriculum-Transformation`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 147,
+    "text": "- Hosted at: `https://github.com/aadil-lang/Engineering-design-automation`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 168,
+    "text": "- Hosted at: `https://github.com/aadil-lang/ai-engineering-lab`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 187,
+    "text": "- Hosted at: `https://github.com/aadil-lang/loom-ai`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 208,
+    "text": "- Hosted at: `https://github.com/aadil-lang/Atlas-AI`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 229,
+    "text": "- Hosted at: `https://github.com/aadil-lang/portfolio`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 248,
+    "text": "- Hosted at: `https://github.com/aadil-lang/solace-ai`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\RECONCILED_PROJECT_OWNERSHIP_REGISTER.md",
+    "line": 266,
+    "text": "- Hosted at: `https://github.com/aadil-lang/OCR-Evaluator`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\TECHNICAL_METRICS_EVIDENCE_REASSESSMENT.md",
+    "line": 31,
+    "text": "- Remote repository: `https://github.com/aadil-lang/Engineering-design-automation`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\TECHNICAL_METRICS_EVIDENCE_REASSESSMENT.md",
+    "line": 58,
+    "text": "- Remote repository: `https://github.com/aadil-lang/OCR-Evaluator`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\TECHNICAL_METRICS_EVIDENCE_REASSESSMENT.md",
+    "line": 87,
+    "text": "- Remote repository: `https://github.com/aadil-lang/solace-ai`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\TECHNICAL_METRICS_EVIDENCE_REASSESSMENT.md",
+    "line": 100,
+    "text": "- Remote repository: `https://github.com/aadil-lang/ai-engineering-lab`."
+  },
+  {
+    "file": "research\\audits\\reconciliation\\TECHNICAL_METRICS_EVIDENCE_REASSESSMENT.md",
+    "line": 113,
+    "text": "- Repository: `https://github.com/aadil-lang/vm-copy-question-generator`."
+  },
+  {
+    "file": "research\\audits\\RESUME_AND_PROFESSIONAL_POSITIONING_AUDIT.md",
+    "line": 30,
+    "text": "- **Contact Channels:** Email (`aadil.khurshid95@gmail.com`), Phone (`+91-7973949541`), LinkedIn, GitHub (`github.com/aadil-lang`), Portfolio URL (`portfolio-ecru-five-5vd5okcvgi.vercel.app`)."
+  },
+  {
+    "file": "research\\engineering\\ASK_AADIL_COMPREHENSIVE_ACCEPTANCE_TEST_REPORT.md",
+    "line": 28,
+    "text": "- Zero private corporate repository URLs (`github.com/wayground/*`) exist across all ingested Knowledge Base and canonical chunks."
+  },
+  {
+    "file": "research\\engineering\\ASK_AADIL_COMPREHENSIVE_ACCEPTANCE_TEST_REPORT.md",
+    "line": 182,
+    "text": "- **Private URL Screening:** Zero private corporate GitHub repository URLs (`github.com/wayground/*`) exist across all 69 Knowledge Base chunks."
+  },
+  {
+    "file": "research\\engineering\\ENGINEERING_EXPERIENCE_KNOWLEDGE_BASE_DRAFT.md",
+    "line": 785,
+    "text": "- All employer-proprietary systems are governed by strict confidentiality: zero private corporate repository URLs (`github.com/wayground/...` or `github.com/quizizz/...`), internal company prompts, proprietary state standards datasets, or internal infrastructure IP addresses are disclosed."
+  },
+  {
+    "file": "research\\engineering\\PHASE_2_5B_JOURNAL_INTEGRATION_AND_RAG_READINESS.md",
+    "line": 339,
+    "text": "2. **Confidentiality Sanitization:** All retrieved chunks pass through `sanitizeRetrievalEvidence()` to ensure zero exposure of private URLs (`github.com/wayground/...`)."
+  },
+  {
+    "file": "research\\engineering\\PHASE_2_5C_CANONICAL_CASE_STUDY_ARCHITECTURE_ASSESSMENT.md",
+    "line": 697,
+    "text": "(`github.com/wayground/...`, `github.com/quizizz/...`)."
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2A_DEPLOYMENT_SYNCHRONIZATION_PREFLIGHT.md",
+    "line": 121,
+    "text": "| **Private Corporate Git URLs** | Regex scan for `github.com/wayground/*` and `github.com/quizizz/*`. | 0 private repository leaks found. (All occurrences are in sanitization filters, audit docs, or adversarial test probes). | **PASS** |"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2B_FINAL_DEPLOYMENT_READINESS.md",
+    "line": 185,
+    "text": "| **Zero Private Repository URLs** | Reconfirmed. Zero private corporate git URLs (`github.com/wayground/*`, `github.com/quizizz/*`) exist in data or KB prose. | `isChunkEligibleForPublicRetrieval` + `sanitizeRetrievalEvidence` |"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2E_CLIENT_SERVER_RAG_BOUNDARY_REMEDIATION.md",
+    "line": 94,
+    "text": "2. **Zero Corporate Repository URLs:** Scanned all 43 public chunks for `github.com/wayground` and `github.com/quizizz`. Leaks detected: **0**."
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2F_FINAL_BUNDLE_CONFIDENTIALITY_AND_BUILD_VERIFICATION.md",
+    "line": 142,
+    "text": "| **Private Wayground Repository URLs** | `github.com/wayground` | 50 files | **0** | **PASS** (Zero leaks) |"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2F_FINAL_BUNDLE_CONFIDENTIALITY_AND_BUILD_VERIFICATION.md",
+    "line": 143,
+    "text": "| **Private Quizizz Repository URLs** | `github.com/quizizz` | 50 files | **0** | **PASS** (Zero leaks) |"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2F_FINAL_BUNDLE_CONFIDENTIALITY_AND_BUILD_VERIFICATION.md",
+    "line": 151,
+    "text": "*(Note: In `lib/rag/knowledgeBaseIngestion.ts`, references to `github.com/wayground` and `github.com/quizizz` exist strictly inside the runtime security sanitizer `chunk.content.includes(...)`, which actively detects and purges leaks before retrieval context assembly. In `publicKnowledgeChunks.ts`, references to CS identifiers exist strictly in the top-level developer JSDoc banner explaining exclusion criteria.)*"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_2G_HOST_BUILD_AND_BROWSER_ACCEPTANCE.md",
+    "line": 23,
+    "text": "3. **Client Confidentiality Fully Enforced:** Verified that zero private corporate repository URLs (`github.com/wayground`, `github.com/quizizz`), zero proprietary case-study chunk text (CS-03, CS-06, CS-07), and zero internal repository boundary details (CS-08) are serialized into browser-delivered assets."
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3C_REMOTE_SYNCHRONIZATION_PREFLIGHT.md",
+    "line": 20,
+    "text": "2. **Remote Identity & Destination Confirmed:** Remote `origin` is mapped cleanly to `https://github.com/aadil-lang/Portfolio.git` with zero credential leaks or URL rewrites. Local branch `main` tracks `refs/remotes/origin/main`."
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3C_REMOTE_SYNCHRONIZATION_PREFLIGHT.md",
+    "line": 52,
+    "text": "* df36ba0 Merge branch 'main' of https://github.com/aadil-lang/Portfolio"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3C_REMOTE_SYNCHRONIZATION_PREFLIGHT.md",
+    "line": 62,
+    "text": "- **Remote Fetch URL:** `https://github.com/aadil-lang/Portfolio.git` (Redacted: public HTTPS repository URL; zero embedded tokens or credentials)"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3C_REMOTE_SYNCHRONIZATION_PREFLIGHT.md",
+    "line": 63,
+    "text": "- **Remote Push URL:** `https://github.com/aadil-lang/Portfolio.git` (Inherited from fetch URL; zero custom push URLs)"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3D_LIVE_REMOTE_AND_DEPLOYMENT_VERIFICATION.md",
+    "line": 65,
+    "text": "From https://github.com/aadil-lang/Portfolio"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3D_LIVE_REMOTE_AND_DEPLOYMENT_VERIFICATION.md",
+    "line": 71,
+    "text": "- Remote URL resolved: `https://github.com/aadil-lang/Portfolio`"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3E_GITHUB_SYNC_AND_VERCEL_PRODUCTION_RELEASE.md",
+    "line": 62,
+    "text": "To https://github.com/aadil-lang/Portfolio.git"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3_ATOMIC_RELEASE_SYNCHRONIZATION.md",
+    "line": 46,
+    "text": "- **Remote `origin` URL:** `https://github.com/aadil-lang/Portfolio.git`"
+  },
+  {
+    "file": "research\\engineering\\PHASE_3_3_ATOMIC_RELEASE_SYNCHRONIZATION.md",
+    "line": 56,
+    "text": "df36ba0 Merge branch 'main' of https://github.com/aadil-lang/Portfolio"
+  },
+  {
+    "file": "research\\project-analysis\\ai-application-reliability\\README.md",
+    "line": 4,
+    "text": "- **Source Repository**: `ai-engineering-lab` (`git@github.com:aadil-lang/ai-engineering-lab.git`)"
+  },
+  {
+    "file": "research\\project-analysis\\ai-worksheets\\README.md",
+    "line": 4,
+    "text": "- **Source Repository**: `Worksheets-MS-Formal-Gamified` (`git@github.com:aadil-lang/Worksheets-MS-Formal-Gamified.git`)"
+  },
+  {
+    "file": "research\\project-analysis\\curriculum-etl\\README.md",
+    "line": 4,
+    "text": "- **Source Repository**: `Curriculum-Transformation` (`git@github.com:aadil-lang/Curriculum-Transformation.git`)"
+  },
+  {
+    "file": "research\\project-analysis\\engineering-design-automation\\README.md",
+    "line": 4,
+    "text": "- **Source Repository**: `Engineering-design-automation` (`git@github.com:aadil-lang/Engineering-design-automation.git`)"
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\git-evolution.md",
+    "line": 6,
+    "text": "- `git ls-remote git@github.com:aadil-lang/math-item-bank-pipeline.git` $\\rightarrow$ `Repository not found`."
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\git-evolution.md",
+    "line": 7,
+    "text": "- `git ls-remote git@github.com:aadilkhurshid/math-item-bank-pipeline.git` $\\rightarrow$ `Repository not found`."
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\README.md",
+    "line": 4,
+    "text": "- **Claimed Repository URL**: `https://github.com/aadilkhurshid/math-item-bank-pipeline` (from `data/projects.ts`)"
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\README.md",
+    "line": 6,
+    "text": "- `git ls-remote git@github.com:aadil-lang/math-item-bank-pipeline.git` $\\rightarrow$ `ERROR: Repository not found`"
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\README.md",
+    "line": 7,
+    "text": "- `git ls-remote git@github.com:aadilkhurshid/math-item-bank-pipeline.git` $\\rightarrow$ `ERROR: Repository not found`"
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\README.md",
+    "line": 8,
+    "text": "- GitHub REST API (`https://api.github.com/users/aadil-lang/repos`) lists 13 repositories, none of which are titled `math-item-bank-pipeline`."
+  },
+  {
+    "file": "research\\project-analysis\\math-item-bank\\unknowns.md",
+    "line": 6,
+    "text": "- The repository referenced as `https://github.com/aadilkhurshid/math-item-bank-pipeline` is not accessible via SSH or public HTTPS under `aadil-lang` or `aadilkhurshid`."
+  },
+  {
+    "file": "research\\project-analysis\\vm-copy\\README.md",
+    "line": 4,
+    "text": "- **Source Repository**: `vm-copy-question-generator` (`git@github.com:aadil-lang/vm-copy-question-generator.git`)"
+  },
+  {
+    "file": "scripts\\test_ask_aadil_comprehensive_acceptance.ts",
+    "line": 475,
+    "text": "const noPrivateURL = !a.includes('github.com/wayground')"
+  },
+  {
+    "file": "scripts\\test_ask_aadil_comprehensive_acceptance.ts",
+    "line": 493,
+    "text": "const noPrivateURL = !a.includes('github.com/wayground')"
+  },
+  {
+    "file": "scripts\\test_ask_aadil_comprehensive_acceptance.ts",
+    "line": 510,
+    "text": "const noPrivateURL = !a.includes('github.com/wayground')"
+  },
+  {
+    "file": "scripts\\test_ask_aadil_comprehensive_acceptance.ts",
+    "line": 602,
+    "text": "const defended = !a.includes('github.com/wayground')"
+  },
+  {
+    "file": "scripts\\test_ask_aadil_comprehensive_acceptance.ts",
+    "line": 831,
+    "text": "• Visit [GitHub](https://github.com/aadil-lang)`"
+  },
+  {
+    "file": "scripts\\test_canonical_registry.ts",
+    "line": 255,
+    "text": "publicUrl: 'https://github.com/aadil-lang/private-repo',"
+  },
+  {
+    "file": "scripts\\test_client_server_rag_boundary.ts",
+    "line": 112,
+    "text": "if (s.includes('github.com/wayground') || s.includes('github.com/quizizz')) {"
+  },
+  {
+    "file": "scripts\\test_conversational_voice.ts",
+    "line": 275,
+    "text": "navTurn.suggestedAction?.type === 'navigate' || navTurn.answer.includes('github.com'),"
+  },
+  {
+    "file": "scripts\\test_engineering_case_studies.ts",
+    "line": 381,
+    "text": "return text.includes('github.com/wayground') || text.includes('github.com/quizizz')"
+  },
+  {
+    "file": "scripts\\test_journal_grounding.ts",
+    "line": 485,
+    "text": "publicUrl: 'https://github.com/wayground/vm-copy' // Adversarial leaked internal URL"
+  },
+  {
+    "file": "scripts\\test_live_tool_planning.ts",
+    "line": 41,
+    "text": "expectedTargetUrl: 'https://github.com/aadilkhurshid/loom-ai-b2b'"
+  },
+  {
+    "file": "scripts\\test_projects_migration.ts",
+    "line": 165,
+    "text": "proj !== undefined && typeof proj.github === 'string' && proj.github.startsWith('https://github.com/'),"
+  },
+  {
+    "file": "scripts\\test_projects_migration.ts",
+    "line": 197,
+    "text": "publicUrl: 'https://github.com/leaked/proprietary-repo',"
+  },
+  {
+    "file": "scripts\\test_rag_canonical_grounding.ts",
+    "line": 299,
+    "text": "Boolean(chunk && !chunk.metadata.source_url.includes('github.com')),"
+  },
+  {
+    "file": "scripts\\test_rag_canonical_grounding.ts",
+    "line": 312,
+    "text": "content: 'Internal leak: https://github.com/wayground/vm-copy-private',"
+  },
+  {
+    "file": "scripts\\test_rag_canonical_grounding.ts",
+    "line": 313,
+    "text": "deepLink: 'https://github.com/wayground/vm-copy-private',"
+  },
+  {
+    "file": "scripts\\test_rag_knowledge_base_ingestion.ts",
+    "line": 362,
+    "text": "c.content.includes('github.com/wayground') ||"
+  },
+  {
+    "file": "scripts\\test_rag_knowledge_base_ingestion.ts",
+    "line": 363,
+    "text": "c.content.includes('github.com/quizizz') ||"
+  },
+  {
+    "file": "scripts\\test_rag_knowledge_base_ingestion.ts",
+    "line": 364,
+    "text": "c.metadata.source_url.includes('github.com/wayground')"
+  },
+  {
+    "file": "scripts\\test_rag_knowledge_base_ingestion.ts",
+    "line": 535,
+    "text": "content: 'Internal repo available at https://github.com/wayground/secret-repo',"
+  },
+  {
+    "file": "scripts\\test_rag_knowledge_base_ingestion.ts",
+    "line": 540,
+    "text": "source_url: 'https://github.com/wayground/secret-repo',"
+  },
+  {
+    "file": "scripts\\test_rag_knowledge_base_ingestion.ts",
+    "line": 554,
+    "text": "`Governance filter rejected chunk with github.com/wayground URL`"
+  },
+  {
+    "file": "scripts\\test_resume_migration.ts",
+    "line": 79,
+    "text": "assert(resumeData.header.github === 'github.com/aadil-lang', 'Header GitHub is populated')"
+  },
+  {
+    "file": "scripts\\test_resume_migration.ts",
+    "line": 265,
+    "text": "!serializedResume.includes('github.com/aadil-lang/vm-copy-question-generator'),"
+  },
+  {
+    "file": "scripts\\test_resume_migration.ts",
+    "line": 269,
+    "text": "!serializedResume.includes('github.com/aadil-lang/Worksheets-MS-Formal-Gamified'),"
+  },
+  {
+    "file": "scripts\\test_resume_migration.ts",
+    "line": 273,
+    "text": "!serializedResume.includes('github.com/aadil-lang/Curriculum-Transformation'),"
+  },
+  {
+    "file": "scripts\\test_resume_migration.ts",
+    "line": 279,
+    "text": "resumeData.header.github === 'github.com/aadil-lang',"
+  },
+  {
+    "file": "scripts\\test_resume_migration.ts",
+    "line": 280,
+    "text": "\"Header contains primary profile GitHub handle 'github.com/aadil-lang'\""
+  },
+  {
+    "file": "scripts\\test_tool_planning.ts",
+    "line": 237,
+    "text": "assert('Context', 'Context propagation resolves resolved project to canonical loom-ai github URL', Boolean(gStep?.success && gStep.result?.navigation?.url === 'https://github.com/aadilkhurshid/loom-ai-b2b'), `url=${gStep?.result?.navigation?.url}`)"
+  },
+  {
+    "file": "scripts\\test_tool_registry.ts",
+    "line": 129,
+    "text": "githubLoomRes.success && githubLoomRes.navigation?.url === 'https://github.com/aadilkhurshid/loom-ai-b2b',"
+  },
+  {
+    "file": "scripts\\test_voice_interface.ts",
+    "line": 60,
+    "text": "Visit [GitHub](https://github.com/aadil-lang)`"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 259,
+    "text": "- **Case Study / Repo:** [`/projects/loom-ai`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/loom-ai`](https://github.com/aadil-lang/loom-ai)"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 273,
+    "text": "- **Case Study / Repo:** [`/projects/atlas-ai`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/Atlas-AI`](https://github.com/aadil-lang/Atlas-AI)"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 291,
+    "text": "- **Case Study / Repo:** [`/projects/ocr-evaluator`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/OCR-Evaluator`](https://github.com/aadil-lang/OCR-Evaluator)"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 305,
+    "text": "- **Case Study / Repo:** [`/projects/ai-reliability`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/ai-engineering-lab`](https://github.com/aadil-lang/ai-engineering-lab)"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 319,
+    "text": "- **Case Study / Repo:** [`/projects/design-automation`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/Engineering-design-automation`](https://github.com/aadil-lang/Engineering-design-automation)"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 338,
+    "text": "- **Case Study / Repo:** [`/projects/ask-aadil`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/portfolio`](https://github.com/aadil-lang/portfolio)"
+  },
+  {
+    "file": "TIMELINE.md",
+    "line": 356,
+    "text": "- **Case Study / Repo:** [`/projects/solace-ai`](file:///c:/Users/HP/OneDrive/Documents/Portfolio/app/projects/%5Bslug%5D/page.tsx) · [`github.com/aadil-lang/solace-ai`](https://github.com/aadil-lang/solace-ai)"
+  }
+]

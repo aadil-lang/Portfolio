@@ -48,6 +48,7 @@ export type QueryIntent =
   | 'unknown'
   | 'professional'
   | 'chronology'
+  | 'comparison'
 
 export type VerificationStatus =
   | 'verified'
@@ -355,6 +356,30 @@ export interface SourcePlan {
   strategy: string
 }
 
+export type ResponseDepth = 1 | 2 | 3
+
+export type ResponseMode =
+  | 'direct_answer'
+  | 'follow_up'
+  | 'comparison'
+  | 'specific_fact'
+  | 'technical_explanation'
+  | 'correction_acknowledgment'
+  | 'clarification_prompt'
+  | 'abstention_insufficient_evidence'
+  | 'new_topic'
+  | 'summary'
+
+export interface ResponseStrategy {
+  mode: ResponseMode
+  depth: ResponseDepth
+  directAnswerFocus?: string
+  suppressIntro: boolean
+  comparisonSubjects?: string[]
+  correctionTarget?: string
+  targetProject?: string
+}
+
 export interface SynthesisInput {
   question: string
   intent: QueryIntent
@@ -363,6 +388,7 @@ export interface SynthesisInput {
   conflicts?: SourceConflict[]
   ownershipMetadata?: Record<string, string>
   temporalContext?: string
+  responseStrategy?: ResponseStrategy
 }
 
 export interface SynthesisResult {
@@ -431,6 +457,61 @@ export interface AgentConversationState {
   /** Phase 6: Active email draft and resource authorization IDs */
   activeDraftId?: string
   activeAuthorizationId?: string
+  /** Phase 2.1: Bounded ephemeral session memory and context resolution */
+  sessionMemory?: SessionMemory
+}
+
+export interface DialogueTurn {
+  turnId: string
+  turnIndex: number
+  timestamp: string
+  originalQuery: string
+  normalizedQuery: string
+  resolvedIntent: QueryIntent
+  resolvedEntities: string[]
+  resolvedProject?: string
+  retrievedEvidenceIds?: string[]
+  shortAnswerSummary: string
+  clarificationStatus?: 'none' | 'pending' | 'resolved'
+  correctionMetadata?: {
+    wasCorrection: boolean
+    correctedFromEntity?: string
+    correctedToEntity?: string
+  }
+}
+
+export interface TopicStackItem {
+  topicType: 'project' | 'concept' | 'career' | 'general'
+  entitySlug: string
+  displayTitle: string
+  introducedTurn: number
+  lastReferencedTurn: number
+  salience: number
+  roleInTurn?: 'primary' | 'comparison_subject' | 'secondary'
+}
+
+export interface PendingClarification {
+  originalQuery: string
+  ambiguousTerm: string
+  candidateEntities: Array<{
+    slug: string
+    title: string
+    description: string
+  }>
+  clarificationQuestion: string
+  askedAtTurn: number
+}
+
+export interface SessionMemory {
+  sessionId: string
+  sessionStartTime: string
+  turnCounter: number
+  recentTurns: DialogueTurn[]
+  topicStack: TopicStackItem[]
+  compactContextSummary: string
+  pendingClarification?: PendingClarification
+  comparisonEntities?: string[]
+  maxRecentTurns: number
 }
 
 export interface AgentTurnResult {
@@ -456,6 +537,7 @@ export interface EvidencePackage {
   ownershipEvidence: EvidenceItem[]
   conflicts?: SourceConflict[]
   sourcePlan?: SourcePlan
+  responseStrategy?: ResponseStrategy
 }
 
 export interface GroundedLlmSynthesisOutput {

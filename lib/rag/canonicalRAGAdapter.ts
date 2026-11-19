@@ -390,6 +390,16 @@ export function queryCanonicalStructuredKnowledge(
       provenanceBadge: '[Canonical Career Registry]'
     })
 
+    if (lowerQ.includes('2022')) {
+      return {
+        matched: true,
+        topic: 'wayground_tenure_dates',
+        canonicalEvidence: evidence,
+        exactAnswer:
+          'No, Aadil did not work at Wayground in 2022 as an AI Engineer. In 2022, he worked at Inhaltmart (through Feb 2022) and Digiplus (Jun–Sep 2022), before undertaking independent quantitative study. He joined Wayground in January 2024 as a Subject Matter Expert — Mathematics, and transitioned to the AI/ML team as AI Engineer in January 2026.'
+      }
+    }
+
     return {
       matched: true,
       topic: 'wayground_tenure_dates',
@@ -400,14 +410,74 @@ export function queryCanonicalStructuredKnowledge(
   }
 
   // ---------------------------------------------------------------------------
+  // B2. SEPTEMBER 2022 MILESTONE & TRANSITION
+  // ---------------------------------------------------------------------------
+  if (
+    lowerQ.includes('september 2022') ||
+    lowerQ.includes('sept 2022') ||
+    (lowerQ.includes('2022') && lowerQ.includes('september'))
+  ) {
+    evidence.push({
+      id: 'evidence-canonical-sept-2022',
+      source: 'Canonical Career Registry',
+      sourceType: 'canonical_record',
+      authority: 'primary',
+      layer: 'canonical',
+      entity: 'DIGIPPLUS / Independent Quantitative Discipline',
+      content: 'September 2022 marks conclusion of agency QA work at DIGIPPLUS (Jun 2022 – Sep 2022) and transition into 16 months of independent quantitative discipline and mathematical foundations.',
+      deepLink: '/timeline',
+      provenanceBadge: '[Canonical Career Registry]'
+    })
+
+    return {
+      matched: true,
+      topic: 'september_2022_transition',
+      canonicalEvidence: evidence,
+      exactAnswer:
+        'In September 2022, Aadil concluded his agency tenure as QA/QC Specialist at Digiplus (DIGIPPLUS) and commenced an intensive 16-month period of independent quantitative discipline and mathematical study (September 2022 – December 2023), establishing the rigorous analytical foundation for his subsequent roles at Wayground.'
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // B3. POST-JULY 2026 STATUS & INDEPENDENT RESEARCH
+  // ---------------------------------------------------------------------------
+  if (
+    lowerQ.includes('after july 2026') ||
+    lowerQ.includes('post july 2026') ||
+    lowerQ.includes('after jul 2026') ||
+    (lowerQ.includes('july 2026') && (lowerQ.includes('after') || lowerQ.includes('doing') || lowerQ.includes('subsequent') || lowerQ.includes('since')))
+  ) {
+    evidence.push({
+      id: 'evidence-canonical-post-july-2026',
+      source: 'Canonical Career & Timeline Registry',
+      sourceType: 'canonical_record',
+      authority: 'primary',
+      layer: 'canonical',
+      entity: 'Independent AI Engineering & Research',
+      content: 'Aadil concluded formal Wayground AI/ML tenure in July 2026. Activity from August 2026 onward is independent AI systems engineering and research (Engineering Journal Chapter 10 "Still Building ?").',
+      deepLink: '/timeline',
+      provenanceBadge: '[Canonical Career Registry]'
+    })
+
+    return {
+      matched: true,
+      topic: 'post_july_2026_status',
+      canonicalEvidence: evidence,
+      exactAnswer:
+        'Aadil concluded his formal engagement with Wayground in July 2026. Following July 2026 (August 2026 — Present), his documented activity consists of independent AI systems engineering and research, authoring Chapter 10 of his Engineering Journal ("Still Building ?"), and engineering verified AI architectures including Solace AI, Loom AI, Atlas AI, and this verified Ask Aadil portfolio.'
+    }
+  }
+
+  // ---------------------------------------------------------------------------
   // C. CONTENT BUILDER V1 AUTHORSHIP & ATTRIBUTION
   // ---------------------------------------------------------------------------
   if (
-    (lowerQ.includes('content builder') || lowerQ.includes('voyagemath v1')) &&
+    (lowerQ.includes('content builder') || lowerQ.includes('voyagemath v1') || lowerQ.includes('voyagemath')) &&
     (lowerQ.includes('build') ||
       lowerQ.includes('author') ||
       lowerQ.includes('contribution') ||
       lowerQ.includes('who built') ||
+      lowerQ.includes('who authored') ||
       lowerQ.includes('role'))
   ) {
     const cb = canonicalRegistry.projectRecords.find(p => p.projectId === 'proj-content-builder')
@@ -434,7 +504,7 @@ export function queryCanonicalStructuredKnowledge(
       topic: 'content_builder_authorship',
       canonicalEvidence: evidence,
       exactAnswer:
-        'VoyageMath Content Builder V1 was designed and engineered by the Wayground Engineering team. Aadil did not author the software codebase; his documented role was SME testing, identifying edge cases in KaTeX rendering, filing bug reports, and advising on mathematical authoring workflows.'
+        'VoyageMath Content Builder V1 was designed and engineered by the Wayground Engineering team. Aadil did not author the software codebase; his documented role was SME testing, identifying edge cases in KaTeX rendering, filing bug reports, and serving as workflow advisor.'
     }
   }
 

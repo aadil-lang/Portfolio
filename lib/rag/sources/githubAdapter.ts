@@ -109,23 +109,6 @@ export const githubRepositories: Record<string, GitHubRepoRecord> = {
       'Next.js and Express platform for technical textile sourcing with multi-attribute filtering and agentic procurement workflows.',
     lastVerified: '2026-09-29'
   },
-  'vm-copy': {
-    owner: 'aadilkhurshid',
-    repo: 'vm-copy-generator',
-    url: 'https://github.com/aadilkhurshid/vm-copy-generator',
-    description:
-      'Deterministic assessment question generator enforcing 4 unique options, single correct answer, and distractor rationale invariants.',
-    primaryLanguage: 'TypeScript',
-    technologies: ['Next.js 16', 'TypeScript 5', 'Tailwind CSS', 'Portkey AI Gateway', 'Deterministic Evaluator'],
-    hasTests: true,
-    testFramework: 'Vitest',
-    verifiedTestCount: 28,
-    architectureNotes:
-      'Decoupled generative LLM output from assessment invariants. In-memory TypeScript evaluator asserts 4 unique options, exactly one correct flag, and valid distractor pedagogical rationales running locally without another model call.',
-    readmeExcerpt:
-      'Deterministic assessment generator built during Wayground tenure automating isomorphic question variations with client-side mathematical guardrails.',
-    lastVerified: '2026-09-29'
-  },
   'ask-aadil': {
     owner: 'aadil-lang',
     repo: 'portfolio',

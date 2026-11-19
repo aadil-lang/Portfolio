@@ -1,0 +1,247 @@
+[
+  {
+    "query": "Show me the GitHub repository for Engineering Design Automation.",
+    "intent": "contact",
+    "answer": "Navigating to verified GitHub destination: [Open Engineering Design Automation GitHub Repository](https://github.com/aadil-lang/Engineering-design-automation)",
+    "provenance": {
+      "sources": [
+        "portfolio"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "[Tool: github.open]"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "How many automated tests does this project have?",
+    "intent": "technical",
+    "answer": "Based on verified canonical repository test benchmarks and quantitative assertions:\n\n• **424 automated tests passing across 28 test suites**\n  - **Verified Metric:** **424 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** Dockerized FastAPI pytest suite and OpenCascade test runner\n  - **Verification Details:** Verified against 28 test suites covering closed-form torsional physics, nominal shaft series selection, STEP BRep geometry generation, and SVG drawing callout cross-checks.\n\n• **178 automated pytests validating LangGraph SEC filings and tool execution**\n  - **Verified Metric:** **178 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** Atlas AI complete test suite runner\n  - **Verification Details:** Verified in complete repository test matrix covering StateGraph router nodes, SEC EDGAR chunkers, vector search retrievers, and background alert worker lifespan.\n\n• **59 automated tests validating core graph functionality**\n  - **Verified Metric:** **59 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** Atlas AI initial MVP test harness\n  - **Verification Details:** Verified as the test count milestone of the initial Telegram MVP build; subsequent multi-agent RAG expansion grew coverage to 178 tests.\n\n• **158 collected backend test cases across backend/tests/**\n  - **Verified Metric:** **158 test cases**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** AI Application Reliability backend test suite\n  - **Verification Details:** Verified against FastAPI and MCP SDK diagnostic test suites simulating headless Chromium disconnects and model drift.\n\n• **47 governance and Playwright E2E verification tests**\n  - **Verified Metric:** **47 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** Playwright test runner and Fisher covariance governance assertions\n  - **Verification Details:** Verified against Playwright DOM probe simulations and mathematical covariance bounds checking.\n\n• **52 automated backend pytests passing across 8 unit and LangGraph orchestration suites**\n  - **Verified Metric:** **52 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** Solace AI backend pytest suite (python -m pytest -o asyncio_mode=auto)\n  - **Verification Details:** Verified 52/52 passing tests across test_conversational_personality.py, test_emotional_landscape.py, test_health.py, test_journal.py, test_langgraph_orchestration.py, test_poetry.py, test_profile_auth.py, and test_rant_and_voice.py.\n\n• **50 automated mobile verification checks passing across 7 suites with 0 TypeScript errors**\n  - **Verified Metric:** **50 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** Solace AI mobile test runner (npm test) and TypeScript compiler (tsc --noEmit)\n  - **Verification Details:** Verified 50/50 checks passing across auth_and_profile, phase3_companion, poetry, journal, emotional_landscape, storage_adapter, and api_cold_start suites, with 0 TypeScript errors.\n\n• **134 automated backend pytests passing across 22 test files**\n  - **Verified Metric:** **134 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** OCR Evaluation Pipeline backend pytest runner\n  - **Verification Details:** Verified 134/134 passing tests across test_adversarial_evaluation, test_batch_error_isolation, test_confidence, test_critical_fields, test_evaluator, test_extractor, test_faithfulness, test_metrics, test_normalization, test_risk, test_robustness, and test_api.\n\n• **20 browser UI evaluation assertions passing with 0 frontend JavaScript errors**\n  - **Verified Metric:** **20 tests**\n  - **Verification Status:** VERIFIED\n  - **Evidence Source:** OCR Evaluation Pipeline browser UI verification runner\n  - **Verification Details:** Verified 20/20 UI assertions passing across file uploads, ground-truth diff rendering, critical-field highlighting, and error recovery with 0 console errors.\n\n*Note: Canonical values are validated directly against repository test runners and never estimated.*",
+    "provenance": {
+      "sources": [
+        "quantitative_claim"
+      ],
+      "layers": [
+        "system"
+      ],
+      "citations": [
+        "Canonical Metric // design-automation",
+        "Canonical Metric // atlas-ai",
+        "Canonical Metric // ai-reliability",
+        "Canonical Metric // solace-ai",
+        "Canonical Metric // ocr-evaluator"
+      ],
+      "claims": [
+        {
+          "claim": "424 automated tests passing across 28 test suites",
+          "sourceType": "quantitative_claim",
+          "reference": "Dockerized FastAPI pytest suite and OpenCascade test runner"
+        },
+        {
+          "claim": "178 automated pytests validating LangGraph SEC filings and tool execution",
+          "sourceType": "quantitative_claim",
+          "reference": "Atlas AI complete test suite runner"
+        },
+        {
+          "claim": "59 automated tests validating core graph functionality",
+          "sourceType": "quantitative_claim",
+          "reference": "Atlas AI initial MVP test harness"
+        },
+        {
+          "claim": "158 collected backend test cases across backend/tests/",
+          "sourceType": "quantitative_claim",
+          "reference": "AI Application Reliability backend test suite"
+        },
+        {
+          "claim": "47 governance and Playwright E2E verification tests",
+          "sourceType": "quantitative_claim",
+          "reference": "Playwright test runner and Fisher covariance governance assertions"
+        },
+        {
+          "claim": "52 automated backend pytests passing across 8 unit and LangGraph orchestration suites",
+          "sourceType": "quantitative_claim",
+          "reference": "Solace AI backend pytest suite (python -m pytest -o asyncio_mode=auto)"
+        },
+        {
+          "claim": "50 automated mobile verification checks passing across 7 suites with 0 TypeScript errors",
+          "sourceType": "quantitative_claim",
+          "reference": "Solace AI mobile test runner (npm test) and TypeScript compiler (tsc --noEmit)"
+        },
+        {
+          "claim": "134 automated backend pytests passing across 22 test files",
+          "sourceType": "quantitative_claim",
+          "reference": "OCR Evaluation Pipeline backend pytest runner"
+        },
+        {
+          "claim": "20 browser UI evaluation assertions passing with 0 frontend JavaScript errors",
+          "sourceType": "quantitative_claim",
+          "reference": "OCR Evaluation Pipeline browser UI verification runner"
+        }
+      ]
+    }
+  },
+  {
+    "query": "Can you verify that all 424 tests are passing?",
+    "intent": "technical",
+    "answer": "Based on documented evidence in **Verified Metric // 424 automated tests passing across 28 test suites**:\n\nCANONICAL QUANTITATIVE CLAIM // 424 automated tests passing across 28 test suites\nProject: design-automation\nVerified Metric: 424 tests\nStatus: verified\nEvidence Source: Dockerized FastAPI pytest suite and OpenCascade test runner\nVerification Details: Verified against 28 test suites covering closed-form torsional physics, nominal shaft series selection, STEP BRep geometry generation, and SVG drawing callout cross-checks.\nDocumented In: portfolio (/projects/design-automation), portfolio (Spread 10 // Folio 021), resume (Personal Projects Item 1)...\n\n*(Refer to [Verified Metric // 424 automated tests passing across 28 test suites](/projects/design-automation) for full technical details).*",
+    "provenance": {
+      "sources": [
+        "quantitative_claim"
+      ],
+      "layers": [
+        "system"
+      ],
+      "citations": [
+        "Verified Metric // 424 automated tests passing across 28 test suites"
+      ],
+      "claims": [
+        {
+          "claim": "Excerpt from Verified Metric // 424 automated tests passing across 28 test suites",
+          "sourceType": "quantitative_claim",
+          "layer": "system",
+          "reference": "metric-claim-eda-424-tests",
+          "url": "/projects/design-automation"
+        }
+      ]
+    }
+  },
+  {
+    "query": "Show me the source supporting this metric.",
+    "intent": "unknown",
+    "answer": "I don't have that information in Aadil's portfolio (I don't have that documented).\n\nMy knowledge is strictly grounded in Aadil's **Timeline**, **Engineering Journal**, **Systems Archive**, **verified Resume**, and **GitHub repositories**. I do not generate speculative facts or unverified assertions.\n\nIf you have a question about his engineering journey, systems, technical architecture, or verified contact information, please let me know!",
+    "provenance": {
+      "sources": [
+        "structured_profile"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "Grounded Portfolio Boundary"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "Did Aadil independently build this project?",
+    "intent": "unknown",
+    "answer": "I don't have that information in Aadil's portfolio (I don't have that documented).\n\nMy knowledge is strictly grounded in Aadil's **Timeline**, **Engineering Journal**, **Systems Archive**, **verified Resume**, and **GitHub repositories**. I do not generate speculative facts or unverified assertions.\n\nIf you have a question about his engineering journey, systems, technical architecture, or verified contact information, please let me know!",
+    "provenance": {
+      "sources": [
+        "structured_profile"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "Grounded Portfolio Boundary"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "Is this repository actually owned by Aadil?",
+    "intent": "unknown",
+    "answer": "I don't have that information in Aadil's portfolio (I don't have that documented).\n\nMy knowledge is strictly grounded in Aadil's **Timeline**, **Engineering Journal**, **Systems Archive**, **verified Resume**, and **GitHub repositories**. I do not generate speculative facts or unverified assertions.\n\nIf you have a question about his engineering journey, systems, technical architecture, or verified contact information, please let me know!",
+    "provenance": {
+      "sources": [
+        "structured_profile"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "Grounded Portfolio Boundary"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "What happens if the GitHub repository is unavailable?",
+    "intent": "contact",
+    "answer": "Navigating to verified GitHub destination: [Open Primary GitHub Profile](https://github.com/aadil-lang)",
+    "provenance": {
+      "sources": [
+        "portfolio"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "[Tool: github.open]"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "Can you distinguish between a manually registered claim and independently verified evidence?",
+    "intent": "unknown",
+    "answer": "I don't have that information in Aadil's portfolio (I don't have that documented).\n\nMy knowledge is strictly grounded in Aadil's **Timeline**, **Engineering Journal**, **Systems Archive**, **verified Resume**, and **GitHub repositories**. I do not generate speculative facts or unverified assertions.\n\nIf you have a question about his engineering journey, systems, technical architecture, or verified contact information, please let me know!",
+    "provenance": {
+      "sources": [
+        "structured_profile"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "Grounded Portfolio Boundary"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "What is the GitHub URL for VM Copy?",
+    "intent": "contact",
+    "answer": "Navigating to verified GitHub destination: [Open Primary GitHub Profile](https://github.com/aadil-lang)",
+    "provenance": {
+      "sources": [
+        "portfolio"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "[Tool: github.open]"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "Show me the GitHub repository for Atlas AI.",
+    "intent": "contact",
+    "answer": "Navigating to verified GitHub destination: [Open Atlas AI — Financial Copilot & SEC Filing RAG GitHub Repository](https://github.com/aadil-lang/Atlas-AI)",
+    "provenance": {
+      "sources": [
+        "portfolio"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "[Tool: github.open]"
+      ],
+      "claims": []
+    }
+  },
+  {
+    "query": "Show me the GitHub repository for Loom AI.",
+    "intent": "contact",
+    "answer": "Navigating to verified GitHub destination: [Open Loom AI — B2B Textile Marketplace Platform GitHub Repository](https://github.com/aadil-lang/loom-ai)",
+    "provenance": {
+      "sources": [
+        "portfolio"
+      ],
+      "layers": [
+        "none"
+      ],
+      "citations": [
+        "[Tool: github.open]"
+      ],
+      "claims": []
+    }
+  }
+]

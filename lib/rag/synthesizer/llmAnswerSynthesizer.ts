@@ -20,7 +20,8 @@ import {
   QuantitativeClaimItem,
   QueryIntent,
   SourceType,
-  PortfolioLayer
+  PortfolioLayer,
+  ResponseStrategy
 } from '@/types/rag'
 import { HybridRetrievalResult } from '@/lib/rag/hybridRetriever'
 import { QueryUnderstanding } from '@/lib/rag/queryUnderstanding'
@@ -35,7 +36,8 @@ export function buildEvidencePackage(
   query: string,
   retrieval: HybridRetrievalResult,
   understanding: QueryUnderstanding,
-  context: ConversationContext
+  context: ConversationContext,
+  strategy?: ResponseStrategy
 ): EvidencePackage {
   const allEvidence = retrieval.evidenceItems || []
 
@@ -72,7 +74,8 @@ export function buildEvidencePackage(
     codeEvidence,
     ownershipEvidence,
     conflicts: retrieval.structured?.relevantConflicts,
-    sourcePlan: retrieval.sourcePlan
+    sourcePlan: retrieval.sourcePlan,
+    responseStrategy: strategy
   }
 }
 
@@ -96,6 +99,16 @@ STRICT GROUNDING RULES:
 7. Tone: Write natural, concise, conversational prose. Avoid promotional hyperbole ("world-class", "exceptional", "cutting-edge"). Use clear engineering descriptions ("built", "implemented", "verified", "contributed").
 8. Do NOT mention internal retrieval mechanisms (e.g., "According to chunk #3", "My database shows"). Answer naturally.
 9. Use conversation context ONLY to resolve references such as "it", "that", "he", or "the project". Never treat conversation context as proof of unsupplied factual claims.
+
+CONVERSATIONAL RESPONSE ENGINE RULES (Phase 2.2):
+10. DIRECT-ANSWER-FIRST: Begin sentence 1 by answering the core question directly. Do not start with introductory filler ("Certainly!", "Great question!", "Based on the evidence...", "I'd be happy to...").
+11. CONVERSATIONAL CONTINUITY & ANTI-REINTRODUCTION: When the response strategy indicates suppressIntro: true or mode: "follow_up", do NOT re-introduce the project name, summary, or company. Jump straight into the specific mechanism, metric, or answer asked.
+12. ADAPTIVE DEPTH:
+    - Depth 1 (Concise): 1–2 short paragraphs or concise direct statements; omit lengthy subheadings or redundant cards.
+    - Depth 2 (Explanatory): Standard conversational technical explanation with clear paragraphs.
+    - Depth 3 (Deep Technical): Comprehensive architectural breakdown detailing invariants, failure modes, trade-offs, and verification test metrics.
+13. COMPARATIVE SYNTHESIS: When comparing two or more systems, contrast them along explicit dimensions (Domain & Scope, Reliability/Safety Invariants, Ownership, and Test Verification) rather than describing each in isolation.
+14. CORRECTION RECOVERY: When the user points out a misunderstanding, acknowledge the clarification directly and address the corrected topic immediately.
 
 Output strictly valid JSON matching this schema:
 {
@@ -378,6 +391,18 @@ export class LlmAnswerSynthesizer {
     }
     if (pkg.conversationContext.recentQuestion) {
       text += `PREVIOUS QUESTION: "${pkg.conversationContext.recentQuestion}"\n`
+    }
+    if (pkg.responseStrategy) {
+      text += `\n--- CONVERSATIONAL RESPONSE STRATEGY ---\n`
+      text += `MODE: ${pkg.responseStrategy.mode}\n`
+      text += `DEPTH: Level ${pkg.responseStrategy.depth} (${pkg.responseStrategy.depth === 1 ? 'Concise (1-2 paragraphs max, direct answer first, omit unnecessary headings)' : pkg.responseStrategy.depth === 3 ? 'Deep Technical (Detailed architecture, invariants, trade-offs, test metrics)' : 'Explanatory (Standard clear architectural explanation)'})\n`
+      text += `SUPPRESS RE-INTRODUCTION: ${pkg.responseStrategy.suppressIntro ? 'YES (Do NOT re-introduce the project name, summary, or company; answer the mechanism/question directly in sentence 1)' : 'NO'}\n`
+      if (pkg.responseStrategy.directAnswerFocus) {
+        text += `DIRECT ANSWER FOCUS: ${pkg.responseStrategy.directAnswerFocus}\n`
+      }
+      if (pkg.responseStrategy.comparisonSubjects && pkg.responseStrategy.comparisonSubjects.length > 0) {
+        text += `COMPARISON SUBJECTS: ${pkg.responseStrategy.comparisonSubjects.join(' vs ')}\n`
+      }
     }
 
     // Quantitative Claims Tier

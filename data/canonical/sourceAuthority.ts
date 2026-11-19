@@ -162,6 +162,15 @@ export const sourceAuthorityRules: Record<QueryIntent, AuthorityRule> = {
     strictRule:
       'Retrieve distinct slices: Timeline for WHEN, Journal for WHY/WHAT BROKE, Systems for WHAT WAS BUILT, GitHub for REPO EVIDENCE, Resume for FORMAL CONTEXT.'
   },
+  comparison: {
+    intent: 'comparison',
+    description: 'Inquiries comparing two or more engineering systems, projects, or architectural patterns',
+    preferredSources: ['portfolio', 'github', 'canonical_record'],
+    preferredLayers: ['system', 'timeline', 'journal'],
+    fallbackSources: ['structured_profile', 'resume'],
+    strictRule:
+      'Contrast projects explicitly along domain, architecture, safety invariants, and test verification metrics.'
+  },
   unknown: {
     intent: 'unknown',
     description: 'General or ambiguous queries',

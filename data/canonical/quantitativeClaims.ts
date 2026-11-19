@@ -72,10 +72,10 @@ export const quantitativeClaims: QuantitativeClaimItem[] = [
   },
   {
     id: 'claim-reliability-158-tests',
-    claim: '158 backend test suites validating tool boundaries and failure containment',
+    claim: '158 collected backend test cases across backend/tests/',
     projectSlug: 'ai-reliability',
     metricValue: 158,
-    unit: 'test suites',
+    unit: 'test cases',
     claimedIn: [
       { source: 'portfolio', layer: 'system', ref: '/projects/ai-reliability' },
       { source: 'portfolio', layer: 'journal', ref: 'Spread 12 // Folio 026' }
@@ -84,6 +84,20 @@ export const quantitativeClaims: QuantitativeClaimItem[] = [
     evidenceSource: 'AI Application Reliability backend test suite',
     verificationDetails:
       'Verified against FastAPI and MCP SDK diagnostic test suites simulating headless Chromium disconnects and model drift.'
+  },
+  {
+    id: 'claim-loom-42-tests',
+    claim: '42 automated tests validating Clean Architecture and procurement workflows',
+    projectSlug: 'loom-ai',
+    metricValue: 42,
+    unit: 'tests',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/loom-ai' }
+    ],
+    status: 'verified',
+    evidenceSource: 'Loom AI Playwright E2E and Jest integration suites',
+    verificationDetails:
+      'Verified across 42 automated tests covering Clean Architecture dependency rules, compound MongoDB text search, and LangGraph procurement approval state machines.'
   },
   {
     id: 'claim-reliability-47-governance-tests',

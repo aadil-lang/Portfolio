@@ -24,6 +24,29 @@ export const githubOpenTool: AskAadilTool = {
     let label = 'Open Primary GitHub Profile'
 
     if (rawProject) {
+      // Check if user is asking for the general profile using synonyms
+      const isExplicitProfileRequest =
+        rawProject === 'profile' ||
+        rawProject === 'user' ||
+        rawProject === 'account' ||
+        rawProject === 'aadil' ||
+        rawProject === 'aadil-lang' ||
+        rawProject === 'aadilkhurshid'
+
+      if (isExplicitProfileRequest) {
+        return {
+          success: true,
+          toolName: 'github.open',
+          title: 'Open Primary GitHub Profile',
+          message: `Navigating to verified GitHub destination: [Open Primary GitHub Profile](${structuredProfile.githubUrls.primary})`,
+          navigation: {
+            url: structuredProfile.githubUrls.primary,
+            label: 'Open Primary GitHub Profile',
+            isExternal: true
+          }
+        }
+      }
+
       const proj = projectsMetadata.find(
         p => p.slug === rawProject || p.title.toLowerCase().includes(rawProject)
       )
@@ -43,6 +66,33 @@ export const githubOpenTool: AskAadilTool = {
       } else if (rawProject === 'ocr-evaluator' || rawProject === 'ocr') {
         targetUrl = 'https://github.com/aadil-lang/OCR-Evaluator'
         label = 'Open OCR Evaluator GitHub Repository'
+      } else if (proj && (!proj.externalRefs?.github || proj.externalRefs.github === null)) {
+        // PROPRIETARY OR PRIVATE SYSTEM: NO PUBLIC GITHUB REPOSITORY
+        const caseStudyRoute = proj.portfolioRefs?.system || `/projects/${proj.slug}`
+        return {
+          success: true,
+          toolName: 'github.open',
+          title: `No Public Repository — ${proj.title}`,
+          message: `**${proj.title}** was developed in an employer context as an internal system and has no public GitHub repository. You can inspect its verified architectural specification, evaluation invariants, and technical case study in the Systems Archive: [${proj.title} Case Study](${caseStudyRoute}).`,
+          navigation: {
+            url: caseStudyRoute,
+            label: `Open ${proj.title} Architecture in Systems Archive`,
+            isExternal: false
+          }
+        }
+      } else {
+        // Project specified but no verified repository or project found
+        return {
+          success: true,
+          toolName: 'github.open',
+          title: 'No Verified Repository',
+          message: `No public GitHub repository is registered or verified for "${rawProject}". Proprietary systems and internal team tools do not expose public source code. You can explore verified open-source architectures in the Systems Archive or visit Aadil's primary profile at [github.com/aadil-lang](${structuredProfile.githubUrls.primary}).`,
+          navigation: {
+            url: structuredProfile.githubUrls.primary,
+            label: 'Open Primary GitHub Profile',
+            isExternal: true
+          }
+        }
       }
     }
 
