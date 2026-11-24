@@ -34,6 +34,62 @@ interface ChatMessage {
   timestamp: string
 }
 
+/**
+ * Renders message text cleanly, transforming markdown emphasis into semantic HTML
+ * and stripping all raw asterisks (**bold**, *italic*, bullet asterisks) from user view.
+ */
+function renderMessageBody(text: string) {
+  const lines = text.split('\n')
+
+  return (
+    <div className="space-y-1.5 leading-relaxed text-[13.5px] sm:text-sm">
+      {lines.map((line, lineIdx) => {
+        if (!line.trim()) {
+          return <div key={lineIdx} className="h-1.5" />
+        }
+
+        // Detect bullet lines (e.g. "* item", "- item", "• item")
+        const bulletMatch = line.match(/^(\s*)([\*\-•])\s+(.*)$/)
+        let indentClass = ''
+        let bulletMarker = ''
+        let content = line
+
+        if (bulletMatch) {
+          indentClass = bulletMatch[1].length > 2 ? 'pl-5' : 'pl-3'
+          bulletMarker = '•'
+          content = bulletMatch[3]
+        }
+
+        // Tokenize **bold** segments
+        const tokens = content.split(/(\*\*[^*]+?\*\*)/g)
+
+        return (
+          <div key={lineIdx} className={`flex items-start gap-1.5 ${indentClass}`}>
+            {bulletMarker && (
+              <span className="text-[#58A6FF] font-bold select-none shrink-0 mt-0.5">•</span>
+            )}
+            <span className="flex-1">
+              {tokens.map((token, tokenIdx) => {
+                if (token.startsWith('**') && token.endsWith('**')) {
+                  const boldContent = token.slice(2, -2).replace(/\*/g, '')
+                  return (
+                    <strong key={tokenIdx} className="font-semibold text-[#F0EEE9]">
+                      {boldContent}
+                    </strong>
+                  )
+                }
+                // Strip italics asterisks (*text* -> text) and any remaining stray asterisks
+                const cleaned = token.replace(/\*([^*]+?)\*/g, '$1').replace(/\*/g, '')
+                return <React.Fragment key={tokenIdx}>{cleaned}</React.Fragment>
+              })}
+            </span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 interface AskAadilModalProps {
   isOpen: boolean
   onClose: () => void
@@ -315,8 +371,8 @@ Where would you like to start?`,
                   </div>
                 )}
 
-                {/* Message Body */}
-                <div className="whitespace-pre-wrap space-y-2">{msg.text}</div>
+                {/* Message Body (Rendered with semantic formatting & zero raw asterisks) */}
+                <div className="message-content">{renderMessageBody(msg.text)}</div>
 
                 {/* Provenance Pills for Agent Answers */}
                 {msg.answer && msg.answer.provenance.citations.length > 0 && (

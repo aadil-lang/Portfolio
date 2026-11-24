@@ -5,7 +5,7 @@ export const profile = {
   email: 'aadil.khurshid95@gmail.com',
   phone: '+91-7973949541',
   github: 'https://github.com/aadil-lang',
-  linkedin: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6',
+  linkedin: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid/',
   portfolioUrl: 'https://portfolio-ecru-five-5vd5okcvgi.vercel.app/',
   resumeUrl: '/resume.pdf',
   location: 'Varanasi, Uttar Pradesh, India',

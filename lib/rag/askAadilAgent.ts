@@ -2628,7 +2628,7 @@ ${stages}
 
 • **Primary Email:** [${structuredProfile.email}](mailto:${structuredProfile.email})
 • **Direct Phone:** ${structuredProfile.phone}
-• **LinkedIn:** [linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6](${structuredProfile.linkedinUrl})
+• **LinkedIn:** [linkedin.com/in/mohemmed-aadil-khurshid](${structuredProfile.linkedinUrl})
 • **GitHub:** [github.com/aadil-lang](${structuredProfile.githubUrls.primary})
 • **Location:** ${structuredProfile.location}
 

@@ -200,7 +200,7 @@ const htmlContent = `<!DOCTYPE html>
       <div class="contact-item"><strong>Location:</strong> Varanasi, UP, India</div>
     </div>
     <div class="contact-bar" style="margin-top: 4px;">
-      <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6" target="_blank">linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6</a></div>
+      <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohemmed-aadil-khurshid/" target="_blank">linkedin.com/in/mohemmed-aadil-khurshid</a></div>
       <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/aadil-lang" target="_blank">github.com/aadil-lang</a></div>
       <div class="contact-item"><strong>Portfolio:</strong> <a href="https://portfolio-ecru-five-5vd5okcvgi.vercel.app/" target="_blank">portfolio-ecru-five-5vd5okcvgi.vercel.app</a></div>
     </div>

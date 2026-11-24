@@ -73,7 +73,7 @@ assert(
   "Header primary email is 'aadil.khurshid95@gmail.com'"
 )
 assert(
-  resumeData.header.linkedin === 'linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6',
+  resumeData.header.linkedin === 'linkedin.com/in/mohemmed-aadil-khurshid',
   'Header LinkedIn is populated'
 )
 assert(resumeData.header.github === 'github.com/aadil-lang', 'Header GitHub is populated')

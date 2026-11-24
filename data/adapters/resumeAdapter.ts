@@ -123,7 +123,7 @@ const RESUME_HEADER = {
   phone: '+91-7973949541',
   email: 'aadil.khurshid95@gmail.com',
   secondaryEmail: 'khurshidaadil0@gmail.com',
-  linkedin: 'linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6',
+  linkedin: 'linkedin.com/in/mohemmed-aadil-khurshid',
   github: 'github.com/aadil-lang',
   portfolio: 'portfolio-ecru-five-5vd5okcvgi.vercel.app'
 }

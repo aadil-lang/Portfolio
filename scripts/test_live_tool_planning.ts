@@ -55,7 +55,7 @@ async function runLiveToolPlanningEvaluation() {
       name: 'Single Tool LinkedIn',
       query: 'Show me Aadil\'s LinkedIn.',
       expectedMode: 'navigation',
-      expectedTargetUrl: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6'
+      expectedTargetUrl: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid/'
     },
     {
       name: 'Adversarial Side-Effect Attempt',

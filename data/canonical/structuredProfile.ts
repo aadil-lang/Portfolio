@@ -27,7 +27,7 @@ export const structuredProfile: StructuredProfileData = {
   whatsappDestination: null, // PLACEHOLDER: Unverified. Flagged for human completion. NEVER invent phone/wa link.
   
   // External Profiles
-  linkedinUrl: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6',
+  linkedinUrl: 'https://www.linkedin.com/in/mohemmed-aadil-khurshid/',
   githubUrls: {
     primary: 'https://github.com/aadil-lang',
     legacyOrAlternate: 'https://github.com/aadilkhurshid'

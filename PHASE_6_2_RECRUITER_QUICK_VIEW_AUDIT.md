@@ -65,7 +65,7 @@ A strict inspection was conducted across canonical data files to ensure **Zero I
 | **Technical Value Proposition** | `data/canonical/structuredProfile.ts:20` | *"AI Systems Engineer building reliable software systems around AI: LangGraph agentic workflows, deterministic verification harnesses, high-throughput ETL pipelines, and CAD/physics synthesis."* |
 | **Contact Email** | `data/canonical/structuredProfile.ts:24` | `aadil.khurshid95@gmail.com` |
 | **Contact Phone** | `data/canonical/structuredProfile.ts:26` | `+91-7973949541` (Verified from canonical resume) |
-| **LinkedIn URL** | `data/canonical/structuredProfile.ts:30` | `https://www.linkedin.com/in/mohemmed-aadil-khurshid-ba8246a6` |
+| **LinkedIn URL** | `data/canonical/structuredProfile.ts:30` | `https://www.linkedin.com/in/mohemmed-aadil-khurshid/` |
 | **Primary GitHub** | `data/canonical/structuredProfile.ts:32` | `https://github.com/aadil-lang` |
 | **Resume Asset** | `public/resume.pdf` | Verified canonical PDF (345,581 bytes, last generated 2026-11-10) |
 | **Formal Education** | `data/canonical/structuredProfile.ts:41-48` | **B.Tech (Hons.) in Mechanical Engineering**, Lovely Professional University, Punjab (2013–2017), CGPA: 7.66 / 10 |
