@@ -12,7 +12,7 @@ interface CubeInfoPanelProps {
 
 export function CubeInfoPanel({ capability }: CubeInfoPanelProps) {
   return (
-    <div className="w-full max-w-[340px] sm:max-w-[420px] min-h-[275px] rounded-xl border border-[#262B32] bg-[#14171A]/95 p-4 sm:p-5 flex flex-col justify-between shadow-xl transition-all">
+    <div className="w-full max-w-[360px] sm:max-w-[540px] lg:max-w-[580px] min-h-[240px] rounded-xl border border-[#262B32] bg-[#14171A]/95 p-4 sm:p-4.5 flex flex-col justify-between shadow-xl transition-all">
       {/* Header bar */}
       <div className="flex items-center justify-between border-b border-[#22272E] pb-2">
         <div className="flex items-center gap-2">

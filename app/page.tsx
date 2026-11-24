@@ -53,7 +53,7 @@ export default function HomePage() {
       {/* ------------------------------------------------------------- */}
       {/* SECTION 01 — HERO & PROFESSIONAL POSITIONING                  */}
       {/* ------------------------------------------------------------- */}
-      <section className="relative max-w-6xl mx-auto pt-6 sm:pt-8 pb-8 px-4 sm:px-6 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl space-y-8">
+      <section className="relative max-w-7xl w-full mx-auto pt-5 sm:pt-6 pb-6 px-4 sm:px-6 lg:px-8 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl space-y-5 sm:space-y-6">
         {/* Animated Cybernetic Environment Background */}
         <HeroBackground />
 
@@ -70,9 +70,9 @@ export default function HomePage() {
         {/* ------------------------------------------------------------- */}
         {/* BELOW: COMPLETE POSITIONING, HEADLINE, VALUE PROP & ACTIONS   */}
         {/* ------------------------------------------------------------- */}
-        <div className="relative z-10 max-w-4xl mx-auto space-y-6 pt-6 border-t border-[#262B32]/60">
+        <div className="relative z-10 max-w-5xl lg:max-w-6xl mx-auto space-y-4 pt-4 sm:pt-5 border-t border-[#262B32]/60">
           {/* Disciplined Primary Headline */}
-          <div className="space-y-2 text-center sm:text-left">
+          <div className="space-y-1.5 text-center sm:text-left">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F0EEE9] font-serif leading-tight">
               AI Systems Engineer
             </h1>
@@ -82,13 +82,13 @@ export default function HomePage() {
           </div>
 
           {/* Technical Value Proposition */}
-          <blockquote className="text-sm sm:text-base text-[#C8C6BF] font-serif italic border-y border-[#262B32]/80 py-3.5 leading-relaxed bg-[#14171A]/40 px-4 rounded">
+          <blockquote className="text-sm sm:text-base text-[#C8C6BF] font-serif italic border-y border-[#262B32]/80 py-2.5 px-4 leading-relaxed bg-[#14171A]/40 rounded">
             &ldquo;I build complete software systems around AI: stateful multi-agent orchestration, concurrent Python/FastAPI backend pipelines, grounded RAG architectures, and deterministic verification harnesses.&rdquo;
           </blockquote>
 
           {/* Evolutionary Trajectory Progression */}
-          <div className="p-3.5 rounded-lg bg-[#14171A]/80 border border-[#262B32] shadow-xs backdrop-blur-sm">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#71899A] block mb-1.5 font-bold">
+          <div className="p-2.5 sm:p-3 rounded-lg bg-[#14171A]/80 border border-[#262B32] shadow-xs backdrop-blur-sm">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#71899A] block mb-1 font-bold">
               Evolutionary Progression
             </span>
             <div className="text-[10.5px] sm:text-xs font-mono font-medium text-[#C8C6BF] flex flex-wrap items-center gap-1.5">
@@ -105,7 +105,7 @@ export default function HomePage() {
           </div>
 
           {/* Focused Primary Hero CTAs */}
-          <div className="pt-1 space-y-3">
+          <div className="pt-0.5 space-y-2.5">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3.5 font-mono text-xs">
               {/* 1. Explore Projects (Primary Action) */}
               <Link

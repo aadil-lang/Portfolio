@@ -15,7 +15,7 @@ export default function EngineeringCube() {
   const [isFocused, setIsFocused] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
 
-  // 5-second automatic rotation cycling through all 6 faces in sequential order (0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 0)
+  // 2-second automatic rotation cycling through all 6 faces in sequential order (0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 0)
   // Pauses on hover, keyboard focus, pointer drag, or when user pauses explicitly via toggle
   // WCAG 2.2.2 Pause, Stop, Hide compliant
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function EngineeringCube() {
 
     const timer = setInterval(() => {
       dispatch({ type: 'STEP_NEXT' })
-    }, 5000)
+    }, 2000)
 
     return () => clearInterval(timer)
   }, [
@@ -109,9 +109,9 @@ export default function EngineeringCube() {
       tabIndex={0}
       className="w-full focus-visible:outline-none"
     >
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center justify-items-center">
         {/* Top-Left: Cube Stage */}
-        <div className="md:col-span-6 flex flex-col items-center justify-center w-full">
+        <div className="md:col-span-5 lg:col-span-5 flex flex-col items-center justify-center w-full">
           <div className="text-[10px] font-mono uppercase tracking-widest text-[#78C29A] font-semibold mb-2 text-center">
             Interactive 3D Capability Cube // 6 Domains
           </div>
@@ -131,8 +131,8 @@ export default function EngineeringCube() {
           />
         </div>
 
-        {/* Top-Right: Details Rectangular Space Adjacent to Cube */}
-        <div className="md:col-span-6 flex flex-col items-center md:items-start justify-center space-y-3.5 w-full max-w-[420px] mx-auto md:mx-0">
+        {/* Top-Right: Details Rectangular Space Adjacent to Cube (Expanded towards the sides) */}
+        <div className="md:col-span-7 lg:col-span-7 flex flex-col items-center md:items-start justify-center space-y-3 w-full max-w-[540px] lg:max-w-[580px] mx-auto md:mx-0">
           <CubeInfoPanel capability={activeCapability} />
           <CubeNavigation
             activeFace={state.activeFace}

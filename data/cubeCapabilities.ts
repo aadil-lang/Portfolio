@@ -48,6 +48,8 @@ export const CUBE_CAPABILITIES: readonly CubeCapability[] = [
     primaryRoute: '/projects/ask-aadil',
     primaryCtaLabel: 'Explore Ask Aadil',
     supportingLinks: [
+      { label: 'Ask Aadil', href: '/projects/ask-aadil' },
+      { label: 'Archie', href: '/projects/universal-hr-assistant' },
       { label: 'Solace AI', href: '/projects/solace-ai' },
       { label: 'Atlas AI', href: '/projects/atlas-ai' }
     ],

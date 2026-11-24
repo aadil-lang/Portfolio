@@ -28,7 +28,7 @@ export function CubeNavigation({
   return (
     <nav
       aria-label="Engineering capability cube rotation controls"
-      className="space-y-2.5 w-full max-w-[340px] sm:max-w-[420px] mx-auto md:mx-0"
+      className="space-y-2.5 w-full max-w-[360px] sm:max-w-[540px] lg:max-w-[580px] mx-auto md:mx-0"
     >
       {/* Stepper + Face Selector Row */}
       <div className="flex items-center justify-between gap-1.5 px-3 py-2 rounded-xl bg-[#14171A] border border-[#262B32] shadow-sm">
@@ -94,7 +94,7 @@ export function CubeNavigation({
               type="button"
               onClick={onToggleAutoRotate}
               aria-label={isAutoRotating ? 'Pause auto-rotation' : 'Resume auto-rotation'}
-              title={isAutoRotating ? 'Pause auto-rotation' : 'Resume auto-rotation (5s)'}
+              title={isAutoRotating ? 'Pause auto-rotation' : 'Resume auto-rotation (2s)'}
               className={`min-w-[34px] min-h-[34px] inline-flex items-center justify-center rounded-lg border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A9A78] ${
                 isAutoRotating
                   ? 'border-[#5A9A78]/50 bg-[#16231C] text-[#78C29A] hover:bg-[#1D3227]'
@@ -120,7 +120,7 @@ export function CubeNavigation({
           {activeCapability.title}
         </span>
         <span className="text-[#686E77] hidden sm:inline shrink-0">
-          {isAutoRotating ? 'Auto-cycles 5s (Hover to pause)' : 'Paused (Click play or drag)'}
+          {isAutoRotating ? 'Auto-cycles 2s (Hover to pause)' : 'Paused (Click play or drag)'}
         </span>
       </div>
     </nav>
