@@ -570,6 +570,14 @@ export function queryQuantitativeRegistry(query: string, projectSlug?: string): 
       effectiveSlug = 'vm-copy'
     } else if (lowerQ.includes('reliability') || lowerQ.includes('qa harness')) {
       effectiveSlug = 'ai-reliability'
+    } else if (
+      lowerQ.includes('universal hr') ||
+      lowerQ.includes('hr it') ||
+      lowerQ.includes('hr-it') ||
+      lowerQ.includes('archie') ||
+      lowerQ.includes('universal enterprise assistant')
+    ) {
+      effectiveSlug = 'universal-hr-assistant'
     }
   }
 
@@ -647,6 +655,23 @@ export function queryQuantitativeRegistry(query: string, projectSlug?: string): 
       lowerQ.includes('procurement') ||
       lowerQ.includes('marketplace')
     if (isLoomQuery && claimSlug === 'loom-ai') {
+      if (
+        lowerQ.includes('test') ||
+        lowerQ.includes('suite') ||
+        lowerQ.includes('how many')
+      ) {
+        match = true
+      }
+    }
+
+    // 5c. Universal HR IT Assistant (Archie) tests query
+    const isArchieQuery =
+      lowerQ.includes('universal hr') ||
+      lowerQ.includes('hr it') ||
+      lowerQ.includes('hr-it') ||
+      lowerQ.includes('archie') ||
+      lowerQ.includes('universal enterprise assistant')
+    if (isArchieQuery && claimSlug === 'universal-hr-assistant') {
       if (
         lowerQ.includes('test') ||
         lowerQ.includes('suite') ||

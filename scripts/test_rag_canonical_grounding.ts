@@ -61,9 +61,9 @@ async function runRAGCanonicalGroundingTests() {
   const canonicalChunks = chunks.filter(c => c.metadata.source_type === 'canonical_record')
   assert(
     'Suite 1',
-    'Total canonical chunks match exact registry size (7+12+13+17 = 49)',
-    canonicalChunks.length === 49,
-    `Found ${canonicalChunks.length} canonical chunks (expected 49)`
+    'Total canonical chunks match exact registry size (7+13+14+18 = 52)',
+    canonicalChunks.length === 52,
+    `Found ${canonicalChunks.length} canonical chunks (expected 52)`
   )
 
   const careerChunks = canonicalChunks.filter(c => c.id.startsWith('chunk-canonical-career-'))
@@ -78,24 +78,24 @@ async function runRAGCanonicalGroundingTests() {
   assert(
     'Suite 1',
     'Project records ingested as canonical chunks',
-    projectChunks.length === 12,
-    `Found ${projectChunks.length} project chunks (expected 12)`
+    projectChunks.length === 13,
+    `Found ${projectChunks.length} project chunks (expected 13)`
   )
 
   const claimChunks = canonicalChunks.filter(c => c.id.startsWith('chunk-canonical-claim-'))
   assert(
     'Suite 1',
     'Claim records ingested as canonical chunks',
-    claimChunks.length === 13,
-    `Found ${claimChunks.length} claim chunks (expected 13)`
+    claimChunks.length === 14,
+    `Found ${claimChunks.length} claim chunks (expected 14)`
   )
 
   const evidenceChunks = canonicalChunks.filter(c => c.id.startsWith('chunk-canonical-evidence-'))
   assert(
     'Suite 1',
     'Evidence records ingested as canonical chunks',
-    evidenceChunks.length === 17,
-    `Found ${evidenceChunks.length} evidence chunks (expected 17)`
+    evidenceChunks.length === 18,
+    `Found ${evidenceChunks.length} evidence chunks (expected 18)`
   )
 
   const allChunksHaveVersion = chunks.every(c => c.metadata.indexVersion === '2.5.0')

@@ -1704,6 +1704,183 @@ def default_ground_truth_path() -> Path:
       'Controlled image degradation across 5 axes: Gaussian blur, additive noise, rotation skew, contrast reduction, and JPEG compression.',
       'Risk classification engine assigning PASS / REVIEW / FAIL decisions prioritizing critical fields over statistical averages.'
     ]
+  },
+
+  // -------------------------------------------------------------
+  // 12. Universal HR & IT Assistant (Archie)
+  // -------------------------------------------------------------
+  {
+    id: 'universal-hr-assistant',
+    slug: 'universal-hr-assistant',
+    canonicalId: 'proj-universal-hr-assistant',
+    title: 'Archie — Universal Enterprise HR & IT Assistant',
+    subtitle: 'Enterprise Policy RAG & Zero-Trust FastMCP Assistant',
+    tagline: 'Enterprise conversational assistant coupling dense policy RAG with FastMCP zero-trust transactional execution.',
+    summary:
+      'An enterprise-grade conversational HR and IT assistant built for Acme Corporation. Bridges unstructured corporate policy retrieval (ChromaDB RAG) with secure, structured transactional operations (FastMCP & PostgreSQL) under strict tenant peer-isolation and two-stage AI security guardrails.',
+    type: 'Full-Stack • Enterprise RAG & MCP',
+    demo: null,
+    publicRepoOverride: 'https://github.com/aadil-lang/universal-enterprise-assistant',
+    technologies: [
+      'Python 3.12',
+      'FastAPI',
+      'LangGraph',
+      'Next.js 14',
+      'TypeScript 5',
+      'FastMCP',
+      'ChromaDB',
+      'PostgreSQL 16',
+      'Docker Compose',
+      'Google Gemini'
+    ],
+    problem:
+      'Enterprise employees waste hours navigating siloed HR intranets, scattered PDF policy manuals, and complex IT ticketing systems. Common self-service inquiries (vacation balances, hardware refresh cycles, ergonomic reimbursements, and ticket creation) get escalated to human support desks, creating high operational overhead and response delays.',
+    solution:
+      'Engineered Archie: a dual-capability architecture combining document-driven RAG over company policies in ChromaDB with zero-trust structured record access via an internal HMAC-signed FastMCP server over PostgreSQL. Governed by a LangGraph state machine with 0ms deterministic pre-flight regex guardrails, dynamic greeting-mirroring voice assistant, and live Google Gemini 3.5 Flash-lite synthesis.',
+    keyFeatures: [
+      'Document-driven policy Q&A: Dense semantic search over multi-format documents (PDF, DOCX, Markdown) in ChromaDB with cosine distance thresholding (1.15) and verifiable citations',
+      'Zero-trust FastMCP server: Parameterized read-only tools querying PostgreSQL employee records with HMAC-SHA256 inter-service signatures and strict caller peer-isolation',
+      'Two-stage AI security guardrails: Pre-flight regex inspection blocking prompt injections and SQL injection signatures at 0ms; post-flight sanitization scrubbing sensitive PII',
+      'LangGraph state machine orchestration: Deterministic workflow driving input validation -> intent routing -> policy retrieval / MCP execution -> grounded response synthesis',
+      'Multi-modal voice & web interface: Next.js 14 client with hands-free voice assistant featuring dynamic greeting mirroring (Hi, Hello, Hey) and live token streaming',
+      'Dual-mode LLM execution: Powered by live Google Gemini (gemini-3.5-flash-lite) with zero-cost deterministic offline synthesis mode for automated CI/CD testing'
+    ],
+    architecturePattern: 'overview',
+    systemLayers: [
+      { layer: 'Frontend Layer', components: 'Next.js 14 / React 18 / Tailwind CSS', details: 'Client chat interface, Web Speech voice synthesis, dynamic greeting mirroring, and client JWT management' },
+      { layer: 'API Gateway & Orchestration', components: 'FastAPI / LangGraph / Pydantic v2', details: 'Asynchronous REST gateway, JWT authentication, and LangGraph deterministic state-machine workflow' },
+      { layer: 'Security Guardrails', components: 'Regex Inspector & PII Redactor', details: '0ms pre-flight prompt injection / jailbreak interception and post-flight sensitive PII sanitization' },
+      { layer: 'Policy Retrieval (RAG)', components: 'ChromaDB / all-MiniLM-L6-v2', details: 'Multi-format document ingestion (pypdf, python-docx), SHA-256 deduplication, and dense vector similarity retrieval' },
+      { layer: 'Structured Tools (MCP)', components: 'FastMCP / PostgreSQL 16', details: 'Internal Streamable HTTP FastMCP server with HMAC-SHA256 authentication and strict tenant peer-isolation' },
+      { layer: 'Language Model', components: 'Google Gemini (gemini-3.5-flash-lite)', details: 'Live natural language synthesis bound by <untrusted_policy_reference> XML containment, plus offline mock provider' }
+    ],
+    context:
+      'Built as an enterprise-grade AI assistant for Acme Corporation to eliminate employee support friction and prove production readiness across RAG grounding, MCP tool security, and adversarial resistance.',
+    criticalDecision:
+      'Decoupled unstructured corporate policy knowledge from structured transactional records: policies are dynamically retrieved from ChromaDB (never hardcoded in business logic), while employee records are accessed strictly through an internal, HMAC-signed FastMCP microservice enforcing caller authorization.',
+    whatBroke: [
+      {
+        failure: 'Semantic Drift in General Policy Queries',
+        cause: 'When an exact policy document was absent (e.g. general travel expense policy), top-k semantic search matched adjacent clauses (remote ergonomic stipend).',
+        detection: 'Evaluator test Q10 flagged ergonomic stipend receipt clause returned for general expense reimbursement query.',
+        response: 'Retrieved evidence accurately cited the specific ergonomic receipt provision without hallucinating general expense rules, demonstrating strict grounding.'
+      },
+      {
+        failure: 'Peer Record Probing Vulnerability',
+        cause: 'Retrieved policy documents or user prompts could attempt to query peer employee records (e.g. Bob Jones querying Alice Smith).',
+        detection: 'Adversarial security test suite flagged cross-employee data access attempts.',
+        response: 'Enforced caller identity authorization in FastMCP handlers, deterministically rejecting attempts to query peer records with HTTP 403 / access denied.'
+      }
+    ],
+    whatBecameDeterministic:
+      'Document-driven number extraction from ChromaDB (zero hardcoded policy numbers in business logic), HMAC-signed FastMCP tool authorization with caller identity masking, and 0ms deterministic regex pre-flight input inspection.',
+    evidence: [
+      '64 automated tests passing across 9 test suites covering policy extraction, auth security, adversarial AI defense, and MCP tools',
+      '10-question live document evaluation benchmark achieving 100% execution rate and 0% security failure / data breach rate',
+      'ChromaDB dense semantic search with cosine distance threshold (1.15) and active SHA-256 checksum deduplication'
+    ],
+    tradeoffs: [
+      'FastMCP streamable HTTP architecture introduces microservice boundary overhead, but guarantees complete process isolation and caller identity enforcement.',
+      'Strict XML evidence containment prevents model creativity on policy terms, but eliminates numerical policy hallucination.'
+    ],
+    breakthrough:
+      'Bridging unstructured document RAG with secure transactional tool execution: the agent answers policy questions from multi-format corporate manuals and executes authenticated self-service operations through typed MCP tools with zero credential leakage.',
+    delta:
+      'Transition from static intranet wikis and delayed human HR/IT ticketing to an instant, voice-enabled conversational assistant with zero-trust database security.',
+    codeEvidence: [
+      {
+        id: 'archie-mcp-peer-isolation',
+        title: 'FastMCP Parameterized Tools & Peer-Isolation Boundary',
+        decision: 'AUTHENTICATED MCP TOOL HANDLERS WITH CALLER TENANT MASKING',
+        language: 'python',
+        sourcePath: 'packages/mcp_server/app/tools/employee_tools.py',
+        lineRange: '18-58',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/universal-enterprise-assistant',
+        code: `def _validate_employee_number(employee_number: str) -> str:
+    if not employee_number or not str(employee_number).strip():
+        raise ValueError("employee_number must be a non-empty string.")
+    return str(employee_number).strip()
+
+def get_employee_profile_handler(employee_number: str) -> Dict[str, Any]:
+    """Retrieves demographic and organizational profile for an employee.
+    Strictly excludes authentication principals, credentials, and password hashes."""
+    emp_no = _validate_employee_number(employee_number)
+    authorize_employee_access(emp_no)
+    db = get_db_manager()
+
+    query = text("""
+        SELECT id, employee_number, first_name, last_name, email,
+               department, position, manager_name, employment_type, hire_date
+        FROM employees
+        WHERE employee_number = :emp_no AND is_active = true
+    """)
+    with db.get_connection() as conn:
+        row = conn.execute(query, {"emp_no": emp_no}).mappings().first()
+        if not row:
+            raise ValueError(f"Employee {emp_no} not found.")
+        return dict(row)`,
+        explanation: 'FastMCP exposes typed employee lookup tools (profile, leave balances, assigned IT assets, tickets). authorize_employee_access verifies caller identity and HMAC signatures, deterministically blocking peer data snooping.',
+        principle: 'Never expose raw database access to AI models: constrain tool execution to parameterized, permissioned microservice endpoints.',
+        evidence: [
+          '24 MCP tool verification pytests passing',
+          'Strict caller peer-isolation enforced',
+          'Zero authentication hash or credential leakage'
+        ]
+      },
+      {
+        id: 'archie-security-guardrails',
+        title: 'Two-Stage Pre-Flight Input Inspection & Injection Detection',
+        decision: '0MS DETERMINISTIC REGEX INTERCEPTION BEFORE MODEL DISPATCH',
+        language: 'python',
+        sourcePath: 'apps/api/app/services/guardrails.py',
+        lineRange: '20-56',
+        ownership: 'BUILT INDEPENDENTLY',
+        sourceUrl: 'https://github.com/aadil-lang/universal-enterprise-assistant',
+        code: `PROMPT_INJECTION_PATTERNS = [
+    re.compile(r"ignore\\s+(all\\s+)?(previous|prior|above)\\s+(instructions|rules|prompts)", re.IGNORECASE),
+    re.compile(r"disregard\\s+(all\\s+)?(previous|prior|above)\\s+(instructions|rules|prompts)", re.IGNORECASE),
+    re.compile(r"(reveal|print|display|show|output)\\s+(the\\s+)?(system\\s+prompt|developer\\s+instructions|secret\\s+key)", re.IGNORECASE),
+    re.compile(r"you\\s+are\\s+now\\s+(in\\s+)?(developer\\s+mode|dan\\s+mode|unrestricted|god\\s+mode)", re.IGNORECASE),
+    re.compile(r"bypass\\s+(all\\s+)?(security|guardrails|filters|restrictions)", re.IGNORECASE),
+    re.compile(r"system\\s*[:\\s]\\s*(override|reset|award|grant|delete)", re.IGNORECASE),
+    re.compile(r"\\b(drop\\s+table|delete\\s+from|grant\\s+admin|insert\\s+into|update\\s+\\w+\\s+set)\\b", re.IGNORECASE),
+]
+
+class GuardrailService:
+    @staticmethod
+    def inspect_input(query: str, max_chars: int = 2000) -> Dict[str, Any]:
+        cleaned = str(query).strip()
+        for pattern in PROMPT_INJECTION_PATTERNS:
+            if pattern.search(cleaned):
+                return {
+                    "is_valid": False,
+                    "sanitized_query": cleaned,
+                    "injection_detected": True,
+                    "refusal_reason": "Query rejected by security policy (prompt injection signature detected)."
+                }
+        return {"is_valid": True, "sanitized_query": cleaned, "injection_detected": False}`,
+        explanation: 'Pre-flight regex inspection catches adversarial jailbreaks, prompt overrides, and SQL injection signatures in 0ms without consuming LLM tokens or invoking external APIs.',
+        principle: 'Block adversarial attacks at the perimeter with deterministic rules before they reach probabilistic language models.',
+        evidence: [
+          '4 adversarial AI security pytests passing',
+          '0ms latency pre-flight inspection',
+          'Zero successful injection breaches across 10 evaluation test cases'
+        ]
+      }
+    ],
+    ragRole: 'AI Systems Architect & Full-Stack Engineer (Independent Engineering Build)',
+    ragPortfolioRefs: {
+      timeline: ['future-still-building'],
+      journal: ['spread-16-chapter-10-open', 'spread-17-systems-catalog'],
+      system: '/projects/universal-hr-assistant'
+    },
+    ragEvidence: [
+      '64 automated tests passing across 9 suites in Python 3.12 and Node.js.',
+      'FastMCP internal tool server implementing strict caller peer-isolation and HMAC-SHA256 signatures.',
+      'Two-stage security guardrails with 0ms pre-flight regex interception and post-flight PII redaction.',
+      'Multi-format document ingestion pipeline (PDF, DOCX, Markdown) with SHA-256 checksum deduplication.'
+    ]
   }
 ]
 

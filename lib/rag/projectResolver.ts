@@ -65,6 +65,23 @@ export function resolveProjectEntity(query: string): ProjectResolution {
     {
       slug: 'ocr-evaluator',
       keywords: ['ocr evaluator', 'ocr-evaluator', 'ocr evaluation', 'ocr platform', 'ocr robustness', 'tesseract ocr', 'document extraction', 'cer wer', 'ocr']
+    },
+    {
+      slug: 'universal-hr-assistant',
+      keywords: [
+        'universal hr',
+        'universal hr assistant',
+        'universal hr it assistant',
+        'universal enterprise assistant',
+        'hr it assistant',
+        'hr-it assistant',
+        'hr it helpdesk',
+        'hr-it helpdesk',
+        'hr it',
+        'hr-it',
+        'archie',
+        'archie assistant'
+      ]
     }
   ]
 

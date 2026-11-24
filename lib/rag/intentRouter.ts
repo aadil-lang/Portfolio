@@ -80,7 +80,8 @@ export function classifyAndRoute(query: string, prevState?: AgentConversationSta
       (p.slug === 'binance-bot' && (q.includes('binance') || q.includes('futures bot') || q.includes('trading bot'))) ||
       (p.slug === 'ask-aadil' && (q.includes('ask aadil') || q.includes('ask-aadil') || q.includes('portfolio agent'))) ||
       (p.slug === 'solace-ai' && (q.includes('solace ai') || q.includes('solace') || q.includes('wellness companion') || q.includes('rant mode') || q.includes('words of solace') || q.includes('emotional landscape'))) ||
-      (p.slug === 'ocr-evaluator' && (q.includes('ocr evaluator') || q.includes('ocr') || q.includes('cer') || q.includes('wer') || q.includes('tesseract')))
+      (p.slug === 'ocr-evaluator' && (q.includes('ocr evaluator') || q.includes('ocr') || q.includes('cer') || q.includes('wer') || q.includes('tesseract'))) ||
+      (p.slug === 'universal-hr-assistant' && (q.includes('universal hr') || q.includes('hr it') || q.includes('hr-it') || q.includes('archie') || q.includes('universal enterprise assistant') || q.includes('helpdesk')))
 
     if (slugMatch || titleMatch || aliasMatch) {
       if (!mentionedProjects.includes(p.slug)) {

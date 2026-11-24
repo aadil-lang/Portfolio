@@ -837,7 +837,7 @@ I've also attached a navigation action to Aadil's interactive career timeline be
       return {
         query: cleanQuery,
         intent: 'project_overview',
-        answer: 'Aadil built several AI systems including **VM Copy (AI Question Generator)**, **AI Worksheets**, **Curriculum Transformation Engine**, and **AI Application Reliability**. Which specific project would you like to open?',
+        answer: 'Aadil built several AI systems including **VM Copy (AI Question Generator)**, **AI Worksheets**, **Curriculum Transformation Engine**, **AI Application Reliability**, and **Universal HR & IT Assistant (Archie)**. Which specific project would you like to open?',
         provenance: { sources: ['portfolio'], layers: ['system'], citations: ['Project Ambiguity Resolver'], claims: [] },
         newState: state
       }
@@ -3172,6 +3172,27 @@ This architectural pattern emerged directly from Aadil’s observation that prom
 2. **Priority Risk Classification:** The risk engine in \`src/evaluation/risk.py\` assigns operational status (**PASS**, **REVIEW**, **FAIL**) where a mismatch on a CRITICAL field (e.g. Survey Number or Registration ID) immediately overrides high OCR confidence on surrounding boilerplate text.
 3. **Controlled Image Degradation Testing:** Tests OCR engines across 5 physical degradation axes: Gaussian blur, additive noise, rotation skew, contrast reduction, and JPEG compression.
 4. **FastAPI & React Architecture:** Full-stack dashboard connecting React/Vite frontend to a FastAPI backend, validated with **134 automated backend pytests across 22 test files** and **20 browser UI assertions** (0 frontend JavaScript errors).`
+    } else if (decision.detectedProjectSlug === 'universal-hr-assistant') {
+      claims.push({
+        claim: 'Dual-capability architecture decoupling dense ChromaDB policy RAG from HMAC-signed FastMCP employee tools',
+        sourceType: 'portfolio',
+        layer: 'system',
+        reference: 'Archie Universal HR & IT Assistant Specification',
+        url: '/projects/universal-hr-assistant'
+      })
+      claims.push({
+        claim: '64 automated tests across 9 suites in Python 3.12 and Node.js passing with 100% verification rate',
+        sourceType: 'github',
+        reference: 'aadil-lang/universal-enterprise-assistant',
+        url: 'https://github.com/aadil-lang/universal-enterprise-assistant'
+      })
+
+      answer = `**Archie (Universal Enterprise HR & IT Assistant)** is an enterprise conversational assistant for Acme Corporation that bridges unstructured policy document RAG with secure transactional enterprise tools:
+
+1. **Document-Driven Policy Q&A (ChromaDB):** Corporate rules, benefit amounts, and deadlines are dynamically extracted from multi-format files (PDF, Word, Markdown) into ChromaDB using dense semantic embeddings with cosine distance thresholding (\`relevance_threshold = 1.15\`) and verifiable document citations — facts are never hardcoded.
+2. **Zero-Trust FastMCP Tool Execution:** Structured employee data (leave balances, IT equipment, support tickets) is accessed via an internal Streamable HTTP FastMCP server running over PostgreSQL 16. FastMCP enforces HMAC-SHA256 inter-service signatures, parameterized queries, and strict caller peer-isolation (rejecting peer data probing).
+3. **Two-Stage Security Guardrails:** 0ms deterministic pre-flight regex guardrails intercept prompt injection and SQL injection patterns before reaching the model; post-flight sanitization scrubs sensitive PII.
+4. **LangGraph Orchestration & Multi-Modal Voice:** State machine coordinates input validation, intent routing, policy retrieval / MCP execution, and grounded Gemini 3.5 Flash-lite synthesis, coupled with a hands-free Next.js 14 voice assistant and **64 automated tests across 9 test suites** (100% pass rate).`
     } else {
       const chunkText = semanticChunks.map(c => c.content).join('\n\n')
       answer = `According to the **Systems Archive** and **GitHub evidence** for **${project?.title || decision.detectedProjectSlug}**:

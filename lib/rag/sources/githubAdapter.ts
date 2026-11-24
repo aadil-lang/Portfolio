@@ -168,6 +168,33 @@ export const githubRepositories: Record<string, GitHubRepoRecord> = {
     readmeExcerpt:
       'An engineering-focused OCR evaluation system for measuring document extraction accuracy, confidence, critical-field correctness, and robustness under real-world image degradation. 134 automated backend tests passing.',
     lastVerified: '2026-09-01'
+  },
+  'universal-hr-assistant': {
+    owner: 'aadil-lang',
+    repo: 'universal-enterprise-assistant',
+    url: 'https://github.com/aadil-lang/universal-enterprise-assistant',
+    description:
+      'Universal Enterprise HR & IT Assistant coupling dense policy RAG with FastMCP zero-trust transactional execution.',
+    primaryLanguage: 'Python / TypeScript',
+    technologies: [
+      'Python 3.12',
+      'FastAPI',
+      'LangGraph',
+      'Next.js 14',
+      'TypeScript 5',
+      'FastMCP',
+      'ChromaDB',
+      'PostgreSQL 16',
+      'Docker'
+    ],
+    hasTests: true,
+    testFramework: 'pytest + Jest',
+    verifiedTestCount: 64,
+    architectureNotes:
+      'Dual-capability architecture: Document RAG over ChromaDB with 1.15 cosine distance threshold; authenticated FastMCP server over PostgreSQL with HMAC-SHA256 signatures and strict caller peer-isolation; 0ms pre-flight regex guardrails blocking prompt and SQL injection.',
+    readmeExcerpt:
+      'Enterprise-grade conversational HR and IT assistant built for Acme Corporation. Bridges unstructured policy knowledge retrieval (RAG) with secure, structured transactional enterprise operations (FastMCP). 64 automated tests passing.',
+    lastVerified: '2026-11-24'
   }
 }
 

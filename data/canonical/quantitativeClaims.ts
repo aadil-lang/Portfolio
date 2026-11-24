@@ -222,5 +222,20 @@ export const quantitativeClaims: QuantitativeClaimItem[] = [
     evidenceSource: 'OCR Evaluation Pipeline browser UI verification runner',
     verificationDetails:
       'Verified 20/20 UI assertions passing across file uploads, ground-truth diff rendering, critical-field highlighting, and error recovery with 0 console errors.'
+  },
+  {
+    id: 'claim-archie-64-tests',
+    claim: '64 automated tests passing across 9 test suites',
+    projectSlug: 'universal-hr-assistant',
+    metricValue: 64,
+    unit: 'tests',
+    claimedIn: [
+      { source: 'portfolio', layer: 'system', ref: '/projects/universal-hr-assistant' },
+      { source: 'github', ref: 'aadil-lang/universal-enterprise-assistant' }
+    ],
+    status: 'verified',
+    evidenceSource: 'FastAPI pytest runner and FastMCP verification suite',
+    verificationDetails:
+      'Verified 64/64 passing tests across policy extraction, bcrypt auth, timing normalization, security headers, document error sanitization, adversarial AI security, heading chunking, and FastMCP employee tools.'
   }
 ]

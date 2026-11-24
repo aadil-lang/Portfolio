@@ -862,6 +862,56 @@ export const canonicalProjectRecords: CanonicalProjectRecord[] = [
     },
     claimIds: [],
     evidenceIds: ['EVID-SRC-PROJECTS-01']
+  },
+  {
+    projectId: 'proj-universal-hr-assistant',
+    slug: 'universal-hr-assistant',
+    title: 'Archie — Universal Enterprise HR & IT Assistant',
+    tagline: 'Enterprise conversational assistant coupling dense policy RAG with FastMCP zero-trust transactional execution.',
+    implementationAuthorship: 'SOLE_IMPLEMENTER',
+    architecturalResponsibility: 'PRIMARY_ARCHITECT',
+    requirementsOrigin: 'SELF_DIRECTED_INITIATIVE',
+    organizationalContext: 'INDEPENDENT_RESEARCH',
+    ipOwnership: 'OPEN_SOURCE_MIT',
+    publicationEligibility: 'PUBLIC_OPEN_SOURCE',
+    associatedCareerId: 'car-independent-research',
+    careerPhaseId: 'PHASE_5_INDEPENDENT_AI_ENGINEERING_AND_RESEARCH',
+    temporalRegistry: {
+      developmentWindow: {
+        start: {
+          dateString: '2026-11',
+          precision: 'month',
+          confirmationStatus: 'INDEPENDENTLY_VERIFIED',
+          boundaryType: 'EXACT_BOUNDARY'
+        },
+        end: {
+          dateString: '2026-11',
+          precision: 'month',
+          confirmationStatus: 'INDEPENDENTLY_VERIFIED',
+          boundaryType: 'EXACT_BOUNDARY'
+        }
+      },
+      publicReleaseDate: {
+        dateString: '2026-11',
+        precision: 'month',
+        confirmationStatus: 'INDEPENDENTLY_VERIFIED',
+        boundaryType: 'EXACT_BOUNDARY'
+      }
+    },
+    technologies: {
+      languages: ['Python 3.12', 'TypeScript'],
+      frameworksAndRuntimes: ['FastAPI', 'LangGraph', 'Next.js 14', 'React 18', 'Tailwind CSS'],
+      deterministicEngines: ['0ms Pre-Flight Regex Guardrail', 'Post-Flight PII Redactor', 'HMAC-SHA256 Signer'],
+      modelsAndOrchestrators: ['Google Gemini (gemini-3.5-flash-lite)', 'ChromaDB Dense Vector Retriever', 'FastMCP Tool Server'],
+      infrastructure: ['PostgreSQL 16', 'Docker Compose', 'Uvicorn']
+    },
+    repository: {
+      publicUrl: 'https://github.com/aadil-lang/universal-enterprise-assistant',
+      isPrivateOrProprietary: false,
+      caseStudyRoute: '/projects/universal-hr-assistant'
+    },
+    claimIds: ['CLAIM-ARCHIE-001'],
+    evidenceIds: ['EVID-ARCHIE-01']
   }
 ]
 
@@ -1145,6 +1195,26 @@ export const canonicalClaimRecords: CanonicalTechnicalClaimRecord[] = [
       prohibitedInterpretations: []
     },
     permittedSurfaces: ['PROJECTS_ARCHIVE_CARD', 'SYSTEMS_CASE_STUDY', 'RESUME_DOCUMENT', 'ASK_AADIL_KNOWLEDGE']
+  },
+  {
+    claimId: 'CLAIM-ARCHIE-001',
+    projectId: 'proj-universal-hr-assistant',
+    claimDomain: 'TEST_COUNT',
+    isQuantitative: true,
+    metricSubject: 'GENERAL_METRIC',
+    measurementScope: 'AUTOMATED_TEST_COLLECTION',
+    verificationStatus: 'REPRODUCIBLY_VERIFIED',
+    linkedEvidenceIds: ['EVID-ARCHIE-01'],
+    wording: {
+      headline: '64 automated tests across 9 test suites passing with 100% verification rate',
+      qualifiedTechnicalStatement:
+        'Archie is validated by 64 automated tests across 9 suites (policy number extraction, bcrypt auth, timing normalization, security headers, document sanitization, adversarial AI defense, heading chunking, FastMCP employee tools, and frontend client validation) achieving 100% pass rate in ~6.13s.',
+      mandatoryCaveats: [
+        'Verified in local Python 3.12 / Node.js test execution environment.'
+      ],
+      prohibitedInterpretations: []
+    },
+    permittedSurfaces: ['PROJECTS_ARCHIVE_CARD', 'SYSTEMS_CASE_STUDY', 'RESUME_DOCUMENT', 'ASK_AADIL_KNOWLEDGE']
   }
 ]
 
@@ -1394,6 +1464,19 @@ export const canonicalEvidenceRecords: CanonicalEvidenceRecord[] = [
     disclosedLimitations: ['Architectural design pattern verified in asynchronous batch worker codebase.'],
     auditDate: '2026-11-14',
     auditorSignoff: 'Principal Software Architect'
+  },
+  {
+    evidenceId: 'EVID-ARCHIE-01',
+    projectId: 'proj-universal-hr-assistant',
+    evidenceType: 'TEST_EXECUTION',
+    repositoryPathOrArtifact: 'PHASE_5_TEST_RESULTS.md, README.md',
+    measuredValue: '64 passed tests across 9 suites',
+    measuredUnit: 'test cases',
+    executionStatus: 'PASS',
+    disclosedScope: 'Policy extraction, auth timing normalization, security headers, adversarial injection defense, and FastMCP employee tools.',
+    disclosedLimitations: ['Tested against local PostgreSQL 16 and ChromaDB in Python 3.12.'],
+    auditDate: '2026-11-20',
+    auditorSignoff: 'AI Systems Engineer & Security Auditor'
   }
 ]
 

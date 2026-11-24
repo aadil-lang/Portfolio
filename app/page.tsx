@@ -312,13 +312,45 @@ export default function HomePage() {
               href="/systems"
               className="inline-flex items-center gap-1.5 text-xs font-mono text-[#5A9A78] hover:text-[#78B896] transition-colors font-semibold"
             >
-              <span>Systems Archive (11) →</span>
+              <span>Systems Archive (12) →</span>
             </Link>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Card 1: Ask Aadil */}
+          {/* Card 1: Archie — Universal Enterprise HR & IT Assistant */}
+          <Link
+            href="/projects/universal-hr-assistant"
+            className="md:col-span-2 p-5 sm:p-6 rounded-xl bg-[#14171A] hover:bg-[#181C21] border border-[#262B32] hover:border-[#5A9A78]/50 transition-all group flex flex-col justify-between space-y-4 cursor-pointer"
+          >
+            <div className="space-y-3">
+              <div className="flex items-center justify-between text-[10px] font-mono">
+                <span className="px-2 py-0.5 rounded bg-[#18261F] text-[#5A9A78] font-semibold border border-[#234030]">
+                  INDEPENDENT PERSONAL PROJECT · FLAGSHIP
+                </span>
+                <span className="text-[#858A90] font-semibold">64 Verified Tests Across 9 Suites</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg sm:text-xl text-[#F0EEE9] group-hover:text-white transition-colors">
+                Archie — Universal Enterprise HR & IT Assistant
+              </h3>
+              <p className="text-xs sm:text-sm text-[#9EA4AA] leading-relaxed">
+                Full-stack enterprise conversational assistant coupling dense policy document RAG (ChromaDB) with secure, structured transactional tool execution (FastMCP over PostgreSQL 16) under two-stage prompt injection guardrails and LangGraph state-machine orchestration.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['FastAPI 0.115+', 'LangGraph', 'FastMCP', 'ChromaDB 0.6.3+', 'PostgreSQL 16', 'Google Gemini 3.5', 'Next.js 14', 'Zero-Trust Tools'].map((t) => (
+                  <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#181C21] text-[#858A90] border border-[#262B32]">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="pt-3 border-t border-[#22272E] text-[11px] font-mono text-[#5A9A78] group-hover:text-[#78B896] flex items-center justify-between">
+              <span>View System Case Study & Architecture</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </Link>
+
+          {/* Card 2: Ask Aadil */}
           <Link
             href="/projects/ask-aadil"
             className="p-5 rounded-xl bg-[#14171A] hover:bg-[#181C21] border border-[#262B32] hover:border-[#388BFD]/50 transition-all group flex flex-col justify-between space-y-4 cursor-pointer"
@@ -456,7 +488,7 @@ export default function HomePage() {
             href="/projects"
             className="text-[#5A9A78] hover:text-[#78B896] font-semibold shrink-0"
           >
-            Browse Full Project Directory (11 Systems) →
+            Browse Full Project Directory (12 Systems) →
           </Link>
         </div>
       </section>

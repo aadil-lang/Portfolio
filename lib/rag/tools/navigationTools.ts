@@ -66,6 +66,18 @@ export const githubOpenTool: AskAadilTool = {
       } else if (rawProject === 'ocr-evaluator' || rawProject === 'ocr') {
         targetUrl = 'https://github.com/aadil-lang/OCR-Evaluator'
         label = 'Open OCR Evaluator GitHub Repository'
+      } else if (
+        rawProject === 'universal-hr-assistant' ||
+        rawProject === 'universal-hr' ||
+        rawProject === 'universal hr' ||
+        rawProject === 'universal hr it' ||
+        rawProject === 'hr it' ||
+        rawProject === 'hr-it' ||
+        rawProject === 'archie' ||
+        rawProject === 'universal enterprise assistant'
+      ) {
+        targetUrl = 'https://github.com/aadil-lang/universal-enterprise-assistant'
+        label = 'Open Universal Enterprise HR & IT Assistant GitHub Repository'
       } else if (proj && (!proj.externalRefs?.github || proj.externalRefs.github === null)) {
         // PROPRIETARY OR PRIVATE SYSTEM: NO PUBLIC GITHUB REPOSITORY
         const caseStudyRoute = proj.portfolioRefs?.system || `/projects/${proj.slug}`

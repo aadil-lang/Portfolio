@@ -50,7 +50,7 @@ console.log('=================================================================\n
 console.log('Test Suite 1: Canonical Coverage & Referential Integrity')
 
 assert(Array.isArray(projects), 'projects export is an array')
-assert(projects.length === 11, `projects contains exactly 11 systems (found: ${projects.length})`)
+assert(projects.length === 12, `projects contains exactly 12 systems (found: ${projects.length})`)
 
 const expectedSlugs = [
   'vm-copy',
@@ -63,7 +63,8 @@ const expectedSlugs = [
   'atlas-ai',
   'ask-aadil',
   'solace-ai',
-  'ocr-evaluator'
+  'ocr-evaluator',
+  'universal-hr-assistant'
 ]
 
 const actualSlugs = projects.map((p) => p.slug)
@@ -104,8 +105,8 @@ assert(
 // projectsMetadata coverage
 assert(Array.isArray(projectsMetadata), 'projectsMetadata export is an array')
 assert(
-  projectsMetadata.length === 11,
-  `projectsMetadata contains exactly 11 systems (found: ${projectsMetadata.length})`
+  projectsMetadata.length === 12,
+  `projectsMetadata contains exactly 12 systems (found: ${projectsMetadata.length})`
 )
 
 const metadataSlugs = projectsMetadata.map((p) => p.slug)
@@ -156,7 +157,8 @@ const openSourceSlugs = [
   'loom-ai',
   'atlas-ai',
   'ai-reliability',
-  'solace-ai'
+  'solace-ai',
+  'universal-hr-assistant'
 ]
 
 for (const slug of openSourceSlugs) {
@@ -341,8 +343,8 @@ assert(
 
 const personalIndep = projects.filter((p) => p.ownershipCategory === 'personal-independent')
 assert(
-  personalIndep.length === 4,
-  `personal-independent contains exactly 4 projects (found: ${personalIndep.length})`
+  personalIndep.length === 5,
+  `personal-independent contains exactly 5 projects (found: ${personalIndep.length})`
 )
 for (const p of personalIndep) {
   assert(
@@ -364,8 +366,8 @@ for (const p of hackathons) {
 }
 
 assert(
-  waygroundIndep.length + waygroundTeam.length + personalIndep.length + hackathons.length === 11,
-  'Category partition sums to exactly 11 projects'
+  waygroundIndep.length + waygroundTeam.length + personalIndep.length + hackathons.length === 12,
+  'Category partition sums to exactly 12 projects'
 )
 
 console.log('')
@@ -412,7 +414,7 @@ for (let i = 0; i < call1.length; i++) {
 // Canonical registry immutability
 const canonicalProjectsCount = canonicalRegistry.projectRecords.length
 assert(
-  canonicalProjectsCount === 12,
+  canonicalProjectsCount === 13,
   `canonicalRegistry.projectRecords remains unmutated (count: ${canonicalProjectsCount})`
 )
 

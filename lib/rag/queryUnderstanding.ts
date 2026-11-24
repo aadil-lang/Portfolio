@@ -182,6 +182,20 @@ for (const p of projectsMetadata) {
     PROJECT_ALIASES['ocr'] = p.slug
     PROJECT_ALIASES['tesseract'] = p.slug
   }
+  if (p.slug === 'universal-hr-assistant') {
+    PROJECT_ALIASES['universal hr'] = p.slug
+    PROJECT_ALIASES['universal hr assistant'] = p.slug
+    PROJECT_ALIASES['universal hr it assistant'] = p.slug
+    PROJECT_ALIASES['universal enterprise assistant'] = p.slug
+    PROJECT_ALIASES['hr it assistant'] = p.slug
+    PROJECT_ALIASES['hr-it assistant'] = p.slug
+    PROJECT_ALIASES['hr it helpdesk'] = p.slug
+    PROJECT_ALIASES['hr-it helpdesk'] = p.slug
+    PROJECT_ALIASES['hr it'] = p.slug
+    PROJECT_ALIASES['hr-it'] = p.slug
+    PROJECT_ALIASES['archie'] = p.slug
+    PROJECT_ALIASES['archie assistant'] = p.slug
+  }
 }
 
 const TECHNOLOGY_KEYWORDS = [
@@ -189,7 +203,7 @@ const TECHNOLOGY_KEYWORDS = [
   'mongodb', 'supabase', 'opencascade', 'playwright', 'katex', 'tikz', 'latex',
   'claude', 'gemini', 'portkey', 'pydantic', 'typescript', 'vitest',
   'pytest', 'celery', 'redis', 'tailwind', 'openai', 'cadquery', 'svg', 'sse',
-  'tesseract', 'opencv', 'pillow'
+  'tesseract', 'opencv', 'pillow', 'fastmcp', 'mcp', 'chromadb'
 ]
 
 // ---------------------------------------------------------------------------
@@ -403,7 +417,7 @@ Available intent categories:
 - cross_source: Complete multi-perspective story of a project/topic
 - unknown: Cannot determine or not portfolio-related
 
-Available project slugs: vm-copy, ai-worksheets, curriculum-etl, math-item-bank, design-automation, loom-ai, atlas-ai, ai-reliability, binance-bot, ask-aadil, solace-ai
+Available project slugs: vm-copy, ai-worksheets, curriculum-etl, math-item-bank, design-automation, loom-ai, atlas-ai, ai-reliability, binance-bot, ask-aadil, solace-ai, ocr-evaluator, universal-hr-assistant
 
 Respond ONLY with valid JSON matching this schema:
 {
