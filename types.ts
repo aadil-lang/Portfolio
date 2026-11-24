@@ -79,6 +79,38 @@ export type Project = {
   breakthrough?: string
   delta?: string
   codeEvidence?: CodeEvidence[]
+  videoDemo?: ProjectVideoDemo
+}
+
+export type VideoSourceType = 'hosted' | 'youtube' | 'vimeo' | 'loom'
+
+export interface VideoChapter {
+  time: string
+  title: string
+  description?: string
+}
+
+export interface ProjectVideoDemo {
+  /** Video source: URL (https://...), relative path (/videos/...), or embed URL/ID */
+  source: string
+  /** Source classification: 'hosted' for native HTML5 video, or embed provider */
+  sourceType: VideoSourceType
+  /** Section heading override (defaults to "See It in Action") */
+  title?: string
+  /** Eyebrow badge (e.g. "PRODUCT WALKTHROUGH // PIXEL 7 ANDROID 16") */
+  eyebrow?: string
+  /** Short technical description of what the walkthrough demonstrates */
+  description: string
+  /** Optional poster image frame */
+  poster?: string
+  /** Optional duration or technical format pill (e.g. "4:59 • 1080p 60fps") */
+  duration?: string
+  /** Optional caption rendered beneath player */
+  caption?: string
+  /** Optional aspect ratio override (defaults to '16/9') */
+  aspectRatio?: '16/9' | '4/3' | '9/16'
+  /** Optional chapters */
+  chapters?: VideoChapter[]
 }
 
 export type TimelineItem = {

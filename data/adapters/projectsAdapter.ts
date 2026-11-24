@@ -26,7 +26,8 @@ import {
   SystemLayerItem,
   FailureModeItem,
   OwnershipClassification,
-  OwnershipCategory
+  OwnershipCategory,
+  ProjectVideoDemo
 } from '../../types'
 import { ProjectMetadata, OwnershipType } from '@/types/rag'
 
@@ -114,6 +115,7 @@ interface ProjectPresentationOverlay {
   delta?: string
   codeEvidence: CodeEvidence[]
   customStatusNotice?: string
+  videoDemo?: ProjectVideoDemo
   // ProjectMetadata RAG projection overrides
   ragRole?: string
   ragPortfolioRefs?: {
@@ -1260,6 +1262,18 @@ if (state.confirmationState === 'awaiting_confirmation' && state.editedDraft) {
     type: 'Mobile AI Companion • Safety & Consent Architecture',
     demo: 'https://aadil-lang.github.io/solace-ai-gallery/',
     publicRepoOverride: 'https://github.com/aadil-lang/solace-ai',
+    videoDemo: {
+      source: '/videos/solace_demo.mp4',
+      sourceType: 'hosted',
+      title: 'Solace AI — Native Mobile Demonstration',
+      eyebrow: 'MOBILE SYSTEM WALKTHROUGH // VERIFIED RUNTIME',
+      description:
+        'Screen recording of the production React Native / Expo mobile application connected live to the FastAPI backend and Supabase RLS database. Verification history encompasses physical Android device testing, Android emulator execution, and automated test batteries (52 backend pytests, 50 mobile Jest checks).',
+      poster: '/videos/solace_demo_poster.png',
+      duration: '2:58 • 4K Screen Capture',
+      caption:
+        'Demonstrates synchronous <2ms pre-LLM crisis screening, ephemeral zero-retention audio buffer, and Server-Sent Events (SSE) streaming.'
+    },
     technologies: [
       'React Native / Expo 58',
       'TypeScript',
@@ -1721,6 +1735,18 @@ def default_ground_truth_path() -> Path:
     type: 'Full-Stack • Enterprise RAG & MCP Demo',
     demo: null,
     publicRepoOverride: 'https://github.com/aadil-lang/universal-enterprise-assistant',
+    videoDemo: {
+      source: '/videos/archie_demo.mp4',
+      sourceType: 'hosted',
+      title: 'Archie — Enterprise HR & IT Assistant Walkthrough',
+      eyebrow: 'CONTROLLED ENTERPRISE DEMONSTRATION // LIVE WORKFLOWS',
+      description:
+        'Full-stack demonstration of Archie coupling dense policy document RAG (ChromaDB) with secure transactional tool execution (FastMCP over PostgreSQL 16) under two-stage AI security guardrails.',
+      poster: '/videos/archie_demo_poster.png',
+      duration: '4:59 • 1080p 60fps',
+      caption:
+        'Demonstrates policy Q&A with verifiable document citations, leave reservation, IT ticketing, and caller identity isolation.'
+    },
     technologies: [
       'Python 3.12',
       'FastAPI',
@@ -2002,7 +2028,8 @@ function projectToCanonicalConsumer(overlay: ProjectPresentationOverlay): Projec
     evidence: overlay.evidence ? [...overlay.evidence] : undefined,
     tradeoffs: overlay.tradeoffs ? [...overlay.tradeoffs] : undefined,
     breakthrough: overlay.breakthrough,
-    delta: overlay.delta
+    delta: overlay.delta,
+    videoDemo: overlay.videoDemo ? { ...overlay.videoDemo } : undefined
   }
 
   return proj

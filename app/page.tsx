@@ -28,6 +28,8 @@ import {
 } from 'lucide-react'
 import { HomepageAskAadilCta } from '../components/AskAadil/HomepageAskAadilCta'
 import { HeroBackground } from '../components/HeroBackground'
+import { getHomepageCuratedVideos } from '../data/curatedVideos'
+import ProjectVideoDemo from '../components/shared/ProjectVideoDemo'
 
 const EngineeringCube = dynamic(() => import('../components/EngineeringCube'), {
   ssr: false,
@@ -490,6 +492,40 @@ export default function HomePage() {
           >
             Browse Full Project Directory (12 Systems) →
           </Link>
+        </div>
+      </section>
+
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
+      {/* ------------------------------------------------------------- */}
+      {/* FEATURED PROJECT WALKTHROUGHS (CURATED VIDEO SHOWCASE)       */}
+      {/* ------------------------------------------------------------- */}
+      <section id="featured-walkthroughs" className="max-w-5xl mx-auto px-4 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#242930] pb-3">
+          <div>
+            <span className="text-xs uppercase tracking-wider font-mono text-[#5A9A78] block">
+              SYSTEM DEMONSTRATIONS // VIDEO WALKTHROUGHS
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F0EEE9] font-serif">
+              Featured Project Walkthroughs
+            </h2>
+          </div>
+          <span className="text-xs font-mono text-[#71899A]">
+            Direct Runtime Captures & Workflows
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {getHomepageCuratedVideos().map(({ project, videoDemo }) => (
+            <ProjectVideoDemo
+              key={project.id}
+              demo={videoDemo}
+              projectTitle={project.title}
+              projectSlug={project.slug}
+              variant="card"
+            />
+          ))}
         </div>
       </section>
 

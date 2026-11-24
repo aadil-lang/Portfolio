@@ -11,6 +11,8 @@ import SolaceVideoShowcase from '../../../components/evidence/SolaceVideoShowcas
 import AskAadilEvaluationExplorer from '../../../components/evidence/AskAadilEvaluationExplorer'
 import EngineeringDecisions from '../../../components/decisions/EngineeringDecisions'
 import { projectDecisions } from '../../../data/decisions/projectDecisions'
+import ProjectVideoDemo from '../../../components/shared/ProjectVideoDemo'
+import { isValidVideoDemo } from '../../../lib/videoDemo'
 import {
   ArrowLeft,
   ArrowRight,
@@ -27,7 +29,8 @@ import {
   TrendingUp,
   Binary,
   BookOpen,
-  Compass
+  Compass,
+  Play
 } from 'lucide-react'
 
 interface ProjectPageProps {
@@ -164,6 +167,15 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
       {/* Sticky Quick-Jump Navigation Bar */}
       <nav className="sticky top-[61px] z-30 bg-[#121518]/95 backdrop-blur-md border-y border-[#262B32] py-2 px-3 rounded-lg flex items-center gap-2 overflow-x-auto text-[11px] font-mono shadow-md">
         <span className="text-[#686E77] shrink-0 uppercase tracking-wider font-semibold">Jump to:</span>
+        {isValidVideoDemo(project.videoDemo) && (
+          <a
+            href="#video-demo"
+            className="shrink-0 px-2.5 py-1 rounded bg-[#18261F] hover:bg-[#20362B] text-[#5A9A78] hover:text-[#78C49C] border border-[#234030] transition-colors font-bold flex items-center gap-1"
+          >
+            <Play className="w-3 h-3 text-[#5A9A78] fill-current" />
+            <span>Video Demo</span>
+          </a>
+        )}
         <a href="#context-problem" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">01. Context & Problem</a>
         <a href="#architecture" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">02. Architecture</a>
         {project.systemLayers && project.systemLayers.length > 0 && (
@@ -191,6 +203,18 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
           <a href="#decisions" className="shrink-0 px-2.5 py-1 rounded bg-[#181C21] hover:bg-[#22272E] text-[#9EA4AA] hover:text-[#F0EEE9] border border-[#262B32] transition-colors">08. Decisions & Trade-offs</a>
         )}
       </nav>
+
+      {/* Prominent Video Demonstration Section (Rendered when valid video is configured) */}
+      {isValidVideoDemo(project.videoDemo) && (
+        <section id="video-demo" className="scroll-mt-28">
+          <ProjectVideoDemo
+            demo={project.videoDemo}
+            projectTitle={project.title}
+            projectSlug={project.slug}
+            variant="full"
+          />
+        </section>
+      )}
 
       {/* 01. Context & 02. Problem Grid */}
       <section id="context-problem" className="grid md:grid-cols-2 gap-6 scroll-mt-28">
