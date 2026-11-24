@@ -97,10 +97,10 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         <div className="text-xs font-mono uppercase tracking-widest text-[#5A9A78] font-semibold">
           Engineering Specification // Case Study
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F0EEE9] leading-tight font-serif">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#F0EEE9] leading-snug font-serif">
           {project.title}
         </h1>
-        <p className="text-base sm:text-lg text-[#C8C6BF] leading-relaxed max-w-4xl">
+        <p className="text-sm sm:text-base text-[#C8C6BF] leading-relaxed max-w-4xl">
           {project.subtitle || project.tagline || project.summary}
         </p>
 
