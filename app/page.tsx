@@ -53,91 +53,91 @@ export default function HomePage() {
       {/* ------------------------------------------------------------- */}
       {/* SECTION 01 — HERO & PROFESSIONAL POSITIONING                  */}
       {/* ------------------------------------------------------------- */}
-      <section className="relative max-w-6xl mx-auto pt-6 sm:pt-10 px-4 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl">
+      <section className="relative max-w-6xl mx-auto pt-6 sm:pt-8 pb-8 px-4 sm:px-6 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl space-y-8">
         {/* Animated Cybernetic Environment Background */}
         <HeroBackground />
 
-        {/* Section Index Anchor */}
-        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono text-[#686E77] pb-3 border-b border-[#262B32]/50">
-          <span className="text-[#5A9A78] font-bold tracking-wider">01 // HERO & POSITIONING</span>
-          <span className="tracking-widest uppercase">PORTFOLIO SPEC-2026 · DETERMINISTIC SYSTEMS</span>
+        {/* Accessible Section Anchor (Preserved for screen readers & test suites) */}
+        <span className="sr-only">01 // HERO & POSITIONING</span>
+
+        {/* ------------------------------------------------------------- */}
+        {/* TOP: 3D CUBE (TOP-LEFT) & RECTANGULAR DETAILS (ADJACENT RIGHT)*/}
+        {/* ------------------------------------------------------------- */}
+        <div className="relative z-10 w-full">
+          <EngineeringCube />
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-6 sm:py-8">
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-            {/* Disciplined Primary Headline */}
-            <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl xl:text-5xl font-bold tracking-tight text-[#F0EEE9] font-serif leading-tight">
-                AI Systems Engineer
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg font-mono tracking-wide text-[#78C29A] font-semibold">
-                Python | LLM & Agentic Systems | Full-Stack
-              </p>
-            </div>
+        {/* ------------------------------------------------------------- */}
+        {/* BELOW: COMPLETE POSITIONING, HEADLINE, VALUE PROP & ACTIONS   */}
+        {/* ------------------------------------------------------------- */}
+        <div className="relative z-10 max-w-4xl mx-auto space-y-6 pt-6 border-t border-[#262B32]/60">
+          {/* Disciplined Primary Headline */}
+          <div className="space-y-2 text-center sm:text-left">
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F0EEE9] font-serif leading-tight">
+              AI Systems Engineer
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg font-mono tracking-wide text-[#78C29A] font-semibold">
+              Python | LLM & Agentic Systems | Full-Stack
+            </p>
+          </div>
 
-            {/* Technical Value Proposition */}
-            <blockquote className="text-sm sm:text-base text-[#C8C6BF] font-serif italic border-y border-[#262B32]/80 py-3.5 max-w-2xl mx-auto lg:mx-0 leading-relaxed bg-[#14171A]/40 px-3 rounded">
-              &ldquo;I build complete software systems around AI: stateful multi-agent orchestration, concurrent Python/FastAPI backend pipelines, grounded RAG architectures, and deterministic verification harnesses.&rdquo;
-            </blockquote>
+          {/* Technical Value Proposition */}
+          <blockquote className="text-sm sm:text-base text-[#C8C6BF] font-serif italic border-y border-[#262B32]/80 py-3.5 leading-relaxed bg-[#14171A]/40 px-4 rounded">
+            &ldquo;I build complete software systems around AI: stateful multi-agent orchestration, concurrent Python/FastAPI backend pipelines, grounded RAG architectures, and deterministic verification harnesses.&rdquo;
+          </blockquote>
 
-            {/* Evolutionary Trajectory Progression */}
-            <div className="p-3 rounded-lg bg-[#14171A]/80 border border-[#262B32] max-w-3xl mx-auto lg:mx-0 shadow-xs backdrop-blur-sm">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#71899A] block mb-1.5 font-bold">
-                Evolutionary Progression
-              </span>
-              <div className="text-[10.5px] sm:text-xs font-mono font-medium text-[#C8C6BF] flex flex-wrap items-center justify-center lg:justify-start gap-1.5">
-                <span className="text-[#9EA4AA]">Content</span>
-                <span className="text-[#5A6066]">→</span>
-                <span className="text-[#9EA4AA]">AI Workflows</span>
-                <span className="text-[#5A6066]">→</span>
-                <span className="text-[#9EA4AA]">AI Systems</span>
-                <span className="text-[#5A6066]">→</span>
-                <span className="text-[#9EA4AA]">Systems Engineering</span>
-                <span className="text-[#5A6066]">→</span>
-                <span className="text-[#78C29A] font-bold">Governed Agents</span>
-              </div>
-            </div>
-
-            {/* Focused Primary Hero CTAs */}
-            <div className="pt-2 space-y-3">
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 font-mono text-xs">
-                {/* 1. Explore Projects (Primary Action) */}
-                <Link
-                  href="/systems"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#5A9A78] bg-[#1A3326] hover:bg-[#224433] text-[#A3E5C2] hover:text-white font-semibold transition-all shadow-[0_0_15px_rgba(90,154,120,0.2)]"
-                >
-                  <Terminal className="w-4 h-4 text-[#78C29A]" />
-                  <span>Explore Projects →</span>
-                </Link>
-
-                {/* 2. View Resume (Secondary Action) */}
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#3E4652] bg-[#1E232A] hover:bg-[#282F38] text-[#F0EEE9] hover:text-white font-medium transition-colors shadow-xs"
-                >
-                  <FileText className="w-4 h-4 text-[#71899A]" />
-                  <span>View Resume (PDF)</span>
-                </a>
-              </div>
-
-              {/* Recruiter Quick View Bridge Link */}
-              <div className="text-center lg:text-left pt-0.5">
-                <Link
-                  href="/recruiter"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#9EA4AA] hover:text-[#78C29A] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#5A9A78] rounded py-0.5"
-                >
-                  <span>Short on time? View the 30-second executive summary</span>
-                  <span className="text-[#5A9A78] font-semibold">→</span>
-                </Link>
-              </div>
+          {/* Evolutionary Trajectory Progression */}
+          <div className="p-3.5 rounded-lg bg-[#14171A]/80 border border-[#262B32] shadow-xs backdrop-blur-sm">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#71899A] block mb-1.5 font-bold">
+              Evolutionary Progression
+            </span>
+            <div className="text-[10.5px] sm:text-xs font-mono font-medium text-[#C8C6BF] flex flex-wrap items-center gap-1.5">
+              <span className="text-[#9EA4AA]">Content</span>
+              <span className="text-[#5A6066]">→</span>
+              <span className="text-[#9EA4AA]">AI Workflows</span>
+              <span className="text-[#5A6066]">→</span>
+              <span className="text-[#9EA4AA]">AI Systems</span>
+              <span className="text-[#5A6066]">→</span>
+              <span className="text-[#9EA4AA]">Systems Engineering</span>
+              <span className="text-[#5A6066]">→</span>
+              <span className="text-[#78C29A] font-bold">Governed Agents</span>
             </div>
           </div>
 
-          {/* Interactive 3D Engineering Cube Stage */}
-          <div className="lg:col-span-5 flex justify-center w-full">
-            <EngineeringCube />
+          {/* Focused Primary Hero CTAs */}
+          <div className="pt-1 space-y-3">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3.5 font-mono text-xs">
+              {/* 1. Explore Projects (Primary Action) */}
+              <Link
+                href="/systems"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#5A9A78] bg-[#1A3326] hover:bg-[#224433] text-[#A3E5C2] hover:text-white font-semibold transition-all shadow-[0_0_15px_rgba(90,154,120,0.2)]"
+              >
+                <Terminal className="w-4 h-4 text-[#78C29A]" />
+                <span>Explore Projects →</span>
+              </Link>
+
+              {/* 2. View Resume (Secondary Action) */}
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#3E4652] bg-[#1E232A] hover:bg-[#282F38] text-[#F0EEE9] hover:text-white font-medium transition-colors shadow-xs"
+              >
+                <FileText className="w-4 h-4 text-[#71899A]" />
+                <span>View Resume (PDF)</span>
+              </a>
+            </div>
+
+            {/* Recruiter Quick View Bridge Link */}
+            <div className="text-center sm:text-left pt-0.5">
+              <Link
+                href="/recruiter"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#9EA4AA] hover:text-[#78C29A] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#5A9A78] rounded py-0.5"
+              >
+                <span>Short on time? View the 30-second executive summary</span>
+                <span className="text-[#5A9A78] font-semibold">→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

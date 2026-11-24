@@ -1270,7 +1270,7 @@ if (state.confirmationState === 'awaiting_confirmation' && state.editedDraft) {
       description:
         'Screen recording of the production React Native / Expo mobile application connected live to the FastAPI backend and Supabase RLS database. Verification history encompasses physical Android device testing, Android emulator execution, and automated test batteries (52 backend pytests, 50 mobile Jest checks).',
       poster: '/videos/solace_demo_poster.png',
-      duration: '2:58 • 4K Screen Capture',
+      duration: '6:43 • 1080p Master Walkthrough',
       caption:
         'Demonstrates synchronous <2ms pre-LLM crisis screening, ephemeral zero-retention audio buffer, and Server-Sent Events (SSE) streaming.'
     },

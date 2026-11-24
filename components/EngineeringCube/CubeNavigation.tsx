@@ -28,7 +28,7 @@ export function CubeNavigation({
   return (
     <nav
       aria-label="Engineering capability cube rotation controls"
-      className="space-y-2.5 w-full max-w-[340px] sm:max-w-[380px] mx-auto"
+      className="space-y-2.5 w-full max-w-[340px] sm:max-w-[420px] mx-auto md:mx-0"
     >
       {/* Stepper + Face Selector Row */}
       <div className="flex items-center justify-between gap-1.5 px-3 py-2 rounded-xl bg-[#14171A] border border-[#262B32] shadow-sm">

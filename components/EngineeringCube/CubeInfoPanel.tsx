@@ -12,7 +12,7 @@ interface CubeInfoPanelProps {
 
 export function CubeInfoPanel({ capability }: CubeInfoPanelProps) {
   return (
-    <div className="w-full max-w-[340px] sm:max-w-[380px] rounded-xl border border-[#262B32] bg-[#14171A]/95 p-4 space-y-3.5 shadow-xl transition-all">
+    <div className="w-full max-w-[340px] sm:max-w-[420px] min-h-[275px] rounded-xl border border-[#262B32] bg-[#14171A]/95 p-4 sm:p-5 flex flex-col justify-between shadow-xl transition-all">
       {/* Header bar */}
       <div className="flex items-center justify-between border-b border-[#22272E] pb-2">
         <div className="flex items-center gap-2">
@@ -27,7 +27,7 @@ export function CubeInfoPanel({ capability }: CubeInfoPanelProps) {
       </div>
 
       {/* Main Capability Identity */}
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-3 my-auto">
         <div className="p-2 rounded-lg border border-[#5A9A78]/40 bg-[#16231C] shrink-0 mt-0.5">
           {renderCubeMotif(capability.icon, 'w-5 h-5 text-[#78C29A]')}
         </div>

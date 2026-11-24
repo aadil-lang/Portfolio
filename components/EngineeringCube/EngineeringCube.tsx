@@ -107,41 +107,44 @@ export default function EngineeringCube() {
       onFocusCapture={() => setIsFocused(true)}
       onBlurCapture={() => setIsFocused(false)}
       tabIndex={0}
-      className="w-full flex flex-col items-center space-y-4 focus-visible:outline-none"
+      className="w-full focus-visible:outline-none"
     >
-      <div className="text-[10px] font-mono uppercase tracking-widest text-[#78C29A] font-semibold">
-        Interactive 3D Capability Cube // 6 Domains
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center justify-items-center">
+        {/* Top-Left: Cube Stage */}
+        <div className="md:col-span-6 flex flex-col items-center justify-center w-full">
+          <div className="text-[10px] font-mono uppercase tracking-widest text-[#78C29A] font-semibold mb-2 text-center">
+            Interactive 3D Capability Cube // 6 Domains
+          </div>
+          <CubeContainer
+            activeFace={state.activeFace}
+            rotateX={state.rotateX}
+            rotateY={state.rotateY}
+            onSelectFace={(face) => dispatch({ type: 'SELECT_FACE', face })}
+            onSwipeHorizontal={(direction) =>
+              dispatch({ type: 'STEP_HORIZONTAL', direction })
+            }
+            onSwipeVertical={(direction) =>
+              dispatch({ type: 'STEP_VERTICAL', direction })
+            }
+            onPanStart={() => setIsDragging(true)}
+            onPanEnd={() => setIsDragging(false)}
+          />
+        </div>
+
+        {/* Top-Right: Details Rectangular Space Adjacent to Cube */}
+        <div className="md:col-span-6 flex flex-col items-center md:items-start justify-center space-y-3.5 w-full max-w-[420px] mx-auto md:mx-0">
+          <CubeInfoPanel capability={activeCapability} />
+          <CubeNavigation
+            activeFace={state.activeFace}
+            onSelectFace={(face) => dispatch({ type: 'SELECT_FACE', face })}
+            onPrev={() => dispatch({ type: 'STEP_PREV' })}
+            onNext={() => dispatch({ type: 'STEP_NEXT' })}
+            onReset={() => dispatch({ type: 'RESET' })}
+            isAutoRotating={isAutoRotating}
+            onToggleAutoRotate={() => setIsAutoRotateEnabled((prev) => !prev)}
+          />
+        </div>
       </div>
-
-      {/* Actual 3D Geometry Stage */}
-      <CubeContainer
-        activeFace={state.activeFace}
-        rotateX={state.rotateX}
-        rotateY={state.rotateY}
-        onSelectFace={(face) => dispatch({ type: 'SELECT_FACE', face })}
-        onSwipeHorizontal={(direction) =>
-          dispatch({ type: 'STEP_HORIZONTAL', direction })
-        }
-        onSwipeVertical={(direction) =>
-          dispatch({ type: 'STEP_VERTICAL', direction })
-        }
-        onPanStart={() => setIsDragging(true)}
-        onPanEnd={() => setIsDragging(false)}
-      />
-
-      {/* Full Capability Details & Action Links Panel (External to cube) */}
-      <CubeInfoPanel capability={activeCapability} />
-
-      {/* Manual Stepper & 6-Face Selector Navigation */}
-      <CubeNavigation
-        activeFace={state.activeFace}
-        onSelectFace={(face) => dispatch({ type: 'SELECT_FACE', face })}
-        onPrev={() => dispatch({ type: 'STEP_PREV' })}
-        onNext={() => dispatch({ type: 'STEP_NEXT' })}
-        onReset={() => dispatch({ type: 'RESET' })}
-        isAutoRotating={isAutoRotating}
-        onToggleAutoRotate={() => setIsAutoRotateEnabled((prev) => !prev)}
-      />
     </section>
   )
 }
