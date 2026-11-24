@@ -84,6 +84,11 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
           <span className="text-xs uppercase font-mono font-bold tracking-wider px-2.5 py-1 rounded bg-[#18261F] text-[#5A9A78] border border-[#234030]">
             {project.ownershipLabel}
           </span>
+          {chapter?.timeline && (
+            <span className="text-xs font-mono font-semibold tracking-wider px-2.5 py-1 rounded bg-[#1C232B] text-[#78C29A] border border-[#2F3D4E]">
+              {chapter.timeline}
+            </span>
+          )}
           {project.type && (
             <span className="text-xs uppercase font-mono tracking-wider px-2.5 py-1 rounded bg-[#16191D] text-[#858A90] border border-[#262B32]">
               {project.type}

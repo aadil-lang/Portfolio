@@ -548,6 +548,58 @@ export const chapters: Chapter[] = [
       'Extended deterministic AI engineering from backend/developer tools into a full-stack React Native (Expo 58) + FastAPI/LangGraph mobile product grounded in safety, consent, and honest failure semantics.',
     technologies: ['React Native / Expo 58', 'TypeScript', 'Python 3.12', 'FastAPI', 'LangGraph', 'Google Gemini API', 'Supabase RLS', 'SSE Streaming'],
     slug: 'solace-ai'
+  },
+  {
+    id: 'universal-hr-assistant',
+    number: '09',
+    title: 'Archie — Universal Enterprise HR & IT Assistant',
+    subtitle: 'Controlled enterprise assistant demonstration coupling dense policy RAG with FastMCP zero-trust transactional execution',
+    layer: 'Enterprise RAG & Zero-Trust FastMCP Tools',
+    ownershipLabel: 'INDEPENDENT · PERSONAL BUILD',
+    timeline: 'November 2026',
+    context:
+      'Built in November 2026 as a controlled enterprise demonstration for a simulated corporate environment (Acme Corporation), Archie investigates how to decouple unstructured policy knowledge retrieval (ChromaDB) from authenticated transactional execution (FastMCP & PostgreSQL) without granting language models direct database access or relying on prompts for access control.',
+    problem:
+      'Enterprise employees routinely navigate fragmented HR portals, disconnected IT systems, and scattered policy documents. Connecting LLMs directly introduces critical risks: models hallucinate policy rules, direct DB tools risk peer employee data probing, and untrusted inputs can execute prompt injection.',
+    solution:
+      'Engineered a dual-capability architecture combining dense semantic retrieval over ChromaDB with an internal HMAC-signed FastMCP microservice over PostgreSQL 16, governed by LangGraph state machines and 0ms deterministic pre-flight regex guardrails.',
+    architectureDescription:
+      'Next.js 14 Client (Web Speech API Voice Assistant, Greeting Mirroring) → FastAPI Async Gateway → 0ms Pre-Flight Regex Guardrail → LangGraph StateGraph (Input Validation → Intent Routing → ChromaDB Retrieval / FastMCP Execution → Gemini 3.5 Synthesis) → Post-Flight PII Redactor.',
+    breakthrough:
+      'Decoupling unstructured policy retrieval from structured transactional tool execution via an internal HMAC-signed FastMCP server with strict caller peer-isolation.',
+    criticalDecision:
+      'Strict caller authorization in FastMCP handlers deterministically rejecting cross-employee record probing, combined with 0ms pre-flight regex inspection before LLM dispatch.',
+    whatBroke: [
+      {
+        failure: 'Semantic Drift on Absent Policy Documents',
+        cause: 'Top-k search returned remote stipend clauses for general expense queries when general expense documents were missing.',
+        detection: 'Evaluator benchmark flagged ergonomic stipend citation for general reimbursement query.',
+        response: 'Retrieved evidence strictly cited the ergonomic stipend receipt clause without hallucinating general expense rules.'
+      },
+      {
+        failure: 'Peer Record Probing Vulnerability',
+        cause: 'Retrieved policy documents or user prompts could attempt to query peer employee records.',
+        detection: 'Adversarial security test suite flagged cross-employee data access attempts.',
+        response: 'Enforced caller identity authorization in FastMCP handlers, deterministically rejecting attempts to query peer records with HTTP 403.'
+      }
+    ],
+    whatBecameDeterministic:
+      'Document-driven number extraction from ChromaDB (zero hardcoded policy numbers in business logic), HMAC-signed FastMCP tool authorization with caller identity masking, and 0ms deterministic regex pre-flight input inspection.',
+    evidenceAndMetrics: [
+      '64 automated tests passing across 9 test suites covering policy extraction, auth security, adversarial AI defense, and MCP tools',
+      '10-question live document evaluation benchmark achieving 100% execution rate and 0% security failure / data breach rate'
+    ],
+    tradeoffs: [
+      'FastMCP internal tool server introduces an extra network boundary compared to direct SQL queries, but guarantees tenant isolation and eliminates LLM SQL injection risks.'
+    ],
+    failuresAndTradeoffs: [
+      'Direct DB queries risked cross-employee probing; resolved by enforcing caller identity in FastMCP.',
+      'Ambiguous policy queries risked hallucinated general rules; resolved by strict citation thresholding.'
+    ],
+    accumulatedCapability:
+      'Enterprise Policy RAG • FastMCP Zero-Trust Execution • 0ms Pre-Flight Injection Defense • Multi-Modal Voice Interaction',
+    technologies: ['Python 3.12', 'FastAPI', 'LangGraph', 'FastMCP', 'ChromaDB', 'PostgreSQL 16', 'Next.js 14', 'TypeScript 5', 'Google Gemini'],
+    slug: 'universal-hr-assistant'
   }
 ]
 

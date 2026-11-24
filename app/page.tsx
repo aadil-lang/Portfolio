@@ -328,7 +328,7 @@ export default function HomePage() {
             <div className="space-y-3">
               <div className="flex items-center justify-between text-[10px] font-mono">
                 <span className="px-2 py-0.5 rounded bg-[#18261F] text-[#5A9A78] font-semibold border border-[#234030]">
-                  INDEPENDENT PERSONAL PROJECT · ENTERPRISE DEMO
+                  INDEPENDENT PERSONAL PROJECT · NOVEMBER 2026
                 </span>
                 <span className="text-[#858A90] font-semibold">64 Verified Tests Across 9 Suites</span>
               </div>

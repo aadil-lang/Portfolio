@@ -153,7 +153,8 @@ export const canonicalKnowledge = {
       'OCR Evaluation & Robustness Testing Platform (Sep 2026): multi-tier extraction evaluation (CER/WER), risk classification, and physical degradation testing (134 backend pytests + 20 UI assertions).',
       'Autonomous agent reliability tooling and diagnostic harnesses (AI Application Reliability Platform).',
       'Deterministic verification wrappers and governed multi-agent systems.',
-      'Solace AI (Solace Hackathon, Nov 2026): safety-first Expo 58 + FastAPI/LangGraph mobile wellness companion.'
+      'Solace AI (Solace Hackathon, Nov 2026): safety-first Expo 58 + FastAPI/LangGraph mobile wellness companion.',
+      'Archie — Universal Enterprise HR & IT Assistant (Nov 2026): controlled enterprise demonstration coupling dense ChromaDB policy RAG with FastMCP transactional execution under two-stage security guardrails (64 verified tests).'
     ],
     verifiedDate: '2026-11-10'
   },
