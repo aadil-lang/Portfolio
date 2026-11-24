@@ -3187,7 +3187,7 @@ This architectural pattern emerged directly from Aadil’s observation that prom
         url: 'https://github.com/aadil-lang/universal-enterprise-assistant'
       })
 
-      answer = `**Archie (Universal Enterprise HR & IT Assistant)** is an enterprise conversational assistant for Acme Corporation that bridges unstructured policy document RAG with secure transactional enterprise tools:
+      answer = `**Archie (Universal Enterprise HR & IT Assistant)** is a controlled enterprise demonstration and reference architecture for Acme Corporation that bridges unstructured policy document RAG with secure transactional enterprise tools:
 
 1. **Document-Driven Policy Q&A (ChromaDB):** Corporate rules, benefit amounts, and deadlines are dynamically extracted from multi-format files (PDF, Word, Markdown) into ChromaDB using dense semantic embeddings with cosine distance thresholding (\`relevance_threshold = 1.15\`) and verifiable document citations — facts are never hardcoded.
 2. **Zero-Trust FastMCP Tool Execution:** Structured employee data (leave balances, IT equipment, support tickets) is accessed via an internal Streamable HTTP FastMCP server running over PostgreSQL 16. FastMCP enforces HMAC-SHA256 inter-service signatures, parameterized queries, and strict caller peer-isolation (rejecting peer data probing).

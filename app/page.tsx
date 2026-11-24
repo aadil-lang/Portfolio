@@ -326,7 +326,7 @@ export default function HomePage() {
             <div className="space-y-3">
               <div className="flex items-center justify-between text-[10px] font-mono">
                 <span className="px-2 py-0.5 rounded bg-[#18261F] text-[#5A9A78] font-semibold border border-[#234030]">
-                  INDEPENDENT PERSONAL PROJECT · FLAGSHIP
+                  INDEPENDENT PERSONAL PROJECT · ENTERPRISE DEMO
                 </span>
                 <span className="text-[#858A90] font-semibold">64 Verified Tests Across 9 Suites</span>
               </div>
@@ -334,7 +334,7 @@ export default function HomePage() {
                 Archie — Universal Enterprise HR & IT Assistant
               </h3>
               <p className="text-xs sm:text-sm text-[#9EA4AA] leading-relaxed">
-                Full-stack enterprise conversational assistant coupling dense policy document RAG (ChromaDB) with secure, structured transactional tool execution (FastMCP over PostgreSQL 16) under two-stage prompt injection guardrails and LangGraph state-machine orchestration.
+                Controlled enterprise demonstration coupling dense policy document RAG (ChromaDB) with secure, structured transactional tool execution (FastMCP over PostgreSQL 16) under two-stage prompt injection guardrails and LangGraph state-machine orchestration.
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {['FastAPI 0.115+', 'LangGraph', 'FastMCP', 'ChromaDB 0.6.3+', 'PostgreSQL 16', 'Google Gemini 3.5', 'Next.js 14', 'Zero-Trust Tools'].map((t) => (

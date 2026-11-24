@@ -1715,10 +1715,10 @@ def default_ground_truth_path() -> Path:
     canonicalId: 'proj-universal-hr-assistant',
     title: 'Archie — Universal Enterprise HR & IT Assistant',
     subtitle: 'Enterprise Policy RAG & Zero-Trust FastMCP Assistant',
-    tagline: 'Enterprise conversational assistant coupling dense policy RAG with FastMCP zero-trust transactional execution.',
+    tagline: 'Controlled enterprise assistant demonstration coupling dense policy RAG with FastMCP zero-trust transactional execution.',
     summary:
-      'An enterprise-grade conversational HR and IT assistant built for Acme Corporation. Bridges unstructured corporate policy retrieval (ChromaDB RAG) with secure, structured transactional operations (FastMCP & PostgreSQL) under strict tenant peer-isolation and two-stage AI security guardrails.',
-    type: 'Full-Stack • Enterprise RAG & MCP',
+      'A controlled enterprise assistant demonstration built for Acme Corporation. Bridges unstructured corporate policy retrieval (ChromaDB RAG) with secure, structured transactional operations (FastMCP & PostgreSQL) under strict tenant peer-isolation and two-stage AI security guardrails.',
+    type: 'Full-Stack • Enterprise RAG & MCP Demo',
     demo: null,
     publicRepoOverride: 'https://github.com/aadil-lang/universal-enterprise-assistant',
     technologies: [
@@ -1734,9 +1734,9 @@ def default_ground_truth_path() -> Path:
       'Google Gemini'
     ],
     problem:
-      'Enterprise employees waste hours navigating siloed HR intranets, scattered PDF policy manuals, and complex IT ticketing systems. Common self-service inquiries (vacation balances, hardware refresh cycles, ergonomic reimbursements, and ticket creation) get escalated to human support desks, creating high operational overhead and response delays.',
+      'Enterprise employees routinely navigate fragmented HR portals, disconnected IT systems, and scattered policy documents to resolve workplace requests. In an AI assistant, connecting language models to these environments introduces critical risks: models hallucinate policy rules when documents are ambiguous, direct database tools risk cross-employee peer data probing, and untrusted inputs can execute prompt injection. The engineering challenge was to unify policy question-answering with transactional execution in a controlled environment without granting the LLM direct database access or relying on prompt instructions for access control.',
     solution:
-      'Engineered Archie: a dual-capability architecture combining document-driven RAG over company policies in ChromaDB with zero-trust structured record access via an internal HMAC-signed FastMCP server over PostgreSQL. Governed by a LangGraph state machine with 0ms deterministic pre-flight regex guardrails, dynamic greeting-mirroring voice assistant, and live Google Gemini 3.5 Flash-lite synthesis.',
+      'Engineered Archie as a controlled enterprise demonstration: a dual-capability architecture combining document-driven RAG over company policies in ChromaDB with zero-trust structured record access via an internal HMAC-signed FastMCP server over PostgreSQL. Governed by a LangGraph state machine with 0ms deterministic pre-flight regex guardrails, dynamic greeting-mirroring voice assistant, and live Google Gemini 3.5 Flash-lite synthesis.',
     keyFeatures: [
       'Document-driven policy Q&A: Dense semantic search over multi-format documents (PDF, DOCX, Markdown) in ChromaDB with cosine distance thresholding (1.15) and verifiable citations',
       'Zero-trust FastMCP server: Parameterized read-only tools querying PostgreSQL employee records with HMAC-SHA256 inter-service signatures and strict caller peer-isolation',
@@ -1755,7 +1755,7 @@ def default_ground_truth_path() -> Path:
       { layer: 'Language Model', components: 'Google Gemini (gemini-3.5-flash-lite)', details: 'Live natural language synthesis bound by <untrusted_policy_reference> XML containment, plus offline mock provider' }
     ],
     context:
-      'Built as an enterprise-grade AI assistant for Acme Corporation to eliminate employee support friction and prove production readiness across RAG grounding, MCP tool security, and adversarial resistance.',
+      'Built as a controlled enterprise demonstration for a simulated enterprise environment (Acme Corporation), Archie investigates how to unify unstructured corporate policy retrieval and authenticated transactional workflows into a single conversational interface. Rather than attempting a full enterprise-wide rollout, the project serves as a functional reference architecture exploring how LLM state-machine orchestration (LangGraph), vector-based retrieval-augmented generation (ChromaDB), and the Model Context Protocol (FastMCP) can safely interface with corporate databases without compromising security boundaries.',
     criticalDecision:
       'Decoupled unstructured corporate policy knowledge from structured transactional records: policies are dynamically retrieved from ChromaDB (never hardcoded in business logic), while employee records are accessed strictly through an internal, HMAC-signed FastMCP microservice enforcing caller authorization.',
     whatBroke: [

@@ -867,7 +867,7 @@ export const canonicalProjectRecords: CanonicalProjectRecord[] = [
     projectId: 'proj-universal-hr-assistant',
     slug: 'universal-hr-assistant',
     title: 'Archie — Universal Enterprise HR & IT Assistant',
-    tagline: 'Enterprise conversational assistant coupling dense policy RAG with FastMCP zero-trust transactional execution.',
+    tagline: 'Controlled enterprise assistant demonstration coupling dense policy RAG with FastMCP zero-trust transactional execution.',
     implementationAuthorship: 'SOLE_IMPLEMENTER',
     architecturalResponsibility: 'PRIMARY_ARCHITECT',
     requirementsOrigin: 'SELF_DIRECTED_INITIATIVE',
