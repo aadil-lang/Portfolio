@@ -24,36 +24,70 @@ import {
   Database,
   Binary,
   Zap,
-  GitCompare
+  GitCompare,
+  FlaskConical,
+  Search,
+  Activity,
+  ChevronRight
 } from 'lucide-react'
 import { HomepageAskAadilCta } from '../components/AskAadil/HomepageAskAadilCta'
 import { HeroBackground } from '../components/HeroBackground'
 import { getHomepageCuratedVideos } from '../data/curatedVideos'
 import ProjectVideoDemo from '../components/shared/ProjectVideoDemo'
+import { STUDIO_STATIONS } from '../data/studioStations'
 
 const EngineeringCube = dynamic(() => import('../components/EngineeringCube'), {
   ssr: false,
   loading: () => (
     <div
       aria-hidden="true"
-      className="w-full max-w-[340px] h-[340px] mx-auto rounded-xl border border-[#2A2F36] bg-[#14171A]/60 animate-pulse"
+      className="w-full max-w-[360px] h-[340px] mx-auto rounded-xl border border-[#2A2F36] bg-[#14171A]/60 animate-pulse"
     />
   )
 })
 
 export const metadata = {
-  title: 'Mohemmed Aadil Khurshid | AI Engineer — Python, Agentic Systems & Full-Stack',
+  title: 'AADIL BUILDS // AI Engineering Studio — Mohemmed Aadil Khurshid',
   description:
-    'Portfolio of Mohemmed Aadil Khurshid, AI Engineer specializing in Python, FastAPI, LangGraph agentic systems, RAG pipelines, and deterministic verification harnesses.'
+    'Online AI Engineering Studio of Mohemmed Aadil Khurshid. Stateful multi-agent systems, concurrent Python/FastAPI pipelines, grounded RAG architectures, and deterministic verification harnesses.'
 }
 
 export default function HomePage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 sm:space-y-20 pb-20">
+      {/* ------------------------------------------------------------- */}
+      {/* STUDIO TELEMETRY & STATUS BANNER                              */}
+      {/* ------------------------------------------------------------- */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-3 text-xs font-mono border-b border-[#242A32] pb-3 text-[#8BA0B2]">
+        <div className="flex items-center gap-2.5">
+          <span className="w-2 h-2 rounded-full bg-[#78C29A] animate-pulse" />
+          <span className="text-[#F0EEE9] font-bold tracking-wider uppercase text-[11px]">
+            AADIL BUILDS // STUDIO ONLINE
+          </span>
+          <span className="text-[#5A6872] hidden sm:inline">•</span>
+          <span className="text-[#78C29A] hidden sm:inline font-medium">
+            HYDERABAD &amp; REMOTE • OPEN TO AI ENGINEERING ROLES
+          </span>
+        </div>
+        <div className="flex items-center gap-3 text-[11px]">
+          <span className="hidden md:inline">
+            <strong className="text-[#F0EEE9]">12</strong> Systems
+          </span>
+          <span className="text-[#5A6872] hidden md:inline">•</span>
+          <span className="hidden md:inline">
+            <strong className="text-[#78C29A]">771</strong> Checks
+          </span>
+          <span className="text-[#5A6872] hidden md:inline">•</span>
+          <span>
+            <strong className="text-[#58A6FF]">18</strong> ADRs
+          </span>
+        </div>
+      </div>
+
       {/* ------------------------------------------------------------- */}
       {/* SECTION 01 — HERO & PROFESSIONAL POSITIONING                  */}
       {/* ------------------------------------------------------------- */}
-      <section className="relative max-w-7xl w-full mx-auto pt-5 sm:pt-6 pb-6 px-4 sm:px-6 lg:px-8 overflow-hidden rounded-2xl border border-[#262B32]/60 bg-[#121518]/90 shadow-2xl space-y-5 sm:space-y-6">
+      <section className="relative max-w-7xl w-full mx-auto pt-5 sm:pt-6 pb-6 px-4 sm:px-6 lg:px-8 overflow-hidden rounded-2xl border border-[#262B32]/70 bg-[#121518]/90 shadow-2xl space-y-5 sm:space-y-6">
         {/* Animated Cybernetic Environment Background */}
         <HeroBackground />
 
@@ -73,11 +107,14 @@ export default function HomePage() {
         <div className="relative z-10 max-w-5xl lg:max-w-6xl mx-auto space-y-4 pt-4 sm:pt-5 border-t border-[#262B32]/60">
           {/* Disciplined Primary Headline */}
           <div className="space-y-1.5 text-center sm:text-left">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-[#5A9A78]/40 bg-[#16231C] text-[10px] font-mono text-[#78C29A] font-semibold mb-1">
+              <span>INTELLIGENCE × ENGINEERING × RELIABILITY</span>
+            </div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F0EEE9] font-serif leading-tight">
               AI Systems Engineer
             </h1>
             <p className="text-sm sm:text-base md:text-lg font-mono tracking-wide text-[#78C29A] font-semibold">
-              Python | LLM & Agentic Systems | Full-Stack
+              Python | LLM &amp; Agentic Systems | Full-Stack
             </p>
           </div>
 
@@ -106,14 +143,14 @@ export default function HomePage() {
 
           {/* Focused Primary Hero CTAs */}
           <div className="pt-0.5 space-y-2.5">
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3.5 font-mono text-xs">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 font-mono text-xs">
               {/* 1. Explore Projects (Primary Action) */}
               <Link
                 href="/systems"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#5A9A78] bg-[#1A3326] hover:bg-[#224433] text-[#A3E5C2] hover:text-white font-semibold transition-all shadow-[0_0_15px_rgba(90,154,120,0.2)]"
               >
                 <Terminal className="w-4 h-4 text-[#78C29A]" />
-                <span>Explore Projects →</span>
+                <span>Explore Workbench →</span>
               </Link>
 
               {/* 2. View Resume (Secondary Action) */}
@@ -126,9 +163,12 @@ export default function HomePage() {
                 <FileText className="w-4 h-4 text-[#71899A]" />
                 <span>View Resume (PDF)</span>
               </a>
+
+              {/* 3. Launch Ask Aadil Agent */}
+              <HomepageAskAadilCta variant="compact" label="Ask Aadil" />
             </div>
 
-            {/* Recruiter Quick View Bridge Link */}
+            {/* Recruiter Quick View Bridge Link (Strict verification copy preserved) */}
             <div className="text-center sm:text-left pt-0.5">
               <Link
                 href="/recruiter"
@@ -139,6 +179,89 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Cartographic Section Divider */}
+      <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
+
+      {/* ------------------------------------------------------------- */}
+      {/* 5 STUDIO SPACES NAVIGATION MATRIX                             */}
+      {/* ------------------------------------------------------------- */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#242930] pb-3">
+          <div>
+            <span className="text-xs uppercase tracking-wider font-mono text-[#78C29A] block font-semibold">
+              STUDIO ARCHITECTURE // 5 SPATIAL STATIONS
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F0EEE9] font-serif">
+              Engineering Studio Spaces
+            </h2>
+          </div>
+          <span className="text-xs font-mono text-[#71899A]">
+            Spatial Navigation &amp; Dedicated Environments
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {STUDIO_STATIONS.map((station) => (
+            <Link
+              key={station.id}
+              href={station.route}
+              className="p-5 rounded-xl border border-[#262B32] bg-[#14171A] hover:bg-[#181C21] hover:border-[#3E4A56] transition-all group flex flex-col justify-between space-y-3 shadow-sm"
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-[#78C29A] font-bold px-2 py-0.5 rounded bg-[#16231C] border border-[#5A9A78]/30">
+                    SPACE {station.number}
+                  </span>
+                  <span className="text-[10px] font-mono text-[#71899A]">{station.stats}</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-serif font-bold text-[#F0EEE9] group-hover:text-white transition-colors flex items-center justify-between">
+                  <span>{station.title}</span>
+                  <ChevronRight className="w-4 h-4 text-[#5A6872] group-hover:text-[#78C29A] group-hover:translate-x-0.5 transition-all" />
+                </h3>
+                <p className="text-xs text-[#9EA4AA] leading-relaxed line-clamp-2">
+                  {station.description}
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-[#20252D] flex flex-wrap gap-1 text-[10px] font-mono text-[#71899A]">
+                {station.featuredSystems.slice(0, 3).map((item) => (
+                  <span key={item} className="px-1.5 py-0.2 rounded bg-[#181C21] border border-[#262B32] text-[#8BA0B2]">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </Link>
+          ))}
+
+          {/* Quick RAG Lab Interactive Card */}
+          <Link
+            href="/rag-lab"
+            className="p-5 rounded-xl border border-[#388BFD]/40 bg-[#121B26] hover:bg-[#152230] transition-all group flex flex-col justify-between space-y-3 shadow-sm"
+          >
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono text-[#58A6FF] font-bold px-2 py-0.5 rounded bg-[#162332] border border-[#388BFD]/30">
+                  TOOL // INTERACTIVE
+                </span>
+                <span className="text-[10px] font-mono text-[#58A6FF]">Dual-Mode RAG</span>
+              </div>
+              <h3 className="text-base sm:text-lg font-serif font-bold text-[#F0EEE9] group-hover:text-white transition-colors flex items-center justify-between">
+                <span>RAG Retrieval Playground</span>
+                <ChevronRight className="w-4 h-4 text-[#58A6FF] group-hover:translate-x-0.5 transition-all" />
+              </h3>
+              <p className="text-xs text-[#9EA4AA] leading-relaxed">
+                Test hybrid BM25 and vector-space retrieval interactively with zero hallucination guarantee claims.
+              </p>
+            </div>
+
+            <div className="pt-2 border-t border-[#202E3D] text-[11px] font-mono text-[#58A6FF] font-semibold flex items-center justify-between">
+              <span>Launch RAG Lab Tool</span>
+              <span>→</span>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -159,7 +282,7 @@ export default function HomePage() {
             </h2>
           </div>
           <span className="text-xs font-mono text-[#71899A]">
-            Verified Architectures & Deterministic Systems
+            Verified Architectures &amp; Deterministic Systems
           </span>
         </div>
 
@@ -169,7 +292,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <Workflow className="w-4 h-4 text-[#5A9A78]" />
               <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-[#F0EEE9]">
-                Agentic Systems & Orchestration
+                Agentic Systems &amp; Orchestration
               </h3>
             </div>
             <p className="text-xs text-[#9EA4AA] leading-relaxed">
@@ -189,7 +312,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <Terminal className="w-4 h-4 text-[#5A9A78]" />
               <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-[#F0EEE9]">
-                Python & Backend Engineering
+                Python &amp; Backend Engineering
               </h3>
             </div>
             <p className="text-xs text-[#9EA4AA] leading-relaxed">
@@ -209,7 +332,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <Database className="w-4 h-4 text-[#5A9A78]" />
               <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-[#F0EEE9]">
-                RAG & Retrieval Systems
+                RAG &amp; Retrieval Systems
               </h3>
             </div>
             <p className="text-xs text-[#9EA4AA] leading-relaxed">
@@ -229,7 +352,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#5A9A78]" />
               <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-[#F0EEE9]">
-                AI Evaluation & Reliability
+                AI Evaluation &amp; Reliability
               </h3>
             </div>
             <p className="text-xs text-[#9EA4AA] leading-relaxed">
@@ -249,7 +372,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <Layers className="w-4 h-4 text-[#5A9A78]" />
               <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-[#F0EEE9]">
-                Full-Stack & Mobile AI
+                Full-Stack &amp; Mobile AI
               </h3>
             </div>
             <p className="text-xs text-[#9EA4AA] leading-relaxed">
@@ -269,7 +392,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <Binary className="w-4 h-4 text-[#5A9A78]" />
               <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-[#F0EEE9]">
-                Deterministic Solvers & CAD
+                Deterministic Solvers &amp; CAD
               </h3>
             </div>
             <p className="text-xs text-[#9EA4AA] leading-relaxed">
@@ -290,7 +413,7 @@ export default function HomePage() {
       <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 03 — FEATURED ENGINEERING SYSTEMS (PRIORITIZED 4-PACK)*/}
+      {/* SECTION 03 — FEATURED ENGINEERING SYSTEMS (WORKBENCH 4-PACK)  */}
       {/* ------------------------------------------------------------- */}
       <section id="featured-systems" className="max-w-5xl mx-auto px-4 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#242930] pb-3">
@@ -333,7 +456,7 @@ export default function HomePage() {
                 <span className="text-[#858A90] font-semibold">64 Verified Tests Across 9 Suites</span>
               </div>
               <h3 className="font-serif font-bold text-lg sm:text-xl text-[#F0EEE9] group-hover:text-white transition-colors">
-                Archie — Universal Enterprise HR & IT Assistant
+                Archie — Universal Enterprise HR &amp; IT Assistant
               </h3>
               <p className="text-xs sm:text-sm text-[#9EA4AA] leading-relaxed">
                 Controlled enterprise demonstration coupling dense policy document RAG (ChromaDB) with secure, structured transactional tool execution (FastMCP over PostgreSQL 16) under two-stage prompt injection guardrails and LangGraph state-machine orchestration.
@@ -347,7 +470,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="pt-3 border-t border-[#22272E] text-[11px] font-mono text-[#5A9A78] group-hover:text-[#78B896] flex items-center justify-between">
-              <span>View System Case Study & Architecture</span>
+              <span>View System Case Study &amp; Architecture</span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </Link>
@@ -365,7 +488,7 @@ export default function HomePage() {
                 <span className="text-[#858A90] font-semibold">172 Verified Tests</span>
               </div>
               <h3 className="font-serif font-bold text-lg text-[#F0EEE9] group-hover:text-white transition-colors">
-                Ask Aadil — Stateful Portfolio Agent & Controlled Actions
+                Ask Aadil — Stateful Portfolio Agent &amp; Controlled Actions
               </h3>
               <p className="text-xs text-[#9EA4AA] leading-relaxed">
                 Stateful grounded conversational agent with deterministic intent routing, decoupled multi-source retrieval (Timeline, Journal, Systems, Resume), bitwise draft integrity, and explicit human confirmation gates before external action execution.
@@ -384,7 +507,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Card 2: Solace AI */}
+          {/* Card 3: Solace AI */}
           <Link
             href="/projects/solace-ai"
             className="p-5 rounded-xl bg-[#14171A] hover:bg-[#181C21] border border-[#262B32] hover:border-[#D48A63]/50 transition-all group flex flex-col justify-between space-y-4 cursor-pointer"
@@ -416,7 +539,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Card 3: AI Reliability */}
+          {/* Card 4: AI Reliability */}
           <Link
             href="/projects/ai-reliability"
             className="p-5 rounded-xl bg-[#14171A] hover:bg-[#181C21] border border-[#262B32] hover:border-[#71899A]/50 transition-all group flex flex-col justify-between space-y-4 cursor-pointer"
@@ -429,7 +552,7 @@ export default function HomePage() {
                 <span className="text-[#858A90] font-semibold">205+ Tests</span>
               </div>
               <h3 className="font-serif font-bold text-lg text-[#F0EEE9] group-hover:text-white transition-colors">
-                AI Application Reliability & Autonomous Browser Testing
+                AI Application Reliability &amp; Autonomous Browser Testing
               </h3>
               <p className="text-xs text-[#9EA4AA] leading-relaxed">
                 Autonomous browser testing agent pairing headless Chromium with local Ollama Qwen 2.5 diagnostics, Fisher information covariance uncertainty abstention, Model Context Protocol (MCP) tool integration, and an append-only SHA-256 provenance ledger.
@@ -448,20 +571,20 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Card 4: EDA */}
+          {/* Card 5: EDA */}
           <Link
             href="/projects/design-automation"
-            className="p-5 rounded-xl bg-[#14171A] hover:bg-[#181C21] border border-[#262B32] hover:border-[#5A9A78]/50 transition-all group flex flex-col justify-between space-y-4 cursor-pointer"
+            className="md:col-span-2 p-5 rounded-xl bg-[#14171A] hover:bg-[#181C21] border border-[#262B32] hover:border-[#5A9A78]/50 transition-all group flex flex-col justify-between space-y-4 cursor-pointer"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between text-[10px] font-mono">
                 <span className="px-2 py-0.5 rounded bg-[#18261F] text-[#5A9A78] font-semibold border border-[#234030]">
                   INDEPENDENT ENGINEERING PROJECT
                 </span>
-                <span className="text-[#858A90] font-semibold">424 Tests Across 28 Suites</span>
+                <span className="text-[#858A90] font-semibold">424 Tests Across 28 Suites • 0.0000% CAD Error</span>
               </div>
               <h3 className="font-serif font-bold text-lg text-[#F0EEE9] group-hover:text-white transition-colors">
-                Engineering Design Automation (EDA)
+                Engineering Design Automation (EDA) — Hybrid CAD &amp; Physics Synthesis
               </h3>
               <p className="text-xs text-[#9EA4AA] leading-relaxed">
                 Hybrid AI mechanical design converting natural-language engineering briefs into validated 3D STEP BRep solid geometry and ASME SVG blueprints via closed-form Saint-Venant torsion solvers with 0.0000% CAD relative volume error.
@@ -512,7 +635,7 @@ export default function HomePage() {
             </h2>
           </div>
           <span className="text-xs font-mono text-[#71899A]">
-            Direct Runtime Captures & Workflows
+            Direct Runtime Captures &amp; Workflows
           </span>
         </div>
 
@@ -533,74 +656,81 @@ export default function HomePage() {
       <div className="w-full max-w-5xl mx-auto border-t border-[#22272E]/70" aria-hidden="true" />
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 04 — ABOUT // THE TWO-CHAPTER CAREER TRAJECTORY       */}
+      {/* SECTION 04 — DEDICATED PROFESSIONAL EXPERIENCE // WAYGROUND   */}
       {/* ------------------------------------------------------------- */}
-      <section className="max-w-4xl mx-auto px-4 space-y-6">
-        <div className="p-6 sm:p-8 rounded-xl border border-[#262B32] bg-[#14171A] space-y-6">
+      <section className="max-w-5xl mx-auto px-4 space-y-6">
+        <div className="p-6 sm:p-8 rounded-2xl border border-[#262B32] bg-[#14171A] space-y-6">
           <div className="space-y-1">
-            <span className="text-xs uppercase font-mono tracking-wider text-[#5A9A78] block">
+            <span className="text-xs uppercase font-mono tracking-wider text-[#5A9A78] block font-semibold">
               04 // CAREER TRAJECTORY & ENGINEERING JOURNEY // FROM CONTENT TO SYSTEMS
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F0EEE9] font-serif">
-              From Content to Systems: The Engineering Journey
+              Professional Engineering Experience: Wayground
             </h2>
+            <p className="text-xs sm:text-sm font-mono text-[#78C29A]">
+              Continuous Engineering Tenure: January 2024 – July 2026 (2 Years 7 Months)
+            </p>
           </div>
 
-          <p className="text-sm sm:text-base text-[#C8C6BF] leading-relaxed">
-            I hold a B.Tech (Hons.) in Mechanical Engineering from Lovely Professional University and began my professional career as a Mathematics Subject Matter Expert and Content Developer (Graveiens, InhaltMart, Digiplus). Working hands-on with mathematical content pipelines exposed real-world edge cases that prompting alone could never solve. That realization drove my transition: I moved from authoring content manually to automating question pipelines, building local Tier-1 deterministic evaluation engines, and engineering reliable multi-agent systems—grounded in the principle that <em>generative models propose candidates, but deterministic engineering, compilers, and state machines decide what is true.</em>
+          <p className="text-sm sm:text-base text-[#C8C6BF] leading-relaxed font-sans">
+            I hold a B.Tech (Hons.) in Mechanical Engineering from Lovely Professional University and began my professional career in mathematical content development. Transitioning to software engineering at Wayground, I moved from manual authoring to automating enterprise ETL pipelines, building local Tier-1 deterministic evaluation engines, and engineering reliable multi-agent systems.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            {/* Chapter 1: Wayground */}
-            <div className="p-4 rounded-lg bg-[#181C21] border border-[#2A303A] space-y-2">
+            {/* Role 1: AI Engineer */}
+            <div className="p-4 rounded-xl bg-[#181C21] border border-[#2A303A] space-y-2">
               <div className="flex items-center justify-between text-xs font-mono font-bold text-[#F0EEE9]">
                 <div className="flex items-center gap-1.5">
-                  <Briefcase className="w-3.5 h-3.5 text-[#71899A]" />
-                  <span>Stage 1 // Wayground Experience</span>
+                  <Briefcase className="w-3.5 h-3.5 text-[#78C29A]" />
+                  <span>AI Engineer — AI/ML Team</span>
                 </div>
-                <span className="text-[10px] text-[#71899A] font-normal">Apr 2024 — Jul 2026</span>
+                <span className="text-[10px] text-[#78C29A] font-semibold">Jan 2026 — Jul 2026</span>
               </div>
               <p className="text-xs text-[#9EA4AA] leading-relaxed">
-                Professional engineering tenure at Wayground concluding in July 2026. Built the VM Copy question generator with local TypeScript Tier-1 deterministic evaluation (0ms latency, $0 cost), an educational worksheets platform pairing headless TeX Live / TikZ compilers with 2D maze graph algorithms, and asynchronous Map-Reduce curriculum ETL pipelines.
+                Architected enterprise educational pipelines including the <strong className="text-[#F0EEE9]">Curriculum Transformation Engine</strong> (AST schema validation, 80+ structural rules), the <strong className="text-[#F0EEE9]">AI Worksheets Generator</strong> (headless pdflatex/TikZ compiler with 2D maze graph solvers), and the bounded image generation workstream for the <strong className="text-[#F0EEE9]">US Mathematics Item Bank</strong>.
               </p>
+              <div className="pt-2 flex flex-wrap gap-1.5">
+                {['Python', 'FastAPI', 'TeX Live', 'TikZ', 'AST Parsing', 'Enterprise ETL'].map((s) => (
+                  <span key={s} className="text-[9.5px] font-mono px-2 py-0.5 rounded bg-[#14171A] border border-[#262B32] text-[#8BA0B2]">
+                    {s}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Chapter 2: Independent Research */}
-            <div className="p-4 rounded-lg bg-[#181C21] border border-[#2A303A] space-y-2">
+            {/* Role 2: Subject Matter Expert */}
+            <div className="p-4 rounded-xl bg-[#181C21] border border-[#2A303A] space-y-2">
               <div className="flex items-center justify-between text-xs font-mono font-bold text-[#F0EEE9]">
                 <div className="flex items-center gap-1.5">
-                  <UserCheck className="w-3.5 h-3.5 text-[#5A9A78]" />
-                  <span>Stage 2 // Independent AI Research</span>
+                  <UserCheck className="w-3.5 h-3.5 text-[#58A6FF]" />
+                  <span>Subject Matter Expert — Mathematics</span>
                 </div>
-                <span className="text-[10px] text-[#5A9A78] font-normal">Aug 2026 — Present</span>
+                <span className="text-[10px] text-[#8BA0B2] font-semibold">Jan 2024 — Dec 2025</span>
               </div>
               <p className="text-xs text-[#9EA4AA] leading-relaxed">
-                Continuous independent engineering activity. Shipped 7 complete architectures across competitive hackathons (Solace AI, Loom AI, Atlas AI), document robustness testing (OCR Evaluator), autonomous browser testing (AI Reliability), CAD generation (EDA), and grounded portfolio agents (Ask Aadil).
+                Designed the question taxonomy and deterministic evaluation rules for the <strong className="text-[#F0EEE9]">VM Copy Question Generator</strong>, implementing local TypeScript Tier-1 math verification with &lt;1ms execution latency and $0 runtime cost.
               </p>
+              <div className="pt-2 flex flex-wrap gap-1.5">
+                {['TypeScript', 'Deterministic Evals', '<1ms Latency', 'Taxonomy Design'].map((s) => (
+                  <span key={s} className="text-[9.5px] font-mono px-2 py-0.5 rounded bg-[#14171A] border border-[#262B32] text-[#8BA0B2]">
+                    {s}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-[#22272E]">
+          {/* Independent Period Callout */}
+          <div className="p-3.5 rounded-xl bg-[#111417] border border-[#262B32] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+            <div>
+              <span className="font-bold text-[#78C29A]">Independent Research &amp; Open-Source Activity:</span>
+              <span className="text-[#9EA4AA] ml-1.5">August 2026 – Present (Archie, Solace AI, Ask Aadil, EDA, OCR Evaluator)</span>
+            </div>
             <Link
               href="/experience"
-              className="p-3.5 rounded-lg bg-[#111417] hover:bg-[#181C21] border border-[#242930] hover:border-[#536B7A] transition-all group flex items-center justify-between text-xs font-mono"
+              className="text-[#58A6FF] hover:text-[#79B8FF] font-semibold shrink-0"
             >
-              <div>
-                <span className="font-bold text-[#F0EEE9] group-hover:text-white block">Explore Chronological Timeline →</span>
-                <span className="text-[10px] text-[#71899A]">Interactive Journey Map & Milestone Nodes</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#71899A] group-hover:translate-x-1 transition-transform" />
-            </Link>
-
-            <Link
-              href="/journal"
-              className="p-3.5 rounded-lg bg-[#111417] hover:bg-[#181C21] border border-[#242930] hover:border-[#71899A] transition-all group flex items-center justify-between text-xs font-mono"
-            >
-              <div>
-                <span className="font-bold text-[#F0EEE9] group-hover:text-white block">Explore Engineering Journal →</span>
-                <span className="text-[10px] text-[#A2B4C2]">18 Spreads of Architecture Decisions & Defect Logs</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#71899A] group-hover:translate-x-1 transition-transform" />
+              View Full Career Timeline →
             </Link>
           </div>
         </div>

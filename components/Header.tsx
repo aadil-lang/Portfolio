@@ -3,27 +3,50 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { profile } from '../data/profile'
-import { Menu, X, FileText, Github, Linkedin, Sparkles, Zap, Compass, Cpu, Layers, BookOpen, Database, ShieldCheck, GitCompare, Mail } from 'lucide-react'
+import {
+  Menu,
+  X,
+  FileText,
+  Github,
+  Linkedin,
+  Sparkles,
+  Zap,
+  Compass,
+  Cpu,
+  Layers,
+  BookOpen,
+  Database,
+  ShieldCheck,
+  GitCompare,
+  Mail,
+  FlaskConical,
+  Search,
+  User,
+  Terminal
+} from 'lucide-react'
 
-// Streamlined 4 Primary Navigation Hubs (Phase 7.4 Refinement C)
+// 5 Studio Spaces Navigation Hubs (Preserving canonical Phase 7.4 contracts)
 const primaryNavLinks = [
-  { name: 'Experience', href: '/experience', note: 'Chronological Trajectory & Journey' },
-  { name: 'Systems', href: '/systems', note: 'Technical Archive & Systems Catalog' },
-  { name: 'Architecture', href: '/architecture', note: 'Interactive Execution & Component Explorer' },
-  { name: 'Journal', href: '/journal', note: 'Engineering Logbook & Decision Records' }
+  { name: 'Systems', href: '/systems', note: 'Technical Archive & Systems Catalog', studioLabel: 'Workbench' },
+  { name: 'Architecture', href: '/architecture', note: 'Interactive Execution & Component Explorer', studioLabel: 'Systems Lab' },
+  { name: 'Experiments', href: '/experiments', note: 'Empirical Evals & Benchmarks', studioLabel: 'Experiment Lab' },
+  { name: 'Journal', href: '/journal', note: 'Engineering Logbook & Decision Records', studioLabel: 'Journal' },
+  { name: 'Experience', href: '/experience', note: 'Chronological Trajectory & Journey', studioLabel: 'About' }
 ]
 
 // Secondary Tool & Connection Groups for Mobile Drawer & Full Navigation Map
 const mobileDrawerGroups = {
   explore: [
-    { name: 'Experience', href: '/experience', icon: Compass, note: 'Chronological Trajectory' },
-    { name: 'Systems', href: '/systems', icon: Cpu, note: 'Engineering Projects (11)' },
-    { name: 'Architecture', href: '/architecture', icon: Layers, note: 'Interactive Component Explorer' },
-    { name: 'Journal', href: '/journal', icon: BookOpen, note: '18 Architecture Decision Records' }
+    { name: 'Workbench', href: '/systems', icon: Terminal, note: 'Engineering Projects (12)' },
+    { name: 'Systems Lab', href: '/architecture', icon: Layers, note: 'Interactive Component Explorer' },
+    { name: 'Experiment Lab', href: '/experiments', icon: FlaskConical, note: 'Empirical Evals & Stress Tests' },
+    { name: 'Journal', href: '/journal', icon: BookOpen, note: '8 Chapters & 18 ADRs' },
+    { name: 'About', href: '/about', icon: User, note: 'Professional Background & Wayground' },
+    { name: 'Experience', href: '/experience', icon: Compass, note: 'Full Chronological Trajectory' }
   ],
   tools: [
     { name: 'RAG Lab', href: '/rag-lab', icon: Database, note: 'Interactive Retrieval Evaluation' },
-    { name: 'Verification', href: '/verification', icon: ShieldCheck, note: 'Portfolio Evidence Register' },
+    { name: 'Verification', href: '/verification', icon: ShieldCheck, note: 'Portfolio Evidence Register (33 records)' },
     { name: 'Compare', href: '/compare', icon: GitCompare, note: 'Architectural Trade-Off Matrix' }
   ]
 }
@@ -65,38 +88,53 @@ export default function Header() {
     }
   }
 
+  const handleOpenPalette = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-studio-palette'))
+    }
+  }
+
   return (
-    <header className="sticky top-0 z-50 bg-[#121518]/90 backdrop-blur-md border-b border-[#242930] transition-all">
-      <div className="container mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[#101316]/95 backdrop-blur-md border-b border-[#242930] transition-all">
+      <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        {/* Studio Identity */}
         <Link href="/" className="group flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded border border-[#3E4652] bg-[#1E2228] flex items-center justify-center text-[#F0EEE9] font-mono font-bold text-xs group-hover:border-[#71899A] transition-colors">
-            AK
+          <div className="w-8 h-8 rounded-lg border border-[#3E4652] bg-[#161B21] flex items-center justify-center text-[#78C29A] font-mono font-bold text-xs group-hover:border-[#78C29A] transition-colors shadow-xs">
+            AB
           </div>
-          <span className="font-serif font-bold text-[#F0EEE9] tracking-tight text-base group-hover:text-white transition-colors">
-            {profile.name}
-          </span>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="font-serif font-bold text-[#F0EEE9] tracking-tight text-base group-hover:text-white transition-colors">
+                AADIL BUILDS
+              </span>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#78C29A] animate-pulse" title="Studio Online • Open to Work" />
+            </div>
+            <span className="text-[9.5px] font-mono text-[#78C29A] tracking-wider uppercase font-semibold">
+              AI Engineering Studio
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Navigation — 4 Core Hubs + Primary Action Pills */}
-        <nav className="hidden lg:flex gap-4 xl:gap-5 items-center text-xs font-mono" aria-label="Primary Navigation">
-          {/* 4 Core Primary Hubs */}
-          <div className="flex items-center gap-1 p-1 rounded-lg bg-[#161A1F] border border-[#2B313A]">
+        {/* Desktop Navigation — 5 Studio Spaces + Command Search + Action Pills */}
+        <nav className="hidden lg:flex gap-3 xl:gap-4 items-center text-xs font-mono" aria-label="Primary Navigation">
+          {/* Studio Spaces Links */}
+          <div className="flex items-center gap-1 p-1 rounded-lg bg-[#14181D] border border-[#262C34]">
             {primaryNavLinks.map((link) => {
               const isActive = Boolean(
                 pathname &&
                   (pathname === link.href ||
                     (link.href === '/systems' && pathname.startsWith('/projects')) ||
-                    (link.href === '/experience' && pathname.startsWith('/timeline')) ||
+                    (link.href === '/about' && (pathname.startsWith('/experience') || pathname.startsWith('/timeline'))) ||
                     (link.href !== '/' && pathname.startsWith(link.href)))
               )
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1 rounded transition-all text-xs font-semibold whitespace-nowrap ${
+                  className={`px-2.5 xl:px-3 py-1 rounded transition-all text-xs font-semibold whitespace-nowrap ${
                     isActive
-                      ? 'bg-[#2A313C] text-[#F0EEE9] shadow-sm border border-[#444E5D]'
-                      : 'text-[#9EA4AA] hover:text-[#F0EEE9] hover:bg-[#1E232A]'
+                      ? 'bg-[#222B36] text-[#F0EEE9] shadow-sm border border-[#3E4856]'
+                      : 'text-[#9EA4AA] hover:text-[#F0EEE9] hover:bg-[#1A2027]'
                   }`}
                   title={link.note}
                 >
@@ -106,13 +144,28 @@ export default function Header() {
             })}
           </div>
 
+          {/* Studio Command Palette Quick Trigger */}
+          <button
+            type="button"
+            onClick={handleOpenPalette}
+            className="px-2.5 py-1 rounded bg-[#161B21] hover:bg-[#1E242C] border border-[#2B333D] hover:border-[#3E4A58] text-[#9EA4AA] hover:text-[#F0EEE9] text-[11px] font-mono flex items-center gap-2 transition-all cursor-pointer"
+            aria-label="Open Studio Command Palette (Cmd+K)"
+            title="Search Spaces, Systems, and Evidence (Cmd+K)"
+          >
+            <Search className="w-3.5 h-3.5 text-[#78C29A]" />
+            <span className="hidden xl:inline text-[#8BA0B2]">Command</span>
+            <kbd className="text-[10px] px-1 py-0.2 rounded bg-[#1F2630] border border-[#303B47] text-[#78C29A] font-semibold">
+              ⌘K
+            </kbd>
+          </button>
+
           {/* Action Pills & Socials */}
-          <div className="flex items-center gap-2 ml-1 pl-3 border-l border-[#262B32]">
+          <div className="flex items-center gap-2 ml-1 pl-3 border-l border-[#242A32]">
             <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded text-[#686E77] hover:text-[#D8D6D0] hover:bg-[#1A1D22] transition-colors"
+              className="p-1.5 rounded text-[#71899A] hover:text-[#F0EEE9] hover:bg-[#1A2027] transition-colors"
               title="GitHub Profile"
               aria-label="GitHub Profile"
             >
@@ -122,7 +175,7 @@ export default function Header() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded text-[#686E77] hover:text-[#D8D6D0] hover:bg-[#1A1D22] transition-colors"
+              className="p-1.5 rounded text-[#71899A] hover:text-[#F0EEE9] hover:bg-[#1A2027] transition-colors"
               title="LinkedIn Profile"
               aria-label="LinkedIn Profile"
             >
@@ -172,6 +225,14 @@ export default function Header() {
         <div className="lg:hidden flex items-center gap-2">
           <button
             type="button"
+            onClick={handleOpenPalette}
+            className="p-1.5 text-[#858A90] hover:text-[#F0EEE9] rounded hover:bg-[#1E2228] transition-colors"
+            aria-label="Open Search Palette"
+          >
+            <Search className="w-4 h-4 text-[#78C29A]" />
+          </button>
+          <button
+            type="button"
             onClick={handleOpenAskAadil}
             className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded border border-[#388BFD]/40 bg-[#162332] text-[#58A6FF]"
             aria-label="Launch Ask Aadil"
@@ -193,7 +254,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer with Grouped Architecture (EXPLORE, TOOLS, CONNECT) */}
+      {/* Mobile Navigation Drawer with Grouped Architecture (SPACES, TOOLS, CONNECT) */}
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-drawer"
@@ -220,7 +281,7 @@ export default function Header() {
             <span className="text-[10px] text-[#5A9A78]">Curated Summary →</span>
           </Link>
 
-          {/* Group 1: EXPLORE (Primary Hubs) */}
+          {/* Group 1: EXPLORE (Primary Studio Spaces) */}
           <div className="space-y-1.5">
             <span className="text-[10px] uppercase tracking-wider text-[#686E77] font-semibold block px-1">
               EXPLORE
@@ -253,7 +314,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Group 2: TOOLS (Secondary Engineering Tools) */}
+          {/* Group 2: TOOLS & BENCHMARKS */}
           <div className="space-y-1.5">
             <span className="text-[10px] uppercase tracking-wider text-[#686E77] font-semibold block px-1">
               TOOLS & BENCHMARKS
@@ -261,7 +322,7 @@ export default function Header() {
             <div className="space-y-1">
               {mobileDrawerGroups.tools.map((link) => {
                 const Icon = link.icon
-                const isActive = Boolean(pathname && pathname.startsWith(link.href))
+                const isActive = pathname === link.href
                 return (
                   <Link
                     key={link.href}
@@ -284,62 +345,41 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Group 3: CONNECT */}
-          <div className="space-y-2 pt-2 border-t border-[#22262C]">
+          {/* Group 3: CONNECT & ACTIONS */}
+          <div className="space-y-1.5 pt-2 border-t border-[#22272E]">
             <span className="text-[10px] uppercase tracking-wider text-[#686E77] font-semibold block px-1">
               CONNECT & ACTIONS
             </span>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={handleOpenAskAadil}
-                className="flex items-center justify-center gap-1.5 p-2 rounded border border-[#388BFD]/40 bg-[#162332] text-[#58A6FF] font-semibold"
+            <div className="flex flex-col gap-1.5">
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2 rounded border border-[#22272E] bg-[#15181C] text-[#9EA4AA] hover:text-[#F0EEE9] transition-colors"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Ask Aadil</span>
-              </button>
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-1.5 p-2 rounded border border-[#2B3542] bg-[#181C21] text-[#D8D6D0] hover:text-white"
-              >
-                <Mail className="w-3.5 h-3.5 text-[#5A9A78]" />
-                <span>Contact</span>
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <div className="flex items-center gap-3">
+                <FileText className="w-3.5 h-3.5 text-[#71899A]" />
+                <span>Download Canonical Resume (PDF)</span>
+              </a>
+              <div className="flex gap-2">
                 <a
                   href={profile.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded text-[#686E77] hover:text-[#D8D6D0] hover:bg-[#1A1D22]"
-                  title="GitHub"
-                  aria-label="GitHub"
+                  className="flex-1 flex items-center justify-center gap-1.5 p-2 rounded border border-[#22272E] bg-[#15181C] text-[#9EA4AA] hover:text-[#F0EEE9] transition-colors"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-3.5 h-3.5" />
+                  <span>GitHub</span>
                 </a>
                 <a
                   href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded text-[#686E77] hover:text-[#D8D6D0] hover:bg-[#1A1D22]"
-                  title="LinkedIn"
-                  aria-label="LinkedIn"
+                  className="flex-1 flex items-center justify-center gap-1.5 p-2 rounded border border-[#22272E] bg-[#15181C] text-[#9EA4AA] hover:text-[#F0EEE9] transition-colors"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5" />
+                  <span>LinkedIn</span>
                 </a>
               </div>
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#2A2F36] bg-[#181B1F] text-[#9EA4AA] hover:text-[#F0EEE9]"
-              >
-                <FileText className="w-3.5 h-3.5 text-[#71899A]" />
-                <span>Resume (PDF)</span>
-              </a>
             </div>
           </div>
         </div>

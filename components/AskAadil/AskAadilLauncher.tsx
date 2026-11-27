@@ -30,8 +30,8 @@ export function AskAadilLauncher() {
 
   return (
     <>
-      {/* GLOBAL PERSISTENT FLOATING LAUNCHER */}
-      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
+      {/* GLOBAL PERSISTENT FLOATING LAUNCHER (Positioned above mobile bottom dock on touch viewports) */}
+      <div className="fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-40">
         <button
           id="global-ask-aadil-launcher"
           type="button"
